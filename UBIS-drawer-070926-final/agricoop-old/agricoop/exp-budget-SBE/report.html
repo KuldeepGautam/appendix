@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="../" />
+  <title>Pre-Budget Meeting - UBIS Enterprise</title>
+  <script src="assets/vendor/tailwind.3.4.17.js"></script>
+  <script>tailwind.config = {darkMode: 'class', theme: {extend: {colors: {navy: '#063f66', teal: '#06aeb8', ambergov: '#f59e0b'}, boxShadow: {soft: '0 14px 35px rgba(6,63,102,.10)'}, animation: {'fade-in': 'fadeIn .35s ease both', 'slide-up': 'slideUp .45s ease both', 'scale-in': 'scaleIn .25s ease both', 'shake': 'shake .28s ease both'}}}}</script>
+  <script src="assets/vendor/lucide.min.js" defer></script>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="assets/includes/sidebar.js"></script>
+  <script src="assets/includes/header.js"></script>
+  <script src="assets/includes/center.js"></script>
+  <script src="assets/includes/footer.js"></script>
+  <script src="assets/includes/shell.js"></script>
+</head>
+
+<body class="min-h-full bg-[#f7fbff] text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100" data-shell="app"
+  data-page-title="Pre-Budget Meeting" data-breadcrumb="Report">
+  <div id="drawerOverlay" class="fixed inset-0 z-30 hidden bg-slate-950/40 lg:hidden"></div>
+  <div data-include="sidebar"></div>
+  <div id="appFrame" class="min-h-screen transition-all duration-300 lg:pl-72">
+    <div data-include="header"></div>
+    <main id="main" class="px-4 py-6 sm:px-6 lg:px-8">
+      <div data-include="center"></div>
+      <section class="panel overflow-hidden p-0 animate-fade-in">
+        <div class="flex flex-col gap-4 border-b border-slate-200 p-5 dark:border-slate-800">
+          <div class="grid w-full grid-cols-1 gap-4 lg:grid-cols-2">
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Demand</span>
+              <select class="input truncate pointer-events-none" aria-label="Select department">
+                <option value="" selected aria-readonly="true">1-Department of Agriculture and Farmers Welfare</option>
+              </select>
+            </label>
+            <label class="table-toolbar-field">
+              <span>Appendix</span>
+              <select class="input truncate" aria-label="Select appendix">
+                <option value="189">Appendix I - Budget and Expenditure Trends</option>
+                <option value="190">Appendix I-A - Projected Demand by Ministry</option>
+                <option value="191">Appendix II - Quarterly Expenditure Plan Progress</option>
+                <option value="192">Appendix III - CNA/SNA Balances of Schemes</option>
+                <option value="210">Appendix III-A - TSA Assignment and Expenditure</option>
+                <option value="193">Appendix IV - Estimates of Schemes</option>
+                <option value="194">Appendix IV-A - Estimates of Expenditure Under Special Component Plan for Scheduled
+                  Castes (Minor Head 789)</option>
+                <option value="195">Appendix IV-B - Estimates of Expenditure Under Tribal Area Sub Plan (Minor Head 796)
+                </option>
+                <option value="197" selected="selected">Appendix V - Estimates of Establishment &amp; Other Central
+                  Expenditure</option>
+                <option value="198">Appendix V-A - Grant in Aid to Autonomous and other Bodies</option>
+                <option value="199">Appendix V-B - Details of Establishment Expenditure - Object Head wise</option>
+                <option value="200">Appendix V-C - Details of Establishment Expenditure - Other than AB</option>
+                <option value="201">Appendix VI - Non Tax Revenue</option>
+                <option value="202">Appendix VI-A - List of User Charges levied by the Departments/Ministries</option>
+                <option value="203">Appendix VI-B - Pending Liabilities of Ministries</option>
+                <option value="204">Appendix VI-C - Details of Corpus Funds</option>
+                <option value="205">Appendix VI-D - Available internal resources with Grantee Bodies/Autonomous
+                  Institutions</option>
+                <option value="211">Appendix VI-E - Details of Autonomous Bodies for which Corpus Fund has been created
+                  out of Grants-in-aid (GiA) support</option>
+                <option value="206">Appendix VII-A - Statement showing the estimate of recoveries taken in reduction of
+                  expenditure under the Major Head</option>
+                <option value="207">Appendix VII-B - Statement showing the commercial receipts of Departmentally run
+                  commercial undertakings and its revenue expenditure</option>
+                <option value="208">Appendix XI - Loan to Government Servants, etc.</option>
+                <option value="209">PA-ReceiptPayment - Statement Showing Revised Estimates And Budget Estimates In
+                  Respect of PA Account Head </option>
+
+              </select>
+            </label>
+          </div>
+        </div>
+
+      </section>
+      <div id="allocation" class="xl:col-span-2 mt-2">
+        <section class="panel overflow-hidden p-0">
+          <div class="heading text-center heading-bg justify-between items-center border rounded px-4 py-3 text-white">
+            Appendix V - Estimates of Establishment &amp; Other Central Expenditure </div>
+          <div class="text-right text-red-600 text-xs italicp mr-5">
+            Amount in Crores of Rupees
+          </div>
+          <div class="overflow-x-auto p-5">
+            <table class="demo-table min-w-full text-sm">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Actual 2024-2025</th>
+                  <th>Actuals upto 9/2024</th>
+                  <th>B.E. 2025-2026</th>
+                  <th>Actuals upto 9/2025</th>
+                  <th>% w.r.t. B.E. 2025-2026</th>
+                  <th>R.E. 2025-2026 prop. by Min/Dep</th>
+                  <th>B.E. 2026-2026 recomm. by Buldg. Div</th>
+                  <th>B.E. 2026-2027 prop. by Min/Dep</th>
+                  <th>B.E. 2026-2027 recomm. by Buldg. Div.</th>
+                  <th>Remarks by Budget Division</th>
+                </tr>
+                <tr>
+                  <td class="text-xl font-semibold bg-slate-200" colspan="11">Establishment Exp.</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Salary</td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="128.21"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="239.20"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="127.16"></td>
+                  <td><input class="input row-inline-inputsm  bg-slate-100 cur" readonly value="53.16"></td>
+                  <td><input class="input row-inline-inputsm  bg-slate-100 cur" readonly value="241.33"></td>
+                  <td><input class="input row-inline-inputsm  bg-slate-100 cur" readonly value="270.16""></td>
+                <td><input class=" input row-inline-inputsm bg-slate-100 cur" readonly value="241.33"></td>
+                  <td><input class="input row-inline-inputsm  bg-slate-100 cur" readonly value="270.16""></td>
+                <td><input class=" input row-inline-inputsm bg-slate-100 cur" readonly value="270.16""></td>
+
+              </tr>             
+              <tr>
+                <td>Non-Salary</td>
+                <td><input class=" input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="191.27"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="39.01"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="766.01"></td>
+                  <td><input class="input row-inline-inputsm  bg-slate-100 cur" readonly value="270.16""></td>
+                <td><input class=" input row-inline-inputsm bg-slate-100 cur" readonly value="270.16""></td>
+                <td><input class=" input row-inline-inputsm bg-slate-100 cur" readonly value="270.16""></td>
+              </tr>
+               <tr class=" text-xl font-semibold">
+                  <td class="bg-slate-100">Total (Estt. Exp.)</td>
+                  <td class="bg-slate-100">668.50</td>
+                  <td class="bg-slate-100">319.38</td>
+                  <td class="bg-slate-100">795.17</td>
+                  <td class="bg-slate-100">344.02</td>
+                  <td class="bg-slate-100">43.26</td>
+                  <td class="bg-slate-100">899.07</td>
+                  <td class="bg-slate-100">1036.27</td>
+                  <td class="bg-slate-100">1036.27</td>
+                  <td class="bg-slate-100">1036.27</td>
+                  <td class="bg-slate-100">1036.27</td>
+                </tr>
+
+                <tr>
+                  <td class="text-xl font-semibold bg-slate-200" colspan="11">Other Central Exp.</td>
+                </tr>
+                <tr class="text-xl font-semibold">
+                  <td>GiA General</td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="191.27"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="39.01"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="766.01"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="766.01"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  
+                </tr>
+                <tr class="text-xl font-semibold">
+                  <td>GiA for Cap. Assets</td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="191.27"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="39.01"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="766.01"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="766.01"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  
+                </tr>
+                <tr class="text-xl font-semibold">
+                  <td>GiA Salary</td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="191.27"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="39.01"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="221.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="766.01"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="766.01"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  
+                </tr>
+                <tr class="text-xl font-semibold">
+                  <td class="bg-slate-200">Total (ABs)</td>
+                  <td class="bg-slate-100">88.40</td>
+                  <td class="bg-slate-100">41.45</td>
+                  <td class="bg-slate-100">91.00</td>
+                  <td class="bg-slate-100">42.59</td>
+                  <td class="bg-slate-100">46.80</td>
+                  <td class="bg-slate-100">111.50</td>
+                  <td class="bg-slate-100">123.75</td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="766.01"></td><td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                </tr>
+                <tr class="text-xl font-semibold">
+                  <td class="bg-slate-200">Total (Other than AB)</td>
+                  <td class="bg-slate-100">413.01</td>
+                  <td class="bg-slate-100">164.88</td>
+                  <td class="bg-slate-100">377.00</td>
+                  <td class="bg-slate-100">137.76</td>
+                  <td class="bg-slate-100">36.54</td>
+                  <td class="bg-slate-100">560.12</td>
+                  <td class="bg-slate-100">586.41</td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  <td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="766.01"></td><td><input class="input row-inline-inputsm bg-slate-100 cur" readonly value="657.10"></td>
+                  
+                </tr>
+                <tr class="text-xl font-semibold">
+                  <td class="bg-slate-200">Grand Total</td>
+                  <td class="bg-slate-100">1169.91</td>
+                  <td class="bg-slate-100">525.71</td>
+                  <td class="bg-slate-100">1263.17</td>
+                  <td class="bg-slate-100">524.37</td>
+                  <td class="bg-slate-100">41.51</td>
+                  <td class="bg-slate-100">1570.69</td>
+                  <td class="bg-slate-100">1746.43</td>
+                  <td class="bg-slate-100">41.51</td>
+                  <td class="bg-slate-100">1570.69</td>
+                  <td class="bg-slate-100">1746.43</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- <div class="mt-4 flex justify-center gap-3">
+        <button class="btn-primary">Revised Target Date</button>
+        <button class="btn-secondary"> Reset</button>        
+      </div> -->
+      </div>
+      </section>
+  </div>
+  </main>
+  <div data-include="footer"></div>
+  </div>
+  <!-- <div id="toastRegion" class="fixed right-4 top-20 z-50 space-y-3"></div> -->
+  <script src="assets/app.js"></script>
+  <script src="assets/appendix-renderers.js"></script>
+  <script src="assets/appendix-actions.js"></script>
+  <script src="assets/dropdown.js"></script>
+
+</body>
+
+</html>

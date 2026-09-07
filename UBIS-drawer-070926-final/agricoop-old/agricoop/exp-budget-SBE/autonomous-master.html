@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="../" />
+  <title>Pre-Budget Meeting - UBIS Enterprise</title>
+  <script src="assets/vendor/tailwind.3.4.17.js"></script>
+  <script>tailwind.config = {darkMode: 'class', theme: {extend: {colors: {navy: '#063f66', teal: '#06aeb8', ambergov: '#f59e0b'}, boxShadow: {soft: '0 14px 35px rgba(6,63,102,.10)'}, animation: {'fade-in': 'fadeIn .35s ease both', 'slide-up': 'slideUp .45s ease both', 'scale-in': 'scaleIn .25s ease both', 'shake': 'shake .28s ease both'}}}}</script>
+  <script src="assets/vendor/lucide.min.js" defer></script>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="assets/includes/sidebar.js"></script>
+  <script src="assets/includes/header.js"></script>
+  <script src="assets/includes/center.js"></script>
+  <script src="assets/includes/footer.js"></script>
+  <script src="assets/includes/shell.js"></script>
+</head>
+
+<body class="min-h-full bg-[#f7fbff] text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100" data-shell="app"
+  data-page-title="Pre-Budget Meeting" data-breadcrumb="Add Autonomous/Grantee Name">
+  <div id="drawerOverlay" class="fixed inset-0 z-30 hidden bg-slate-950/40 lg:hidden"></div>
+  <div data-include="sidebar"></div>
+  <div id="appFrame" class="min-h-screen transition-all duration-300 lg:pl-72">
+    <div data-include="header"></div>
+    <main id="main" class="px-4 py-6 sm:px-6 lg:px-8">
+      <div data-include="center"></div>
+      <section class="panel overflow-hidden p-0 animate-fade-in">
+        <div class="flex flex-col gap-4 border-b border-slate-200 p-5 dark:border-slate-800">
+          <div class="grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Demand</span>
+              <select class="input truncate" aria-label="Select department">
+                <option value="" selected>2-Deparment of Agricultural Research and Educaiton</option>
+                <option value="189">Appendix I - Budget and Expenditure Trends</option>
+                <option value="190">Appendix I-A - Projected Demand by Ministry</option>
+                <option selected="selected" value="191">Appendix II - Quarterly Expenditure Plan Progress</option>
+                <option value="192">Appendix III - CNA/SNA Balances of Schemes</option>
+
+              </select>
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Autonomous Grantee Name (English)</span>
+              <input type="text" required class="w-full md:max-w-2xl px-3 py-1.5 border border-gray-300 rounded 
+               focus:outline-none text-sm" placeholder="Name in English">
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Autonomous Grantee Name (Hindi)</span>
+              <input type="text" required class="w-full md:max-w-2xl px-3 py-1.5 border border-gray-300 rounded 
+               focus:outline-none text-sm" placeholder="Name in Hindi">
+            </label>
+          </div>
+          <span class="text-center">
+            <button class="btn-primary">Submit</button>
+            <button class="btn-secondary">Reset</button> </span>
+        </div>
+      </section>     
+  </div>
+  </main>
+  <div data-include="footer"></div>
+  </div>
+  <!-- <div id="toastRegion" class="fixed right-4 top-20 z-50 space-y-3"></div> -->
+  <script src="assets/app.js"></script>
+  <script src="assets/appendix-renderers.js"></script>
+  <script src="assets/appendix-actions.js"></script>
+  <script src="assets/dropdown.js"></script>
+
+</body>
+
+</html>

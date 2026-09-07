@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="../" />
+  <title>UBIS - ECL Data Entry </title>
+  <script src="assets/vendor/tailwind.3.4.17.js"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { navy: '#063f66', teal: '#06aeb8', ambergov: '#f59e0b' }, boxShadow: { soft: '0 14px 35px rgba(6,63,102,.10)' }, animation: { 'fade-in': 'fadeIn .35s ease both', 'slide-up': 'slideUp .45s ease both', 'scale-in': 'scaleIn .25s ease both', 'shake': 'shake .28s ease both' } } } }</script>
+  <script src="assets/vendor/lucide.min.js" defer></script>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="assets/includes/sidebar.js"></script>
+  <script src="assets/includes/header.js"></script>
+  <script src="assets/includes/center.js"></script>
+  <script src="assets/includes/footer.js"></script>
+  <script src="assets/includes/shell.js"></script>
+</head>
+
+<body class="min-h-full bg-[#f7fbff] text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100" data-shell="app"
+  data-page-title="ECL Data Entry" data-breadcrumb="ECL Data Entry" data-home-href="dashboard.html">
+  <!-- <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-bold">Skip to content</a> -->
+  <div id="drawerOverlay" class="fixed inset-0 z-30 hidden bg-slate-950/40 lg:hidden"></div>
+  <div data-include="sidebar"></div>
+  <div id="appFrame" class="min-h-screen transition-all duration-300 lg:pl-72">
+    <div data-include="header"></div>
+    <main id="main" class="px-4 py-6 sm:px-6 lg:px-8">
+      <div data-include="center"></div>
+
+      <section class="panel overflow-hidden mt-5 p-0">
+
+        <div class="heading text-center heading-bg justify-between items-center border rounded px-4 py-3 text-white">ECL
+          - Data Report </div>
+
+        <div class="overflow-x-auto p-5">
+
+          <div class="border border-gray-200 rounded mb-6 text-sm">
+            <div class="flex border-b border-gray-200">
+              <div class="w-1/2 bg-gray-50 text-gray-600 p-2.5 text-right border-r border-gray-200 font-medium">
+                <span>FinancialYear </span>
+              </div>
+              <div class="w-1/2 p-1.5">
+                <select
+                  class="w-full max-w-md border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:border-green-500">
+                  <option selected>Select</option>
+                  <option selected>2026 2027</option>
+                  <option selected>2025 2026</option>
+                  <option selected>2024 2025</option>
+                  <option selected>2023 2024</option>
+                  <option selected>2022 2023</option>
+                </select>
+              </div>
+            </div>
+            <div class="flex border-b border-gray-200">
+              <div class="w-1/2 bg-gray-50 text-gray-600 p-2.5 text-right border-r border-gray-200 font-medium">
+                <span class="font-bold">Demand Name </span>
+              </div>
+              <div class="w-1/2 p-1.5">
+                <select  disabled="disabled">
+                      <option value="">Select</option>
+                      <option value="ALL">All</option>
+                      <option selected="selected" value="937">1-Department of Agriculture and Farmers Welfare</option>
+                      <option value="938">2-Department of Agricultural Research and Education</option>
+                      <option value="939">3-Atomic Energy</option>
+                      <option value="940">4-Ministry of Ayush</option>
+                      <option value="941">5-Department of Chemicals and Petrochemicals</option>
+                      <option value="942">6-Department of Fertilisers</option>
+                      <option value="943">7-Department of Pharmaceuticals</option>
+                      <option value="944">8-Ministry of Civil Aviation</option>
+                      <option value="945">9-Ministry of Coal</option>
+                      <option value="946">10-Department of Commerce</option>
+                      <option value="947">11-Department for Promotion of Industry and Internal Trade</option>
+                      <option value="948">12-Department of Posts</option>
+                      <option value="949">13-Department of Telecommunications</option>
+                      <option value="950">14-Department of Consumer Affairs</option>
+                      <option value="951">15-Department of Food and Public Distribution</option>
+                      <option value="952">16-Ministry of Cooperation</option>
+                      <option value="953">17-Ministry of Corporate Affairs</option>
+                      <option value="954">18-Ministry of Culture</option>
+                      <option value="955">19-Ministry of Defence (Civil)</option>
+                      <option value="956">20-Defence Services (Revenue)</option>
+                      <option value="957">21-Capital Outlay on Defence Services</option>
+                      <option value="958">22-Defence Pensions</option>
+                      <option value="959">23-Ministry of Development of North Eastern Region</option>
+                      <option value="960">24-Ministry of Earth Sciences</option>
+                      <option value="961">25-Department of School Education and Literacy</option>
+                      <option value="962">26-Department of Higher Education</option>
+                      <option value="963">27-Ministry of Electronics and Information Technology</option>
+                      <option value="964">28-Ministry of Environment, Forests and Climate Change</option>
+                      <option value="965">29-Ministry of External Affairs</option>
+                      <option value="966">30-Department of Economic Affairs</option>
+                      <option value="967">31-Department of Expenditure</option>
+                      <option value="968">32-Department of Financial Services</option>
+                      <option value="969">33-Department of Public Enterprises</option>
+                      <option value="970">34-Department of Investment and Public Asset Management (DIPAM)</option>
+                      <option value="971">35-Department of Revenue</option>
+                      <option value="972">36-Direct Taxes</option>
+                      <option value="973">37-Indirect Taxes</option>
+                      <option value="974">38-Indian Audit and Accounts Department</option>
+                      <option value="975">39-Interest Payments</option>
+                      <option value="976">40-Repayment of Debt</option>
+                      <option value="977">41-Pensions</option>
+                      <option value="978">42-Transfers to States</option>
+                      <option value="979">43-Department of Fisheries</option>
+                      <option value="980">44-Department of Animal Husbandry and Dairying</option>
+                      <option value="981">45-Ministry of Food Processing Industries</option>
+                      <option value="982">46-Department of Health and Family Welfare</option>
+                      <option value="983">47-Department of Health Research</option>
+                      <option value="984">48-Ministry of Heavy Industries</option>
+                      <option value="985">49-Ministry of Home Affairs</option>
+                      <option value="986">50-Cabinet</option>
+                      <option value="987">51-Police</option>
+                      <option value="988">52-Andaman and Nicobar Islands</option>
+                      <option value="989">53-Chandigarh</option>
+                      <option value="990">54-Dadra and Nagar Haveli and Daman and Diu</option>
+                      <option value="991">55-Ladakh</option>
+                      <option value="992">56-Lakshadweep</option>
+                      <option value="993">57-Transfers to Delhi</option>
+                      <option value="994">58-Transfers to Jammu and Kashmir</option>
+                      <option value="995">59-Transfers to Puducherry</option>
+                      <option value="996">60-Ministry of Housing and Urban Affairs</option>
+                      <option value="997">61-Ministry of Information and Broadcasting</option>
+                      <option value="998">62-Department of Water Resources, River Development and Ganga Rejuvenation</option>
+                      <option value="999">63-Department of Drinking Water and Sanitation</option>
+                      <option value="1000">64-Ministry of Labour and Employment</option>
+                      <option value="1001">65-Law and Justice</option>
+                      <option value="1002">66-Election Commission</option>
+                      <option value="1003">67-Supreme Court of India</option>
+                      <option value="1004">68-Ministry of Micro, Small and Medium Enterprises</option>
+                      <option value="1005">69-Ministry of Mines</option>
+                      <option value="1006">70-Ministry of Minority Affairs</option>
+                      <option value="1007">71-Ministry of New and Renewable Energy</option>
+                      <option value="1008">72-Ministry of Panchayati Raj</option>
+                      <option value="1009">73-Ministry of Parliamentary Affairs</option>
+                      <option value="1010">74-Ministry of Personnel, Public Grievances and Pensions</option>
+                      <option value="1011">75-Central Vigilance Commission</option>
+                      <option value="1012">76-Ministry of Petroleum and Natural Gas</option>
+                      <option value="1013">77-Ministry of Planning</option>
+                      <option value="1014">78-Ministry of Ports, Shipping and Waterways</option>
+                      <option value="1015">79-Ministry of Power</option>
+                      <option value="1016">80-Staff, Household and Allowances of the President</option>
+                      <option value="1017">81-Lok Sabha</option>
+                      <option value="1018">82-Rajya Sabha</option>
+                      <option value="1019">83-Secretariat of the Vice-President</option>
+                      <option value="1020">84-Union Public Service Commission</option>
+                      <option value="1021">85-Ministry of Railways</option>
+                      <option value="1022">86-Ministry of Road Transport and Highways</option>
+                      <option value="1023">87-Department of Rural Development</option>
+                      <option value="1024">88-Department of Land Resources</option>
+                      <option value="1025">89-Department of Science and Technology</option>
+                      <option value="1026">90-Department of Biotechnology</option>
+                      <option value="1027">91-Department of Scientific and Industrial Research</option>
+                      <option value="1028">92-Ministry of Skill Development and Entrepreneurship</option>
+                      <option value="1029">93-Department of Social Justice and Empowerment</option>
+                      <option value="1030">94-Department of Empowerment of Persons with Disabilities</option>
+                      <option value="1031">95-Department of Space</option>
+                      <option value="1032">96-Ministry of Statistics and Programme Implementation</option>
+                      <option value="1033">97-Ministry of Steel</option>
+                      <option value="1034">98-Ministry of Textiles</option>
+                      <option value="1035">99-Ministry of Tourism</option>
+                      <option value="1036">100-Ministry of Tribal Affairs</option>
+                      <option value="1037">101-Ministry of Women and Child Development</option>
+                      <option value="1038">102-Ministry of Youth Affairs and Sports</option>
+
+                    </select>
+
+              </div>
+            </div>
+
+            <div class="flex border-b border-gray-200">
+              <div class="w-1/2 bg-gray-50 text-gray-600 p-2.5 text-right border-r border-gray-200 font-medium">
+                <span>Category </span>
+              </div>
+              <div class="w-1/2 p-1.5">
+                <select
+                  class="w-full max-w-md border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:border-green-500">
+                  <option selected>Select</option>
+                  <option value="">II-Central Sector Schemes/Projects</option>
+                  <option value="">IV-Centrally Sponsored Schemes</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+
+   
+
+          <div class="mt-4 text-center">
+            <h3 class="text-blue-600">Committed(Submitted and Approved both) SchemeWise Report</h3><br>
+            <h3 class="text-blue-600">Approved Committed SchemeWise Report</h3>
+          </div>
+
+      
+
+        </div>
+      </section>
+    </main>
+    <div data-include="footer"></div>
+  </div>
+  <div id="toastRegion" class="fixed right-4 top-20 z-50 space-y-3"></div>
+
+  <script src="assets/app.js"></script>
+  <script src="assets/appendix-actions.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+
+</body>
+
+</html>

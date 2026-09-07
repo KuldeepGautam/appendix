@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="../" />
+  <title>Pre-Budget Meeting - UBIS Enterprise</title>
+  <script src="assets/vendor/tailwind.3.4.17.js"></script>
+  <script>tailwind.config = {darkMode: 'class', theme: {extend: {colors: {navy: '#063f66', teal: '#06aeb8', ambergov: '#f59e0b'}, boxShadow: {soft: '0 14px 35px rgba(6,63,102,.10)'}, animation: {'fade-in': 'fadeIn .35s ease both', 'slide-up': 'slideUp .45s ease both', 'scale-in': 'scaleIn .25s ease both', 'shake': 'shake .28s ease both'}}}}</script>
+  <script src="assets/vendor/lucide.min.js" defer></script>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="assets/includes/sidebar.js"></script>
+  <script src="assets/includes/header.js"></script>
+  <script src="assets/includes/center.js"></script>
+  <script src="assets/includes/footer.js"></script>
+  <script src="assets/includes/shell.js"></script>
+</head>
+
+<body class="min-h-full bg-[#f7fbff] text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100" data-shell="app"
+  data-page-title="Pre-Budget Meeting" data-breadcrumb="Renumber SubScheme SrNo.">
+  <div id="drawerOverlay" class="fixed inset-0 z-30 hidden bg-slate-950/40 lg:hidden"></div>
+  <div data-include="sidebar"></div>
+  <div id="appFrame" class="min-h-screen transition-all duration-300 lg:pl-72">
+    <div data-include="header"></div>
+    <main id="main" class="px-4 py-6 sm:px-6 lg:px-8">
+      <div data-include="center"></div>
+      <section class="panel overflow-hidden p-0 animate-fade-in">
+        <div class="heading text-center heading-bg justify-between items-center border rounded px-4 py-3 text-white">
+          Renumber SubScheme SrNo.</div>
+        <!-------------------------Form Fields Starts--------------------------->
+        <div class="flex flex-col gap-4 border-b border-slate-200 p-5 dark:border-slate-800 text-sm">
+          <div class="grid w-full grid-cols-1 gap-4 lg:grid-cols-1">
+            <label class="table-toolbar-field field" style="animation-delay:70ms">
+              <span>Demand<b>*</b></span>
+              <select class="input truncate " aria-label="Select">
+                <option value="">Select</option>
+                <option value="" selected="selected">1-Deparment of Agriculture and Farmers Welfare</option>
+              </select>
+            </label>
+            <label class="table-toolbar-field field" style="animation-delay:70ms">
+              <span>Scheme<b>*</b></span>
+              <select class="input truncate " aria-label="Select">
+                <option selected="selected">1 - Secretariat</option>
+                <option>2 - Actual Recoveries (Estt.)</option>
+                <option>3 - Crop Insurance Scheme</option>
+                <option>4 - Fund for Innovation and Adoption of Technology (FIAT)</option>
+                <option>5 - Modified Interest Subvention Scheme (MISS)</option>
+                <option>6 - Market Intervention Scheme and Price Support Scheme (MIS-PSS)</option>
+                <option>7 - Pradhan Mantri Annadata Aay Sanrakshan Yojna (PM-AASHA)</option>
+                <option>8 - Distribution of Pulses to State / Union Territories for Welfare Schemes</option>
+                <option>9 - Pradhan Mantri Kisan Samman Nidhi (PM-Kisan)</option>
+                <option>10 - Pradhan Mantri Kisan Man Dhan Yojna</option>
+                <option>11 - Formation and Promotion of 10,000 Farmer Producer Organizations (FPOs)</option>
+                <option>12 - Agriculture Infrastructure Fund (AIF)</option>
+                <option>13 - National Beekeeping Honey Mission (NBHM)</option>
+                <option>14 - Blended Capital Support to Finance Startups for Agriculture and Rural Enterprise Relevant
+                  for Farm Produce Value Chain</option>
+                <option>15 - NAMO DRONE DIDI</option>
+                <option>16 - Cotton Technology Mission</option>
+                <option>17 - Mission for Pulses</option>
+                <option>18 - Mission for Vegetables and Fruits</option>
+                <option>19 - National Mission on Hybrid Seeds</option>
+                <option>20 - Support for Makhana Board</option>
+                <option>21 - Central Sector Scheme for Development of Makhana</option>
+                <option>22 - Additional transfer to Agriculture Infrastructure and Development Fund</option>
+                <option>23 - Additional amount met from Reserve Fund</option>
+                <option>24 - Bharat-VISTAAR</option>
+                <option>25 - Support for High Value Agriculture</option>
+                <option>26 - Actual Recoveries (CS)</option>
+                <option>27 - Protection of Plant Varieties and Farmers Rights Authority</option>
+                <option>28 - National Institute of Plant Health Management</option>
+                <option>29 - National Institute of Agricultural Extension Management (MANAGE)</option>
+                <option>30 - Chaudhary Charan Singh National Institute of Agricultural Marketing</option>
+                <option>31 - Coconut Development Board</option>
+                <option>32 - National Horticulture Board</option>
+                <option>33 - Agriculture Census</option>
+                <option>34 - Agriculture Economics and Statistics</option>
+                <option>35 - IRRI South Asia Regional Centre</option>
+                <option>36 - International Cooperation</option>
+                <option>37 - National Farmers Welfare Program Implementation Society (NFWPIS)</option>
+                <option>38 - Rashtriya Krishi Vikas Yojna</option>
+                <option>39 - National Mission on Natural Farming</option>
+                <option>40 - Krishionnati Yojna</option>
+                <option>41 - Actual Recoveries</option>
+                <option>42 - National Mission on Edible Oils (Oilpalm)</option>
+                <option>43 - UBIS for SBE</option>
+                <option>45 - Abhishek scheme</option>
+                <option>46 - scheme 2</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <!-------------------------Form Fields Ends--------------------------->
+        <div class="overflow-x-auto p-2">
+          <div class="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 ml-2">
+            <span id="sequenceStatus" class="text-left text-sm font-bold text-sky-900" role="status"
+              aria-live="polite"></span>
+            <span id="sequencingHelp" class="text-right mb-3 px-2 text-sm text-slate-600 dark:text-slate-300">Drag a row
+              to change its sequence. Keyboard: focus a row, then use Alt + Up/Down.</span>
+          </div>
+          <table class="demo-table min-w-full" aria-describedby="sequencingHelp">
+            <thead>
+              <tr>
+                <th width="5%">Move</th>
+                <th width="12%">Current Scheme No.</th>
+                <th>Scheme Name</th>
+              </tr>
+            </thead>
+            <!-- Add rows here as: <tr><td>20</td><td>Your scheme name</td></tr>. Rows are made draggable automatically. -->
+            <tbody id="schemeRows">
+              <tr>
+                <td>1</td>
+                <td>Secretariat</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Actual Recoveries (Estt.)</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Crop Insurance Scheme</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Fund for Innovation and Adoption of Technology (FIAT)</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Modified Interest Subvention Scheme (MISS)</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Market Intervention Scheme and Price Support Scheme (MIS-PSS)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Pradhan Mantri Annadata Aay Sanrakshan Yojna (PM-AASHA)</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>Distribution of Pulses to State / Union Territories for Welfare Schemes</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>Pradhan Mantri Kisan Samman Nidhi (PM-Kisan)</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>Pradhan Mantri Kisan Samman Nidhi (PM-Kisan)</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>Formation and Promotion of 10,000 Farmer Producer Organizations (FPOs)</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>Agriculture Infrastructure Fund (AIF)</td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td>National Beekeeping Honey Mission (NBHM)</td>
+              </tr>
+              <tr>
+                <td>14</td>
+                <td>Blended Capital Support to Finance Startups for Agriculture and Rural Enterprise Relevant for Farm
+                  Produce Value Chain</td>
+              </tr>
+              <tr>
+                <td>15</td>
+                <td>NAMO DRONE DIDI</td>
+              </tr>
+              <tr>
+                <td>16</td>
+                <td>Cotton Technology Mission</td>
+              </tr>
+              <tr>
+                <td>17</td>
+                <td>Mission of Pulses</td>
+              </tr>
+              <tr>
+                <td>18</td>
+                <td>Mission for Vegetables and Fruits</td>
+              </tr>
+              <tr>
+                <td>19</td>
+                <td>National Mission on Hybrid Seeds</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-4 flex justify-center gap-3">
+            <button id="saveSequence" type="button" class="btn-primary">Update</button>
+            <button id="resetSequence" type="button" class="btn-secondary">Reset</button>
+          </div>
+        </div>
+      </section>
+  </div>
+  </div>
+  </main>
+  <div data-include="footer"></div>
+  </div>
+  <!-- <div id="toastRegion" class="fixed right-4 top-20 z-50 space-y-3"></div> -->
+  <script src="assets/app.js"></script>
+  <script src="assets/appendix-renderers.js"></script>
+  <script src="assets/appendix-actions.js"></script>
+  <script src="assets/dropdown.js"></script>
+</body>
+
+</html>

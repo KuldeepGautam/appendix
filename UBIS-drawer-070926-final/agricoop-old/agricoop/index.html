@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#063f66">
+  <title>Login | Union Budget Information System</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <!-- <link rel="stylesheet" href="assets/login.css"> -->
+  <link rel="stylesheet" href="assets/login.css">
+  <script src="../assets/vendor/lucide.min.js" defer></script>
+    <script src="assets/popup.js" defer></script>
+
+</head>
+
+<body>
+  <main class="login-page">
+    <aside class="visual-panel" aria-label="Indian Parliament building"></aside>
+    <section class="form-panel" aria-label="UBIS sign in">
+      <div class="login-card">
+        <header class="identity">
+          <div class="seal"><img src="images/emblem-dark.png" alt="Emblem of India"></div>
+          <div>
+            <p lang="hi">भारत सरकार</p>
+            <h1>Government of India</h1>
+          </div>
+        </header>
+        <section class="department" aria-label="Union Budget Information System">
+          <img src="images/UBIS-Logo-LoginN.png" alt="Union Budget Information System">
+          <div class="department-copy"><strong>Department of Economic Affairs</strong>Ministry of Finance, Government of
+            India</div>
+        </section>
+        <form id="loginForm" class="login-form" novalidate>
+          <div class="field"><label for="username">Username / Email <span class="required">*</span></label>
+            <div class="input-wrap"><input id="username" name="username" value="agricoop" autocomplete="username"
+                required></div>
+          </div>
+          <div class="field"><label for="password">Password <span class="required">*</span></label>
+            <div class="input-wrap"><input id="password" name="password" type="password" value="password"
+                autocomplete="current-password" required><button class="password-toggle" id="togglePassword"
+                type="button" aria-label="Show password" title="Show password"><i data-lucide="eye"
+                  aria-hidden="true"></i></button></div>
+          </div>
+          <div class="captcha-box">
+            <div class="captcha-controls"><span class="captcha-code" id="captchaCode">4 + 4</span><button
+                id="refreshCaptcha" class="refresh" type="button"><i data-lucide="refresh-cw" size="17"
+                  aria-hidden="true"></i>Refresh</button></div>
+            <div class="field"><span class="captcha-title">Captcha <span class="required">*</span></span><input
+                id="captchaAnswer" class="captcha-entry" inputmode="numeric" placeholder="Enter captcha answer"
+                required></div>
+          </div>
+          <a class="forgot" href="#">Forgot Password?</a>
+          <button class="login-submit" type="submit">Login</button>
+          <p id="loginError" class="error" role="alert"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="verifyDialog" class="modal-backdrop" role="presentation">
+    <section class="verify-modal" role="dialog" aria-modal="true" aria-labelledby="verifyTitle"
+      aria-describedby="verifyDescription">
+      <header class="modal-header">
+        <div>
+          <h2 id="verifyTitle">Verify your identity</h2>
+          <p id="verifyDescription">Choose how you would like to receive a one-time verification code.</p>
+        </div><button class="close-modal" type="button" aria-label="Close verification"><i data-lucide="x" size="19"
+            aria-hidden="true"></i></button>
+      </header>
+      <form id="verifyForm" class="modal-body" novalidate>
+        <div class="method-switch" aria-label="Verification method"><button class="method is-active" type="button"
+            data-method="email"><i data-lucide="mail" size="16" aria-hidden="true"></i> Email</button><button
+            class="method" type="button" data-method="phone"><i data-lucide="smartphone" size="16"
+              aria-hidden="true"></i> Phone</button></div>
+        <div class="verify-field"><label id="contactLabel" for="contact">Email address</label><input id="contact"
+            type="email" autocomplete="email" placeholder="name@department.gov.in" required></div>
+             <div class="modal-actions">
+              <button class="otp" type="submit">Send</button></div>
+        <div class="verify-field"><label for="verificationCode">Verification code</label><input id="verificationCode"
+            inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="Enter 6-digit code" required></div>
+        <p id="verifyError" class="error" role="alert"></p>
+        <div class="modal-actions"><button class="cancel" type="button">Cancel</button><button class="confirm"
+            type="submit">Verify and continue</button></div>
+      </form>
+    </section>
+  </div>
+ 
+</body>
+
+</html>

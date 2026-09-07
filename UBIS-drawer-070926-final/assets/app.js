@@ -1,0 +1,389 @@
+/* UBIS page-level interaction layer
+ * The drawer form and table rows are static HTML.
+ * JavaScript only wires DOM events; no record dataset/state is used.
+ */
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      ubis: {
+        navy: '#312E81', dark: '#1E1B4B', teal: '#0891B2', tealLight: '#ECFEFF',
+        blue: '#4F46E5', bg: '#F6F7FB', border: '#DDE1EE', text: '#1E293B',
+        muted: '#64748B', success: '#16A34A', warning: '#F59E0B', error: '#DC2626'
+      }
+    },
+    boxShadow: {
+      panel: '0 10px 32px rgba(49,46,129,.08)',
+      drawer: '-18px 0 55px rgba(30,27,75,.18)'
+    }
+  }}
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const drawer = document.getElementById('drawer');
+  const backdrop = document.getElementById('drawerBackdrop');
+  const form = document.getElementById('recordForm');
+  const tbody = document.getElementById('gridBody');
+  let editingRow = null;
+
+  window.openDrawer = function () {
+    if (!drawer) return;
+    form?.reset();
+    document.querySelectorAll('.seg-btn').forEach((button) => {
+      const active = button.textContent.trim() === 'NO';
+      button.classList.toggle('seg-active', active);
+      button.classList.toggle('border-slate-300', !active);
+      button.classList.toggle('text-slate-600', !active);
+    });
+    updateCounter();
+    drawer.classList.remove('drawer-closed');
+    drawer.classList.add('drawer-open');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('drawer-page-locked');
+    backdrop?.classList.remove('backdrop-hide');
+    backdrop?.classList.add('backdrop-show');
+    setTimeout(() => document.getElementById('chargeTitle')?.focus(), 320);
+  };
+
+  window.closeDrawer = function () {
+    if (!drawer) return;
+    drawer.classList.remove('drawer-open');
+    drawer.classList.add('drawer-closed');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('drawer-page-locked');
+    backdrop?.classList.remove('backdrop-show');
+    backdrop?.classList.add('backdrop-hide');
+  };
+
+  backdrop?.addEventListener('click', closeDrawer);
+  document.getElementById('cancelDrawer')?.addEventListener('click', closeDrawer);
+
+  function updateCounter() {
+    const remarks = document.getElementById('remarks');
+    const counter = document.getElementById('charCount');
+    if (remarks && counter) counter.textContent = remarks.value.length;
+  }
+  document.getElementById('remarks')?.addEventListener('input', updateCounter);
+
+  document.querySelectorAll('.seg-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.querySelectorAll(`.seg-btn[data-group="${button.dataset.group}"]`).forEach((item) => {
+        const active = item === button;
+        item.classList.toggle('seg-active', active);
+        item.classList.toggle('border-slate-300', !active);
+        item.classList.toggle('text-slate-600', !active);
+      });
+    });
+  });
+
+  function nextId() {
+    let max = 0;
+    tbody?.querySelectorAll('[data-record-id]').forEach(row => {
+      const number = Number((row.dataset.recordId || '').replace(/\D/g, ''));
+      if (number > max) max = number;
+    });
+    return `UC-${String(max + 1).padStart(6, '0')}`;
+  }
+
+  function cell(row, field) {
+    return row.querySelector(`[data-field="${field}"]`);
+  }
+
+  function value(row, field) {
+    const el = cell(row, field);
+    return el?.tagName === 'SELECT' ? el.value : (el?.textContent.trim() || '');
+  }
+
+  function createRow(id, charge, services, department, rev22, rev23, rev24, remarks = '—') {
+    const row = document.createElement('tr');
+    row.className = 'group border-b border-slate-100 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60';
+    row.dataset.recordRow = '';
+    row.dataset.recordId = id;
+    row.innerHTML = `
+      <td data-label="S.No." class="px-2 py-3 text-center text-xs font-semibold text-slate-600"></td>
+      <td data-label="User Charge" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs font-bold leading-5 text-slate-800">${escapeHtml(charge)}</td>
+      <td data-label="Services" data-column="services" data-field="services" contenteditable="false" spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">${escapeHtml(services)}</td>
+      <td data-label="Organisation/Department" data-column="department" data-field="department" contenteditable="false" spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">${escapeHtml(department)}</td>
+      <td data-label="Status" data-column="status" class="px-2 py-3 text-center"><select data-field="status" class="row-status rounded-full border-0 bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700"><option selected>Draft</option><option>Active</option><option>Review</option><option>Frozen</option></select></td>
+      <td data-label="Revenue 2022–23" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false" class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">${Number(rev22 || 0).toFixed(2)}</td>
+      <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false" class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">${Number(rev23 || 0).toFixed(2)}</td>
+      <td data-label="Revenue 2024–25" data-column="rev24" data-field="rev24" contenteditable="false" spellcheck="false" class="editable-cell tabular px-2 py-3 text-right text-xs font-bold text-indigo-800">${Number(rev24 || 0).toFixed(2)}</td>
+      <td data-label="Remarks" data-column="remarks" data-field="remarks" contenteditable="false" spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs text-slate-500">${escapeHtml(remarks)}</td>
+      <td data-label="Action" class="grid-action-cell px-2 py-3 text-center"><div class="grid-action-menu">
+        <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
+        <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg border border-slate-200 bg-white p-1 text-left shadow-lg">
+          <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
+          <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
+        </div>
+      </div></td>`;
+    return row;
+  }
+
+  function escapeHtml(text) {
+    return String(text ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  }
+
+  function renumberRows() {
+    tbody?.querySelectorAll('[data-record-row]').forEach((row, index) => {
+      row.querySelector('td:first-child').textContent = index + 1;
+    });
+    const count = tbody?.querySelectorAll('[data-record-row]').length || 0;
+    document.getElementById('totalText')?.replaceChildren(document.createTextNode(count));
+    document.getElementById('recordCountBadge')?.replaceChildren(document.createTextNode(`${count} Records`));
+    document.getElementById('rangeText')?.replaceChildren(document.createTextNode(count ? `1–${count}` : '0'));
+  }
+
+  function setFormValue(name, value) {
+    const field = document.getElementById(name);
+    if (!field) return;
+    field.value = value ?? '';
+  }
+
+  function readFormData() {
+    const data = {};
+    form?.querySelectorAll('input, textarea, select').forEach((field) => {
+      if (field.name) data[field.name] = field.value;
+    });
+    return data;
+  }
+
+  function storeFormData(row, data) {
+    Object.entries(data).forEach(([key, value]) => {
+      row.dataset[`form${key.charAt(0).toUpperCase()}${key.slice(1)}`] = value ?? '';
+    });
+  }
+
+  function getStoredFormValue(row, name, fallback = '') {
+    const key = `form${name.charAt(0).toUpperCase()}${name.slice(1)}`;
+    return row.dataset[key] ?? fallback;
+  }
+
+  function openEditDrawer(row) {
+    if (!row || !form) return;
+
+    editingRow = row;
+
+    setFormValue('chargeTitle', value(row, 'charge') || getStoredFormValue(row, 'chargeTitle'));
+    setFormValue('services', value(row, 'services') || getStoredFormValue(row, 'services'));
+    setFormValue('department', value(row, 'department') || getStoredFormValue(row, 'department'));
+    setFormValue('rate', getStoredFormValue(row, 'rate'));
+    setFormValue('unit', getStoredFormValue(row, 'unit'));
+    setFormValue('fixationDate', getStoredFormValue(row, 'fixationDate'));
+    setFormValue('legalBasis', getStoredFormValue(row, 'legalBasis'));
+    setFormValue('competentAuthority', getStoredFormValue(row, 'competentAuthority'));
+    setFormValue('refixationPeriod', getStoredFormValue(row, 'refixationPeriod'));
+    setFormValue('rev22', value(row, 'rev22') || getStoredFormValue(row, 'rev22', '0.00'));
+    setFormValue('rev23', value(row, 'rev23') || getStoredFormValue(row, 'rev23', '0.00'));
+    setFormValue('rev24', value(row, 'rev24') || getStoredFormValue(row, 'rev24', '0.00'));
+    setFormValue('staffCost', getStoredFormValue(row, 'staffCost'));
+    setFormValue('officeCost', getStoredFormValue(row, 'officeCost'));
+    setFormValue('otherCost', getStoredFormValue(row, 'otherCost'));
+    setFormValue('remarks', value(row, 'remarks') || getStoredFormValue(row, 'remarks'));
+
+    const heading = drawer?.querySelector('h2');
+    const subtitle = heading?.nextElementSibling;
+    if (heading) heading.textContent = 'Edit User Charge';
+    if (subtitle) subtitle.textContent = 'Update the selected user charge record';
+
+    updateCounter();
+    drawer.classList.remove('drawer-closed');
+    drawer.classList.add('drawer-open');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('drawer-page-locked');
+    backdrop?.classList.remove('backdrop-hide');
+    backdrop?.classList.add('backdrop-show');
+
+    setTimeout(() => document.getElementById('chargeTitle')?.focus(), 320);
+  }
+
+  function resetDrawerMode() {
+    editingRow = null;
+    const heading = drawer?.querySelector('h2');
+    const subtitle = heading?.nextElementSibling;
+    if (heading) heading.textContent = 'Add User Charge';
+    if (subtitle) subtitle.textContent = 'Enter a new user charge record';
+  }
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const data = readFormData();
+
+    if (editingRow) {
+      const row = editingRow;
+
+      cell(row, 'charge')?.replaceChildren(document.createTextNode(data.chargeTitle || '—'));
+      cell(row, 'services')?.replaceChildren(document.createTextNode(data.services || '—'));
+      cell(row, 'department')?.replaceChildren(document.createTextNode(data.department || '—'));
+      cell(row, 'rev22')?.replaceChildren(document.createTextNode(Number(data.rev22 || 0).toFixed(2)));
+      cell(row, 'rev23')?.replaceChildren(document.createTextNode(Number(data.rev23 || 0).toFixed(2)));
+      cell(row, 'rev24')?.replaceChildren(document.createTextNode(Number(data.rev24 || 0).toFixed(2)));
+      cell(row, 'remarks')?.replaceChildren(document.createTextNode(data.remarks || '—'));
+
+      storeFormData(row, data);
+      row.querySelectorAll('[data-field]').forEach((el) => el.classList.add('row-saved'));
+      setTimeout(() => row.querySelectorAll('[data-field]').forEach((el) => el.classList.remove('row-saved')), 900);
+
+      closeDrawer();
+      editingRow = null;
+      form.reset();
+      resetDrawerMode();
+      updateCounter();
+      return;
+    }
+
+    const id = nextId();
+    const row = createRow(
+      id,
+      data.chargeTitle,
+      data.services,
+      data.department,
+      data.rev22,
+      data.rev23,
+      data.rev24,
+      data.remarks || '—'
+    );
+
+    storeFormData(row, data);
+    tbody.prepend(row);
+    renumberRows();
+    closeDrawer();
+    form.reset();
+    resetDrawerMode();
+    updateCounter();
+    window.lucide?.createIcons();
+  });
+
+  tbody?.addEventListener('click', (event) => {
+    const row = event.target.closest('[data-record-row]');
+    if (!row) return;
+
+    const menuButton = event.target.closest('[data-row-menu]');
+    if (menuButton) {
+      const menu = row.querySelector('[data-row-actions]');
+      document.querySelectorAll('[data-row-actions]').forEach(item => {
+        if (item !== menu) item.classList.add('hidden');
+      });
+      menu?.classList.toggle('hidden');
+      menuButton.setAttribute('aria-expanded', String(menu && !menu.classList.contains('hidden')));
+      return;
+    }
+
+    if (event.target.closest('[data-row-edit]')) {
+      row.querySelector('[data-row-actions]')?.classList.add('hidden');
+      row.querySelector('[data-row-menu]')?.setAttribute('aria-expanded', 'false');
+      openEditDrawer(row);
+      return;
+    }
+
+    if (event.target.closest('[data-row-delete]')) {
+      row.remove();
+      renumberRows();
+      return;
+    }
+
+    if (event.target.closest('[data-row-save]')) {
+      row.querySelectorAll('[contenteditable="false"]').forEach(el => {
+        el.classList.add('row-saved');
+        setTimeout(() => el.classList.remove('row-saved'), 900);
+      });
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('[data-row-menu]') || event.target.closest('[data-row-actions]')) return;
+    document.querySelectorAll('[data-row-actions]').forEach(menu => menu.classList.add('hidden'));
+    document.querySelectorAll('[data-row-menu]').forEach(button => button.setAttribute('aria-expanded', 'false'));
+  });
+
+  tbody?.addEventListener('change', (event) => {
+    const select = event.target.closest('.row-status');
+    if (!select) return;
+    const styles = {
+      Active: ['bg-emerald-50','text-emerald-700'],
+      Draft: ['bg-slate-100','text-slate-600'],
+      Review: ['bg-amber-50','text-amber-700'],
+      Frozen: ['bg-slate-800','text-white']
+    };
+    select.className = 'row-status rounded-full border-0 px-2.5 py-1 text-[10px] font-bold';
+    (styles[select.value] || styles.Draft).forEach(c => select.classList.add(c));
+  });
+
+  function applyFilters() {
+    const search = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+    const status = document.getElementById('statusFilter')?.value || 'All';
+    tbody?.querySelectorAll('[data-record-row]').forEach(row => {
+      const haystack = row.textContent.toLowerCase();
+      const rowStatus = row.querySelector('.row-status')?.value || '';
+      row.hidden = Boolean((search && !haystack.includes(search)) || (status !== 'All' && rowStatus !== status));
+    });
+  }
+
+  document.getElementById('searchInput')?.addEventListener('input', applyFilters);
+  document.querySelectorAll('[data-sort]').forEach(button => {
+    button.addEventListener('click', () => window.sortBy(button.dataset.sort));
+  });
+  document.querySelector('[data-refresh-grid]')?.addEventListener('click', applyFilters);
+  window.toggleMobileNav = () => {
+    document.getElementById('sidebar')?.classList.toggle('mobile-open');
+    document.getElementById('mobileOverlay')?.classList.toggle('hidden');
+  };
+
+  document.getElementById('statusFilter')?.addEventListener('change', applyFilters);
+  document.getElementById('yearFilter')?.addEventListener('change', applyFilters);
+
+  window.clearFilters = () => {
+    ['searchInput'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+    ['statusFilter','yearFilter'].forEach(id => { const el = document.getElementById(id); if (el) el.selectedIndex = 0; });
+    applyFilters();
+  };
+
+  // Column chooser stays page-level and only toggles CSS visibility.
+  document.querySelectorAll('[data-column-toggle]').forEach(box => {
+    box.addEventListener('change', () => {
+      const column = box.dataset.columnToggle;
+      document.querySelectorAll(`[data-column="${column}"]`).forEach(cell => cell.classList.toggle('column-hidden', !box.checked));
+    });
+  });
+  document.getElementById('columnsButton')?.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const menu = document.getElementById('columnsMenu');
+    menu?.classList.toggle('hidden');
+  });
+  document.addEventListener('click', event => {
+    const menu = document.getElementById('columnsMenu');
+    if (menu && !event.target.closest('#columnsButton') && !event.target.closest('#columnsMenu')) menu.classList.add('hidden');
+  });
+
+  window.toggleColumnsMenu = () => document.getElementById('columnsMenu')?.classList.toggle('hidden');
+  window.toggleColumn = (column, show) => {
+    document.querySelectorAll(`[data-column="${column}"]`).forEach(cell => cell.classList.toggle('column-hidden', !show));
+  };
+  window.resetColumns = () => document.querySelectorAll('[data-column-toggle]').forEach(box => {
+    box.checked = true;
+    window.toggleColumn(box.dataset.columnToggle, true);
+  });
+
+  window.renderGrid = applyFilters;
+  window.changePage = () => {};
+  window.changePageSize = () => {};
+  window.sortBy = (field) => {
+    const rows = [...(tbody?.querySelectorAll('[data-record-row]') || [])];
+    const get = row => value(row, field);
+    rows.sort((a,b) => {
+      const av=get(a), bv=get(b);
+      const an=Number(av), bn=Number(bv);
+      return Number.isNaN(an) || Number.isNaN(bn) ? av.localeCompare(bv) : an-bn;
+    });
+    rows.forEach(row => tbody.appendChild(row));
+    renumberRows();
+  };
+  window.saveDraft = () => form?.reset();
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && drawer?.classList.contains('drawer-open')) closeDrawer();
+  });
+
+  renumberRows();
+  window.lucide?.createIcons();
+});

@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="../" />
+  <title>Union Budget Information System</title>
+  <script src="assets/vendor/tailwind.3.4.17.js"></script>
+  <script>tailwind.config = {darkMode: 'class', theme: {extend: {colors: {navy: '#063f66', teal: '#06aeb8', ambergov: '#f59e0b'}, boxShadow: {soft: '0 14px 35px rgba(6,63,102,.10)'}, animation: {'fade-in': 'fadeIn .35s ease both', 'slide-up': 'slideUp .45s ease both', 'scale-in': 'scaleIn .25s ease both', 'shake': 'shake .28s ease both'}}}}</script>
+  <script src="assets/vendor/lucide.min.js" defer></script>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="assets/includes/sidebar.js"></script>
+  <script src="assets/includes/header.js"></script>
+  <script src="assets/includes/center.js"></script>
+  <script src="assets/includes/footer.js"></script>
+  <script src="assets/includes/shell.js"></script>
+</head>
+<body class="min-h-full bg-[#f7fbff] text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100" data-shell="app"
+  data-page-title="Pre-Budget Meeting" data-breadcrumb="Add SBE Notes">
+  <div id="drawerOverlay" class="fixed inset-0 z-30 hidden bg-slate-950/40 lg:hidden"></div>
+  <div data-include="sidebar"></div>
+  <div id="appFrame" class="min-h-screen transition-all duration-300 lg:pl-72">
+    <div data-include="header"></div>
+    <main id="main" class="px-4 py-6 sm:px-6 lg:px-8">
+      <div data-include="center"></div>
+      <section class="panel overflow-hidden p-0 animate-fade-in">
+        <div class="heading text-center heading-bg justify-between items-center border rounded px-4 py-3 text-white">
+          Add SBE Notes</div>
+        <div class="flex flex-col gap-4 border-b border-slate-200 p-5 dark:border-slate-800 text-sm">
+          <span>To add notes for scheme level, you are not required to select sub-scheme. To add notes for sub-scheme
+            level, you have to select sub-scheme. For Rupee Sign use Rs. and one space after Rs.</span>
+          <div class="grid w-full grid-cols-2 gap-4 lg:grid-cols-2 bg-slate-100 p-5 ">
+            <div>
+              <label class="table-toolbar-field" style="animation-delay:70ms">
+                <span>Demand</span>
+                <select class="input truncate " aria-label="Select department" disabled>
+                  <option value="" selected="selected">2-Deparment of Agricultural Research and Educaiton</option>
+                </select>
+              </label>
+            </div>
+            <!-------------------Radio Button Start ------------------------>
+            <div>
+              <span class="block font-semibold">Enter Notes</span>
+
+              <div class="flex items-center gap-6 mt-3">
+
+                <label for="showRadio" class="flex items-center gap-2 cursor-pointer">
+                  <input type="radio" id="showRadio" name="toggleContent" value="show" checked>
+                  <span>With Para No.</span>
+                </label>
+
+                <label for="hideRadio" class="flex items-center gap-2 cursor-pointer">
+                  <input type="radio" id="hideRadio" name="toggleContent" value="hide">
+                  <span>Without Para No.</span>
+                </label>
+
+              </div>
+            </div>
+            <!-------------------Radio Button Ends------------------------>
+
+          </div>
+          <!-------------------Radio Button 1 Content Start ------------------------>
+
+          <div id="withParaSection" class="grid w-full grid-cols-1 gap-4 lg:grid-cols-2">
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Scheme</span>
+              <select class="input truncate " aria-label="scheme">
+                <option value="24303" selected>1-Secretariat</option>
+                <option value="26022">2-Actual Recoveries (Estt.)</option>
+                <option value="24304">3-Crop Insurance Scheme</option>
+                <option value="26082">4-Fund for Innovation and Adoption of Technology (FIAT)</option>
+                <option value="25382">5-Modified Interest Subvention Scheme (MISS)</option>
+                <option value="25254">6-Market Intervention Scheme and Price Support Scheme (MIS-PSS)</option>
+                <option value="25611">7-Pradhan Mantri Annadata Aay Sanrakshan Yojna (PM-AASHA)</option>
+                <option value="25623">8-Distribution of Pulses to State / Union Territories for Welfare Schemes</option>
+                <option value="24637">9-Pradhan Mantri Kisan Samman Nidhi (PM-Kisan)</option>
+                <option value="24626">10-Pradhan Mantri Kisan Man Dhan Yojna</option>
+                <option value="24670">11-Formation and Promotion of 10,000 Farmer Producer Organizations (FPOs)</option>
+                <option value="25680">12-Agriculture Infrastructure Fund (AIF)</option>
+                <option value="25383">13-National Beekeeping Honey Mission (NBHM)</option>
+                <option value="25886">14-Blended Capital Support to Finance Startups for Agriculture and Rural
+                  Enterprise Relevant for Farm Produce Value Chain</option>
+                <option value="25920">15-NAMO DRONE DIDI</option>
+                <option value="26040">16-Cotton Technology Mission</option>
+                <option value="26042">17-Mission for Pulses</option>
+                <option value="26043">18-Mission for Vegetables and Fruits</option>
+                <option value="26039">19-National Mission on Hybrid Seeds</option>
+                <option value="26041">20-Support for Makhana Board</option>
+                <option value="26081">21-Central Sector Scheme for Development of Makhana</option>
+                <option value="25926">22-Additional transfer to Agriculture Infrastructure and Development Fund</option>
+                <option value="26047">23-Additional amount met from Reserve Fund</option>
+                <option value="26238">24-Bharat-VISTAAR</option>
+                <option value="26239">25-Support for High Value Agriculture</option>
+                <option value="26016">26-Actual Recoveries (CS)</option>
+                <option value="24307">27-Protection of Plant Varieties and Farmers Rights Authority</option>
+                <option value="24306">28-National Institute of Plant Health Management</option>
+                <option value="24308">29-National Institute of Agricultural Extension Management (MANAGE)</option>
+                <option value="24647">30-Chaudhary Charan Singh National Institute of Agricultural Marketing</option>
+                <option value="25830">31-Coconut Development Board</option>
+                <option value="25838">32-National Horticulture Board</option>
+                <option value="24446">33-Agriculture Census</option>
+                <option value="25831">34-Agriculture Economics and Statistics</option>
+                <option value="24487">35-IRRI South Asia Regional Centre</option>
+                <option value="25921">36-International Cooperation</option>
+                <option value="26006">37-National Farmers Welfare Program Implementation Society (NFWPIS)</option>
+                <option value="25135">38-Rashtriya Krishi Vikas Yojna</option>
+                <option value="24485">39-National Mission on Natural Farming</option>
+                <option value="24490">40-Krishionnati Yojna</option>
+                <option value="24976">41-Actual Recoveries</option>
+                <option value="26247">43-UBIS for SBE</option>
+                <option value="26254">45-Abhishek scheme</option>
+                <option value="26253">46-scheme 2</option>
+              </select>
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Sub-Sceheme</span>
+              <select class="input truncate " aria-label="scheme">
+                <option value="24303" selected>1.01-Secretariat</option>
+                <option value="26022">1.02-Other Attached and Subordinate Offices</option>
+              </select>
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Paragraph No.</span>
+              <input class="input row-inline-inputsm">
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Print Sequence No.</span>
+              <input class="input row-inline-inputsm">
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Paragraph Heading (English)</span>
+              <input class="input row-inline-inputsm">
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Paragraph Heading (Hindi)</span>
+              <input class="input row-inline-inputsm">
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Paragraph Details (English)</span>
+              <textarea rows="2"
+                class="w-full border border-gray-400 rounded text-sm focus:outline-none focus:border-green-500 resize-y"></textarea>
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Paragraph Details (Hindi)</span>
+              <textarea rows="2"
+                class="w-full border border-gray-400 rounded text-sm focus:outline-none focus:border-green-500 resize-y"></textarea>
+            </label>
+          </div>
+          <!-------------------Radio Button 1 Content Ends------------------------>
+
+          <!-------------------Radio Button 2 Content Start ------------------------>
+
+          <div id="withoutParaSection" class="hidden grid w-full grid-cols-1 gap-4 lg:grid-cols-2">
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Print Sequence No.</span>
+              <input class="input row-inline-inputsm">
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Paragraph Heading (English)</span>
+              <input class="input row-inline-inputsm">
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Paragraph Heading (Hindi)</span>
+              <input class="input row-inline-inputsm">
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Paragraph Heading (Hindi)</span>
+              <input class="input row-inline-inputsm">
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Paragraph Details (English)</span>
+              <textarea rows="2"
+                class="w-full border border-gray-400 rounded text-sm focus:outline-none focus:border-green-500 resize-y"></textarea>
+            </label>
+            <label class="table-toolbar-field" style="animation-delay:70ms">
+              <span>Paragraph Details (Hindi)</span>
+              <textarea rows="2"
+                class="w-full border border-gray-400 rounded text-sm focus:outline-none focus:border-green-500 resize-y"></textarea>
+            </label>
+          </div>
+          <!-------------------Radio Button 2 Content Ends------------------------>
+          <div class="mt-4 flex justify-center gap-3">
+            <button class="btn-primary">Submit</button>
+            <button class="btn-secondary"> Reset</button>
+          </div>
+        </div>
+
+        <div id="allocation" class="xl:col-span-2 mt-2">
+
+          <div class="text-right text-red-600 text-xs italicp mr-5">
+            Amount in Crores of Rupees
+          </div>
+          <div class="overflow-x-auto p-2">
+            <table class="demo-table  min-w-full text-sm">
+              <thead>
+                <tr>
+                  <th width="8%">Print Seq. No.</th>
+                  <th>Para No.</th>
+                  <th>Paragraph Heading</th>
+                  <th>Paragraph Details</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>Secretariat</td>
+                  <td>
+                    The provision is for establishment related expenditure of the Ministries/ Departments and its
+                    attached subordinate offices.</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>7</td>
+                  <td>Pradhan Mantri Annadata Aay Sanrakshan Yojna (PM-AASHA)</td>
+                  <td>
+                    Pradhan Mantri Annadata Aay Sanrakshan Abhiyan (PM-AASHA) is a scheme having the components of Price
+                    Support Scheme (PSS), Price Stabilization Fund (PSF), Price Deficit Payment Scheme (PDPS) and Market
+                    Intervention Scheme (MIS). It aims to provide remunerative prices to farmers and to control price
+                    volatility of essential commodities for consumers.</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>5</td>
+                  <td>Modified Interest Subvention Scheme (MISS)</td>
+                  <td>
+                    MISS provides concessional short term agri-loans to the farmers practicing crop husbandry and other
+                    allied activities like animal husbandry, dairying and fisheries. It is available to farmers availing
+                    short term crop loans up to Rs.3 lakh at an interest rate of 7% per annum for one year. Additional
+                    3% subvention is also given to the farmers for prompt and timely repayment of loans thus reducing
+                    the effective rate of interest to 4% per annum.</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>5</td>
+                  <td>Modified Interest Subvention Scheme (MISS)</td>
+                  <td>
+                    MISS provides concessional short term agri-loans to the farmers practicing crop husbandry and other
+                    allied activities like animal husbandry, dairying and fisheries. It is available to farmers availing
+                    short term crop loans up to Rs.3 lakh at an interest rate of 7% per annum for one year. Additional
+                    3% subvention is also given to the farmers for prompt and timely repayment of loans thus reducing
+                    the effective rate of interest to 4% per annum.</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>3</td>
+                  <td>Crop Insurance Scheme</td>
+                  <td>
+                    Pradhan Mantri Fasal Bima Yojna aims provides a simple and affordable crop insurance product to
+                    ensure comprehensive risk cover for crops to farmers against all non-preventable natural risks from
+                    pre-sowing to post-harvest and to provide adequate claim amount. The scheme is demand driven and
+                    available for all farmers.</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>4</td>
+                  <td>Fund for Innovation and Adoption of Technology (FIAT)</td>
+                  <td>
+                    Fund for Innovation and Adoption of Technology (FIAT) has been created in 2025 to fund the
+                    technology initiatives under the Pradhan Mantri Fasal Bima Yojna (PMFBY) namely YES-TECH, WINDS,
+                    etc. utilising the funds already accumulated from excess farmers' share of premium surrendered by
+                    Insurance Companies (ICs) due to application of auto correction factor (ACF) etc.</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>11</td>
+                  <td>Formation and Promotion of 10,000 Farmer Producer Organizations (FPOs)</td>
+                  <td>
+                    The Formation and Promotion of 10,000 Farmer Producer Organizations was launched in the year 2020
+                    with a view to leverage economies of scale, reduction of cost of production and enhancing farmers'
+                    incomes thus playing a major role towards increasing the income of farmers.</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>9</td>
+                  <td>Pradhan Mantri Kisan Samman Nidhi (PM-Kisan)</td>
+                  <td>
+                    Pradhan Mantri Kisan Samman Nidhi Scheme aims to supplement financial needs of land holding farmers
+                    subject to exclusions. Under the scheme, financial benefit of Rs.6000 per year is transferred in
+                    three equal installments into the bank accounts of farmers' families across the country through
+                    Direct Benefit Transfer mode.</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>10</td>
+                  <td>Pradhan Mantri Kisan Man Dhan Yojna</td>
+                  <td>
+                    Pradhan Mantri Kisan Man Dhan Yojana (PMKMY) aims to provide social security to the most vulnerable
+                    farmer families. It is a contributory scheme for small and marginal farmers (SMFs) who, subject to
+                    exclusion criteria, can opt to become a member of the scheme by paying monthly subscription to the
+                    Pension Fund.</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>12</td>
+                  <td>Agriculture Infrastructure Fund (AIF)</td>
+                  <td>
+                    The Central Sector scheme provides a medium to long term debt financing facility for investment in
+                    viable projects for post-harvest management Infrastructure and community farming assets through
+                    interest subvention and financial support. Under the scheme, Rs.1 lakh crore will be provided by
+                    banks and financial institutions as loans to Primary Agricultural Credit Societies (PACS), Marketing
+                    Cooperative Societies, Farmer Producers Organizations (FPOs), Self Help Group (SHG), Farmers, Joint
+                    Liability Groups (JLG), Multipurpose Cooperative Societies, Agri-entrepreneurs, Startups and
+                    Central/State agency or Local Body sponsored Public Private Partnership Project. All loans under
+                    this financing facility will have interest subvention of 3% per annum up to a limit of Rs.2 crore.
+                    This subvention will be available for a maximum period of 7 years. Further, credit guarantee
+                    coverage will be available for eligible borrowers from this financing facility under Credit
+                    Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE) scheme for a loan up to Rs.2 crore.
+                    The fee for this coverage will be paid by the Government.</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>13</td>
+                  <td>National Beekeeping Honey Mission (NBHM)</td>
+                  <td>
+                    National Beekeeping & Honey Mission (NBHM) is being implemented for overall promotion and
+                    development of scientific beekeeping in mission mode to achieve the goal of 'Sweet Revolution' in
+                    the country by giving thrust to capacity building and training, specific focus on women, input
+                    support for promotion and production, setting up Integrated Beekeeping Development Centres (IBDCs),
+                    other infrastructure, digitization/online registration, processing, value addition, market support
+                    etc., and R&D under 3 Mini Mission (MMs).</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+      </section>
+  </div>
+  </div>
+  </main>
+  <div data-include="footer"></div>
+  </div>
+  <!-- <div id="toastRegion" class="fixed right-4 top-20 z-50 space-y-3"></div> -->
+  <script src="assets/app.js"></script>
+  <script src="assets/appendix-renderers.js"></script>
+  <script src="assets/appendix-actions.js"></script>
+  <script src="assets/dropdown.js"></script>
+</body>
+
+</html>

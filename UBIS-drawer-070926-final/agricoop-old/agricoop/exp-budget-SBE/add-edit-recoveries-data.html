@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="../" />
+  <title>Pre-Budget Meeting - UBIS Enterprise</title>
+  <script src="assets/vendor/tailwind.3.4.17.js"></script>
+  <script>tailwind.config = {darkMode: 'class', theme: {extend: {colors: {navy: '#063f66', teal: '#06aeb8', ambergov: '#f59e0b'}, boxShadow: {soft: '0 14px 35px rgba(6,63,102,.10)'}, animation: {'fade-in': 'fadeIn .35s ease both', 'slide-up': 'slideUp .45s ease both', 'scale-in': 'scaleIn .25s ease both', 'shake': 'shake .28s ease both'}}}}</script>
+  <script src="assets/vendor/lucide.min.js" defer></script>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="assets/includes/sidebar.js"></script>
+  <script src="assets/includes/header.js"></script>
+  <script src="assets/includes/center.js"></script>
+  <script src="assets/includes/footer.js"></script>
+  <script src="assets/includes/shell.js"></script>
+</head>
+
+<body class="min-h-full bg-[#f7fbff] text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100" data-shell="app"
+  data-page-title="Pre-Budget Meeting" data-breadcrumb="Add Edit Recoveries Data">
+  <div id="drawerOverlay" class="fixed inset-0 z-30 hidden bg-slate-950/40 lg:hidden"></div>
+  <div data-include="sidebar"></div>
+  <div id="appFrame" class="min-h-screen transition-all duration-300 lg:pl-72">
+    <div data-include="header"></div>
+    <main id="main" class="px-4 py-6 sm:px-6 lg:px-8">
+      <div data-include="center"></div>
+      <section class="panel overflow-hidden p-0 animate-fade-in">
+        <div class="heading text-center heading-bg justify-between items-center border rounded px-4 py-3 text-white">
+          Add Edit Recoveries Data
+</div>
+        <div class="flex flex-col gap-4 border-b border-slate-200 p-5 dark:border-slate-800 text-sm">
+          <span>To add notes for scheme level, you are not required to select sub-scheme. To add notes for sub-scheme
+            level, you have to select sub-scheme. For Rupee Sign use Rs. and one space after Rs.</span>
+          <div class="grid w-full grid-cols-2 gap-4 lg:grid-cols-2 bg-slate-100 p-5 ">
+            <div>
+              <label class="table-toolbar-field" style="animation-delay:70ms">
+                <span>Demand</span>
+                <select class="input truncate " aria-label="Select department" disabled>
+                  <option value="" selected="selected">1-Deparment of Agriculture and Farmers Welfare</option>
+                </select>
+              </label>
+            </div>
+            <!-------------------Radio Button Start ------------------------>
+            <div>
+              <span class="block font-semibold">Enter Notes</span>
+
+              <div class="flex items-center gap-6 mt-3">
+
+                <label for="showRadio" class="flex items-center gap-2 cursor-pointer">
+                  <input type="radio" id="showRadio" name="toggleContent" value="show" checked>
+                  <span>Recovery</span>
+                </label>
+                <label for="hideRadio" class="flex items-center gap-2 cursor-pointer">
+                  <input type="radio" id="hideRadio" name="toggleContent" value="hide">
+                  <span>Charged</span>
+                </label>
+              </div>
+            </div>
+            <!-------------------Radio Button Ends------------------------>
+
+          </div>
+          <!-------------------Radio Button 1 Content Start ------------------------>
+
+          <div id="withParaSection" class="grid w-full grid-cols-1 gap-4 lg:grid-cols-2">
+            <label class="table-toolbar-field field" style="animation-delay:70ms">
+              <span>Major Head (Receipt/Recovery)<b>*</b></span>
+              <select class="input truncate " aria-label="scheme">
+                <option value="">Select</option>
+                <option value="2059">2059</option>
+                <option value="2070">2070</option>
+                <option value="2425">2425</option>
+                <option value="2552">2552</option>
+                <option value="3605">3605</option>
+                <option value="4070">4070</option>
+                <option value="4402">4402</option>
+                <option value="4425">4425</option>
+                <option value="4435">4435</option>
+                <option value="4552">4552</option>
+                <option value="5475">5475</option>
+                <option value="6425">6425</option>
+                <option value="6552">6552</option>
+                <option value="7601">7601</option>
+                <option value="7602">7602</option>
+              </select>
+            </label>
+            <label class="table-toolbar-field">
+              <span>Actual 2024-2025(Amount)</span>
+              <input class="input row-inline-inputsm" disabled placeholder="">
+            </label>
+            <label class="table-toolbar-field">
+              <span>B.E. 2025-2026(Amount)</span>
+              <input class="input row-inline-inputsm">
+            </label>
+            <label class="table-toolbar-field">
+              <span>R.E. 2025-2026(Amount)</span>
+              <input class="input row-inline-inputsm">
+            </label>
+            <label class="table-toolbar-field">
+              <span>B.E. 2026-2027(Amount)</span>
+              <input class="input row-inline-inputsm">
+            </label>
+          </div>
+          <!-------------------Radio Button 1 Content Ends------------------------>
+          <!-------------------Radio Button 2 Content Start ------------------------>
+          <div id="withoutParaSection" class="hidden grid w-full grid-cols-1 gap-4 lg:grid-cols-2">
+            <label class="table-toolbar-field field">
+              <span>Major Head (Receipt/Recovery)<b>*</b></span>
+              <select class="input truncate " aria-label="scheme">
+                <option value="">Select</option>
+                <option value="2059">2059</option>
+                <option value="2070">2070</option>
+                <option value="2425">2425</option>
+                <option value="2552">2552</option>
+                <option value="3605">3605</option>
+                <option value="4070">4070</option>
+                <option value="4402">4402</option>
+                <option value="4425">4425</option>
+                <option value="4435">4435</option>
+                <option value="4552">4552</option>
+                <option value="5475">5475</option>
+                <option value="6425">6425</option>
+                <option value="6552">6552</option>
+                <option value="7601">7601</option>
+                <option value="7602">7602</option>
+              </select>
+            </label>
+            <label class="table-toolbar-field">
+              <span>Actual 2024-2025(Amount)</span>
+              <input class="input row-inline-inputsm" disabled placeholder="">
+            </label>
+            <label class="table-toolbar-field">
+              <span>B.E. 2025-2026(Amount)</span>
+              <input class="input row-inline-inputsm">
+            </label>
+            <label class="table-toolbar-field">
+              <span>R.E. 2025-2026(Amount)</span>
+              <input class="input row-inline-inputsm">
+            </label>
+            <label class="table-toolbar-field">
+              <span>B.E. 2026-2027(Amount)</span>
+              <input class="input row-inline-inputsm">
+            </label>
+          </div>
+          <!-------------------Radio Button 2 Content Ends------------------------>
+          <div class="mt-4 flex justify-center gap-3">
+            <button class="btn-primary">Submit</button>
+            <button class="btn-secondary"> Reset</button>
+          </div>
+        </div>
+        <div id="allocation" class="xl:col-span-2 mt-2" id="withParaSection">
+          <div class="text-right text-red-600 text-xs italicp mr-5">
+            Amount in Crores of Rupees
+          </div>
+            <!-------------------------Table 1 Content Starts--------------------------->
+          <div class="overflow-x-auto p-2" id="withoutParaSection">
+            <table class="demo-table min-w-full text-sm">
+              <thead>
+                <tr>
+                  <th width="8%">Demand No.</th>
+                  <th>Major Head</th>
+                  <th>Actual 2024-2025(Amount)</th>
+                  <th>B.E. 2025-2026(Amount)</th>
+                  <th>R.E. 2025-2026(Amount)</th>
+                  <th>B.E. 2026-2027(Amount)</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>2.00</td>
+                   <td>2.00</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr> 
+              </tbody>
+            </table>
+          </div>
+          <!-------------------Table 1 Content Starts------------------------>
+          <!-------------------Table 2 Content Starts------------------------>
+          <div class="overflow-x-auto p-2">
+            <table class="demo-table min-w-full text-sm">
+              <thead>
+                <tr>
+                  <th width="8%">Demand No.</th>
+                  <th>Major Head</th>
+                  <th>Actual 2024-2025(Amount)</th>
+                  <th>B.E. 2025-2026(Amount)</th>
+                  <th>R.E. 2025-2026(Amount)</th>
+                  <th>B.E. 2026-2027(Amount)</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>2401</td>
+                  <td>-78420.27</td>
+                  <td>-76742.27</td>
+                  <td>-67400.00</td>
+                   <td>-72400.00</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>2402</td>
+                  <td>-0.04</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                   <td>0.00</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>2416</td>
+                  <td>-17811.72</td>
+                  <td>-22600.00</td>
+                  <td>-22600.00</td>
+                   <td>-22600.00</td>
+                  <td data-actions="edit,delete,reset"></td>
+                </tr>
+ 
+              </tbody>
+            </table>
+
+          </div>
+          <!-------------------Table 2 Content Starts------------------------>
+      </section>
+  </div>
+  </div>
+  </main>
+  <div data-include="footer"></div>
+  </div>
+  <!-- <div id="toastRegion" class="fixed right-4 top-20 z-50 space-y-3"></div> -->
+  <script src="assets/app.js"></script>
+  <script src="assets/appendix-renderers.js"></script>
+  <script src="assets/appendix-actions.js"></script>
+  <script src="assets/dropdown.js"></script>
+</body>
+
+</html>
