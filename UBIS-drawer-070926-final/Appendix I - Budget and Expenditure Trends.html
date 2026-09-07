@@ -85,8 +85,7 @@
                   class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold ring-1 ring-inset bg-indigo-100 text-indigo-800 ring-indigo-200"><span
                     class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>In Progress</span> -->
               </div>
-              <p class="mt-1.5 text-sm font-medium text-slate-600">List of User Charges levied by the
-                Departments/Ministries</p>
+              <p class="mt-1.5 text-sm font-medium text-slate-600">Budget and Expenditure Trends</p>
             </div>
           </div><button type="button" onclick="openDrawer('add')" data-ubis-center-action="drawer"
             data-ubis-center-action-mode="add" data-ubis-center-event=""
@@ -188,7 +187,7 @@
         <div
           class="flex flex-col justify-between gap-3 border-b border-slate-100 px-5 py-3.5 sm:flex-row sm:items-center">
           <div>
-            <h3 class="text-sm font-bold text-slate-800">User Charges</h3>
+            <h3 class="text-sm font-bold text-slate-800">Budget and Expenditure Trends</h3>
             <p class="mt-0.5 text-[11px] text-slate-500">Appendix-I financial records</p>
           </div>
           <div class="flex items-center gap-2">
@@ -261,65 +260,62 @@
           </div>
         </div>
         <div class="grid-scroll">
-          <table id="chargesTable" class="w-full table-fixed text-left">
-            <thead class="sticky top-0 z-10 border-b border-slate-200 bg-slate-50/95 backdrop-blur">
+          <table id="chargesTable" class="w-full table-fixed text-left border-collapse border border-slate-300" style="border-collapse: collapse;">
+            <thead class="sticky top-0 z-10 border-b border-slate-300 bg-slate-50/95 backdrop-blur">
               <tr
                 class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
-                <th rowspan="2" width="8%" class="text-center px-2 py-3">Year</th>
-                <th colspan="4" class="text-center px-2 py-3">Revenue</th>
-                <th colspan="4" class="text-center px-2 py-3">Capital</th>
+                <th rowspan="2" width="6%" class="border border-teal-600/50 text-center px-2 py-3">S.No.</th>
+                <th rowspan="2" width="11%" class="border border-teal-600/50 px-2 py-3">Year</th>
+                <th colspan="3" class="border border-teal-600/50 text-center px-2 py-3">Revenue</th>
+                <th colspan="3" class="border border-teal-600/50 text-center px-2 py-3">Capital</th>
+                <th rowspan="2" width="6%" class="border border-teal-600/50 text-center px-2 py-3">Action</th>
               </tr>
               <tr
                 class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
-                <th class="w-[5%] px-2 py-3 text-center">2021-2022</th>
-                <th data-column="charge" class="w-[13%] px-2 py-3">
+                <th data-column="charge" class="border border-teal-600/50 w-[12%] px-2 py-3">
                   <button data-sort="charge" class="flex items-center gap-1.5">BE <i data-lucide="chevrons-up-down"
                       class="sort-icon h-3.5 w-3.5"></i></button>
                 </th>
-                <th data-column="services" class="w-[20%] px-2 py-3"><button data-sort="services"
+                <th data-column="services" class="border border-teal-600/50 w-[13%] px-2 py-3"><button data-sort="services"
                     class="flex items-center gap-1">RE <i data-lucide="chevrons-up-down"
                       class="h-3.5 w-3.5 shrink-0"></i></button></th>
-                <th data-column="department" class="w-[20%] px-2 py-3">
-                  <button data-sort="department" class="flex items-center gap-1.5">Actuals upto Sept<i
-                      data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5"></i></button>
+                <th data-column="department" class="border border-teal-600/50 w-[18%] px-2 py-3">
+                  <button data-sort="department" class="flex gap-1.5">Actuals upto Sept <i data-lucide="chevrons-up-down"
+                      class="sort-icon h-3.5 w-3.5"></i></button>
                 </th>
-                <th data-column="status" class="w-[9%] px-2 py-3 text-center">BE</th>
-                <th data-column="rev22" class="w-[10%] px-2 py-3 text-right"><button data-sort="rev22"
-                    class="ml-auto flex items-center gap-1">RE<br>2022–23 <i data-lucide="chevrons-up-down"
+                <th data-column="status" class="border border-teal-600/50 w-[11%] px-2 py-3">
+                  <button data-sort="status" class="flex items-center gap-1.5">BE <i data-lucide="chevrons-up-down"
+                      class="sort-icon h-3.5 w-3.5"></i></button>
+                </th>
+                <th data-column="rev22" class="border border-teal-600/50 w-[14%] px-2 py-3"><button data-sort="rev22"
+                    class="ml-auto flex gap-1">RE 2022–23 <i data-lucide="chevrons-up-down"
                       class="h-3.5 w-3.5 shrink-0"></i></button></th>
-                <th data-column="rev23" class="w-[10%] px-2 py-3 text-right"><button data-sort="rev23"
-                    class="ml-auto flex items-center gap-1">Actuals<br>2023–24 <i data-lucide="chevrons-up-down"
+                <th data-column="rev23" class="border border-teal-600/50 w-[15%] px-2 py-3"><button data-sort="rev23"
+                    class="ml-auto flex gap-1">Actuals 2023–24 <i data-lucide="chevrons-up-down"
                       class="h-3.5 w-3.5 shrink-0"></i></button></th>
-                <th class="w-[5%] px-2 py-3 text-center">Action</th>
               </tr>
             </thead>
             <tbody id="gridBody" class="divide-y divide-slate-100">
+              <!-- Row 1 -->
               <tr
-                class="group border-b border-slate-100 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
+                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
                 data-record-row data-record-id="UC-000001">
-                <td data-label="S.No." class="px-2 py-3 text-center text-xs font-semibold text-slate-600">2020-2021</td>
-                <td data-label="User Charge" data-column="charge" data-field="charge" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs font-bold leading-5 text-slate-800">221.10
-                </td>
-                <td data-label="Services" data-column="services" data-field="services" contenteditable="false"
-                  spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">
-                  221.10</td>
-                <td data-label="Organisation/Department" data-column="department" data-field="department"
-                  contenteditable="false" spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">221.10</td>
-                <td data-label="Status" data-column="status" class="px-2 py-3 text-center">2.221</td>
-                <td data-label="Revenue 2022–23" data-column="rev22" data-field="rev22" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">221.10</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-
-                <td data-label="Action" class="grid-action-cell px-2 py-3 text-center">
+                <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600">1</td>
+                <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false"
+                  class="editable-cell break-words border border-slate-200 px-2 py-3 text-xs font-bold leading-5 text-slate-800">2020-2021</td>
+                <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">221.10</td>
+                <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">221.10</td>
+                <td data-label="Actuals upto Sept" data-column="status" data-field="status"
+                  class="border border-slate-200 tabular px-2 py-3 text-xs font-medium text-slate-700">2.22</td>
+                <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">221.10</td>
+                <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">6.38</td>
+                <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">6.38</td>
+                <td data-label="Action" class="grid-action-cell border border-slate-200 px-2 py-3 text-center">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
                       class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
@@ -341,32 +337,26 @@
                   </div>
                 </td>
               </tr>
+              <!-- Row 2 -->
               <tr
-                class="group border-b border-slate-100 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000001">
-                <td data-label="S.No." class="px-2 py-3 text-center text-xs font-semibold text-slate-600">2020-2021</td>
-                <td data-label="User Charge" data-column="charge" data-field="charge" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs font-bold leading-5 text-slate-800">221.10
-                </td>
-                <td data-label="Services" data-column="services" data-field="services" contenteditable="false"
-                  spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">
-                  221.10</td>
-                <td data-label="Organisation/Department" data-column="department" data-field="department"
-                  contenteditable="false" spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">221.10</td>
-                <td data-label="Status" data-column="status" class="px-2 py-3 text-center">2.221</td>
-                <td data-label="Revenue 2022–23" data-column="rev22" data-field="rev22" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">221.10</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-
-                <td data-label="Action" class="grid-action-cell px-2 py-3 text-center">
+                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
+                data-record-row data-record-id="UC-000002">
+                <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600">2</td>
+                <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false"
+                  class="editable-cell break-words border border-slate-200 px-2 py-3 text-xs font-bold leading-5 text-slate-800">2021-2022</td>
+                <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">315.50</td>
+                <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">298.40</td>
+                <td data-label="Actuals upto Sept" data-column="status" data-field="status"
+                  class="border border-slate-200 tabular px-2 py-3 text-xs font-medium text-slate-700">142.15</td>
+                <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">180.00</td>
+                <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">165.20</td>
+                <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">78.50</td>
+                <td data-label="Action" class="grid-action-cell border border-slate-200 px-2 py-3 text-center">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
                       class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
@@ -388,32 +378,26 @@
                   </div>
                 </td>
               </tr>
+              <!-- Row 3 -->
               <tr
-                class="group border-b border-slate-100 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000001">
-                <td data-label="S.No." class="px-2 py-3 text-center text-xs font-semibold text-slate-600">2020-2021</td>
-                <td data-label="User Charge" data-column="charge" data-field="charge" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs font-bold leading-5 text-slate-800">221.10
-                </td>
-                <td data-label="Services" data-column="services" data-field="services" contenteditable="false"
-                  spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">
-                  221.10</td>
-                <td data-label="Organisation/Department" data-column="department" data-field="department"
-                  contenteditable="false" spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">221.10</td>
-                <td data-label="Status" data-column="status" class="px-2 py-3 text-center">2.221</td>
-                <td data-label="Revenue 2022–23" data-column="rev22" data-field="rev22" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">221.10</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-
-                <td data-label="Action" class="grid-action-cell px-2 py-3 text-center">
+                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
+                data-record-row data-record-id="UC-000003">
+                <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600">3</td>
+                <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false"
+                  class="editable-cell break-words border border-slate-200 px-2 py-3 text-xs font-bold leading-5 text-slate-800">2022-2023</td>
+                <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">440.00</td>
+                <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">425.80</td>
+                <td data-label="Actuals upto Sept" data-column="status" data-field="status"
+                  class="border border-slate-200 tabular px-2 py-3 text-xs font-medium text-slate-700">210.40</td>
+                <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">215.00</td>
+                <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">205.10</td>
+                <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">95.00</td>
+                <td data-label="Action" class="grid-action-cell border border-slate-200 px-2 py-3 text-center">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
                       class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
@@ -435,32 +419,26 @@
                   </div>
                 </td>
               </tr>
+              <!-- Row 4 -->
               <tr
-                class="group border-b border-slate-100 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000001">
-                <td data-label="S.No." class="px-2 py-3 text-center text-xs font-semibold text-slate-600">2020-2021</td>
-                <td data-label="User Charge" data-column="charge" data-field="charge" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs font-bold leading-5 text-slate-800">221.10
-                </td>
-                <td data-label="Services" data-column="services" data-field="services" contenteditable="false"
-                  spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">
-                  221.10</td>
-                <td data-label="Organisation/Department" data-column="department" data-field="department"
-                  contenteditable="false" spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">221.10</td>
-                <td data-label="Status" data-column="status" class="px-2 py-3 text-center">2.221</td>
-                <td data-label="Revenue 2022–23" data-column="rev22" data-field="rev22" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">221.10</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-
-                <td data-label="Action" class="grid-action-cell px-2 py-3 text-center">
+                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
+                data-record-row data-record-id="UC-000004">
+                <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600">4</td>
+                <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false"
+                  class="editable-cell break-words border border-slate-200 px-2 py-3 text-xs font-bold leading-5 text-slate-800">2023-2024</td>
+                <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">520.00</td>
+                <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">508.30</td>
+                <td data-label="Actuals upto Sept" data-column="status" data-field="status"
+                  class="border border-slate-200 tabular px-2 py-3 text-xs font-medium text-slate-700">260.10</td>
+                <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">240.00</td>
+                <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">232.50</td>
+                <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">112.00</td>
+                <td data-label="Action" class="grid-action-cell border border-slate-200 px-2 py-3 text-center">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
                       class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
@@ -482,32 +460,26 @@
                   </div>
                 </td>
               </tr>
+              <!-- Row 5 -->
               <tr
-                class="group border-b border-slate-100 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000001">
-                <td data-label="S.No." class="px-2 py-3 text-center text-xs font-semibold text-slate-600">2020-2021</td>
-                <td data-label="User Charge" data-column="charge" data-field="charge" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs font-bold leading-5 text-slate-800">221.10
-                </td>
-                <td data-label="Services" data-column="services" data-field="services" contenteditable="false"
-                  spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">
-                  221.10</td>
-                <td data-label="Organisation/Department" data-column="department" data-field="department"
-                  contenteditable="false" spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">221.10</td>
-                <td data-label="Status" data-column="status" class="px-2 py-3 text-center">2.221</td>
-                <td data-label="Revenue 2022–23" data-column="rev22" data-field="rev22" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">221.10</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-
-                <td data-label="Action" class="grid-action-cell px-2 py-3 text-center">
+                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
+                data-record-row data-record-id="UC-000005">
+                <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600">5</td>
+                <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false"
+                  class="editable-cell break-words border border-slate-200 px-2 py-3 text-xs font-bold leading-5 text-slate-800">2024-2025</td>
+                <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">610.00</td>
+                <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">595.00</td>
+                <td data-label="Actuals upto Sept" data-column="status" data-field="status"
+                  class="border border-slate-200 tabular px-2 py-3 text-xs font-medium text-slate-700">305.50</td>
+                <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">280.00</td>
+                <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">270.00</td>
+                <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">135.00</td>
+                <td data-label="Action" class="grid-action-cell border border-slate-200 px-2 py-3 text-center">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
                       class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
@@ -529,32 +501,26 @@
                   </div>
                 </td>
               </tr>
+              <!-- Row 6 -->
               <tr
-                class="group border-b border-slate-100 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000001">
-                <td data-label="S.No." class="px-2 py-3 text-center text-xs font-semibold text-slate-600">2020-2021</td>
-                <td data-label="User Charge" data-column="charge" data-field="charge" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs font-bold leading-5 text-slate-800">221.10
-                </td>
-                <td data-label="Services" data-column="services" data-field="services" contenteditable="false"
-                  spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">
-                  221.10</td>
-                <td data-label="Organisation/Department" data-column="department" data-field="department"
-                  contenteditable="false" spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">221.10</td>
-                <td data-label="Status" data-column="status" class="px-2 py-3 text-center">2.221</td>
-                <td data-label="Revenue 2022–23" data-column="rev22" data-field="rev22" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">221.10</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-
-                <td data-label="Action" class="grid-action-cell px-2 py-3 text-center">
+                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
+                data-record-row data-record-id="UC-000006">
+                <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600">6</td>
+                <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false"
+                  class="editable-cell break-words border border-slate-200 px-2 py-3 text-xs font-bold leading-5 text-slate-800">2025-2026</td>
+                <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">680.00</td>
+                <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">660.00</td>
+                <td data-label="Actuals upto Sept" data-column="status" data-field="status"
+                  class="border border-slate-200 tabular px-2 py-3 text-xs font-medium text-slate-700">340.00</td>
+                <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">310.00</td>
+                <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">295.00</td>
+                <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">150.00</td>
+                <td data-label="Action" class="grid-action-cell border border-slate-200 px-2 py-3 text-center">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
                       class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
@@ -576,32 +542,26 @@
                   </div>
                 </td>
               </tr>
+              <!-- Row 7 -->
               <tr
-                class="group border-b border-slate-100 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000001">
-                <td data-label="S.No." class="px-2 py-3 text-center text-xs font-semibold text-slate-600">2020-2021</td>
-                <td data-label="User Charge" data-column="charge" data-field="charge" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs font-bold leading-5 text-slate-800">221.10
-                </td>
-                <td data-label="Services" data-column="services" data-field="services" contenteditable="false"
-                  spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">
-                  221.10</td>
-                <td data-label="Organisation/Department" data-column="department" data-field="department"
-                  contenteditable="false" spellcheck="false"
-                  class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">221.10</td>
-                <td data-label="Status" data-column="status" class="px-2 py-3 text-center">2.221</td>
-                <td data-label="Revenue 2022–23" data-column="rev22" data-field="rev22" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">221.10</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-                <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false"
-                  class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">6.38</td>
-
-                <td data-label="Action" class="grid-action-cell px-2 py-3 text-center">
+                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
+                data-record-row data-record-id="UC-000007">
+                <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600">7</td>
+                <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false"
+                  class="editable-cell break-words border border-slate-200 px-2 py-3 text-xs font-bold leading-5 text-slate-800">2026-2027</td>
+                <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">750.00</td>
+                <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">730.00</td>
+                <td data-label="Actuals upto Sept" data-column="status" data-field="status"
+                  class="border border-slate-200 tabular px-2 py-3 text-xs font-medium text-slate-700">375.00</td>
+                <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">350.00</td>
+                <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">335.00</td>
+                <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">170.00</td>
+                <td data-label="Action" class="grid-action-cell border border-slate-200 px-2 py-3 text-center">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
                       class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
@@ -623,7 +583,47 @@
                   </div>
                 </td>
               </tr>
-
+              <!-- Row 8 -->
+              <tr
+                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
+                data-record-row data-record-id="UC-000008">
+                <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600">8</td>
+                <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false"
+                  class="editable-cell break-words border border-slate-200 px-2 py-3 text-xs font-bold leading-5 text-slate-800">2027-2028</td>
+                <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">820.00</td>
+                <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">800.00</td>
+                <td data-label="Actuals upto Sept" data-column="status" data-field="status"
+                  class="border border-slate-200 tabular px-2 py-3 text-xs font-medium text-slate-700">410.00</td>
+                <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">390.00</td>
+                <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">375.00</td>
+                <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals" contenteditable="false" spellcheck="false"
+                  class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">195.00</td>
+                <td data-label="Action" class="grid-action-cell border border-slate-200 px-2 py-3 text-center">
+                  <div class="grid-action-menu">
+                    <button type="button" data-row-menu
+                      class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                      title="More actions" aria-label="More actions" aria-expanded="false">
+                      <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
+                    </button>
+                    <div data-row-actions
+                      class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg border border-slate-200 bg-white p-1 text-left shadow-lg">
+                      <button type="button" data-row-edit
+                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                        title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                      <button type="button" data-row-save
+                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                        title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
+                      <button type="button" data-row-delete
+                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                        title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -672,15 +672,15 @@
     aria-hidden="true"></div>
   <aside id="drawer"
     class="drawer-closed fixed right-0 top-0 z-[70] flex h-screen w-full max-w-[820px] flex-col border-l border-indigo-100 bg-white shadow-drawer transition-transform duration-300 ease-out"
-    aria-label="User charge form" aria-hidden="true">
+    aria-label="Budget and expenditure trends form" aria-hidden="true">
     <div
       class="flex shrink-0 items-center justify-between border-b border-indigo-100 bg-gradient-to-r from-indigo-50 via-white to-cyan-50 px-5 py-4">
       <div class="flex items-center gap-3">
         <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-ubis-tealLight text-ubis-teal"><i
-            data-lucide="wallet-cards" class="h-5 w-5"></i></div>
+            data-lucide="file-spreadsheet" class="h-5 w-5"></i></div>
         <div>
-          <h2 class="text-base font-bold text-ubis-navy">Add User Charge Gulshan</h2>
-          <p class="text-[11px] text-slate-500">Enter a new user charge record</p>
+          <h2 class="text-base font-bold text-ubis-navy">Add Record</h2>
+          <p class="text-[11px] text-slate-500">Enter a new budget and expenditure trend record</p>
           <div class="mt-1.5 flex flex-wrap items-center gap-2">
             <span class="rounded-full bg-indigo-100 px-2 py-0.5 text-[10px] font-bold text-indigo-800">Demand No.
               1</span>
@@ -688,125 +688,67 @@
           </div>
         </div>
       </div>
+      <button type="button" onclick="closeDrawer()"
+        class="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+        aria-label="Close drawer"><i data-lucide="x" class="h-4 w-4"></i></button>
     </div>
 
     <form id="recordForm" class="flex min-h-0 flex-1 flex-col">
       <div class="min-h-0 flex-1 overflow-y-auto bg-slate-50/70 px-5 py-5">
-        <section class="mb-4 rounded-xl border border-slate-200 bg-white">
-          <div class="grid gap-4 p-4">
-            <div>
-              <label for="chargeTitle" class="mb-1.5 block text-xs font-semibold text-slate-700">Title of the User
-                Charge Gulshan <span class="text-red-500">*</span></label>
-              <input id="chargeTitle" name="chargeTitle" required
-                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none placeholder:text-slate-400 focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+        <section class="mb-4 rounded-xl border border-slate-200 bg-white p-5">
+          <!-- Financial Year -->
+          <div class="mb-5">
+            <label for="year" class="mb-1.5 block text-xs font-semibold text-slate-700">Financial Year <span class="text-red-500">*</span></label>
+            <input id="year" name="year" required placeholder="e.g. 2024-2025"
+              class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none placeholder:text-slate-400 focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+          </div>
+
+          <!-- Revenue Section -->
+          <div class="mb-5">
+            <div class="mb-3 border-b border-slate-100 pb-2">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">Revenue (₹ in Crores)</h3>
             </div>
-            <div>
-              <label for="department" class="mb-1.5 block text-xs font-semibold text-slate-700">Organisation/Department
-                collecting this User Charge <span class="text-red-500">*</span></label>
-              <input id="department" name="department" required
-                class="form-field h-10 w-full rounded-lg border border-slate-300 bg-white px-3 text-sm text-slate-700 outline-none placeholder:text-slate-400 focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-            </div>
-            <div>
-              <label for="services" class="mb-1.5 block text-xs font-semibold text-slate-700">Services for which the
-                User Charge is levied <span class="text-red-500">*</span></label>
-              <input id="services" name="services" required
-                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none placeholder:text-slate-400 focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-            </div>
-            <div>
-              <label for="rate" class="mb-1.5 block text-xs font-semibold text-slate-700">Rate of User Charge and unit
-                of collection <span class="text-red-500">*</span></label>
-              <div class="relative"><span
-                  class="absolute left-3 top-2.5 text-xs font-semibold text-slate-400">₹</span><input id="rate"
-                  name="rate" required inputmode="decimal" placeholder="0.00"
-                  class="form-field tabular h-10 w-full rounded-lg border border-slate-300 pl-7 pr-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div>
+                <label for="revBE" class="mb-1.5 block text-xs font-semibold text-slate-700">BE <span class="text-red-500">*</span></label>
+                <input id="revBE" name="revBE" required type="number" step="0.01" placeholder="0.00"
+                  class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+              </div>
+              <div>
+                <label for="revRE" class="mb-1.5 block text-xs font-semibold text-slate-700">RE <span class="text-red-500">*</span></label>
+                <input id="revRE" name="revRE" required type="number" step="0.01" placeholder="0.00"
+                  class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+              </div>
+              <div>
+                <label for="revActuals" class="mb-1.5 block text-xs font-semibold text-slate-700">Actuals upto Sept <span class="text-red-500">*</span></label>
+                <input id="revActuals" name="revActuals" required type="number" step="0.01" placeholder="0.00"
+                  class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
               </div>
             </div>
-            <div>
-              <label for="unit" class="mb-1.5 block text-xs font-semibold text-slate-700">Unit of collection <span
-                  class="text-red-500">*</span></label>
-              <input id="unit" name="unit" required placeholder="e.g. per application"
-                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-            </div>
-            <div>
-              <label for="fixationDate" class="mb-1.5 block text-xs font-semibold text-slate-700">Date of fixation of
-                the rate of the current User Charge <span class="text-red-500">*</span></label>
-              <input id="fixationDate" name="fixationDate" required type="date"
-                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-            </div>
-            <div>
-              <label for="legalBasis" class="mb-1.5 block text-xs font-semibold text-slate-700">Fixation Done under
-                which statute/rule/Act/order/OM <span class="text-red-500">*</span></label>
-              <input id="legalBasis" name="legalBasis" required placeholder="Enter legal basis"
-                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-            </div>
-            <div>
-              <label for="competentAuthority" class="mb-1.5 block text-xs font-semibold text-slate-700">Competent
-                Authority to refix the User Charge</label>
-              <input id="competentAuthority" name="competentAuthority"
-                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-            </div>
-            <div>
-              <label for="refixationPeriod" class="mb-1.5 block text-xs font-semibold text-slate-700">Period of
-                refixation of User Charge, if any</label>
-              <input id="refixationPeriod" name="refixationPeriod" placeholder="Example: Every 3 years"
-                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-            </div>
           </div>
 
-          <div class="grid pt-4 pl-3">
-            <h3 class="text-sm font-bold text-slate-800">Total Revenue from User Charges</h3>
-          </div>
-          <div class="grid gap-3 p-4 md:grid-cols-3">
-            <label class="rounded-xl border border-slate-200 bg-slate-50 p-3"><span
-                class="text-[10px] font-bold uppercase tracking-wide text-slate-500">2022–23</span><input id="rev22"
-                name="rev22" type="number" step="0.01" value="0.00"
-                class="revenue-input tabular mt-2 h-10 w-full rounded-lg border border-slate-300 bg-white px-3 text-right text-sm font-semibold text-slate-700"></label>
-            <label class="rounded-xl border border-slate-200 bg-slate-50 p-3"><span
-                class="text-[10px] font-bold uppercase tracking-wide text-slate-500">2023–24</span><input id="rev23"
-                name="rev23" type="number" step="0.01" value="0.00"
-                class="revenue-input tabular mt-2 h-10 w-full rounded-lg border border-slate-300 bg-white px-3 text-right text-sm font-semibold text-slate-700"></label>
-            <label class="rounded-xl border border-teal-100 bg-ubis-tealLight p-3"><span
-                class="text-[10px] font-bold uppercase tracking-wide text-ubis-teal">2024–25</span><input id="rev24"
-                name="rev24" type="number" step="0.01" value="0.00"
-                class="revenue-input tabular mt-2 h-10 w-full rounded-lg border border-teal-200 bg-white px-3 text-right text-sm font-bold text-slate-800"></label>
-          </div>
-
-          <div class="grid pt-4 pl-3">
-            <h3 class="text-sm font-bold text-slate-800">Cost of delivering that particular service (if available)</h3>
-          </div>
-          <div class="grid gap-4 p-4">
-            <div><label for="staffCost" class="mb-1.5 block text-xs font-semibold text-slate-700">Salary and Emoluments
-                of staff involved</label><input id="staffCost" name="staffCost" type="number" step="0.01"
-                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm"></div>
-            <div><label for="officeCost" class="mb-1.5 block text-xs font-semibold text-slate-700">Office Expenses (OE)
-                of the relevant office</label><input id="officeCost" name="officeCost" type="number" step="0.01"
-                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm"></div>
-            <div><label for="otherCost" class="mb-1.5 block text-xs font-semibold text-slate-700">Other Expenses for
-                delivering the service</label><input id="otherCost" name="otherCost" type="number" step="0.01"
-                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm"></div>
-          </div>
-
-          <div class="space-y-4 p-4">
-            <div>
-              <p class="mb-2 text-xs font-semibold leading-5 text-slate-700">Whether the cost of collection is higher
-                than Revenue earned?</p>
-              <div class="flex gap-2"><button type="button" data-group="q1"
-                  class="seg-btn rounded-lg border border-slate-300 px-5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50">YES</button><button
-                  type="button" data-group="q1"
-                  class="seg-btn seg-active rounded-lg border px-5 py-2 text-xs font-semibold">NO</button></div>
+          <!-- Capital Section -->
+          <div>
+            <div class="mb-3 border-b border-slate-100 pb-2">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">Capital (₹ in Crores)</h3>
             </div>
-            <div class="border-t border-slate-100 pt-4">
-              <p class="mb-2 text-xs font-semibold leading-5 text-slate-700">Whether the transaction cost for the user
-                is higher than the rate of User Charge?</p>
-              <div class="flex gap-2"><button type="button" data-group="q2"
-                  class="seg-btn rounded-lg border border-slate-300 px-5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50">YES</button><button
-                  type="button" data-group="q2"
-                  class="seg-btn seg-active rounded-lg border px-5 py-2 text-xs font-semibold">NO</button></div>
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div>
+                <label for="capBE" class="mb-1.5 block text-xs font-semibold text-slate-700">BE <span class="text-red-500">*</span></label>
+                <input id="capBE" name="capBE" required type="number" step="0.01" placeholder="0.00"
+                  class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+              </div>
+              <div>
+                <label for="capRE" class="mb-1.5 block text-xs font-semibold text-slate-700">RE 2022–23 <span class="text-red-500">*</span></label>
+                <input id="capRE" name="capRE" required type="number" step="0.01" placeholder="0.00"
+                  class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+              </div>
+              <div>
+                <label for="capActuals" class="mb-1.5 block text-xs font-semibold text-slate-700">Actuals 2023–24 <span class="text-red-500">*</span></label>
+                <input id="capActuals" name="capActuals" required type="number" step="0.01" placeholder="0.00"
+                  class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+              </div>
             </div>
-          </div>
-          <div class="p-4"><textarea id="remarks" name="remarks" maxlength="500" rows="4" placeholder="Enter remarks..."
-              class="w-full resize-none rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50"></textarea>
-            <div class="mt-1.5 text-right text-[10px] text-slate-400"><span id="charCount">0</span> / 500</div>
           </div>
         </section>
       </div>
@@ -814,15 +756,17 @@
         <div>
           <p class="text-[10px] font-semibold text-slate-500"><span
               class="inline-block h-1.5 w-1.5 rounded-full bg-slate-300"></span> Ready</p>
-          <p class="mt-0.5 text-[9px] text-slate-400">Static page-level form</p>
+          <p class="mt-0.5 text-[9px] text-slate-400">Appendix-I budget trends record</p>
         </div>
-        <div class="flex items-center gap-2"><button type="button" id="cancelDrawer"
-            class="h-9 rounded-lg border border-slate-300 px-3.5 text-xs font-semibold text-slate-600 hover:bg-slate-50">Cancel</button><button
-            type="reset"
-            class="h-9 rounded-lg border border-ubis-navy px-3.5 text-xs font-semibold text-ubis-navy hover:bg-blue-50">Reset</button><button
-            type="submit"
-            class="h-9 rounded-lg bg-ubis-teal px-4 text-xs font-bold text-white shadow-sm hover:bg-teal-700">Add
-            Record</button></div>
+        <div class="flex items-center gap-2">
+          <button type="button" id="cancelDrawer"
+            class="h-9 rounded-lg border border-slate-300 px-3.5 text-xs font-semibold text-slate-600 hover:bg-slate-50">Cancel</button>
+          <button type="reset"
+            class="h-9 rounded-lg border border-ubis-navy px-3.5 text-xs font-semibold text-ubis-navy hover:bg-blue-50">Reset</button>
+          <button type="submit"
+            class="h-9 rounded-lg bg-ubis-teal px-4 text-xs font-bold text-white shadow-sm hover:bg-teal-700">Save
+            Record</button>
+        </div>
       </div>
     </form>
   </aside>
@@ -855,7 +799,7 @@
           <i data-lucide="trash-2" class="h-5 w-5"></i>
         </div>
         <div class="min-w-0 flex-1">
-          <h2 id="deleteDialogTitle" class="text-base font-bold text-slate-900">Delete user charge?</h2>
+          <h2 id="deleteDialogTitle" class="text-base font-bold text-slate-900">Delete record?</h2>
           <p id="deleteDialogDescription" class="mt-1 text-sm leading-5 text-slate-500">This record will be permanently
             deleted. This action cannot be undone.</p>
           <p id="deleteRecordName" class="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs font-semibold text-amber-800">

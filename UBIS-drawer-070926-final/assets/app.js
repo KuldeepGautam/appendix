@@ -28,20 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.openDrawer = function () {
     if (!drawer) return;
     form?.reset();
-    document.querySelectorAll('.seg-btn').forEach((button) => {
-      const active = button.textContent.trim() === 'NO';
-      button.classList.toggle('seg-active', active);
-      button.classList.toggle('border-slate-300', !active);
-      button.classList.toggle('text-slate-600', !active);
-    });
-    updateCounter();
+    resetDrawerMode();
     drawer.classList.remove('drawer-closed');
     drawer.classList.add('drawer-open');
     drawer.setAttribute('aria-hidden', 'false');
     document.body.classList.add('drawer-page-locked');
     backdrop?.classList.remove('backdrop-hide');
     backdrop?.classList.add('backdrop-show');
-    setTimeout(() => document.getElementById('chargeTitle')?.focus(), 320);
+    setTimeout(() => document.getElementById('year')?.focus(), 320);
   };
 
   window.closeDrawer = function () {
@@ -93,26 +87,26 @@ document.addEventListener('DOMContentLoaded', () => {
     return el?.tagName === 'SELECT' ? el.value : (el?.textContent.trim() || '');
   }
 
-  function createRow(id, charge, services, department, rev22, rev23, rev24, remarks = '—') {
+  function createRow(id, year, revBE, revRE, revActuals, capBE, capRE, capActuals) {
     const row = document.createElement('tr');
     row.className = 'group border-b border-slate-100 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60';
     row.dataset.recordRow = '';
     row.dataset.recordId = id;
     row.innerHTML = `
-      <td data-label="S.No." class="px-2 py-3 text-center text-xs font-semibold text-slate-600"></td>
-      <td data-label="User Charge" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs font-bold leading-5 text-slate-800">${escapeHtml(charge)}</td>
-      <td data-label="Services" data-column="services" data-field="services" contenteditable="false" spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">${escapeHtml(services)}</td>
-      <td data-label="Organisation/Department" data-column="department" data-field="department" contenteditable="false" spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs leading-5 text-slate-600">${escapeHtml(department)}</td>
-      <td data-label="Status" data-column="status" class="px-2 py-3 text-center"><select data-field="status" class="row-status rounded-full border-0 bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700"><option selected>Draft</option><option>Active</option><option>Review</option><option>Frozen</option></select></td>
-      <td data-label="Revenue 2022–23" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false" class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">${Number(rev22 || 0).toFixed(2)}</td>
-      <td data-label="Revenue 2023–24" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false" class="editable-cell tabular px-2 py-3 text-right text-xs font-semibold text-slate-800">${Number(rev23 || 0).toFixed(2)}</td>
-      <td data-label="Revenue 2024–25" data-column="rev24" data-field="rev24" contenteditable="false" spellcheck="false" class="editable-cell tabular px-2 py-3 text-right text-xs font-bold text-indigo-800">${Number(rev24 || 0).toFixed(2)}</td>
-      <td data-label="Remarks" data-column="remarks" data-field="remarks" contenteditable="false" spellcheck="false" class="editable-cell break-words px-2 py-3 text-xs text-slate-500">${escapeHtml(remarks)}</td>
-      <td data-label="Action" class="grid-action-cell px-2 py-3 text-center"><div class="grid-action-menu">
+      <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600"></td>
+      <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false" class="editable-cell break-words border border-slate-200 px-2 py-3 text-xs font-bold leading-5 text-slate-800">${escapeHtml(year || '')}</td>
+      <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false" class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">${Number(revBE || 0).toFixed(2)}</td>
+      <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false" class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">${Number(revRE || 0).toFixed(2)}</td>
+      <td data-label="Actuals upto Sept" data-column="status" data-field="status" class="border border-slate-200 tabular px-2 py-3 text-xs font-medium text-slate-700">${Number(revActuals || 0).toFixed(2)}</td>
+      <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false" class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">${Number(capBE || 0).toFixed(2)}</td>
+      <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false" class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">${Number(capRE || 0).toFixed(2)}</td>
+      <td data-label="Capital Actuals 2023–24" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false" class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">${Number(capActuals || 0).toFixed(2)}</td>
+      <td data-label="Action" class="grid-action-cell border border-slate-200 px-2 py-3 text-center"><div class="grid-action-menu">
         <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
         <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg border border-slate-200 bg-white p-1 text-left shadow-lg">
-          <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
-          <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
+          <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+          <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
+          <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
         </div>
       </div></td>`;
     return row;
@@ -161,30 +155,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!row || !form) return;
 
     editingRow = row;
+    const tds = row.querySelectorAll('td');
 
-    setFormValue('chargeTitle', value(row, 'charge') || getStoredFormValue(row, 'chargeTitle'));
-    setFormValue('services', value(row, 'services') || getStoredFormValue(row, 'services'));
-    setFormValue('department', value(row, 'department') || getStoredFormValue(row, 'department'));
-    setFormValue('rate', getStoredFormValue(row, 'rate'));
-    setFormValue('unit', getStoredFormValue(row, 'unit'));
-    setFormValue('fixationDate', getStoredFormValue(row, 'fixationDate'));
-    setFormValue('legalBasis', getStoredFormValue(row, 'legalBasis'));
-    setFormValue('competentAuthority', getStoredFormValue(row, 'competentAuthority'));
-    setFormValue('refixationPeriod', getStoredFormValue(row, 'refixationPeriod'));
-    setFormValue('rev22', value(row, 'rev22') || getStoredFormValue(row, 'rev22', '0.00'));
-    setFormValue('rev23', value(row, 'rev23') || getStoredFormValue(row, 'rev23', '0.00'));
-    setFormValue('rev24', value(row, 'rev24') || getStoredFormValue(row, 'rev24', '0.00'));
-    setFormValue('staffCost', getStoredFormValue(row, 'staffCost'));
-    setFormValue('officeCost', getStoredFormValue(row, 'officeCost'));
-    setFormValue('otherCost', getStoredFormValue(row, 'otherCost'));
-    setFormValue('remarks', value(row, 'remarks') || getStoredFormValue(row, 'remarks'));
+    setFormValue('year', cell(row, 'charge')?.textContent.trim() || tds[1]?.textContent.trim() || getStoredFormValue(row, 'year'));
+    setFormValue('revBE', cell(row, 'services')?.textContent.trim() || tds[2]?.textContent.trim() || getStoredFormValue(row, 'revBE', '0.00'));
+    setFormValue('revRE', cell(row, 'department')?.textContent.trim() || tds[3]?.textContent.trim() || getStoredFormValue(row, 'revRE', '0.00'));
+    setFormValue('revActuals', cell(row, 'status')?.textContent.trim() || tds[4]?.textContent.trim() || getStoredFormValue(row, 'revActuals', '0.00'));
+    setFormValue('capBE', cell(row, 'rev22')?.textContent.trim() || tds[5]?.textContent.trim() || getStoredFormValue(row, 'capBE', '0.00'));
+    setFormValue('capRE', cell(row, 'rev23')?.textContent.trim() || tds[6]?.textContent.trim() || getStoredFormValue(row, 'capRE', '0.00'));
+    setFormValue('capActuals', tds[7]?.textContent.trim() || getStoredFormValue(row, 'capActuals', '0.00'));
 
     const heading = drawer?.querySelector('h2');
     const subtitle = heading?.nextElementSibling;
-    if (heading) heading.textContent = 'Edit User Charge';
-    if (subtitle) subtitle.textContent = 'Update the selected user charge record';
+    if (heading) heading.textContent = 'Edit Record';
+    if (subtitle) subtitle.textContent = 'Update the selected budget and expenditure trend record';
 
-    updateCounter();
     drawer.classList.remove('drawer-closed');
     drawer.classList.add('drawer-open');
     drawer.setAttribute('aria-hidden', 'false');
@@ -192,15 +177,15 @@ document.addEventListener('DOMContentLoaded', () => {
     backdrop?.classList.remove('backdrop-hide');
     backdrop?.classList.add('backdrop-show');
 
-    setTimeout(() => document.getElementById('chargeTitle')?.focus(), 320);
+    setTimeout(() => document.getElementById('year')?.focus(), 320);
   }
 
   function resetDrawerMode() {
     editingRow = null;
     const heading = drawer?.querySelector('h2');
     const subtitle = heading?.nextElementSibling;
-    if (heading) heading.textContent = 'Add User Charge';
-    if (subtitle) subtitle.textContent = 'Enter a new user charge record';
+    if (heading) heading.textContent = 'Add Record';
+    if (subtitle) subtitle.textContent = 'Enter a new budget and expenditure trend record';
   }
 
   form?.addEventListener('submit', (event) => {
@@ -211,37 +196,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (editingRow) {
       const row = editingRow;
+      const tds = row.querySelectorAll('td');
 
-      cell(row, 'charge')?.replaceChildren(document.createTextNode(data.chargeTitle || '—'));
-      cell(row, 'services')?.replaceChildren(document.createTextNode(data.services || '—'));
-      cell(row, 'department')?.replaceChildren(document.createTextNode(data.department || '—'));
-      cell(row, 'rev22')?.replaceChildren(document.createTextNode(Number(data.rev22 || 0).toFixed(2)));
-      cell(row, 'rev23')?.replaceChildren(document.createTextNode(Number(data.rev23 || 0).toFixed(2)));
-      cell(row, 'rev24')?.replaceChildren(document.createTextNode(Number(data.rev24 || 0).toFixed(2)));
-      cell(row, 'remarks')?.replaceChildren(document.createTextNode(data.remarks || '—'));
+      if (cell(row, 'charge')) cell(row, 'charge').textContent = data.year || '—';
+      else if (tds[1]) tds[1].textContent = data.year || '—';
+
+      if (cell(row, 'services')) cell(row, 'services').textContent = Number(data.revBE || 0).toFixed(2);
+      else if (tds[2]) tds[2].textContent = Number(data.revBE || 0).toFixed(2);
+
+      if (cell(row, 'department')) cell(row, 'department').textContent = Number(data.revRE || 0).toFixed(2);
+      else if (tds[3]) tds[3].textContent = Number(data.revRE || 0).toFixed(2);
+
+      if (cell(row, 'status')) cell(row, 'status').textContent = Number(data.revActuals || 0).toFixed(2);
+      else if (tds[4]) tds[4].textContent = Number(data.revActuals || 0).toFixed(2);
+
+      if (cell(row, 'rev22')) cell(row, 'rev22').textContent = Number(data.capBE || 0).toFixed(2);
+      else if (tds[5]) tds[5].textContent = Number(data.capBE || 0).toFixed(2);
+
+      if (cell(row, 'rev23')) cell(row, 'rev23').textContent = Number(data.capRE || 0).toFixed(2);
+      else if (tds[6]) tds[6].textContent = Number(data.capRE || 0).toFixed(2);
+
+      if (tds[7]) tds[7].textContent = Number(data.capActuals || 0).toFixed(2);
 
       storeFormData(row, data);
-      row.querySelectorAll('[data-field]').forEach((el) => el.classList.add('row-saved'));
-      setTimeout(() => row.querySelectorAll('[data-field]').forEach((el) => el.classList.remove('row-saved')), 900);
+      row.querySelectorAll('td').forEach((el) => el.classList.add('row-saved'));
+      setTimeout(() => row.querySelectorAll('td').forEach((el) => el.classList.remove('row-saved')), 900);
 
       closeDrawer();
       editingRow = null;
       form.reset();
       resetDrawerMode();
-      updateCounter();
       return;
     }
 
     const id = nextId();
     const row = createRow(
       id,
-      data.chargeTitle,
-      data.services,
-      data.department,
-      data.rev22,
-      data.rev23,
-      data.rev24,
-      data.remarks || '—'
+      data.year,
+      data.revBE,
+      data.revRE,
+      data.revActuals,
+      data.capBE,
+      data.capRE,
+      data.capActuals
     );
 
     storeFormData(row, data);
@@ -250,7 +247,6 @@ document.addEventListener('DOMContentLoaded', () => {
     closeDrawer();
     form.reset();
     resetDrawerMode();
-    updateCounter();
     window.lucide?.createIcons();
   });
 
