@@ -87,22 +87,18 @@
                                     class="rounded-full bg-white px-3 py-1 text-[10px] font-bold text-slate-700 shadow-sm ring-1 ring-inset ring-slate-200">15
                                     Records</span>
                                 <!-- <span
-                              class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold ring-1 ring-inset bg-indigo-100 text-indigo-800 ring-indigo-200"><span
-                                class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>In Progress</span> -->
+                  class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold ring-1 ring-inset bg-indigo-100 text-indigo-800 ring-indigo-200"><span
+                    class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>In Progress</span> -->
                             </div>
                             <p class="mt-1.5 text-sm font-medium text-slate-600">Quaterly Expenditure Plan (QEP) for the
                                 CY</p>
                         </div>
                     </div>
-                    <span class="flex text-right">
-                        <button
-                            class="rounded-md bg-amber-200 px-4 py-2 font-medium text-black hover:bg-amber-300 mr-2">Freeze</button>
 
-                        <button type="button" onclick="openDrawer('add')" data-ubis-center-action="drawer"
-                            data-ubis-center-action-mode="add" data-ubis-center-event=""
-                            class="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-ubis-navy px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-ubis-dark focus:outline-none focus:ring-4 focus:ring-blue-100"><i
-                                data-lucide="plus" class="h-4 w-4"></i>Add</button>
-                    </span>
+                    <button type="button" onclick="openDrawer('add')" data-ubis-center-action="drawer"
+                        data-ubis-center-action-mode="add" data-ubis-center-event=""
+                        class="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-ubis-navy px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-ubis-dark focus:outline-none focus:ring-4 focus:ring-blue-100"><i
+                            data-lucide="plus" class="h-4 w-4"></i>Add</button>
                 </div>
             </section>
 
@@ -290,28 +286,17 @@
                 <div class="grid-scroll">
                     <table id="chargesTable" class="w-full table-fixed text-left">
                         <thead class="sticky top-0 z-10 bg-slate-50/95 backdrop-blur">
-                            <tr
-                                class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
-
-                                <th rowspan="2" class="text-center !align-middle px-1 py-2">S.No.</th>
-                                <th colspan="2" class="text-center !align-middle px-1 py-2">1st Quarter 2024-2025</th>
-                                <th colspan="2" class="text-center !align-middle px-1 py-2">2nd Quarter 2024-2025</th>
-                                <th colspan="2" class="text-center !align-middle px-1 py-2">1st Quarter 2025-2026 BE
-                                </th>
-                                <th colspan="2" class="text-center !align-middle px-1 py-2">2nd Quarter 2025-2026 BE
-                                </th>
-                                <th rowspan="2" width="6%" class="text-center !align-middle px-1 py-2">Action</th>
-                            </tr>
-                            <tr
-                                class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
-                                <th class="w-[11%] px-1 py-2 text-center">Approved QEP</th>
-                                <th class="w-[11%] px-1 py-2 text-center">Actuals</th>
-                                <th class="w-[11%] px-1 py-2 text-center">Approved QEP</th>
-                                <th class="w-[11%] px-1 py-2 text-center">Actuals</th>
-                                <th class="w-[11%] px-1 py-2 text-center">Approved QEP</th>
-                                <th class="w-[11%] px-1 py-2 text-center">Actuals</th>
-                                <th class="w-[11%] px-1 py-2 text-center">Approved QEP</th>
-                                <th class="w-[11%] px-1 py-2 text-center">Actuals</th>
+                            <tr class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
+                                <th class="text-center !align-middle px-1 py-2">S.No.</th>
+                                <th class="text-center !align-middle px-1 py-2">Scheme Name</th>
+                                <th class="text-center !align-middle px-1 py-2">Sub-Scheme Name</th>
+                                <th class="text-center !align-middle px-1 py-2">BE 2025-26</th>
+                                <th class="text-center !align-middle px-1 py-2">CNA balance as on 01.04.2025</th>
+                                <th class="text-center !align-middle px-1 py-2">Releases during the current FY till 30.09.2025</th>
+                                <th class="text-center !align-middle px-1 py-2">CNA Balance as on 30.09.2025</th>
+                                <th class="text-center !align-middle px-1 py-2">Date of Last Release</th>
+                                <th class="text-center !align-middle px-1 py-2">Amount of last release</th>
+                                <th width="6%" class="text-center !align-middle px-1 py-2">Action</th>
                             </tr>
                         </thead>
                         <tbody id="gridBody" class="divide-y divide-slate-100">
@@ -322,134 +307,28 @@
                                     class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    1.00</td>
+                                    Interest Subsidy for Short Term Credit to Farmers</td>
+                                <td
+                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                    </td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     0.00</td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    0.00</td>
+                                    2222.00</td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    1.00</td>
+                                    333333.00</td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    1.00</td>
+                                    4455555.00</td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    0.00</td>
+                                    09/07/2026</td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    0.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    1.00</td>
-                                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
-                                    <div class="grid-action-menu">
-                                        <button type="button" data-row-menu
-                                            class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
-                                        </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-                                            <button type="button" data-row-edit
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
-                                                title="Save row"><i data-lucide="check"
-                                                    class="h-3.5 w-3.5"></i>Save</button>
-                                            <button type="button" data-row-delete
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                                data-record-row data-record-id="UC-000001">
-                                <td data-label="S.No."
-                                    class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    1.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    0.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    0.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    1.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    1.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    0.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    0.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    1.00</td>
-                                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
-                                    <div class="grid-action-menu">
-                                        <button type="button" data-row-menu
-                                            class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
-                                        </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-                                            <button type="button" data-row-edit
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
-                                                title="Save row"><i data-lucide="check"
-                                                    class="h-3.5 w-3.5"></i>Save</button>
-                                            <button type="button" data-row-delete
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                                data-record-row data-record-id="UC-000001">
-                                <td data-label="S.No."
-                                    class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    1.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    0.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    0.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    1.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    1.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    0.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    0.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    1.00</td>
+                                    3030300.00</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
@@ -554,25 +433,16 @@
                     <!-- 1st Quarter 2024-2025 -->
                     <div class="mb-5">
                         <div class="mb-3 border-b border-slate-100 pb-2">
-                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">1st Quarter 2024-2025
-                            </h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">1st Quarter 2024-2025</h3>
                         </div>
                         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                             <div>
-                                <label for="q1_2425_qep"
-                                    class="mb-1.5 block text-xs font-semibold text-slate-700">Approved QEP <span
-                                        class="text-red-500">*</span></label>
-                                <input id="q1_2425_qep" name="q1_2425_qep" required type="number" step="0.01"
-                                    placeholder="0.00"
-                                    class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                                <label for="q1_2425_qep" class="mb-1.5 block text-xs font-semibold text-slate-700">Approved QEP <span class="text-red-500">*</span></label>
+                                <input id="q1_2425_qep" name="q1_2425_qep" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                             </div>
                             <div>
-                                <label for="q1_2425_act"
-                                    class="mb-1.5 block text-xs font-semibold text-slate-700">Actuals <span
-                                        class="text-red-500">*</span></label>
-                                <input id="q1_2425_act" name="q1_2425_act" required type="number" step="0.01"
-                                    placeholder="0.00"
-                                    class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                                <label for="q1_2425_act" class="mb-1.5 block text-xs font-semibold text-slate-700">Actuals <span class="text-red-500">*</span></label>
+                                <input id="q1_2425_act" name="q1_2425_act" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                             </div>
                         </div>
                     </div>
@@ -580,25 +450,16 @@
                     <!-- 2nd Quarter 2024-2025 -->
                     <div class="mb-5">
                         <div class="mb-3 border-b border-slate-100 pb-2">
-                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">2nd Quarter 2024-2025
-                            </h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">2nd Quarter 2024-2025</h3>
                         </div>
                         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                             <div>
-                                <label for="q2_2425_qep"
-                                    class="mb-1.5 block text-xs font-semibold text-slate-700">Approved QEP <span
-                                        class="text-red-500">*</span></label>
-                                <input id="q2_2425_qep" name="q2_2425_qep" required type="number" step="0.01"
-                                    placeholder="0.00"
-                                    class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                                <label for="q2_2425_qep" class="mb-1.5 block text-xs font-semibold text-slate-700">Approved QEP <span class="text-red-500">*</span></label>
+                                <input id="q2_2425_qep" name="q2_2425_qep" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                             </div>
                             <div>
-                                <label for="q2_2425_act"
-                                    class="mb-1.5 block text-xs font-semibold text-slate-700">Actuals <span
-                                        class="text-red-500">*</span></label>
-                                <input id="q2_2425_act" name="q2_2425_act" required type="number" step="0.01"
-                                    placeholder="0.00"
-                                    class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                                <label for="q2_2425_act" class="mb-1.5 block text-xs font-semibold text-slate-700">Actuals <span class="text-red-500">*</span></label>
+                                <input id="q2_2425_act" name="q2_2425_act" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                             </div>
                         </div>
                     </div>
@@ -606,25 +467,16 @@
                     <!-- 1st Quarter 2025-2026 BE -->
                     <div class="mb-5">
                         <div class="mb-3 border-b border-slate-100 pb-2">
-                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">1st Quarter 2025-2026
-                                BE</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">1st Quarter 2025-2026 BE</h3>
                         </div>
                         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                             <div>
-                                <label for="q1_2526_qep"
-                                    class="mb-1.5 block text-xs font-semibold text-slate-700">Approved QEP <span
-                                        class="text-red-500">*</span></label>
-                                <input id="q1_2526_qep" name="q1_2526_qep" required type="number" step="0.01"
-                                    placeholder="0.00"
-                                    class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                                <label for="q1_2526_qep" class="mb-1.5 block text-xs font-semibold text-slate-700">Approved QEP <span class="text-red-500">*</span></label>
+                                <input id="q1_2526_qep" name="q1_2526_qep" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                             </div>
                             <div>
-                                <label for="q1_2526_act"
-                                    class="mb-1.5 block text-xs font-semibold text-slate-700">Actuals <span
-                                        class="text-red-500">*</span></label>
-                                <input id="q1_2526_act" name="q1_2526_act" required type="number" step="0.01"
-                                    placeholder="0.00"
-                                    class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                                <label for="q1_2526_act" class="mb-1.5 block text-xs font-semibold text-slate-700">Actuals <span class="text-red-500">*</span></label>
+                                <input id="q1_2526_act" name="q1_2526_act" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                             </div>
                         </div>
                     </div>
@@ -632,25 +484,16 @@
                     <!-- 2nd Quarter 2025-2026 BE -->
                     <div>
                         <div class="mb-3 border-b border-slate-100 pb-2">
-                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">2nd Quarter 2025-2026
-                                BE</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">2nd Quarter 2025-2026 BE</h3>
                         </div>
                         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                             <div>
-                                <label for="q2_2526_qep"
-                                    class="mb-1.5 block text-xs font-semibold text-slate-700">Approved QEP <span
-                                        class="text-red-500">*</span></label>
-                                <input id="q2_2526_qep" name="q2_2526_qep" required type="number" step="0.01"
-                                    placeholder="0.00"
-                                    class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                                <label for="q2_2526_qep" class="mb-1.5 block text-xs font-semibold text-slate-700">Approved QEP <span class="text-red-500">*</span></label>
+                                <input id="q2_2526_qep" name="q2_2526_qep" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                             </div>
                             <div>
-                                <label for="q2_2526_act"
-                                    class="mb-1.5 block text-xs font-semibold text-slate-700">Actuals <span
-                                        class="text-red-500">*</span></label>
-                                <input id="q2_2526_act" name="q2_2526_act" required type="number" step="0.01"
-                                    placeholder="0.00"
-                                    class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                                <label for="q2_2526_act" class="mb-1.5 block text-xs font-semibold text-slate-700">Actuals <span class="text-red-500">*</span></label>
+                                <input id="q2_2526_act" name="q2_2526_act" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                             </div>
                         </div>
                     </div>
