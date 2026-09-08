@@ -95,14 +95,15 @@
                     </div>
 
                     <span class="flex text-right">
-                        <button class="rounded-md bg-amber-200 px-4 py-2 font-medium text-black hover:bg-amber-300 mr-2">Freeze</button>
-                    
+                        <button
+                            class="rounded-md bg-amber-200 px-4 py-2 font-medium text-black hover:bg-amber-300 mr-2">Freeze</button>
+
                         <button type="button" onclick="openDrawer('add')" data-ubis-center-action="drawer"
                             data-ubis-center-action-mode="add" data-ubis-center-event=""
                             class="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-ubis-navy px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-ubis-dark focus:outline-none focus:ring-4 focus:ring-blue-100"><i
                                 data-lucide="plus" class="h-4 w-4"></i>Add</button>
                     </span>
-                    </div>
+                </div>
             </section>
 
             <!-- Context / Filters -->
@@ -206,7 +207,8 @@
                 <div
                     class="flex flex-col justify-between gap-3 border-b border-slate-100 px-5 py-3.5 sm:flex-row sm:items-center">
                     <div>
-                        <h3 class="text-sm font-bold text-slate-800">Appendix III</h3>
+                        <h3 class="text-sm font-bold text-slate-800">Appendix-III</h3>
+                        <p class="mt-0.5 text-[11px] text-slate-500">Appendix-III financial records</p>
                     </div>
                     <div class="flex items-center gap-2">
                         <!-- Export Dropdown Button -->
@@ -218,24 +220,24 @@
                                 <i data-lucide="download" class="h-3.5 w-3.5"></i> Export
                                 <i data-lucide="chevron-down" class="h-3 w-3 text-slate-400"></i>
                             </button>
-                    
+
                             <div id="exportMenu"
                                 class="absolute right-0 top-10 z-30 hidden w-44 overflow-hidden rounded-xl border border-slate-200 bg-white p-1 shadow-2xl">
-                    
+
                                 <!-- PDF Option -->
                                 <button type="button" onclick="exportData('pdf')"
                                     class="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-rose-600 transition">
                                     <i data-lucide="file-text" class="h-4 w-4 text-rose-500"></i>
                                     <span>PDF</span>
                                 </button>
-                    
+
                                 <!-- Excel Option -->
                                 <button type="button" onclick="exportData('excel')"
                                     class="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition">
                                     <i data-lucide="sheet" class="h-4 w-4 text-emerald-600"></i>
                                     <span>Excel</span>
                                 </button>
-                    
+
                                 <!-- CSV Option -->
                                 <button type="button" onclick="exportData('csv')"
                                     class="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition">
@@ -324,13 +326,15 @@
                 <div class="grid-scroll">
                     <table id="chargesTable" class="w-full table-fixed text-left">
                         <thead class="sticky top-0 z-10 bg-slate-50/95 backdrop-blur">
-                            <tr class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
+                            <tr
+                                class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
                                 <th class="text-center !align-middle px-1 py-2">S.No.</th>
                                 <th class="text-center !align-middle px-1 py-2">Scheme Name</th>
                                 <th class="text-center !align-middle px-1 py-2">Sub-Scheme Name</th>
                                 <th class="text-center !align-middle px-1 py-2">BE 2025-26</th>
                                 <th class="text-center !align-middle px-1 py-2">CNA balance as on 01.04.2025</th>
-                                <th class="text-center !align-middle px-1 py-2">Releases during the current FY till 30.09.2025</th>
+                                <th class="text-center !align-middle px-1 py-2">Releases during the current FY till
+                                    30.09.2025</th>
                                 <th class="text-center !align-middle px-1 py-2">CNA Balance as on 30.09.2025</th>
                                 <th class="text-center !align-middle px-1 py-2">Date of Last Release</th>
                                 <th class="text-center !align-middle px-1 py-2">Amount of last release</th>
@@ -348,7 +352,7 @@
                                     Interest Subsidy for Short Term Credit to Farmers</td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    </td>
+                                </td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     0.00</td>
@@ -401,7 +405,7 @@
                                     Interest Subsidy for Short Term Credit to Farmers</td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    </td>
+                                </td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     0.00</td>
@@ -454,7 +458,7 @@
                                     Interest Subsidy for Short Term Credit to Farmers</td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
-                                    </td>
+                                </td>
                                 <td
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     0.00</td>
@@ -576,22 +580,29 @@
                 <section class="mb-4 rounded-xl border border-slate-200 bg-white p-5">
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-6 border-b border-slate-100 pb-5">
                         <div class="sm:col-span-2">
-                            <label for="balance_type" class="mb-1.5 block text-xs font-semibold text-slate-700">Select Balance Type <span class="text-red-500">*</span></label>
-                            <select id="balance_type" name="balance_type" class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                            <label for="balance_type" class="mb-1.5 block text-xs font-semibold text-slate-700">Select
+                                Balance Type <span class="text-red-500">*</span></label>
+                            <select id="balance_type" name="balance_type"
+                                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                                 <option value="">Select</option>
                                 <option value="Central Sector Schemes/Projects">Central Sector Schemes/Projects</option>
                             </select>
                         </div>
                         <div class="sm:col-span-2">
-                            <label for="scheme_name" class="mb-1.5 block text-xs font-semibold text-slate-700">Select Scheme <span class="text-red-500">*</span></label>
-                            <select id="scheme_name" name="scheme_name" class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                            <label for="scheme_name" class="mb-1.5 block text-xs font-semibold text-slate-700">Select
+                                Scheme <span class="text-red-500">*</span></label>
+                            <select id="scheme_name" name="scheme_name"
+                                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                                 <option value="">Select</option>
-                                <option value="Interest Subsidy for Short Term Credit to Farmers">0-Interest Subsidy for Short Term Credit to Farmers</option>
+                                <option value="Interest Subsidy for Short Term Credit to Farmers">0-Interest Subsidy for
+                                    Short Term Credit to Farmers</option>
                             </select>
                         </div>
                         <div class="sm:col-span-2">
-                            <label for="sub_scheme_name" class="mb-1.5 block text-xs font-semibold text-slate-700">Select SubScheme</label>
-                            <select id="sub_scheme_name" name="sub_scheme_name" class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                            <label for="sub_scheme_name"
+                                class="mb-1.5 block text-xs font-semibold text-slate-700">Select SubScheme</label>
+                            <select id="sub_scheme_name" name="sub_scheme_name"
+                                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                                 <option value="">Select</option>
                             </select>
                         </div>
@@ -602,28 +613,51 @@
                     </div>
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div>
-                            <label for="be_2025_26" class="mb-1.5 block text-xs font-semibold text-slate-700">BE 2025-2026 <span class="text-red-500">*</span></label>
-                            <input id="be_2025_26" name="be_2025_26" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                            <label for="be_2025_26" class="mb-1.5 block text-xs font-semibold text-slate-700">BE
+                                2025-2026 <span class="text-red-500">*</span></label>
+                            <input id="be_2025_26" name="be_2025_26" required type="number" step="0.01"
+                                placeholder="0.00"
+                                class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                         <div>
-                            <label for="cna_bal_01_04_2025" class="mb-1.5 block text-xs font-semibold text-slate-700">CNA balance as on 01.04.2025 <span class="text-red-500">*</span></label>
-                            <input id="cna_bal_01_04_2025" name="cna_bal_01_04_2025" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                            <label for="cna_bal_01_04_2025"
+                                class="mb-1.5 block text-xs font-semibold text-slate-700">CNA balance as on 01.04.2025
+                                <span class="text-red-500">*</span></label>
+                            <input id="cna_bal_01_04_2025" name="cna_bal_01_04_2025" required type="number" step="0.01"
+                                placeholder="0.00"
+                                class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                         <div>
-                            <label for="rel_curr_fy_30_09_2025" class="mb-1.5 block text-xs font-semibold text-slate-700">Releases during the current FY till 30.09.2025 <span class="text-red-500">*</span></label>
-                            <input id="rel_curr_fy_30_09_2025" name="rel_curr_fy_30_09_2025" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                            <label for="rel_curr_fy_30_09_2025"
+                                class="mb-1.5 block text-xs font-semibold text-slate-700">Releases during the current FY
+                                till 30.09.2025 <span class="text-red-500">*</span></label>
+                            <input id="rel_curr_fy_30_09_2025" name="rel_curr_fy_30_09_2025" required type="number"
+                                step="0.01" placeholder="0.00"
+                                class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                         <div>
-                            <label for="cna_bal_30_09_2025" class="mb-1.5 block text-xs font-semibold text-slate-700">CNA Balance as on 30.09.2025 <span class="text-red-500">*</span></label>
-                            <input id="cna_bal_30_09_2025" name="cna_bal_30_09_2025" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                            <label for="cna_bal_30_09_2025"
+                                class="mb-1.5 block text-xs font-semibold text-slate-700">CNA Balance as on 30.09.2025
+                                <span class="text-red-500">*</span></label>
+                            <input id="cna_bal_30_09_2025" name="cna_bal_30_09_2025" required type="number" step="0.01"
+                                placeholder="0.00"
+                                class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                         <div>
-                            <label for="date_last_release" class="mb-1.5 block text-xs font-semibold text-slate-700">Date of Last Release <span class="text-red-500">*</span></label>
-                            <input id="date_last_release" name="date_last_release" required type="text" placeholder="DD/MM/YYYY" class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                            <label for="date_last_release"
+                                class="mb-1.5 block text-xs font-semibold text-slate-700">Date of Last Release <span
+                                    class="text-red-500">*</span></label>
+                            <input id="date_last_release" name="date_last_release" required type="text"
+                                placeholder="DD/MM/YYYY"
+                                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                         <div>
-                            <label for="amt_last_release" class="mb-1.5 block text-xs font-semibold text-slate-700">Amount of last release <span class="text-red-500">*</span></label>
-                            <input id="amt_last_release" name="amt_last_release" required type="number" step="0.01" placeholder="0.00" class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                            <label for="amt_last_release"
+                                class="mb-1.5 block text-xs font-semibold text-slate-700">Amount of last release <span
+                                    class="text-red-500">*</span></label>
+                            <input id="amt_last_release" name="amt_last_release" required type="number" step="0.01"
+                                placeholder="0.00"
+                                class="form-field tabular h-10 w-full rounded-lg border border-slate-300 px-3 text-right text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                     </div>
                 </section>
