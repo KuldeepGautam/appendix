@@ -238,6 +238,17 @@ document.addEventListener('DOMContentLoaded', () => {
       setFormValue('amt_last_release', tds[8]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'amt_last_release', '0.00'));
     }
 
+    if (document.getElementById('entity_name')) {
+      setFormValue('financial_year', tds[1]?.textContent.trim() || getStoredFormValue(row, 'financial_year', ''));
+      setFormValue('entity_name', tds[2]?.textContent.trim() || getStoredFormValue(row, 'entity_name', ''));
+      setFormValue('be_2025_26', tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'be_2025_26', '0.00'));
+      setFormValue('tsa_assignment', tds[4]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'tsa_assignment', '0.00'));
+      setFormValue('actual_expenditure', tds[5]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'actual_expenditure', '0.00'));
+      setFormValue('unspent_assignment', tds[6]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'unspent_assignment', '0.00'));
+      setFormValue('date_last_assignment', tds[7]?.textContent.trim() || getStoredFormValue(row, 'date_last_assignment', ''));
+      setFormValue('amount_last_assignment', tds[8]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'amount_last_assignment', '0.00'));
+    }
+
     const heading = drawer?.querySelector('h2');
     const subtitle = heading?.nextElementSibling;
     if (heading) heading.textContent = 'Edit Record';
@@ -310,6 +321,28 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tds[6]) tds[6].textContent = Number(data.q1_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
         if (tds[7]) tds[7].textContent = Number(data.q2_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
         if (tds[8]) tds[8].textContent = Number(data.q2_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+      }
+
+      if (data.scheme_name !== undefined && document.getElementById('scheme_name')) {
+        if (tds[1]) tds[1].textContent = data.scheme_name || '—';
+        if (tds[2]) tds[2].textContent = data.sub_scheme_name || '—';
+        if (tds[3]) tds[3].textContent = Number(data.be_2025_26 || 0).toFixed(2);
+        if (tds[4]) tds[4].textContent = Number(data.cna_bal_01_04_2025 || 0).toFixed(2);
+        if (tds[5]) tds[5].textContent = Number(data.rel_curr_fy_30_09_2025 || 0).toFixed(2);
+        if (tds[6]) tds[6].textContent = Number(data.cna_bal_30_09_2025 || 0).toFixed(2);
+        if (tds[7]) tds[7].textContent = data.date_last_release || '—';
+        if (tds[8]) tds[8].textContent = Number(data.amt_last_release || 0).toFixed(2);
+      }
+
+      if (data.entity_name !== undefined && document.getElementById('entity_name')) {
+        if (tds[1]) tds[1].textContent = data.financial_year || '—';
+        if (tds[2]) tds[2].textContent = data.entity_name || '—';
+        if (tds[3]) tds[3].textContent = Number(data.be_2025_26 || 0).toFixed(2);
+        if (tds[4]) tds[4].textContent = Number(data.tsa_assignment || 0).toFixed(2);
+        if (tds[5]) tds[5].textContent = Number(data.actual_expenditure || 0).toFixed(2);
+        if (tds[6]) tds[6].textContent = Number(data.unspent_assignment || 0).toFixed(2);
+        if (tds[7]) tds[7].textContent = data.date_last_assignment || '—';
+        if (tds[8]) tds[8].textContent = Number(data.amount_last_assignment || 0).toFixed(2);
       }
 
       storeFormData(row, data);
