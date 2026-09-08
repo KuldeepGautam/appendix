@@ -93,23 +93,44 @@ document.addEventListener('DOMContentLoaded', () => {
     row.dataset.recordRow = '';
     row.dataset.recordId = id;
     
-    if (data && data.rev2526BE !== undefined) {
-      row.innerHTML = `
-        <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600"></td>
-        <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.rev2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-        <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.rev2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-        <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.cap2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-        <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.cap2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-        <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.rev2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-        <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.cap2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-        <td data-label="Action" class="grid-action-cell px-1 py-2 text-center"><div class="grid-action-menu">
-          <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
-          <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-            <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
-            <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
-            <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
-          </div>
-        </div></td>`;
+    if (data && (data.q1_2425_qep !== undefined || data.rev2526BE !== undefined)) {
+      if (data.q1_2425_qep !== undefined) {
+        row.innerHTML = `
+          <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600"></td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q1_2425_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q1_2425_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q2_2425_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q2_2425_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q1_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q1_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q2_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q2_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td data-label="Action" class="grid-action-cell px-1 py-2 text-center"><div class="grid-action-menu">
+            <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
+            <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+              <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+              <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
+              <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
+            </div>
+          </div></td>`;
+      } else {
+        row.innerHTML = `
+          <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600"></td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.rev2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.rev2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.cap2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.cap2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.rev2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.cap2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td data-label="Action" class="grid-action-cell px-1 py-2 text-center"><div class="grid-action-menu">
+            <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
+            <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+              <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+              <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
+              <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
+            </div>
+          </div></td>`;
+      }
     } else {
       row.innerHTML = `
         <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600"></td>
@@ -185,13 +206,26 @@ document.addEventListener('DOMContentLoaded', () => {
     setFormValue('capRE', cell(row, 'rev23')?.textContent.trim() || tds[6]?.textContent.trim() || getStoredFormValue(row, 'capRE', '0.00'));
     setFormValue('capActuals', tds[7]?.textContent.trim() || getStoredFormValue(row, 'capActuals', '0.00'));
 
-    // Support new Appendix-IA fields
-    setFormValue('rev2526BE', tds[1]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'rev2526BE', '0.00'));
-    setFormValue('rev2526RE', tds[2]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'rev2526RE', '0.00'));
-    setFormValue('cap2526BE', tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'cap2526BE', '0.00'));
-    setFormValue('cap2526RE', tds[4]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'cap2526RE', '0.00'));
-    setFormValue('rev2627BE', tds[5]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'rev2627BE', '0.00'));
-    setFormValue('cap2627BE', tds[6]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'cap2627BE', '0.00'));
+    // Support new Appendix-IA and Appendix II fields
+    if (document.getElementById('rev2526BE')) {
+      setFormValue('rev2526BE', tds[1]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'rev2526BE', '0.00'));
+      setFormValue('rev2526RE', tds[2]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'rev2526RE', '0.00'));
+      setFormValue('cap2526BE', tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'cap2526BE', '0.00'));
+      setFormValue('cap2526RE', tds[4]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'cap2526RE', '0.00'));
+      setFormValue('rev2627BE', tds[5]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'rev2627BE', '0.00'));
+      setFormValue('cap2627BE', tds[6]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'cap2627BE', '0.00'));
+    }
+    
+    if (document.getElementById('q1_2425_qep')) {
+      setFormValue('q1_2425_qep', tds[1]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q1_2425_qep', '0.00'));
+      setFormValue('q1_2425_act', tds[2]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q1_2425_act', '0.00'));
+      setFormValue('q2_2425_qep', tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q2_2425_qep', '0.00'));
+      setFormValue('q2_2425_act', tds[4]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q2_2425_act', '0.00'));
+      setFormValue('q1_2526_qep', tds[5]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q1_2526_qep', '0.00'));
+      setFormValue('q1_2526_act', tds[6]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q1_2526_act', '0.00'));
+      setFormValue('q2_2526_qep', tds[7]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q2_2526_qep', '0.00'));
+      setFormValue('q2_2526_act', tds[8]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q2_2526_act', '0.00'));
+    }
 
     const heading = drawer?.querySelector('h2');
     const subtitle = heading?.nextElementSibling;
@@ -254,6 +288,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tds[4]) tds[4].textContent = Number(data.cap2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
         if (tds[5]) tds[5].textContent = Number(data.rev2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
         if (tds[6]) tds[6].textContent = Number(data.cap2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+      }
+
+      if (data.q1_2425_qep !== undefined && !cell(row, 'charge')) {
+        if (tds[1]) tds[1].textContent = Number(data.q1_2425_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[2]) tds[2].textContent = Number(data.q1_2425_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[3]) tds[3].textContent = Number(data.q2_2425_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[4]) tds[4].textContent = Number(data.q2_2425_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[5]) tds[5].textContent = Number(data.q1_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[6]) tds[6].textContent = Number(data.q1_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[7]) tds[7].textContent = Number(data.q2_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[8]) tds[8].textContent = Number(data.q2_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
       }
 
       storeFormData(row, data);
