@@ -227,6 +227,17 @@ document.addEventListener('DOMContentLoaded', () => {
       setFormValue('q2_2526_act', tds[8]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q2_2526_act', '0.00'));
     }
 
+    if (document.getElementById('scheme_name')) {
+      setFormValue('scheme_name', tds[1]?.textContent.trim() || getStoredFormValue(row, 'scheme_name', ''));
+      setFormValue('sub_scheme_name', tds[2]?.textContent.trim() || getStoredFormValue(row, 'sub_scheme_name', ''));
+      setFormValue('be_2025_26', tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'be_2025_26', '0.00'));
+      setFormValue('cna_bal_01_04_2025', tds[4]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'cna_bal_01_04_2025', '0.00'));
+      setFormValue('rel_curr_fy_30_09_2025', tds[5]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'rel_curr_fy_30_09_2025', '0.00'));
+      setFormValue('cna_bal_30_09_2025', tds[6]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'cna_bal_30_09_2025', '0.00'));
+      setFormValue('date_last_release', tds[7]?.textContent.trim() || getStoredFormValue(row, 'date_last_release', ''));
+      setFormValue('amt_last_release', tds[8]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'amt_last_release', '0.00'));
+    }
+
     const heading = drawer?.querySelector('h2');
     const subtitle = heading?.nextElementSibling;
     if (heading) heading.textContent = 'Edit Record';
