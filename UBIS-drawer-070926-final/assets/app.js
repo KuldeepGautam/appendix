@@ -79,7 +79,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function cell(row, field) {
-    return row.querySelector(`[data-field="${field}"]`);
+    let el = row.querySelector(`[data-field="${field}"]`) || row.querySelector(`[data-column="${field}"]`);
+    if (!el && field) {
+      const btn = document.querySelector(`[data-sort="${field}"]`);
+      const th = btn?.closest('th');
+      if (th && th.parentElement) {
+        const index = Array.from(th.parentElement.children).indexOf(th);
+        if (index !== -1 && row.children[index]) {
+          el = row.children[index];
+        }
+      }
+    }
+    return el;
   }
 
   function value(row, field) {

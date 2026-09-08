@@ -328,14 +328,62 @@
                             <tr
                                 class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
                                 <th class="text-center !align-middle px-1 py-2">Sr.No.</th>
-                                <th class="text-center !align-middle px-1 py-2">FinancialYear</th>
-                                <th class="text-center !align-middle px-1 py-2">Entity Name</th>
-                                <th class="text-center !align-middle px-1 py-2">BE 2025-26</th>
-                                <th class="text-center !align-middle px-1 py-2">TSA assignment as on 30th Sept 2025</th>
-                                <th class="text-center !align-middle px-1 py-2">Actual Expenditure upto Sept. 2025</th>
-                                <th class="text-center !align-middle px-1 py-2">Unspent Assignment</th>
-                                <th class="text-center !align-middle px-1 py-2">Date of Last Assignment</th>
-                                <th class="text-center !align-middle px-1 py-2">Amount of last Assignment</th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="financial_year"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">Financial<br>Year</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="entity_name"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">Entity Name</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="be_2025_26"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">BE 2025-26</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="tsa_assignment_30_sept_2025"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">TSA assignment as on<br>30th Sept 2025</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="actual_exp_sept_2025"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">Actual Expenditure<br>upto Sept. 2025</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="unspent_assignment"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">Unspent<br>Assignment</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="date_last_assignment"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">Date of Last<br>Assignment</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="amt_last_assignment"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">Amount of last<br>Assignment</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
                                 <th width="6%" class="text-center !align-middle px-1 py-2">Action</th>
                             </tr>
                         </thead>
@@ -345,28 +393,28 @@
                                 data-record-row data-record-id="UC-000001">
                                 <td data-label="Sr.No."
                                     class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
-                                <td
+                                <td data-field="financial_year"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     2026-2027</td>
-                                <td
+                                <td data-field="entity_name"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     PRADHAN MANTRI KISAN MAN DHAN YOJANA [3687]</td>
-                                <td
+                                <td data-field="be_2025_26"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     120.00</td>
-                                <td
+                                <td data-field="tsa_assignment_30_sept_2025"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     16.00</td>
-                                <td
+                                <td data-field="actual_exp_sept_2025"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     16.00</td>
-                                <td
+                                <td data-field="unspent_assignment"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     0.00</td>
-                                <td
+                                <td data-field="date_last_assignment"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     30/08/2025</td>
-                                <td
+                                <td data-field="amt_last_assignment"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     16.00</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
@@ -374,7 +422,7 @@
                                         <button type="button" data-row-menu
                                             class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
                                             title="More actions" aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
+                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
                                         <div data-row-actions
                                             class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
@@ -399,28 +447,28 @@
                                 data-record-row data-record-id="UC-000002">
                                 <td data-label="Sr.No."
                                     class="px-1 py-2 text-center text-xs font-semibold text-slate-600">2</td>
-                                <td
+                                <td data-field="financial_year"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     2026-2027</td>
-                                <td
+                                <td data-field="entity_name"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     Namo Drone Didi</td>
-                                <td
+                                <td data-field="be_2025_26"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     676.85</td>
-                                <td
+                                <td data-field="tsa_assignment_30_sept_2025"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     0.00</td>
-                                <td
+                                <td data-field="actual_exp_sept_2025"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     0.00</td>
-                                <td
+                                <td data-field="unspent_assignment"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     0.00</td>
-                                <td
+                                <td data-field="date_last_assignment"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     30/09/2025</td>
-                                <td
+                                <td data-field="amt_last_assignment"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     0.00</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
@@ -453,28 +501,28 @@
                                 data-record-row data-record-id="UC-000003">
                                 <td data-label="Sr.No."
                                     class="px-1 py-2 text-center text-xs font-semibold text-slate-600">3</td>
-                                <td
+                                <td data-field="financial_year"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     2026-2027</td>
-                                <td
+                                <td data-field="entity_name"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     FORMATION AND PROMOTION OF 10000 FARMER PRODUCER ORGANISATIONS (FPOs) [3809]</td>
-                                <td
+                                <td data-field="be_2025_26"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     584.00</td>
-                                <td
+                                <td data-field="tsa_assignment_30_sept_2025"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     292.00</td>
-                                <td
+                                <td data-field="actual_exp_sept_2025"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     208.00</td>
-                                <td
+                                <td data-field="unspent_assignment"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     84.00</td>
-                                <td
+                                <td data-field="date_last_assignment"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     21/08/2025</td>
-                                <td
+                                <td data-field="amt_last_assignment"
                                     class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
                                     11.00</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">

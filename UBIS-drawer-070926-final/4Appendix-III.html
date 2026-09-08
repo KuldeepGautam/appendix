@@ -329,15 +329,63 @@
                             <tr
                                 class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
                                 <th class="text-center !align-middle px-1 py-2">S.No.</th>
-                                <th class="text-center !align-middle px-1 py-2">Scheme Name</th>
-                                <th class="text-center !align-middle px-1 py-2">Sub-Scheme Name</th>
-                                <th class="text-center !align-middle px-1 py-2">BE 2025-26</th>
-                                <th class="text-center !align-middle px-1 py-2">CNA balance as on 01.04.2025</th>
-                                <th class="text-center !align-middle px-1 py-2">Releases during the current FY till
-                                    30.09.2025</th>
-                                <th class="text-center !align-middle px-1 py-2">CNA Balance as on 30.09.2025</th>
-                                <th class="text-center !align-middle px-1 py-2">Date of Last Release</th>
-                                <th class="text-center !align-middle px-1 py-2">Amount of last release</th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="scheme_name"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">Scheme Name</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="sub_scheme_name"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">Sub-Scheme<br>Name</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="be_2025_26"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">BE 2025-26</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="cna_bal_01_04_2025"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">CNA balance as on<br>01.04.2025</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="rel_curr_fy_30_09_2025"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">Releases during the<br>current FY till 30.09.2025</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="cna_bal_30_09_2025"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">CNA Balance as on<br>30.09.2025</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="date_last_release"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">Date of Last<br>Release</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th class="text-center !align-middle px-1 py-2">
+                                    <button data-sort="amt_last_release"
+                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        <span class="text-center leading-tight">Amount of last<br>release</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+
                                 <th width="6%" class="text-center !align-middle px-1 py-2">Action</th>
                             </tr>
                         </thead>
