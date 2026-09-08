@@ -249,6 +249,14 @@ document.addEventListener('DOMContentLoaded', () => {
       setFormValue('amount_last_assignment', tds[8]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'amount_last_assignment', '0.00'));
     }
 
+    if (document.getElementById('appraisal_category')) {
+      setFormValue('appraisal_category', tds[1]?.textContent.trim() || getStoredFormValue(row, 'appraisal_category', ''));
+      setFormValue('appraisal_scheme_name', tds[2]?.textContent.trim() || getStoredFormValue(row, 'appraisal_scheme_name', ''));
+      setFormValue('appraisal_status', tds[3]?.textContent.trim() || getStoredFormValue(row, 'appraisal_status', ''));
+      setFormValue('appraisal_valid_upto', tds[4]?.textContent.trim() || getStoredFormValue(row, 'appraisal_valid_upto', ''));
+      setFormValue('appraisal_remarks', tds[5]?.textContent.trim() || getStoredFormValue(row, 'appraisal_remarks', ''));
+    }
+
     const heading = drawer?.querySelector('h2');
     const subtitle = heading?.nextElementSibling;
     if (heading) heading.textContent = 'Edit Record';
@@ -343,6 +351,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tds[6]) tds[6].textContent = Number(data.unspent_assignment || 0).toFixed(2);
         if (tds[7]) tds[7].textContent = data.date_last_assignment || '—';
         if (tds[8]) tds[8].textContent = Number(data.amount_last_assignment || 0).toFixed(2);
+      }
+
+      if (data.appraisal_category !== undefined && document.getElementById('appraisal_category')) {
+        if (tds[1]) tds[1].textContent = data.appraisal_category || '—';
+        if (tds[2]) tds[2].textContent = data.appraisal_scheme_name || '—';
+        if (tds[3]) tds[3].textContent = data.appraisal_status || '—';
+        if (tds[4]) tds[4].textContent = data.appraisal_valid_upto || '—';
+        if (tds[5]) tds[5].textContent = data.appraisal_remarks || '—';
       }
 
       storeFormData(row, data);
