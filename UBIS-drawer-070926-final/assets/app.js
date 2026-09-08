@@ -87,28 +87,48 @@ document.addEventListener('DOMContentLoaded', () => {
     return el?.tagName === 'SELECT' ? el.value : (el?.textContent.trim() || '');
   }
 
-  function createRow(id, year, revBE, revRE, revActuals, capBE, capRE, capActuals) {
+  function createRow(id, year, revBE, revRE, revActuals, capBE, capRE, capActuals, data = null) {
     const row = document.createElement('tr');
     row.className = 'group border-b border-slate-100 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60';
     row.dataset.recordRow = '';
     row.dataset.recordId = id;
-    row.innerHTML = `
-      <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600"></td>
-      <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false" class="editable-cell break-words border border-slate-200 px-2 py-3 text-xs font-bold leading-5 text-slate-800">${escapeHtml(year || '')}</td>
-      <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false" class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">${Number(revBE || 0).toFixed(2)}</td>
-      <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false" class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">${Number(revRE || 0).toFixed(2)}</td>
-      <td data-label="Actuals upto Sept" data-column="status" data-field="status" class="border border-slate-200 tabular px-2 py-3 text-xs font-medium text-slate-700">${Number(revActuals || 0).toFixed(2)}</td>
-      <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false" class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">${Number(capBE || 0).toFixed(2)}</td>
-      <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false" class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">${Number(capRE || 0).toFixed(2)}</td>
-      <td data-label="Capital Actuals 2023–24" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false" class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">${Number(capActuals || 0).toFixed(2)}</td>
-      <td data-label="Action" class="grid-action-cell border border-slate-200 px-2 py-3 text-center"><div class="grid-action-menu">
-        <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
-        <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg border border-slate-200 bg-white p-1 text-left shadow-lg">
-          <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
-          <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
-          <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
-        </div>
-      </div></td>`;
+    
+    if (data && data.rev2526BE !== undefined) {
+      row.innerHTML = `
+        <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600"></td>
+        <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.rev2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+        <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.rev2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+        <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.cap2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+        <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.cap2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+        <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.rev2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+        <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.cap2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+        <td data-label="Action" class="grid-action-cell px-1 py-2 text-center"><div class="grid-action-menu">
+          <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
+          <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+            <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+            <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
+            <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
+          </div>
+        </div></td>`;
+    } else {
+      row.innerHTML = `
+        <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600"></td>
+        <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false" class="editable-cell break-words border border-slate-200 px-2 py-3 text-xs font-bold leading-5 text-slate-800">${escapeHtml(year || '')}</td>
+        <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false" class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">${Number(revBE || 0).toFixed(2)}</td>
+        <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false" class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">${Number(revRE || 0).toFixed(2)}</td>
+        <td data-label="Actuals upto Sept" data-column="status" data-field="status" class="border border-slate-200 tabular px-2 py-3 text-xs font-medium text-slate-700">${Number(revActuals || 0).toFixed(2)}</td>
+        <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false" class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">${Number(capBE || 0).toFixed(2)}</td>
+        <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false" class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">${Number(capRE || 0).toFixed(2)}</td>
+        <td data-label="Capital Actuals 2023–24" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false" class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">${Number(capActuals || 0).toFixed(2)}</td>
+        <td data-label="Action" class="grid-action-cell border border-slate-200 px-2 py-3 text-center"><div class="grid-action-menu">
+          <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
+          <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg border border-slate-200 bg-white p-1 text-left shadow-lg">
+            <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+            <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
+            <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
+          </div>
+        </div></td>`;
+    }
     return row;
   }
 
@@ -165,6 +185,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setFormValue('capRE', cell(row, 'rev23')?.textContent.trim() || tds[6]?.textContent.trim() || getStoredFormValue(row, 'capRE', '0.00'));
     setFormValue('capActuals', tds[7]?.textContent.trim() || getStoredFormValue(row, 'capActuals', '0.00'));
 
+    // Support new Appendix-IA fields
+    setFormValue('rev2526BE', tds[1]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'rev2526BE', '0.00'));
+    setFormValue('rev2526RE', tds[2]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'rev2526RE', '0.00'));
+    setFormValue('cap2526BE', tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'cap2526BE', '0.00'));
+    setFormValue('cap2526RE', tds[4]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'cap2526RE', '0.00'));
+    setFormValue('rev2627BE', tds[5]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'rev2627BE', '0.00'));
+    setFormValue('cap2627BE', tds[6]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'cap2627BE', '0.00'));
+
     const heading = drawer?.querySelector('h2');
     const subtitle = heading?.nextElementSibling;
     if (heading) heading.textContent = 'Edit Record';
@@ -199,24 +227,34 @@ document.addEventListener('DOMContentLoaded', () => {
       const tds = row.querySelectorAll('td');
 
       if (cell(row, 'charge')) cell(row, 'charge').textContent = data.year || '—';
-      else if (tds[1]) tds[1].textContent = data.year || '—';
+      else if (tds[1] && data.year !== undefined) tds[1].textContent = data.year || '—';
 
       if (cell(row, 'services')) cell(row, 'services').textContent = Number(data.revBE || 0).toFixed(2);
-      else if (tds[2]) tds[2].textContent = Number(data.revBE || 0).toFixed(2);
+      else if (tds[2] && data.revBE !== undefined) tds[2].textContent = Number(data.revBE || 0).toFixed(2);
 
       if (cell(row, 'department')) cell(row, 'department').textContent = Number(data.revRE || 0).toFixed(2);
-      else if (tds[3]) tds[3].textContent = Number(data.revRE || 0).toFixed(2);
+      else if (tds[3] && data.revRE !== undefined) tds[3].textContent = Number(data.revRE || 0).toFixed(2);
 
       if (cell(row, 'status')) cell(row, 'status').textContent = Number(data.revActuals || 0).toFixed(2);
-      else if (tds[4]) tds[4].textContent = Number(data.revActuals || 0).toFixed(2);
+      else if (tds[4] && data.revActuals !== undefined) tds[4].textContent = Number(data.revActuals || 0).toFixed(2);
 
       if (cell(row, 'rev22')) cell(row, 'rev22').textContent = Number(data.capBE || 0).toFixed(2);
-      else if (tds[5]) tds[5].textContent = Number(data.capBE || 0).toFixed(2);
+      else if (tds[5] && data.capBE !== undefined) tds[5].textContent = Number(data.capBE || 0).toFixed(2);
 
       if (cell(row, 'rev23')) cell(row, 'rev23').textContent = Number(data.capRE || 0).toFixed(2);
-      else if (tds[6]) tds[6].textContent = Number(data.capRE || 0).toFixed(2);
+      else if (tds[6] && data.capRE !== undefined) tds[6].textContent = Number(data.capRE || 0).toFixed(2);
 
-      if (tds[7]) tds[7].textContent = Number(data.capActuals || 0).toFixed(2);
+      if (tds[7] && data.capActuals !== undefined) tds[7].textContent = Number(data.capActuals || 0).toFixed(2);
+
+      // Support new Appendix-IA fields
+      if (data.rev2526BE !== undefined && !cell(row, 'charge')) {
+        if (tds[1]) tds[1].textContent = Number(data.rev2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[2]) tds[2].textContent = Number(data.rev2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[3]) tds[3].textContent = Number(data.cap2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[4]) tds[4].textContent = Number(data.cap2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[5]) tds[5].textContent = Number(data.rev2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[6]) tds[6].textContent = Number(data.cap2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+      }
 
       storeFormData(row, data);
       row.querySelectorAll('td').forEach((el) => el.classList.add('row-saved'));
@@ -238,7 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
       data.revActuals,
       data.capBE,
       data.capRE,
-      data.capActuals
+      data.capActuals,
+      data
     );
 
     storeFormData(row, data);
