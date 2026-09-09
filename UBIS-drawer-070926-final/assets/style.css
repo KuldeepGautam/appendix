@@ -284,7 +284,15 @@
 
     /* Keep numeric columns readable and aligned. */
     #chargesTable th[data-column^="rev"],
-    #gridBody td[data-column^="rev"] {
+    #gridBody td[data-column^="rev"],
+    #chargesTable th[data-column^="act"],
+    #gridBody td[data-column^="act"],
+    #chargesTable th[data-column^="be_"],
+    #gridBody td[data-column^="be_"],
+    #chargesTable th[data-column^="re_"],
+    #gridBody td[data-column^="re_"],
+    #chargesTable th[data-column^="pct_"],
+    #gridBody td[data-column^="pct_"] {
       white-space: nowrap;
     }
 

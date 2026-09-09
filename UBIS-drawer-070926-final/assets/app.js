@@ -104,6 +104,29 @@ document.addEventListener('DOMContentLoaded', () => {
     row.dataset.recordRow = '';
     row.dataset.recordId = id;
     
+    if (data && data.v_item !== undefined) {
+      row.innerHTML = `
+        <td data-label="Item" data-column="item" data-field="item" class="editable-cell break-words px-3 py-2 text-xs font-medium text-slate-800 text-left">${escapeHtml(data.v_item || '')}</td>
+        <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_act_2425 || 0).toFixed(2)}</td>
+        <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_act_upto_924 || 0).toFixed(2)}</td>
+        <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_be_2526 || 0).toFixed(2)}</td>
+        <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_act_upto_925 || 0).toFixed(2)}</td>
+        <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026" data-field="pct_wrt_be_2025_2026" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_pct_be_2526 || 0).toFixed(2)}</td>
+        <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop" data-field="re_2025_2026_prop" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_re_2526_prop || 0).toFixed(2)}</td>
+        <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop" data-field="be_2026_2027_prop" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_be_2627_prop || 0).toFixed(2)}</td>
+        <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+          <div class="grid-action-menu">
+            <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
+            <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+              <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+              <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
+              <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
+            </div>
+          </div>
+        </td>`;
+      return row;
+    }
+    
     if (data && (data.q1_2425_qep !== undefined || data.rev2526BE !== undefined)) {
       if (data.q1_2425_qep !== undefined) {
         row.innerHTML = `
@@ -170,7 +193,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renumberRows() {
     tbody?.querySelectorAll('[data-record-row]').forEach((row, index) => {
-      row.querySelector('td:first-child').textContent = index + 1;
+      const sno = row.querySelector('td[data-label="S.No."]');
+      if (sno) sno.textContent = index + 1;
     });
     const count = tbody?.querySelectorAll('[data-record-row]').length || 0;
     document.getElementById('totalText')?.replaceChildren(document.createTextNode(count));
@@ -266,6 +290,17 @@ document.addEventListener('DOMContentLoaded', () => {
       setFormValue('appraisal_status', tds[3]?.textContent.trim() || getStoredFormValue(row, 'appraisal_status', ''));
       setFormValue('appraisal_valid_upto', tds[4]?.textContent.trim() || getStoredFormValue(row, 'appraisal_valid_upto', ''));
       setFormValue('appraisal_remarks', tds[5]?.textContent.trim() || getStoredFormValue(row, 'appraisal_remarks', ''));
+    }
+
+    if (document.getElementById('v_item')) {
+      setFormValue('v_item', cell(row, 'item')?.textContent.trim() || tds[0]?.textContent.trim() || getStoredFormValue(row, 'v_item'));
+      setFormValue('v_act_2425', cell(row, 'actual_2024_2025')?.textContent.trim().replace(/,/g, '') || tds[1]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_act_2425', '0.00'));
+      setFormValue('v_act_upto_924', cell(row, 'actuals_upto_09_2024')?.textContent.trim().replace(/,/g, '') || tds[2]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_act_upto_924', '0.00'));
+      setFormValue('v_be_2526', cell(row, 'be_2025_2026')?.textContent.trim().replace(/,/g, '') || tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_be_2526', '0.00'));
+      setFormValue('v_act_upto_925', cell(row, 'actuals_upto_09_2025')?.textContent.trim().replace(/,/g, '') || tds[4]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_act_upto_925', '0.00'));
+      setFormValue('v_pct_be_2526', cell(row, 'pct_wrt_be_2025_2026')?.textContent.trim().replace(/,/g, '') || tds[5]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_pct_be_2526', '0.00'));
+      setFormValue('v_re_2526_prop', cell(row, 're_2025_2026_prop')?.textContent.trim().replace(/,/g, '') || tds[6]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_re_2526_prop', '0.00'));
+      setFormValue('v_be_2627_prop', cell(row, 'be_2026_2027_prop')?.textContent.trim().replace(/,/g, '') || tds[7]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_be_2627_prop', '0.00'));
     }
 
     const heading = drawer?.querySelector('h2');
@@ -372,6 +407,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tds[5]) tds[5].textContent = data.appraisal_remarks || '—';
       }
 
+      if (data.v_item !== undefined && document.getElementById('v_item')) {
+        const itemEl = cell(row, 'item') || tds[0];
+        if (itemEl) itemEl.textContent = data.v_item || '—';
+        const setCell = (col, fallbackIdx, val) => {
+          const el = cell(row, col) || tds[fallbackIdx];
+          if (el) el.textContent = val;
+        };
+        setCell('actual_2024_2025', 1, Number(data.v_act_2425 || 0).toFixed(2));
+        setCell('actuals_upto_09_2024', 2, Number(data.v_act_upto_924 || 0).toFixed(2));
+        setCell('be_2025_2026', 3, Number(data.v_be_2526 || 0).toFixed(2));
+        setCell('actuals_upto_09_2025', 4, Number(data.v_act_upto_925 || 0).toFixed(2));
+        setCell('pct_wrt_be_2025_2026', 5, Number(data.v_pct_be_2526 || 0).toFixed(2));
+        setCell('re_2025_2026_prop', 6, Number(data.v_re_2526_prop || 0).toFixed(2));
+        setCell('be_2026_2027_prop', 7, Number(data.v_be_2627_prop || 0).toFixed(2));
+      }
+
       storeFormData(row, data);
       row.querySelectorAll('td').forEach((el) => el.classList.add('row-saved'));
       setTimeout(() => row.querySelectorAll('td').forEach((el) => el.classList.remove('row-saved')), 900);
@@ -463,10 +514,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyFilters() {
     const search = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
     const status = document.getElementById('statusFilter')?.value || 'All';
+    const category = document.getElementById('categoryFilter')?.value || 'All';
     tbody?.querySelectorAll('[data-record-row]').forEach(row => {
       const haystack = row.textContent.toLowerCase();
       const rowStatus = row.querySelector('.row-status')?.value || '';
-      row.hidden = Boolean((search && !haystack.includes(search)) || (status !== 'All' && rowStatus !== status));
+      const rowCategory = row.dataset.category || '';
+      const matchSearch = !search || haystack.includes(search);
+      const matchStatus = status === 'All' || rowStatus === status;
+      const matchCategory = category === 'All' || rowCategory === 'All' || rowCategory === category || haystack.includes(category.toLowerCase());
+      row.hidden = !(matchSearch && matchStatus && matchCategory);
     });
   }
 
@@ -481,11 +537,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   document.getElementById('statusFilter')?.addEventListener('change', applyFilters);
+  document.getElementById('categoryFilter')?.addEventListener('change', applyFilters);
   document.getElementById('yearFilter')?.addEventListener('change', applyFilters);
 
   window.clearFilters = () => {
     ['searchInput'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
-    ['statusFilter','yearFilter'].forEach(id => { const el = document.getElementById(id); if (el) el.selectedIndex = 0; });
+    ['statusFilter','yearFilter','categoryFilter'].forEach(id => { const el = document.getElementById(id); if (el) el.selectedIndex = 0; });
     applyFilters();
   };
 
