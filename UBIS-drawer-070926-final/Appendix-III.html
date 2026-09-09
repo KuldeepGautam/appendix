@@ -46,32 +46,45 @@
                     - III</span>
             </div>
             <section class="mb-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-panel">
-                <div class="grid grid-cols-1 gap-4 lg:grid-cols-2"><label class="block min-w-0"><span
-                            class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Demand</span>
+                <div class="grid grid-cols-1 gap-4 lg:grid-cols-3"><label class="block min-w-0"><span
+                            class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Select
+                            Balance Type</span>
                         <div class="relative"><select id="pageDemandSelect"
                                 class="h-12 w-full appearance-none truncate rounded-lg border border-slate-300 bg-slate-50 px-3.5 pr-10 text-sm font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-ubis-teal focus:bg-white focus:ring-4 focus:ring-teal-50"
                                 aria-label="Demand">
-                                <option value="Department of Agriculture &amp; Farmers Welfare" selected>Department of
-                                    Agriculture &amp;
-                                    Farmers Welfare</option>
-                                <option value="Department of Agricultural Research &amp; Education">Department of
-                                    Agricultural Research
-                                    &amp; Education</option>
+                                <option value="Department of Agriculture &amp; Farmers Welfare" selected>
+                                    Central Sector Schemes/Projects
+                                </option>
                             </select><i data-lucide="chevron-down"
                                 class="pointer-events-none absolute right-3.5 top-4 h-4 w-4 text-slate-700"></i></div>
                     </label><label class="block min-w-0"><span
-                            class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Appendix</span>
+                            class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Select
+                            Scheme</span>
                         <div class="relative"><select id="pageAppendixSelect"
                                 class="h-12 w-full appearance-none truncate rounded-lg border border-slate-300 bg-slate-50 px-3.5 pr-10 text-sm font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-ubis-teal focus:bg-white focus:ring-4 focus:ring-teal-50"
                                 aria-label="Appendix">
                                 <option
                                     value="Appendix IV-A : Estimates of Expenditure Under Special Component Plan for Scheduled Castes">
-                                    Appendix II : Quarterly Expenditure Plan Progress
+                                    0-Interest Subsidy for Short Term Credit to Farmers
                                 </option>
 
                             </select><i data-lucide="chevron-down"
                                 class="pointer-events-none absolute right-3.5 top-4 h-4 w-4 text-slate-700"></i></div>
-                    </label></div>
+                    </label>
+                    <label class="block min-w-0"><span
+                            class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Select
+                            SubScheme</span>
+                        <div class="relative"><select id="pageDemandSelect"
+                                class="h-12 w-full appearance-none truncate rounded-lg border border-slate-300 bg-slate-50 px-3.5 pr-10 text-sm font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-ubis-teal focus:bg-white focus:ring-4 focus:ring-teal-50"
+                                aria-label="Demand">
+                                <option value="Department of Agriculture &amp; Farmers Welfare" selected>
+                                    Select
+                                </option>
+                            </select><i data-lucide="chevron-down"
+                                class="pointer-events-none absolute right-3.5 top-4 h-4 w-4 text-slate-700"></i>
+                        </div>
+                    </label>
+                </div>
             </section>
             <section class="appendix-highlight mb-5 rounded-2xl border p-4">
                 <div class="flex flex-col justify-between gap-4 xl:flex-row xl:items-center">
@@ -327,228 +340,175 @@
                     <div class="flex flex-col items-end gap-1.5">
                         <span class="text-xs font-semibold text-red-600">Amount in Crores of rupees</span>
                     </div>
-                    <table id="chargesTable" class="w-full table-fixed text-left">
-                        <thead class="sticky top-0 z-10 bg-slate-50/95 backdrop-blur">
-                            <tr
-                                class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
-                                <th class="text-center !align-middle px-1 py-2">S.No.</th>
-                                <th class="text-center !align-middle px-1 py-2">
-                                    <button data-sort="scheme_name"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                    <table id="chargesTable" class="ubis-data-grid">
+                        <thead class="ubis-data-grid__head">
+                            <tr class="data-grid__header-row">
+                                <th class="grid-head-cell grid-head-cell--center grid-col--5">S.No.</th>
+                                <th class="grid-head-cell grid-head-cell--center grid-col--18">
+                                    <button data-sort="scheme_name" class="button-content">
                                         <span class="text-center leading-tight">Scheme Name</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th class="text-center !align-middle px-1 py-2">
-                                    <button data-sort="sub_scheme_name"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                <th class="grid-head-cell grid-head-cell--center grid-col--10">
+                                    <button data-sort="sub_scheme_name" class="button-content">
                                         <span class="text-center leading-tight">Sub-Scheme<br>Name</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th class="text-center !align-middle px-1 py-2">
-                                    <button data-sort="be_2025_26"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                <th class="grid-head-cell grid-head-cell--center grid-col--9">
+                                    <button data-sort="be_2025_26" class="button-content">
                                         <span class="text-center leading-tight">BE 2025-26</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th class="text-center !align-middle px-1 py-2">
-                                    <button data-sort="cna_bal_01_04_2025"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                <th class="grid-head-cell grid-head-cell--center grid-col--10">
+                                    <button data-sort="cna_bal_01_04_2025" class="button-content">
                                         <span class="text-center leading-tight">CNA balance as on<br>01.04.2025</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th class="text-center !align-middle px-1 py-2">
-                                    <button data-sort="rel_curr_fy_30_09_2025"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
-                                        <span class="text-center leading-tight">Releases during the<br>current FY till 30.09.2025</span>
+                                <th class="grid-head-cell grid-head-cell--center grid-col--13">
+                                    <button data-sort="rel_curr_fy_30_09_2025" class="button-content">
+                                        <span class="text-center leading-tight">Releases during the<br>current FY till
+                                            30.09.2025</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th class="text-center !align-middle px-1 py-2">
-                                    <button data-sort="cna_bal_30_09_2025"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                <th class="grid-head-cell grid-head-cell--center grid-col--10">
+                                    <button data-sort="cna_bal_30_09_2025" class="button-content">
                                         <span class="text-center leading-tight">CNA Balance as on<br>30.09.2025</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th class="text-center !align-middle px-1 py-2">
-                                    <button data-sort="date_last_release"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                <th class="grid-head-cell grid-head-cell--center grid-col--10">
+                                    <button data-sort="date_last_release" class="button-content">
                                         <span class="text-center leading-tight">Date of Last<br>Release</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th class="text-center !align-middle px-1 py-2">
-                                    <button data-sort="amt_last_release"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                <th class="grid-head-cell grid-head-cell--center grid-col--10">
+                                    <button data-sort="amt_last_release" class="button-content">
                                         <span class="text-center leading-tight">Amount of last<br>release</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
 
-                                <th width="6%" class="text-center !align-middle px-1 py-2">Action</th>
+                                <th class="grid-head-cell grid-head-cell--center grid-col--5">Action</th>
                             </tr>
                         </thead>
-                        <tbody id="gridBody" class="divide-y divide-slate-100">
+                        <tbody id="gridBody" class="data-grid__body">
                             <!-- Row 1 -->
-                            <tr class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                                data-record-row data-record-id="UC-000001">
-                                <td data-label="S.No."
-                                    class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000001">
+                                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">1</td>
+                                <td class="editable-cell grid-cell grid-cell--strong">
                                     Interest Subsidy for Short Term Credit to Farmers</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--center tabular">
                                 </td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     0.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     2222.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     333333.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     4455555.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--center tabular">
                                     09/07/2026</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     3030300.00</td>
-                                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                                <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
+                                            class="grid-more-button icon-button row-more-button" title="More actions"
+                                            aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-                                            <button type="button" data-row-edit
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                                        <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
+                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
+                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                                            <button type="button" data-row-save class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
+                                                class="menu-action menu-action--danger" title="Delete row"><i
+                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                                data-record-row data-record-id="UC-000001">
-                                <td data-label="S.No."
-                                    class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000001">
+                                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">1</td>
+                                <td class="editable-cell grid-cell grid-cell--strong">
                                     Interest Subsidy for Short Term Credit to Farmers</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--center tabular">
                                 </td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     0.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     2222.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     333333.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     4455555.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--center tabular">
                                     09/07/2026</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     3030300.00</td>
-                                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                                <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
+                                            class="grid-more-button icon-button row-more-button" title="More actions"
+                                            aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-                                            <button type="button" data-row-edit
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                                        <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
+                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
+                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                                            <button type="button" data-row-save class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
+                                                class="menu-action menu-action--danger" title="Delete row"><i
+                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                                data-record-row data-record-id="UC-000001">
-                                <td data-label="S.No."
-                                    class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000001">
+                                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">1</td>
+                                <td class="editable-cell grid-cell grid-cell--strong">
                                     Interest Subsidy for Short Term Credit to Farmers</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--center tabular">
                                 </td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     0.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     2222.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     333333.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     4455555.00</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--center tabular">
                                     09/07/2026</td>
-                                <td
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td class="editable-cell grid-cell grid-cell--right tabular">
                                     3030300.00</td>
-                                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                                <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
+                                            class="grid-more-button icon-button row-more-button" title="More actions"
+                                            aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-                                            <button type="button" data-row-edit
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                                        <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
+                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
+                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                                            <button type="button" data-row-save class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
+                                                class="menu-action menu-action--danger" title="Delete row"><i
+                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
                                     </div>
                                 </td>

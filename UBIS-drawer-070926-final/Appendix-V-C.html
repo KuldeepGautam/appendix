@@ -326,116 +326,115 @@
                         <span class="text-xs font-semibold text-red-600">Amount in Crores of rupees</span>
                     </div>
                     
-                    <table id="chargesTable" class="w-full text-left">
-                        <thead class="sticky top-0 z-10 bg-slate-50/95 backdrop-blur">
-                            <tr
-                                class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
-                                <th data-column="name" class="text-left !align-middle px-3 py-2.5">
+                    <table id="chargesTable" class="ubis-data-grid">
+                        <thead class="ubis-data-grid__head">
+                            <tr class="data-grid__header-row">
+                                <th data-column="name" class="grid-head-cell grid-col--20">
                                     <button data-sort="name"
-                                        class="inline-flex items-center gap-1.5 font-bold uppercase tracking-wide">
+                                        class="button-content">
                                         <span>NAME</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="actual_2024_2025" class="text-right !align-middle px-2 py-2.5">
+                                <th data-column="actual_2024_2025" class="grid-head-cell grid-head-cell--right grid-col--10">
                                     <button data-sort="actual_2024_2025"
-                                        class="inline-flex items-center justify-end gap-1.5 w-full font-bold uppercase tracking-wide">
+                                        class="button-content button-content--tight justify-end">
                                         <span class="text-right leading-tight">ACTUAL<br>2024-2025</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="actuals_upto_09_2024" class="text-right !align-middle px-2 py-2.5">
+                                <th data-column="actuals_upto_09_2024" class="grid-head-cell grid-head-cell--right grid-col--10">
                                     <button data-sort="actuals_upto_09_2024"
-                                        class="inline-flex items-center justify-end gap-1.5 w-full font-bold uppercase tracking-wide">
+                                        class="button-content button-content--tight justify-end">
                                         <span class="text-right leading-tight">ACTUALS UPTO<br>9/2024</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="be_2025_2026" class="text-right !align-middle px-2 py-2.5">
+                                <th data-column="be_2025_2026" class="grid-head-cell grid-head-cell--right grid-col--10">
                                     <button data-sort="be_2025_2026"
-                                        class="inline-flex items-center justify-end gap-1.5 w-full font-bold uppercase tracking-wide">
+                                        class="button-content button-content--tight justify-end">
                                         <span class="text-right leading-tight">B.E.<br>2025-2026</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="actuals_upto_09_2025" class="text-right !align-middle px-2 py-2.5">
+                                <th data-column="actuals_upto_09_2025" class="grid-head-cell grid-head-cell--right grid-col--10">
                                     <button data-sort="actuals_upto_09_2025"
-                                        class="inline-flex items-center justify-end gap-1.5 w-full font-bold uppercase tracking-wide">
+                                        class="button-content button-content--tight justify-end">
                                         <span class="text-right leading-tight">ACTUALS UPTO<br>9/2025</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="proposed_re_2025_2026" class="text-right !align-middle px-2 py-2.5">
+                                <th data-column="proposed_re_2025_2026" class="grid-head-cell grid-head-cell--right grid-col--11">
                                     <button data-sort="proposed_re_2025_2026"
-                                        class="inline-flex items-center justify-end gap-1.5 w-full font-bold uppercase tracking-wide">
+                                        class="button-content button-content--tight justify-end">
                                         <span class="text-right leading-tight">PROPOSED R.E.<br>2025-2026</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="proposed_be_2026_2027" class="text-right !align-middle px-2 py-2.5">
+                                <th data-column="proposed_be_2026_2027" class="grid-head-cell grid-head-cell--right grid-col--11">
                                     <button data-sort="proposed_be_2026_2027"
-                                        class="inline-flex items-center justify-end gap-1.5 w-full font-bold uppercase tracking-wide">
+                                        class="button-content button-content--tight justify-end">
                                         <span class="text-right leading-tight">PROPOSED B.E.<br>2026-2027</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="remarks" class="text-left !align-middle px-3 py-2.5">
+                                <th data-column="remarks" class="grid-head-cell grid-col--11">
                                     <button data-sort="remarks"
-                                        class="inline-flex items-center gap-1.5 font-bold uppercase tracking-wide">
+                                        class="button-content">
                                         <span>REMARKS</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th width="6%" class="text-center !align-middle px-1 py-2">Action</th>
+                                <th class="grid-head-cell grid-head-cell--center grid-col--7">Action</th>
                             </tr>
                         </thead>
-                        <tbody id="gridBody" class="divide-y divide-slate-100">
+                        <tbody id="gridBody" class="data-grid__body">
                             <!-- Row 1 -->
-                            <tr class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
+                            <tr class="data-grid__row"
                                 data-record-row data-record-id="UC-000001">
                                 <td data-label="NAME" data-column="name" data-field="name"
-                                    class="editable-cell break-words px-3 py-2.5 text-xs font-medium text-slate-800 text-left">
+                                    class="editable-cell grid-cell grid-cell--strong">
                                     IRRI South Asia Regional Centre</td>
                                 <td data-label="ACTUAL 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     21.75</td>
                                 <td data-label="ACTUALS UPTO 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     12.50</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     25.00</td>
                                 <td data-label="ACTUALS UPTO 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     6.25</td>
                                 <td data-label="PROPOSED R.E. 2025-2026" data-column="proposed_re_2025_2026" data-field="proposed_re_2025_2026"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     28.25</td>
                                 <td data-label="PROPOSED B.E. 2026-2027" data-column="proposed_be_2026_2027" data-field="proposed_be_2026_2027"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     25.00</td>
                                 <td data-label="REMARKS" data-column="remarks" data-field="remarks"
-                                    class="editable-cell break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-left">
+                                    class="editable-cell grid-cell grid-cell--body">
                                 </td>
-                                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                                <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                                            class="grid-more-button icon-button row-more-button"
                                             title="More actions" aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
                                         <div data-row-actions
-                                            class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                                            class="grid-row-actions row-action-menu is-hidden">
                                             <button type="button" data-row-edit
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                                                class="menu-action"
                                                 title="Edit row"><i data-lucide="pencil"
                                                     class="h-3.5 w-3.5"></i>Edit</button>
                                             <button type="button" data-row-save
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                                                class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                                                class="menu-action menu-action--danger"
                                                 title="Delete row"><i data-lucide="trash-2"
                                                     class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
@@ -443,51 +442,51 @@
                                 </td>
                             </tr>
                             <!-- Row 2 -->
-                            <tr class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
+                            <tr class="data-grid__row"
                                 data-record-row data-record-id="UC-000002">
                                 <td data-label="NAME" data-column="name" data-field="name"
-                                    class="editable-cell break-words px-3 py-2.5 text-xs font-medium text-slate-800 text-left">
+                                    class="editable-cell grid-cell grid-cell--strong">
                                     National Farmers Welfare Program Implementation So</td>
                                 <td data-label="ACTUAL 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     0.00</td>
                                 <td data-label="ACTUALS UPTO 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     0.00</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     10.00</td>
                                 <td data-label="ACTUALS UPTO 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     0.00</td>
                                 <td data-label="PROPOSED R.E. 2025-2026" data-column="proposed_re_2025_2026" data-field="proposed_re_2025_2026"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     6.50</td>
                                 <td data-label="PROPOSED B.E. 2026-2027" data-column="proposed_be_2026_2027" data-field="proposed_be_2026_2027"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     14.00</td>
                                 <td data-label="REMARKS" data-column="remarks" data-field="remarks"
-                                    class="editable-cell break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-left">
+                                    class="editable-cell grid-cell grid-cell--body">
                                 </td>
-                                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                                <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                                            class="grid-more-button icon-button row-more-button"
                                             title="More actions" aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
                                         <div data-row-actions
-                                            class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                                            class="grid-row-actions row-action-menu is-hidden">
                                             <button type="button" data-row-edit
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                                                class="menu-action"
                                                 title="Edit row"><i data-lucide="pencil"
                                                     class="h-3.5 w-3.5"></i>Edit</button>
                                             <button type="button" data-row-save
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                                                class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                                                class="menu-action menu-action--danger"
                                                 title="Delete row"><i data-lucide="trash-2"
                                                     class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
@@ -495,51 +494,51 @@
                                 </td>
                             </tr>
                             <!-- Row 3 -->
-                            <tr class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
+                            <tr class="data-grid__row"
                                 data-record-row data-record-id="UC-000003">
                                 <td data-label="NAME" data-column="name" data-field="name"
-                                    class="editable-cell break-words px-3 py-2.5 text-xs font-medium text-slate-800 text-left">
+                                    class="editable-cell grid-cell grid-cell--strong">
                                     Protection of Plant Varieties and Farmers Rights</td>
                                 <td data-label="ACTUAL 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     37.13</td>
                                 <td data-label="ACTUALS UPTO 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     19.33</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     40.00</td>
                                 <td data-label="ACTUALS UPTO 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     12.87</td>
                                 <td data-label="PROPOSED R.E. 2025-2026" data-column="proposed_re_2025_2026" data-field="proposed_re_2025_2026"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     40.00</td>
                                 <td data-label="PROPOSED B.E. 2026-2027" data-column="proposed_be_2026_2027" data-field="proposed_be_2026_2027"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     43.00</td>
                                 <td data-label="REMARKS" data-column="remarks" data-field="remarks"
-                                    class="editable-cell break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-left">
+                                    class="editable-cell grid-cell grid-cell--body">
                                 </td>
-                                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                                <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                                            class="grid-more-button icon-button row-more-button"
                                             title="More actions" aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
                                         <div data-row-actions
-                                            class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                                            class="grid-row-actions row-action-menu is-hidden">
                                             <button type="button" data-row-edit
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                                                class="menu-action"
                                                 title="Edit row"><i data-lucide="pencil"
                                                     class="h-3.5 w-3.5"></i>Edit</button>
                                             <button type="button" data-row-save
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                                                class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                                                class="menu-action menu-action--danger"
                                                 title="Delete row"><i data-lucide="trash-2"
                                                     class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
@@ -547,51 +546,51 @@
                                 </td>
                             </tr>
                             <!-- Row 4 -->
-                            <tr class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
+                            <tr class="data-grid__row"
                                 data-record-row data-record-id="UC-000004">
                                 <td data-label="NAME" data-column="name" data-field="name"
-                                    class="editable-cell break-words px-3 py-2.5 text-xs font-medium text-slate-800 text-left">
+                                    class="editable-cell grid-cell grid-cell--strong">
                                     Agriculture Census</td>
                                 <td data-label="ACTUAL 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     41.01</td>
                                 <td data-label="ACTUALS UPTO 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     20.76</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     40.00</td>
                                 <td data-label="ACTUALS UPTO 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     22.40</td>
                                 <td data-label="PROPOSED R.E. 2025-2026" data-column="proposed_re_2025_2026" data-field="proposed_re_2025_2026"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     100.00</td>
                                 <td data-label="PROPOSED B.E. 2026-2027" data-column="proposed_be_2026_2027" data-field="proposed_be_2026_2027"
-                                    class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">
+                                    class="editable-cell grid-cell grid-cell--right tabular">
                                     100.00</td>
                                 <td data-label="REMARKS" data-column="remarks" data-field="remarks"
-                                    class="editable-cell break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-left">
+                                    class="editable-cell grid-cell grid-cell--body">
                                     Payment of salary and other expenses to nodal state department for implementing agricultural census. </td>
-                                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                                <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                                            class="grid-more-button icon-button row-more-button"
                                             title="More actions" aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
                                         <div data-row-actions
-                                            class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                                            class="grid-row-actions row-action-menu is-hidden">
                                             <button type="button" data-row-edit
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                                                class="menu-action"
                                                 title="Edit row"><i data-lucide="pencil"
                                                     class="h-3.5 w-3.5"></i>Edit</button>
                                             <button type="button" data-row-save
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                                                class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                                                class="menu-action menu-action--danger"
                                                 title="Delete row"><i data-lucide="trash-2"
                                                     class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>

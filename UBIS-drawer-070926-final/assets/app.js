@@ -100,154 +100,115 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function createRow(id, year, revBE, revRE, revActuals, capBE, capRE, capActuals, data = null) {
     const row = document.createElement('tr');
-    row.className = 'group border-b border-slate-100 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60';
+    row.className = 'data-grid__row';
     row.dataset.recordRow = '';
     row.dataset.recordId = id;
     
-    if (data && data.v_item !== undefined) {
-      row.innerHTML = `
-        <td data-label="Item" data-column="item" data-field="item" class="editable-cell break-words px-3 py-2 text-xs font-medium text-slate-800 text-left">${escapeHtml(data.v_item || '')}</td>
-        <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_act_2425 || 0).toFixed(2)}</td>
-        <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_act_upto_924 || 0).toFixed(2)}</td>
-        <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_be_2526 || 0).toFixed(2)}</td>
-        <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_act_upto_925 || 0).toFixed(2)}</td>
-        <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026" data-field="pct_wrt_be_2025_2026" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_pct_be_2526 || 0).toFixed(2)}</td>
-        <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop" data-field="re_2025_2026_prop" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_re_2526_prop || 0).toFixed(2)}</td>
-        <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop" data-field="be_2026_2027_prop" class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">${Number(data.v_be_2627_prop || 0).toFixed(2)}</td>
-        <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+    const actionCellHtml = `
+        <td data-label="Action" class="grid-action-cell">
           <div class="grid-action-menu">
-            <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
-            <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-              <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
-              <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
-              <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
+            <button type="button" data-row-menu class="grid-more-button icon-button row-more-button"
+              title="More actions" aria-label="More actions" aria-expanded="false">
+              <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
+            </button>
+            <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
+              <button type="button" data-row-edit class="menu-action" title="Edit row"><i data-lucide="pencil"
+                  class="h-3.5 w-3.5"></i>Edit</button>
+              <button type="button" data-row-save class="menu-action menu-action--primary" title="Save row"><i
+                  data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
+              <button type="button" data-row-delete class="menu-action menu-action--danger"
+                title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
             </div>
           </div>
         </td>`;
+
+    if (data && data.v_item !== undefined) {
+      row.innerHTML = `
+        <td data-label="Item" data-column="item" data-field="item" class="editable-cell grid-cell grid-cell--strong">${escapeHtml(data.v_item || '')}</td>
+        <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.v_act_2425 || 0).toFixed(2)}</td>
+        <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.v_act_upto_924 || 0).toFixed(2)}</td>
+        <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.v_be_2526 || 0).toFixed(2)}</td>
+        <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.v_act_upto_925 || 0).toFixed(2)}</td>
+        <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026" data-field="pct_wrt_be_2025_2026" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.v_pct_be_2526 || 0).toFixed(2)}</td>
+        <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop" data-field="re_2025_2026_prop" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.v_re_2526_prop || 0).toFixed(2)}</td>
+        <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop" data-field="be_2026_2027_prop" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.v_be_2627_prop || 0).toFixed(2)}</td>
+        ${actionCellHtml}`;
       return row;
     }
 
     if (data && data.va_autonomous_body !== undefined) {
       row.innerHTML = `
-        <td data-label="Autonomous Body" data-column="autonomous_body" data-field="autonomous_body" class="editable-cell break-words px-3 py-2.5 text-xs font-medium text-slate-800 text-left">${escapeHtml(data.va_autonomous_body || '')}</td>
-        <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general" data-field="gia_general" class="editable-cell tabular break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.va_gia_general || 0).toFixed(2)}</td>
-        <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027" data-column="gia_capital" data-field="gia_capital" class="editable-cell tabular break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.va_gia_capital || 0).toFixed(2)}</td>
-        <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary" data-field="gia_salary" class="editable-cell tabular break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.va_gia_salary || 0).toFixed(2)}</td>
-        <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
-          <div class="grid-action-menu">
-            <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
-            <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-              <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
-              <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
-              <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
-            </div>
-          </div>
-        </td>`;
+        <td data-label="Autonomous Body" data-column="autonomous_body" data-field="autonomous_body" class="editable-cell grid-cell grid-cell--strong">${escapeHtml(data.va_autonomous_body || '')}</td>
+        <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general" data-field="gia_general" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.va_gia_general || 0).toFixed(2)}</td>
+        <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027" data-column="gia_capital" data-field="gia_capital" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.va_gia_capital || 0).toFixed(2)}</td>
+        <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary" data-field="gia_salary" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.va_gia_salary || 0).toFixed(2)}</td>
+        ${actionCellHtml}`;
       return row;
     }
 
     if (data && data.vb_object_head !== undefined) {
       row.innerHTML = `
-        <td data-label="OBJECT HEAD" data-column="object_head" data-field="object_head" class="editable-cell break-words px-3 py-2.5 text-xs font-medium text-slate-800 text-left">${escapeHtml(data.vb_object_head || '')}</td>
-        <td data-label="ACTUAL 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vb_act_2425 || 0).toFixed(2)}</td>
-        <td data-label="ACTUALS UPTO 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vb_act_upto_924 || 0).toFixed(2)}</td>
-        <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vb_be_2526 || 0).toFixed(2)}</td>
-        <td data-label="ACTUALS UPTO 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vb_act_upto_925 || 0).toFixed(2)}</td>
-        <td data-label="PROPOSED R.E. 2025-2026" data-column="proposed_re_2025_2026" data-field="proposed_re_2025_2026" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vb_re_2526_prop || 0).toFixed(2)}</td>
-        <td data-label="PROPOSED B.E. 2026-2027" data-column="proposed_be_2026_2027" data-field="proposed_be_2026_2027" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vb_be_2627_prop || 0).toFixed(2)}</td>
-        <td data-label="REMARKS" data-column="remarks" data-field="remarks" class="editable-cell break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-left">${escapeHtml(data.vb_remarks || '')}</td>
-        <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
-          <div class="grid-action-menu">
-            <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
-            <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-              <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
-              <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
-              <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
-            </div>
-          </div>
-        </td>`;
+        <td data-label="OBJECT HEAD" data-column="object_head" data-field="object_head" class="editable-cell grid-cell grid-cell--strong">${escapeHtml(data.vb_object_head || '')}</td>
+        <td data-label="ACTUAL 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.vb_act_2425 || 0).toFixed(2)}</td>
+        <td data-label="ACTUALS UPTO 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.vb_act_upto_924 || 0).toFixed(2)}</td>
+        <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.vb_be_2526 || 0).toFixed(2)}</td>
+        <td data-label="ACTUALS UPTO 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.vb_act_upto_925 || 0).toFixed(2)}</td>
+        <td data-label="PROPOSED R.E. 2025-2026" data-column="proposed_re_2025_2026" data-field="proposed_re_2025_2026" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.vb_re_2526_prop || 0).toFixed(2)}</td>
+        <td data-label="PROPOSED B.E. 2026-2027" data-column="proposed_be_2026_2027" data-field="proposed_be_2026_2027" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.vb_be_2627_prop || 0).toFixed(2)}</td>
+        <td data-label="REMARKS" data-column="remarks" data-field="remarks" class="editable-cell grid-cell grid-cell--body">${escapeHtml(data.vb_remarks || '')}</td>
+        ${actionCellHtml}`;
       return row;
     }
 
     if (data && data.vc_name !== undefined) {
       row.innerHTML = `
-        <td data-label="NAME" data-column="name" data-field="name" class="editable-cell break-words px-3 py-2.5 text-xs font-medium text-slate-800 text-left">${escapeHtml(data.vc_name || '')}</td>
-        <td data-label="ACTUAL 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vc_act_2425 || 0).toFixed(2)}</td>
-        <td data-label="ACTUALS UPTO 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vc_act_upto_924 || 0).toFixed(2)}</td>
-        <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vc_be_2526 || 0).toFixed(2)}</td>
-        <td data-label="ACTUALS UPTO 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vc_act_upto_925 || 0).toFixed(2)}</td>
-        <td data-label="PROPOSED R.E. 2025-2026" data-column="proposed_re_2025_2026" data-field="proposed_re_2025_2026" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vc_re_2526_prop || 0).toFixed(2)}</td>
-        <td data-label="PROPOSED B.E. 2026-2027" data-column="proposed_be_2026_2027" data-field="proposed_be_2026_2027" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vc_be_2627_prop || 0).toFixed(2)}</td>
-        <td data-label="REMARKS" data-column="remarks" data-field="remarks" class="editable-cell break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-left">${escapeHtml(data.vc_remarks || '')}</td>
-        <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
-          <div class="grid-action-menu">
-            <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
-            <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-              <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
-              <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
-              <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
-            </div>
-          </div>
-        </td>`;
+        <td data-label="NAME" data-column="name" data-field="name" class="editable-cell grid-cell grid-cell--strong">${escapeHtml(data.vc_name || '')}</td>
+        <td data-label="ACTUAL 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.vc_act_2425 || 0).toFixed(2)}</td>
+        <td data-label="ACTUALS UPTO 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.vc_act_upto_924 || 0).toFixed(2)}</td>
+        <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.vc_be_2526 || 0).toFixed(2)}</td>
+        <td data-label="ACTUALS UPTO 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.vc_act_upto_925 || 0).toFixed(2)}</td>
+        <td data-label="PROPOSED R.E. 2025-2026" data-column="proposed_re_2025_2026" data-field="proposed_re_2025_2026" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.vc_re_2526_prop || 0).toFixed(2)}</td>
+        <td data-label="PROPOSED B.E. 2026-2027" data-column="proposed_be_2026_2027" data-field="proposed_be_2026_2027" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.vc_be_2627_prop || 0).toFixed(2)}</td>
+        <td data-label="REMARKS" data-column="remarks" data-field="remarks" class="editable-cell grid-cell grid-cell--body">${escapeHtml(data.vc_remarks || '')}</td>
+        ${actionCellHtml}`;
       return row;
     }
     
     if (data && (data.q1_2425_qep !== undefined || data.rev2526BE !== undefined)) {
       if (data.q1_2425_qep !== undefined) {
         row.innerHTML = `
-          <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600"></td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q1_2425_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q1_2425_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q2_2425_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q2_2425_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q1_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q1_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q2_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.q2_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td data-label="Action" class="grid-action-cell px-1 py-2 text-center"><div class="grid-action-menu">
-            <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
-            <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-              <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
-              <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
-              <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
-            </div>
-          </div></td>`;
+          <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong"></td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q1_2425_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q1_2425_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q2_2425_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q2_2425_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q1_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q1_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q2_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q2_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          ${actionCellHtml}`;
       } else {
         row.innerHTML = `
-          <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600"></td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.rev2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.rev2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.cap2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.cap2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.rev2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">${Number(data.cap2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td data-label="Action" class="grid-action-cell px-1 py-2 text-center"><div class="grid-action-menu">
-            <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
-            <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-              <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
-              <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
-              <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
-            </div>
-          </div></td>`;
+          <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong"></td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.rev2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.rev2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.cap2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.cap2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.rev2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.cap2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          ${actionCellHtml}`;
       }
     } else {
       row.innerHTML = `
-        <td data-label="S.No." class="border border-slate-200 px-2 py-3 text-center text-xs font-semibold text-slate-600"></td>
-        <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false" class="editable-cell break-words border border-slate-200 px-2 py-3 text-xs font-bold leading-5 text-slate-800">${escapeHtml(year || '')}</td>
-        <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false" class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">${Number(revBE || 0).toFixed(2)}</td>
-        <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false" class="editable-cell tabular break-words border border-slate-200 px-2 py-3 text-xs leading-5 text-slate-600">${Number(revRE || 0).toFixed(2)}</td>
-        <td data-label="Actuals upto Sept" data-column="status" data-field="status" class="border border-slate-200 tabular px-2 py-3 text-xs font-medium text-slate-700">${Number(revActuals || 0).toFixed(2)}</td>
-        <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false" class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">${Number(capBE || 0).toFixed(2)}</td>
-        <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false" class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">${Number(capRE || 0).toFixed(2)}</td>
-        <td data-label="Capital Actuals 2023–24" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false" class="editable-cell tabular border border-slate-200 px-2 py-3 text-xs font-semibold text-slate-800">${Number(capActuals || 0).toFixed(2)}</td>
-        <td data-label="Action" class="grid-action-cell border border-slate-200 px-2 py-3 text-center"><div class="grid-action-menu">
-          <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
-          <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg border border-slate-200 bg-white p-1 text-left shadow-lg">
-            <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
-            <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
-            <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
-          </div>
-        </div></td>`;
+        <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong"></td>
+        <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false" spellcheck="false" class="editable-cell grid-cell grid-cell--strong">${escapeHtml(year || '')}</td>
+        <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false" spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">${Number(revBE || 0).toFixed(2)}</td>
+        <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false" spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">${Number(revRE || 0).toFixed(2)}</td>
+        <td data-label="Actuals upto Sept" data-column="status" data-field="status" class="editable-cell grid-cell grid-cell--right tabular">${Number(revActuals || 0).toFixed(2)}</td>
+        <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false" spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">${Number(capBE || 0).toFixed(2)}</td>
+        <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">${Number(capRE || 0).toFixed(2)}</td>
+        <td data-label="Capital Actuals 2023–24" data-column="rev23" data-field="rev23" contenteditable="false" spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">${Number(capActuals || 0).toFixed(2)}</td>
+        ${actionCellHtml}`;
     }
     return row;
   }
@@ -602,15 +563,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuButton) {
       const menu = row.querySelector('[data-row-actions]');
       document.querySelectorAll('[data-row-actions]').forEach(item => {
-        if (item !== menu) item.classList.add('hidden');
+        if (item !== menu) {
+          item.classList.add('hidden');
+          item.classList.add('is-hidden');
+        }
       });
-      menu?.classList.toggle('hidden');
-      menuButton.setAttribute('aria-expanded', String(menu && !menu.classList.contains('hidden')));
+      const isHidden = menu?.classList.contains('hidden') || menu?.classList.contains('is-hidden');
+      if (isHidden) {
+        menu?.classList.remove('hidden');
+        menu?.classList.remove('is-hidden');
+        menuButton.setAttribute('aria-expanded', 'true');
+      } else {
+        menu?.classList.add('hidden');
+        menu?.classList.add('is-hidden');
+        menuButton.setAttribute('aria-expanded', 'false');
+      }
       return;
     }
 
     if (event.target.closest('[data-row-edit]')) {
-      row.querySelector('[data-row-actions]')?.classList.add('hidden');
+      const menu = row.querySelector('[data-row-actions]');
+      menu?.classList.add('hidden');
+      menu?.classList.add('is-hidden');
       row.querySelector('[data-row-menu]')?.setAttribute('aria-expanded', 'false');
       openEditDrawer(row);
       return;
@@ -632,7 +606,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('click', (event) => {
     if (event.target.closest('[data-row-menu]') || event.target.closest('[data-row-actions]')) return;
-    document.querySelectorAll('[data-row-actions]').forEach(menu => menu.classList.add('hidden'));
+    document.querySelectorAll('[data-row-actions]').forEach(menu => {
+      menu.classList.add('hidden');
+      menu.classList.add('is-hidden');
+    });
     document.querySelectorAll('[data-row-menu]').forEach(button => button.setAttribute('aria-expanded', 'false'));
   });
 

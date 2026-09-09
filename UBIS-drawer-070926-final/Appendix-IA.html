@@ -302,227 +302,213 @@
         </div>
         <div class="grid-scroll">
           <div class="flex flex-col items-end gap-1.5">
-                        <span class="text-xs font-semibold text-red-600">Amount in Crores of rupees</span>
+            <span class="text-xs font-semibold text-red-600">Amount in Crores of rupees</span>
           </div>
-          <table id="chargesTable" class="w-full table-fixed text-left">
-            <thead class="sticky top-0 z-10 bg-slate-50/95 backdrop-blur">
-              <tr
-                class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
-                <th rowspan="2" width="6%" class="text-center !align-middle px-1 py-2">S. No.</th>
-                <th colspan="2" class="text-center !align-middle px-1 py-2">Revenue 2025-2026
+          <table id="chargesTable" class="ubis-data-grid">
+            <thead class="ubis-data-grid__head">
+              <tr class="data-grid__header-row">
+                <th rowspan="2" class="grid-head-cell grid-head-cell--center grid-col--5">S. No.</th>
+                <th colspan="2" class="grid-head-cell grid-head-cell--center">Revenue 2025-2026
                   Proposed by Ministry</th>
-                <th colspan="2" class="text-center !align-middle px-1 py-2">Capital 2025-2026
+                <th colspan="2" class="grid-head-cell grid-head-cell--center">Capital 2025-2026
                   Proposed by Ministry</th>
-                <th colspan="1" class="text-center !align-middle px-1 py-2">Revenue 2026-2027
+                <th colspan="1" class="grid-head-cell grid-head-cell--center">Revenue 2026-2027
                   Proposed by Ministry</th>
-                <th colspan="1" class="text-center !align-middle px-1 py-2">Capital 2026-2027
+                <th colspan="1" class="grid-head-cell grid-head-cell--center">Capital 2026-2027
                   Proposed by Ministry</th>
-                <th rowspan="2" width="6%" class="text-center !align-middle px-1 py-2">Action
+                <th rowspan="2" class="grid-head-cell grid-head-cell--center grid-col--5">Action
                 </th>
               </tr>
-              <tr
-                class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
-                <th class="w-[14%] px-1 py-2 text-center">
-                  <button data-sort="be-2025-2026" class="flex justify-center gap-1 w-full">
+              <tr class="data-grid__header-row">
+                <th class="grid-head-cell grid-head-cell--center grid-col--13">
+                  <button data-sort="be-2025-2026" class="button-content">
                     BE
                     <i data-lucide="chevrons-up-down" class="h-3.5 w-3.5 shrink-0"></i>
                   </button>
                 </th>
 
-                <th class="w-[14%] px-1 py-2 text-center">
-                  <button data-sort="re-2025-2026" class="flex justify-center gap-1 w-full">
+                <th class="grid-head-cell grid-head-cell--center grid-col--13">
+                  <button data-sort="re-2025-2026" class="button-content">
                     RE
                     <i data-lucide="chevrons-up-down" class="h-3.5 w-3.5 shrink-0"></i>
                   </button>
                 </th>
 
-                <th class="w-[14%] px-1 py-2 text-center">
-                  <button data-sort="be-2025-2026-capital" class="flex justify-center gap-1 w-full">
+                <th class="grid-head-cell grid-head-cell--center grid-col--13">
+                  <button data-sort="be-2025-2026-capital" class="button-content">
                     BE
                     <i data-lucide="chevrons-up-down" class="h-3.5 w-3.5 shrink-0"></i>
                   </button>
                 </th>
 
-                <th class="w-[14%] px-1 py-2 text-center">
-                  <button data-sort="re-2025-2026-capital" class="flex justify-center gap-1 w-full">
+                <th class="grid-head-cell grid-head-cell--center grid-col--13">
+                  <button data-sort="re-2025-2026-capital" class="button-content">
                     RE
                     <i data-lucide="chevrons-up-down" class="h-3.5 w-3.5 shrink-0"></i>
                   </button>
                 </th>
 
-                <th class="w-[16%] px-1 py-2 text-center">
-                  <button data-sort="be-2026-2027" class="flex justify-center gap-1 w-full">
+                <th class="grid-head-cell grid-head-cell--center grid-col--18">
+                  <button data-sort="be-2026-2027" class="button-content">
                     BE
                     <i data-lucide="chevrons-up-down" class="h-3.5 w-3.5 shrink-0"></i>
                   </button>
                 </th>
 
-                <th class="w-[16%] px-1 py-2 text-center">
-                  <button data-sort="be-2026-2027-capital" class="flex justify-center gap-1 w-full">
+                <th class="grid-head-cell grid-head-cell--center grid-col--18">
+                  <button data-sort="be-2026-2027-capital" class="button-content">
                     BE
                     <i data-lucide="chevrons-up-down" class="h-3.5 w-3.5 shrink-0"></i>
                   </button>
                 </th>
               </tr>
             </thead>
-            <tbody id="gridBody" class="divide-y divide-slate-100">
+            <tbody id="gridBody" class="data-grid__body">
               <!-- Row 1 -->
-              <tr
-                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000001">
-                <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+              <tr class="data-grid__row" data-record-row data-record-id="UC-000001">
+                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">1</td>
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   12,720.29</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   128,198.92</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   87.87</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   141,250.00</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   1,250.00</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   1,400.50</td>
-                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                <td data-label="Action" class="grid-action-cell">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
-                      class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                      class="grid-more-button icon-button row-more-button"
                       title="More actions" aria-label="More actions" aria-expanded="false">
                       <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                     </button>
                     <div data-row-actions
-                      class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                      class="grid-row-actions row-action-menu is-hidden">
                       <button type="button" data-row-edit
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                        class="menu-action"
                         title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
                       <button type="button" data-row-save
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                        class="menu-action menu-action--primary"
                         title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
                       <button type="button" data-row-delete
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                        class="menu-action menu-action--danger"
                         title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                     </div>
                   </div>
                 </td>
               </tr>
-              <tr
-                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000001">
-                <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+              <tr class="data-grid__row" data-record-row data-record-id="UC-000001">
+                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">1</td>
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   12,720.29</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   128,198.92</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   87.87</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   141,250.00</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   1,250.00</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   1,400.50</td>
-                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                <td data-label="Action" class="grid-action-cell">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
-                      class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                      class="grid-more-button icon-button row-more-button"
                       title="More actions" aria-label="More actions" aria-expanded="false">
                       <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                     </button>
                     <div data-row-actions
-                      class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                      class="grid-row-actions row-action-menu is-hidden">
                       <button type="button" data-row-edit
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                        class="menu-action"
                         title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
                       <button type="button" data-row-save
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                        class="menu-action menu-action--primary"
                         title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
                       <button type="button" data-row-delete
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                        class="menu-action menu-action--danger"
                         title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                     </div>
                   </div>
                 </td>
               </tr>
-              <tr
-                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000001">
-                <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+              <tr class="data-grid__row" data-record-row data-record-id="UC-000001">
+                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">1</td>
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   12,720.29</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   128,198.92</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   87.87</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   141,250.00</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   1,250.00</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   1,400.50</td>
-                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                <td data-label="Action" class="grid-action-cell">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
-                      class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                      class="grid-more-button icon-button row-more-button"
                       title="More actions" aria-label="More actions" aria-expanded="false">
                       <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                     </button>
                     <div data-row-actions
-                      class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                      class="grid-row-actions row-action-menu is-hidden">
                       <button type="button" data-row-edit
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                        class="menu-action"
                         title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
                       <button type="button" data-row-save
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                        class="menu-action menu-action--primary"
                         title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
                       <button type="button" data-row-delete
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                        class="menu-action menu-action--danger"
                         title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                     </div>
                   </div>
                 </td>
               </tr>
-              <tr
-                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000001">
-                <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+              <tr class="data-grid__row" data-record-row data-record-id="UC-000001">
+                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">1</td>
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   12,720.29</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   128,198.92</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   87.87</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   141,250.00</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   1,250.00</td>
-                <td class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                <td class="editable-cell grid-cell grid-cell--center tabular">
                   1,400.50</td>
-                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                <td data-label="Action" class="grid-action-cell">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
-                      class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                      class="grid-more-button icon-button row-more-button"
                       title="More actions" aria-label="More actions" aria-expanded="false">
                       <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                     </button>
                     <div data-row-actions
-                      class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                      class="grid-row-actions row-action-menu is-hidden">
                       <button type="button" data-row-edit
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                        class="menu-action"
                         title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
                       <button type="button" data-row-save
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                        class="menu-action menu-action--primary"
                         title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
                       <button type="button" data-row-delete
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                        class="menu-action menu-action--danger"
                         title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                     </div>
                   </div>
                 </td>
               </tr>
-
-
-
-
             </tbody>
           </table>
         </div>

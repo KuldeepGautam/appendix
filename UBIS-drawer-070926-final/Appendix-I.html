@@ -302,295 +302,283 @@
         </div>
         <div class="grid-scroll">
           <div class="flex flex-col items-end gap-1.5">
-                        <span class="text-xs font-semibold text-red-600">Amount in Crores of rupees</span>
+            <span class="text-xs font-semibold text-red-600">Amount in Crores of rupees</span>
           </div>
-          <table id="chargesTable" class="w-full table-fixed text-left">
-            <thead class="sticky top-0 z-10 border-b border-slate-200 bg-slate-50/95 backdrop-blur">
-              <tr
-                class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
-                <th rowspan="2" width="6%" class="text-center !align-middle px-1 py-2">S.No.</th>
-                <th rowspan="2" width="11%" class="px-1 py-2 text-center !align-middle">Year</th>
-                <th colspan="3" class="text-center !align-middle px-1 py-2">Revenue</th>
-                <th colspan="3" class="text-center !align-middle px-1 py-2">Capital</th>
-                <th rowspan="2" width="6%" class="text-center !align-middle px-1 py-2">Action</th>
+          <table id="chargesTable" class="ubis-data-grid">
+            <thead class="ubis-data-grid__head">
+              <tr class="data-grid__header-row">
+                <th rowspan="2" class="grid-head-cell grid-head-cell--center grid-col--5">S.No.</th>
+                <th rowspan="2" class="grid-head-cell grid-head-cell--center grid-col--10">Year</th>
+                <th colspan="3" class="grid-head-cell grid-head-cell--center">Revenue</th>
+                <th colspan="3" class="grid-head-cell grid-head-cell--center">Capital</th>
+                <th rowspan="2" class="grid-head-cell grid-head-cell--center grid-col--5">Action</th>
               </tr>
-              <tr
-                class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
-                <th data-column="charge" class="w-[12%] px-1 py-2">
-                  <button data-sort="charge" class="flex items-center gap-1.5">BE <i data-lucide="chevrons-up-down"
+              <tr class="data-grid__header-row">
+                <th data-column="charge" class="grid-head-cell grid-col--13">
+                  <button data-sort="charge" class="button-content">BE <i data-lucide="chevrons-up-down"
                       class="sort-icon h-3.5 w-3.5"></i></button>
                 </th>
-                <th data-column="services" class="w-[13%] px-1 py-2">
-                  <button data-sort="services" class="flex items-center gap-1">
+                <th data-column="services" class="grid-head-cell grid-col--13">
+                  <button data-sort="services" class="button-content">
                     RE <i data-lucide="chevrons-up-down" class="h-3.5 w-3.5 shrink-0">
                     </i>
                   </button>
                 </th>
-                <th data-column="department" class="w-[18%] px-1 py-2">
-                  <button data-sort="department" class="flex gap-1.5">Actuals upto Sept <i
+                <th data-column="department" class="grid-head-cell grid-col--18">
+                  <button data-sort="department" class="button-content">Actuals upto Sept <i
                       data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5"></i></button>
                 </th>
-                <th data-column="status" class="w-[11%] px-1 py-2">
-                  <button data-sort="status" class="flex items-center gap-1.5">BE <i data-lucide="chevrons-up-down"
+                <th data-column="status" class="grid-head-cell grid-col--10">
+                  <button data-sort="status" class="button-content">BE <i data-lucide="chevrons-up-down"
                       class="sort-icon h-3.5 w-3.5"></i></button>
                 </th>
-                <th data-column="rev22" class="w-[14%] px-1 py-2"><button data-sort="rev22" class="flex gap-1">RE
+                <th data-column="rev22" class="grid-head-cell grid-col--13"><button data-sort="rev22" class="button-content">RE
                     2022–23 <i data-lucide="chevrons-up-down" class="h-3.5 w-3.5 shrink-0"></i></button></th>
-                <th data-column="rev23" class="w-[15%] px-1 py-2"><button data-sort="rev23" class="flex gap-1">Actuals
+                <th data-column="rev23" class="grid-head-cell grid-col--13"><button data-sort="rev23" class="button-content">Actuals
                     2023–24 <i data-lucide="chevrons-up-down" class="h-3.5 w-3.5 shrink-0"></i></button></th>
               </tr>
             </thead>
-            <tbody id="gridBody" class="divide-y divide-slate-100">
+            <tbody id="gridBody" class="data-grid__body">
               <!-- Row 1 -->
-              <tr
-                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000001">
-                <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
+              <tr class="data-grid__row" data-record-row data-record-id="UC-000001">
+                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">1</td>
                 <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell text-center break-words px-1 py-2 text-xs font-bold leading-5 text-slate-800">
+                  class="editable-cell grid-cell grid-cell--center grid-cell--strong">
                   2020-2021</td>
                 <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   221.10</td>
                 <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   221.10</td>
                 <td data-label="Actuals upto Sept" data-column="status" data-field="status"
-                  class="tabular px-1 py-2 text-xs font-medium text-slate-700">2.22</td>
+                  class="editable-cell grid-cell grid-cell--right tabular">2.22</td>
                 <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false"
-                  spellcheck="false" class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">
                   221.10</td>
                 <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false" class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">
                   6.38</td>
                 <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals"
                   contenteditable="false" spellcheck="false"
-                  class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   6.38</td>
-                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                <td data-label="Action" class="grid-action-cell">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
-                      class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                      class="grid-more-button icon-button row-more-button"
                       title="More actions" aria-label="More actions" aria-expanded="false">
                       <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                     </button>
                     <div data-row-actions
-                      class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                      class="grid-row-actions row-action-menu is-hidden">
                       <button type="button" data-row-edit
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                        class="menu-action"
                         title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
                       <button type="button" data-row-save
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                        class="menu-action menu-action--primary"
                         title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
                       <button type="button" data-row-delete
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                        class="menu-action menu-action--danger"
                         title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                     </div>
                   </div>
                 </td>
               </tr>
               <!-- Row 2 -->
-              <tr
-                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000002">
-                <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600">2</td>
+              <tr class="data-grid__row" data-record-row data-record-id="UC-000002">
+                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">2</td>
                 <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell text-center break-words px-1 py-2 text-xs font-bold leading-5 text-slate-800">
+                  class="editable-cell grid-cell grid-cell--center grid-cell--strong">
                   2021-2022</td>
                 <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   315.50</td>
                 <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   298.40</td>
                 <td data-label="Actuals upto Sept" data-column="status" data-field="status"
-                  class="tabular px-1 py-2 text-xs font-medium text-slate-700">142.15</td>
+                  class="editable-cell grid-cell grid-cell--right tabular">142.15</td>
                 <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false"
-                  spellcheck="false" class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">
                   180.00</td>
                 <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false" class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">
                   165.20</td>
                 <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals"
                   contenteditable="false" spellcheck="false"
-                  class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   78.50</td>
-                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                <td data-label="Action" class="grid-action-cell">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
-                      class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                      class="grid-more-button icon-button row-more-button"
                       title="More actions" aria-label="More actions" aria-expanded="false">
                       <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                     </button>
                     <div data-row-actions
-                      class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                      class="grid-row-actions row-action-menu is-hidden">
                       <button type="button" data-row-edit
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                        class="menu-action"
                         title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
                       <button type="button" data-row-save
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                        class="menu-action menu-action--primary"
                         title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
                       <button type="button" data-row-delete
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                        class="menu-action menu-action--danger"
                         title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                     </div>
                   </div>
                 </td>
               </tr>
               <!-- Row 3 -->
-              <tr
-                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000003">
-                <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600">3</td>
+              <tr class="data-grid__row" data-record-row data-record-id="UC-000003">
+                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">3</td>
                 <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell text-center break-words px-1 py-2 text-xs font-bold leading-5 text-slate-800">
+                  class="editable-cell grid-cell grid-cell--center grid-cell--strong">
                   2022-2023</td>
                 <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   440.00</td>
                 <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   425.80</td>
                 <td data-label="Actuals upto Sept" data-column="status" data-field="status"
-                  class="tabular px-1 py-2 text-xs font-medium text-slate-700">210.40</td>
+                  class="editable-cell grid-cell grid-cell--right tabular">210.40</td>
                 <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false"
-                  spellcheck="false" class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">
                   215.00</td>
                 <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false" class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">
                   205.10</td>
                 <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals"
                   contenteditable="false" spellcheck="false"
-                  class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   95.00</td>
-                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                <td data-label="Action" class="grid-action-cell">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
-                      class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                      class="grid-more-button icon-button row-more-button"
                       title="More actions" aria-label="More actions" aria-expanded="false">
                       <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                     </button>
                     <div data-row-actions
-                      class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                      class="grid-row-actions row-action-menu is-hidden">
                       <button type="button" data-row-edit
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                        class="menu-action"
                         title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
                       <button type="button" data-row-save
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                        class="menu-action menu-action--primary"
                         title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
                       <button type="button" data-row-delete
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                        class="menu-action menu-action--danger"
                         title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                     </div>
                   </div>
                 </td>
               </tr>
               <!-- Row 4 -->
-              <tr
-                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000004">
-                <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600">4</td>
+              <tr class="data-grid__row" data-record-row data-record-id="UC-000004">
+                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">4</td>
                 <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell text-center break-words px-1 py-2 text-xs font-bold leading-5 text-slate-800">
+                  class="editable-cell grid-cell grid-cell--center grid-cell--strong">
                   2023-2024</td>
                 <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   520.00</td>
                 <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   508.30</td>
                 <td data-label="Actuals upto Sept" data-column="status" data-field="status"
-                  class="tabular px-1 py-2 text-xs font-medium text-slate-700">260.10</td>
+                  class="editable-cell grid-cell grid-cell--right tabular">260.10</td>
                 <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false"
-                  spellcheck="false" class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">
                   240.00</td>
                 <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false" class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">
                   232.50</td>
                 <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals"
                   contenteditable="false" spellcheck="false"
-                  class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   112.00</td>
-                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                <td data-label="Action" class="grid-action-cell">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
-                      class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                      class="grid-more-button icon-button row-more-button"
                       title="More actions" aria-label="More actions" aria-expanded="false">
                       <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                     </button>
                     <div data-row-actions
-                      class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                      class="grid-row-actions row-action-menu is-hidden">
                       <button type="button" data-row-edit
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                        class="menu-action"
                         title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
                       <button type="button" data-row-save
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                        class="menu-action menu-action--primary"
                         title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
                       <button type="button" data-row-delete
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                        class="menu-action menu-action--danger"
                         title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                     </div>
                   </div>
                 </td>
               </tr>
               <!-- Row 5 -->
-              <tr
-                class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                data-record-row data-record-id="UC-000005">
-                <td data-label="S.No." class="px-1 py-2 text-center text-xs font-semibold text-slate-600">5</td>
+              <tr class="data-grid__row" data-record-row data-record-id="UC-000005">
+                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">5</td>
                 <td data-label="Year" data-column="charge" data-field="charge" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell text-center break-words px-1 py-2 text-xs font-bold leading-5 text-slate-800">
+                  class="editable-cell grid-cell grid-cell--center grid-cell--strong">
                   2024-2025</td>
                 <td data-label="Revenue BE" data-column="services" data-field="services" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   610.00</td>
                 <td data-label="Revenue RE" data-column="department" data-field="department" contenteditable="false"
                   spellcheck="false"
-                  class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   595.00</td>
                 <td data-label="Actuals upto Sept" data-column="status" data-field="status"
-                  class="tabular px-1 py-2 text-xs font-medium text-slate-700">305.50</td>
+                  class="editable-cell grid-cell grid-cell--right tabular">305.50</td>
                 <td data-label="Capital BE" data-column="rev22" data-field="rev22" contenteditable="false"
-                  spellcheck="false" class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">
                   280.00</td>
                 <td data-label="Capital RE 2022–23" data-column="rev23" data-field="rev23" contenteditable="false"
-                  spellcheck="false" class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  spellcheck="false" class="editable-cell grid-cell grid-cell--right tabular">
                   270.00</td>
                 <td data-label="Capital Actuals 2023–24" data-column="capActuals" data-field="capActuals"
                   contenteditable="false" spellcheck="false"
-                  class="editable-cell tabular px-1 py-2 text-xs font-semibold text-slate-800">
+                  class="editable-cell grid-cell grid-cell--right tabular">
                   135.00</td>
-                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                <td data-label="Action" class="grid-action-cell">
                   <div class="grid-action-menu">
                     <button type="button" data-row-menu
-                      class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                      class="grid-more-button icon-button row-more-button"
                       title="More actions" aria-label="More actions" aria-expanded="false">
                       <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                     </button>
                     <div data-row-actions
-                      class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+                      class="grid-row-actions row-action-menu is-hidden">
                       <button type="button" data-row-edit
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                        class="menu-action"
                         title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
                       <button type="button" data-row-save
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                        class="menu-action menu-action--primary"
                         title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
                       <button type="button" data-row-delete
-                        class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                        class="menu-action menu-action--danger"
                         title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                     </div>
                   </div>

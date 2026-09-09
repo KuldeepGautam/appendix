@@ -45,32 +45,55 @@
                     class="rounded-full bg-indigo-100 px-2.5 py-1 font-bold text-indigo-800 ring-1 ring-inset ring-indigo-200">Appendix-III-B</span>
             </div>
             <section class="mb-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-panel">
-                <div class="grid grid-cols-1 gap-4 lg:grid-cols-2"><label class="block min-w-0"><span
-                            class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Demand</span>
-                        <div class="relative"><select id="pageDemandSelect"
+                <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                    <label class="block min-w-0">
+                        <span class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Select Category</span>
+                        <div class="relative">
+                            <select id="pageCategorySelect"
                                 class="h-12 w-full appearance-none truncate rounded-lg border border-slate-300 bg-slate-50 px-3.5 pr-10 text-sm font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-ubis-teal focus:bg-white focus:ring-4 focus:ring-teal-50"
-                                aria-label="Demand">
-                                <option value="Department of Agriculture &amp; Farmers Welfare" selected>Department of
-                                    Agriculture &amp;
-                                    Farmers Welfare</option>
-                                <option value="Department of Agricultural Research &amp; Education">Department of
-                                    Agricultural Research
-                                    &amp; Education</option>
-                            </select><i data-lucide="chevron-down"
-                                class="pointer-events-none absolute right-3.5 top-4 h-4 w-4 text-slate-700"></i></div>
-                    </label><label class="block min-w-0"><span
-                            class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Appendix</span>
-                        <div class="relative"><select id="pageAppendixSelect"
+                                aria-label="Select Category">
+                                <option value="Central Sector Schemes/Projects" selected>Central Sector Schemes/Projects</option>
+                            </select>
+                            <i data-lucide="chevron-down"
+                                class="pointer-events-none absolute right-3.5 top-4 h-4 w-4 text-slate-700"></i>
+                        </div>
+                    </label>
+                    <label class="block min-w-0">
+                        <span class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Select Scheme</span>
+                        <div class="relative">
+                            <select id="pageSchemeSelect"
                                 class="h-12 w-full appearance-none truncate rounded-lg border border-slate-300 bg-slate-50 px-3.5 pr-10 text-sm font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-ubis-teal focus:bg-white focus:ring-4 focus:ring-teal-50"
-                                aria-label="Appendix">
-                                <option
-                                    value="Appendix IV-A : Estimates of Expenditure Under Special Component Plan for Scheduled Castes">
-                                    Appendix III-A : TSA Assignment and Expenditure
-                                </option>
-
-                            </select><i data-lucide="chevron-down"
-                                class="pointer-events-none absolute right-3.5 top-4 h-4 w-4 text-slate-700"></i></div>
-                    </label></div>
+                                aria-label="Select Scheme">
+                                <option value="0-UBIS Test" selected>0-UBIS Test</option>
+                                <option value="Fund for Innovation and Adoption of Technology (FIAT)">Fund for Innovation and Adoption of Technology (FIAT)</option>
+                                <option value="Crop Insurance Scheme">Crop Insurance Scheme</option>
+                            </select>
+                            <i data-lucide="chevron-down"
+                                class="pointer-events-none absolute right-3.5 top-4 h-4 w-4 text-slate-700"></i>
+                        </div>
+                    </label>
+                </div>
+                <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 mt-4">
+                    <label class="block min-w-0">
+                        <span class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Status of Fresh Appraisal/Approval</span>
+                        <input id="pageStatusAppraisal" type="text"
+                            class="h-12 w-full rounded-lg border border-slate-300 bg-slate-50 px-3.5 text-sm font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-ubis-teal focus:bg-white focus:ring-4 focus:ring-teal-50"
+                            placeholder="Status of Fresh Appraisal/Approval">
+                    </label>
+                    <label class="block min-w-0">
+                        <span class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Scheme Approval Valid Upto</span>
+                        <input id="fixationDate" name="fixationDate" required type="date"
+                            class="form-field form-control !h-12 bg-slate-50">
+                    </label>
+                </div>
+                <div class="grid grid-cols-1 gap-4 mt-4">
+                    <label class="block min-w-0">
+                        <span class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Remarks</span>
+                        <textarea id="pageRemarks" rows="3"
+                            class="w-full resize-y rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-ubis-teal focus:bg-white focus:ring-4 focus:ring-teal-50"
+                            placeholder="Enter remarks..."></textarea>
+                    </label>
+                </div>
             </section>
             <section class="appendix-highlight mb-5 rounded-2xl border p-4">
                 <div class="flex flex-col justify-between gap-4 xl:flex-row xl:items-center">
@@ -327,136 +350,115 @@
                     <div class="flex flex-col items-end gap-1.5">
                         <span class="text-xs font-semibold text-red-600">Amount in Crores of rupees</span>
                     </div>
-                    <table id="chargesTable" class="w-full table-fixed text-left">
-                        <thead class="sticky top-0 z-10 bg-slate-50/95 backdrop-blur">
-                            <tr
-                                class="bg-gradient-to-r from-cyan-800 to-teal-700 text-[10px] font-bold uppercase tracking-wide text-white">
-                                <th class="text-center !align-middle px-1 py-2">S.No.</th>
-                                <th class="text-center !align-middle px-1 py-2">
-                                    <button data-sort="category_type"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                    <table id="chargesTable" class="ubis-data-grid">
+                        <thead class="ubis-data-grid__head">
+                            <tr class="data-grid__header-row">
+                                <th class="grid-head-cell grid-head-cell--center grid-col--5">S.No.</th>
+                                <th data-column="category_type" class="grid-head-cell grid-col--20">
+                                    <button data-sort="category_type" class="button-content button-content--tight">
                                         <span class="text-center leading-tight">Category<br>Type</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th class="text-center !align-middle px-1 py-2">
-                                    <button data-sort="scheme_name"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                <th data-column="scheme_name" class="grid-head-cell grid-col--25">
+                                    <button data-sort="scheme_name" class="button-content button-content--tight">
                                         <span class="text-center leading-tight">Scheme Name</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th class="text-center !align-middle px-1 py-2">
+                                <th data-column="status_fresh_appraisal_approval" class="grid-head-cell grid-col--20">
                                     <button data-sort="status_fresh_appraisal_approval"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
-                                        <span class="text-center leading-tight">Status of Fresh<br>Appraisal/Approval</span>
+                                        class="button-content button-content--tight">
+                                        <span class="text-center leading-tight">Status of
+                                            Fresh<br>Appraisal/Approval</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th class="text-center !align-middle px-1 py-2">
+                                <th data-column="scheme_approval_valid_upto" class="grid-head-cell grid-col--15">
                                     <button data-sort="scheme_approval_valid_upto"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                        class="button-content button-content--tight">
                                         <span class="text-center leading-tight">Scheme Approval<br>Valid Upto</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th class="text-center !align-middle px-1 py-2">
-                                    <button data-sort="remarks"
-                                        class="inline-flex items-center justify-center gap-1.5 w-full text-center">
+                                <th data-column="remarks" class="grid-head-cell grid-col--15">
+                                    <button data-sort="remarks" class="button-content button-content--tight">
                                         <span class="text-center leading-tight">Remarks</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th width="6%" class="text-center !align-middle px-1 py-2">Action</th>
+                                <th class="grid-head-cell grid-head-cell--center grid-col--8">Action</th>
                             </tr>
                         </thead>
-                        <tbody id="gridBody" class="divide-y divide-slate-100">
+                        <tbody id="gridBody" class="data-grid__body">
                             <!-- Row 1 -->
-                            <tr class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                                data-record-row data-record-id="UC-000001">
-                                <td data-label="S.No."
-                                    class="px-1 py-2 text-center text-xs font-semibold text-slate-600">1</td>
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000001">
+                                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">1</td>
                                 <td data-field="category_type"
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                    class="editable-cell grid-cell grid-cell--center tabular">
                                     Central Sector Schemes/Projects</td>
-                                <td data-field="scheme_name"
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td data-field="scheme_name" class="editable-cell grid-cell grid-cell--center tabular">
                                     Fund for Innovation and Adoption of Technology (FIAT)</td>
                                 <td data-field="status_fresh_appraisal_approval"
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                    class="editable-cell grid-cell grid-cell--center tabular">
                                     OK</td>
                                 <td data-field="scheme_approval_valid_upto"
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                    class="editable-cell grid-cell grid-cell--center tabular">
                                     08/09/2026</td>
-                                <td data-field="remarks"
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td data-field="remarks" class="editable-cell grid-cell grid-cell--center tabular">
                                     Remarks</td>
-                                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                                <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
+                                            class="grid-more-button icon-button row-more-button" title="More actions"
+                                            aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-                                            <button type="button" data-row-edit
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                                        <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
+                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
+                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                                            <button type="button" data-row-save class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
+                                                class="menu-action menu-action--danger" title="Delete row"><i
+                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <!-- Row 2 -->
-                            <tr class="group border-b border-slate-200 transition odd:bg-white even:bg-slate-50/60 hover:bg-cyan-50/60"
-                                data-record-row data-record-id="UC-000002">
-                                <td data-label="S.No."
-                                    class="px-1 py-2 text-center text-xs font-semibold text-slate-600">2</td>
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000002">
+                                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">2</td>
                                 <td data-field="category_type"
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                    class="editable-cell grid-cell grid-cell--center tabular">
                                     Central Sector Schemes/Projects</td>
-                                <td data-field="scheme_name"
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td data-field="scheme_name" class="editable-cell grid-cell grid-cell--center tabular">
                                     Crop Insurance Scheme</td>
                                 <td data-field="status_fresh_appraisal_approval"
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                    class="editable-cell grid-cell grid-cell--center tabular">
                                     testing</td>
                                 <td data-field="scheme_approval_valid_upto"
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                    class="editable-cell grid-cell grid-cell--center tabular">
                                     29/09/2026</td>
-                                <td data-field="remarks"
-                                    class="editable-cell tabular break-words px-1 py-2 text-xs leading-5 text-slate-600 text-center">
+                                <td data-field="remarks" class="editable-cell grid-cell grid-cell--center tabular">
                                     testing</td>
-                                <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+                                <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
+                                            class="grid-more-button icon-button row-more-button" title="More actions"
+                                            aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
-                                            <button type="button" data-row-edit
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50"
+                                        <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
+                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
+                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                                            <button type="button" data-row-save class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
+                                                class="menu-action menu-action--danger" title="Delete row"><i
+                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
                                     </div>
                                 </td>
@@ -638,11 +640,8 @@
                 </div>
             </div>
             <div class="mt-6 flex justify-end gap-2">
-                <button id="cancelDeleteBtn" type="button" onclick="closeDeleteDialog()" <textarea id="remarks"
-                    name="remarks" maxlength="500" rows="4" placeholder="Enter remarks..."
-                    class="w-full resize-none rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50"></textarea>
-                    class="h-10 rounded-lg border border-slate-300 px-4 text-xs font-bold text-slate-700 transition
-                    hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-100">Cancel</button>
+                <button id="cancelDeleteBtn" type="button" onclick="closeDeleteDialog()"
+                    class="h-10 rounded-lg border border-slate-300 px-4 text-xs font-bold text-slate-700 transition hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-100">Cancel</button>
                 <button id="confirmDeleteBtn" type="button" onclick="confirmDeleteRecord()"
                     class="inline-flex h-10 items-center gap-2 rounded-lg bg-red-600 px-4 text-xs font-bold text-white shadow-sm transition hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-100"><i
                         data-lucide="trash-2" class="h-4 w-4"></i>Delete record</button>
