@@ -168,6 +168,29 @@ document.addEventListener('DOMContentLoaded', () => {
         </td>`;
       return row;
     }
+
+    if (data && data.vc_name !== undefined) {
+      row.innerHTML = `
+        <td data-label="NAME" data-column="name" data-field="name" class="editable-cell break-words px-3 py-2.5 text-xs font-medium text-slate-800 text-left">${escapeHtml(data.vc_name || '')}</td>
+        <td data-label="ACTUAL 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vc_act_2425 || 0).toFixed(2)}</td>
+        <td data-label="ACTUALS UPTO 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vc_act_upto_924 || 0).toFixed(2)}</td>
+        <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vc_be_2526 || 0).toFixed(2)}</td>
+        <td data-label="ACTUALS UPTO 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vc_act_upto_925 || 0).toFixed(2)}</td>
+        <td data-label="PROPOSED R.E. 2025-2026" data-column="proposed_re_2025_2026" data-field="proposed_re_2025_2026" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vc_re_2526_prop || 0).toFixed(2)}</td>
+        <td data-label="PROPOSED B.E. 2026-2027" data-column="proposed_be_2026_2027" data-field="proposed_be_2026_2027" class="editable-cell tabular break-words px-2 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.vc_be_2627_prop || 0).toFixed(2)}</td>
+        <td data-label="REMARKS" data-column="remarks" data-field="remarks" class="editable-cell break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-left">${escapeHtml(data.vc_remarks || '')}</td>
+        <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+          <div class="grid-action-menu">
+            <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
+            <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+              <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+              <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
+              <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
+            </div>
+          </div>
+        </td>`;
+      return row;
+    }
     
     if (data && (data.q1_2425_qep !== undefined || data.rev2526BE !== undefined)) {
       if (data.q1_2425_qep !== undefined) {
@@ -363,6 +386,17 @@ document.addEventListener('DOMContentLoaded', () => {
       setFormValue('vb_remarks', cell(row, 'remarks')?.textContent.trim() || tds[7]?.textContent.trim() || getStoredFormValue(row, 'vb_remarks', ''));
     }
 
+    if (document.getElementById('vc_name')) {
+      setFormValue('vc_name', cell(row, 'name')?.textContent.trim() || tds[0]?.textContent.trim() || getStoredFormValue(row, 'vc_name'));
+      setFormValue('vc_act_2425', cell(row, 'actual_2024_2025')?.textContent.trim().replace(/,/g, '') || tds[1]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'vc_act_2425', '0.00'));
+      setFormValue('vc_act_upto_924', cell(row, 'actuals_upto_09_2024')?.textContent.trim().replace(/,/g, '') || tds[2]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'vc_act_upto_924', '0.00'));
+      setFormValue('vc_be_2526', cell(row, 'be_2025_2026')?.textContent.trim().replace(/,/g, '') || tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'vc_be_2526', '0.00'));
+      setFormValue('vc_act_upto_925', cell(row, 'actuals_upto_09_2025')?.textContent.trim().replace(/,/g, '') || tds[4]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'vc_act_upto_925', '0.00'));
+      setFormValue('vc_re_2526_prop', cell(row, 'proposed_re_2025_2026')?.textContent.trim() || tds[5]?.textContent.trim() || getStoredFormValue(row, 'vc_re_2526_prop', '0.00'));
+      setFormValue('vc_be_2627_prop', cell(row, 'proposed_be_2026_2027')?.textContent.trim() || tds[6]?.textContent.trim() || getStoredFormValue(row, 'vc_be_2627_prop', '0.00'));
+      setFormValue('vc_remarks', cell(row, 'remarks')?.textContent.trim() || tds[7]?.textContent.trim() || getStoredFormValue(row, 'vc_remarks', ''));
+    }
+
     const heading = drawer?.querySelector('h2');
     const subtitle = heading?.nextElementSibling;
     if (heading) heading.textContent = 'Edit Record';
@@ -509,6 +543,22 @@ document.addEventListener('DOMContentLoaded', () => {
         setCell('proposed_re_2025_2026', 5, Number(data.vb_re_2526_prop || 0).toFixed(2));
         setCell('proposed_be_2026_2027', 6, Number(data.vb_be_2627_prop || 0).toFixed(2));
         setCell('remarks', 7, data.vb_remarks || '');
+      }
+
+      if (data.vc_name !== undefined && document.getElementById('vc_name')) {
+        const nameEl = cell(row, 'name') || tds[0];
+        if (nameEl) nameEl.textContent = data.vc_name || '—';
+        const setCell = (col, fallbackIdx, val) => {
+          const el = cell(row, col) || tds[fallbackIdx];
+          if (el) el.textContent = val;
+        };
+        setCell('actual_2024_2025', 1, Number(data.vc_act_2425 || 0).toFixed(2));
+        setCell('actuals_upto_09_2024', 2, Number(data.vc_act_upto_924 || 0).toFixed(2));
+        setCell('be_2025_2026', 3, Number(data.vc_be_2526 || 0).toFixed(2));
+        setCell('actuals_upto_09_2025', 4, Number(data.vc_act_upto_925 || 0).toFixed(2));
+        setCell('proposed_re_2025_2026', 5, Number(data.vc_re_2526_prop || 0).toFixed(2));
+        setCell('proposed_be_2026_2027', 6, Number(data.vc_be_2627_prop || 0).toFixed(2));
+        setCell('remarks', 7, data.vc_remarks || '');
       }
 
       storeFormData(row, data);

@@ -63,8 +63,8 @@
                         <div class="relative"><select id="pageAppendixSelect"
                                 class="h-12 w-full appearance-none truncate rounded-lg border border-slate-300 bg-slate-50 px-3.5 pr-10 text-sm font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-ubis-teal focus:bg-white focus:ring-4 focus:ring-teal-50"
                                 aria-label="Appendix">
-                                <option
-                                    value="Appendix V : Estimates of Establishment & Other Central Expenditure" selected>
+                                <option value="Appendix V : Estimates of Establishment & Other Central Expenditure"
+                                    selected>
                                     Appendix V : Estimates of Establishment & Other Central Expenditure
                                 </option>
 
@@ -271,37 +271,44 @@
                                         class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
                                             type="checkbox" data-column-toggle="actual_2024_2025" checked
                                             class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
-                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>Actual 2024-2025</label>
+                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>Actual
+                                        2024-2025</label>
                                     <label
                                         class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
                                             type="checkbox" data-column-toggle="actuals_upto_09_2024" checked
                                             class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
-                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>Actuals upto 9/2024</label>
+                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>Actuals upto
+                                        9/2024</label>
                                     <label
                                         class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
                                             type="checkbox" data-column-toggle="be_2025_2026" checked
                                             class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
-                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>B.E. 2025-2026</label>
+                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>B.E.
+                                        2025-2026</label>
                                     <label
                                         class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
                                             type="checkbox" data-column-toggle="actuals_upto_09_2025" checked
                                             class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
-                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>Actuals upto 9/2025</label>
+                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>Actuals upto
+                                        9/2025</label>
                                     <label
                                         class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
                                             type="checkbox" data-column-toggle="pct_wrt_be_2025_2026" checked
                                             class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
-                                            data-lucide="percent" class="h-4 w-4 text-slate-400"></i>% w.r.t. B.E. 2025-2026</label>
+                                            data-lucide="percent" class="h-4 w-4 text-slate-400"></i>% w.r.t. B.E.
+                                        2025-2026</label>
                                     <label
                                         class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
                                             type="checkbox" data-column-toggle="re_2025_2026_prop" checked
                                             class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
-                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>R.E. 2025-2026 prop.</label>
+                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>R.E. 2025-2026
+                                        prop.</label>
                                     <label
                                         class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
                                             type="checkbox" data-column-toggle="be_2026_2027_prop" checked
                                             class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
-                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>B.E. 2026-2027 prop.</label>
+                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>B.E. 2026-2027
+                                        prop.</label>
                                 </div>
                                 <div class="border-t border-slate-100 bg-slate-50 px-3 py-2.5">
                                     <button type="button"
@@ -317,6 +324,17 @@
                     </div>
                 </div>
                 <div class="grid-scroll">
+                    <div class="flex items-center justify-between gap-4">
+                        <span class="text-xs font-semibold text-red-600">
+                            The data reflected below is automatically populated from Appendix V-A, Appendix V-B and
+                            Appendix V-C
+                            respectively
+                        </span>
+
+                        <span class="text-xs font-semibold text-red-600 whitespace-nowrap">
+                            Amount in Crores of rupees
+                        </span>
+                    </div>
                     <table id="chargesTable" class="w-full text-left">
                         <thead class="sticky top-0 z-10 bg-slate-50/95 backdrop-blur">
                             <tr
@@ -377,13 +395,16 @@
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th width="6%" class="text-center !align-middle px-1 py-2 font-bold uppercase tracking-wide">Action</th>
+                                <th width="6%"
+                                    class="text-center !align-middle px-1 py-2 font-bold uppercase tracking-wide">Action
+                                </th>
                             </tr>
                         </thead>
                         <tbody id="gridBody" class="divide-y divide-slate-100">
                             <!-- Section Header 1 -->
                             <tr class="bg-slate-100/90 border-y border-slate-300">
-                                <td colspan="9" class="px-3 py-2 text-xs font-bold uppercase tracking-wide text-slate-700">
+                                <td colspan="9"
+                                    class="px-3 py-2 text-xs font-bold uppercase tracking-wide text-slate-700">
                                     Establishment Exp.
                                 </td>
                             </tr>
@@ -393,31 +414,37 @@
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell break-words px-3 py-2 text-xs font-medium text-slate-800 text-left">
                                     Salary</td>
-                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
+                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
+                                    data-field="actual_2024_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     21.41</td>
-                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
+                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
+                                    data-field="actuals_upto_09_2024"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     28.21</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     39.20</td>
-                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
+                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
+                                    data-field="actuals_upto_09_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     27.16</td>
-                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026" data-field="pct_wrt_be_2025_2026"
+                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
+                                    data-field="pct_wrt_be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     69.29</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop" data-field="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                    data-field="re_2025_2026_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     41.33</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop" data-field="be_2026_2027_prop"
+                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                    data-field="be_2026_2027_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     70.26</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                             class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                                            class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700"
                                             title="More actions" aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
@@ -445,25 +472,31 @@
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell break-words px-3 py-2 text-xs font-medium text-slate-800 text-left">
                                     Non-Salary</td>
-                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
+                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
+                                    data-field="actual_2024_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     447.09</td>
-                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
+                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
+                                    data-field="actuals_upto_09_2024"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     191.17</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     555.97</td>
-                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
+                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
+                                    data-field="actuals_upto_09_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     216.86</td>
-                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026" data-field="pct_wrt_be_2025_2026"
+                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
+                                    data-field="pct_wrt_be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     39.01</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop" data-field="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                    data-field="re_2025_2026_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     657.74</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop" data-field="be_2026_2027_prop"
+                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                    data-field="be_2026_2027_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     766.01</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
@@ -497,25 +530,31 @@
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell break-words px-3 py-2 text-xs font-bold text-slate-800 text-left">
                                     Total (Estt. Exp.)</td>
-                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
+                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
+                                    data-field="actual_2024_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     468.50</td>
-                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
+                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
+                                    data-field="actuals_upto_09_2024"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     219.38</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     595.17</td>
-                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
+                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
+                                    data-field="actuals_upto_09_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     244.02</td>
-                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026" data-field="pct_wrt_be_2025_2026"
+                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
+                                    data-field="pct_wrt_be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     41.00</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop" data-field="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                    data-field="re_2025_2026_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     699.07</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop" data-field="be_2026_2027_prop"
+                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                    data-field="be_2026_2027_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     836.27</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
@@ -545,7 +584,8 @@
                             </tr>
                             <!-- Section Header 2 -->
                             <tr class="bg-slate-100/90 border-y border-slate-300">
-                                <td colspan="9" class="px-3 py-2 text-xs font-bold uppercase tracking-wide text-slate-700">
+                                <td colspan="9"
+                                    class="px-3 py-2 text-xs font-bold uppercase tracking-wide text-slate-700">
                                     Other Central Exp.
                                 </td>
                             </tr>
@@ -555,25 +595,31 @@
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell break-words px-3 py-2 text-xs font-medium text-slate-800 text-left">
                                     GiA General</td>
-                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
+                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
+                                    data-field="actual_2024_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     17.29</td>
-                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
+                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
+                                    data-field="actuals_upto_09_2024"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     10.23</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     23.50</td>
-                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
+                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
+                                    data-field="actuals_upto_09_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     10.91</td>
-                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026" data-field="pct_wrt_be_2025_2026"
+                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
+                                    data-field="pct_wrt_be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     46.43</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop" data-field="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                    data-field="re_2025_2026_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     21.00</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop" data-field="be_2026_2027_prop"
+                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                    data-field="be_2026_2027_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     22.00</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
@@ -607,25 +653,31 @@
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell break-words px-3 py-2 text-xs font-medium text-slate-800 text-left">
                                     GiA for Cap. Assets</td>
-                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
+                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
+                                    data-field="actual_2024_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     5.66</td>
-                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
+                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
+                                    data-field="actuals_upto_09_2024"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     4.50</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     6.00</td>
-                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
+                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
+                                    data-field="actuals_upto_09_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     2.50</td>
-                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026" data-field="pct_wrt_be_2025_2026"
+                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
+                                    data-field="pct_wrt_be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     41.67</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop" data-field="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                    data-field="re_2025_2026_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     9.00</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop" data-field="be_2026_2027_prop"
+                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                    data-field="be_2026_2027_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     9.50</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
@@ -659,25 +711,31 @@
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell break-words px-3 py-2 text-xs font-medium text-slate-800 text-left">
                                     GiA Salary</td>
-                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
+                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
+                                    data-field="actual_2024_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     71.45</td>
-                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
+                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
+                                    data-field="actuals_upto_09_2024"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     32.72</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     67.50</td>
-                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
+                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
+                                    data-field="actuals_upto_09_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     35.18</td>
-                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026" data-field="pct_wrt_be_2025_2026"
+                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
+                                    data-field="pct_wrt_be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     52.12</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop" data-field="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                    data-field="re_2025_2026_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     87.50</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop" data-field="be_2026_2027_prop"
+                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                    data-field="be_2026_2027_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs leading-5 text-slate-600 text-right">
                                     98.25</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
@@ -711,25 +769,31 @@
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell break-words px-3 py-2 text-xs font-bold text-slate-800 text-left">
                                     Total (ABs)</td>
-                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
+                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
+                                    data-field="actual_2024_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     94.40</td>
-                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
+                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
+                                    data-field="actuals_upto_09_2024"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     47.45</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     97.00</td>
-                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
+                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
+                                    data-field="actuals_upto_09_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     48.59</td>
-                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026" data-field="pct_wrt_be_2025_2026"
+                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
+                                    data-field="pct_wrt_be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     50.09</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop" data-field="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                    data-field="re_2025_2026_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     117.50</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop" data-field="be_2026_2027_prop"
+                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                    data-field="be_2026_2027_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     129.75</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
@@ -763,25 +827,31 @@
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell break-words px-3 py-2 text-xs font-bold text-slate-800 text-left">
                                     Total (Other than AB)</td>
-                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
+                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
+                                    data-field="actual_2024_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     435.01</td>
-                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
+                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
+                                    data-field="actuals_upto_09_2024"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     186.88</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     399.00</td>
-                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
+                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
+                                    data-field="actuals_upto_09_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     159.76</td>
-                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026" data-field="pct_wrt_be_2025_2026"
+                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
+                                    data-field="pct_wrt_be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     40.04</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop" data-field="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                    data-field="re_2025_2026_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     582.13</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop" data-field="be_2026_2027_prop"
+                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                    data-field="be_2026_2027_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-semibold leading-5 text-slate-700 text-right">
                                     608.41</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
@@ -815,25 +885,31 @@
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell break-words px-3 py-2 text-xs font-extrabold text-slate-900 text-left">
                                     Grand Total</td>
-                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025"
+                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
+                                    data-field="actual_2024_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-bold leading-5 text-slate-900 text-right">
                                     997.91</td>
-                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024"
+                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
+                                    data-field="actuals_upto_09_2024"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-bold leading-5 text-slate-900 text-right">
                                     453.71</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-bold leading-5 text-slate-900 text-right">
                                     1091.17</td>
-                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025" data-field="actuals_upto_09_2025"
+                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
+                                    data-field="actuals_upto_09_2025"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-bold leading-5 text-slate-900 text-right">
                                     452.37</td>
-                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026" data-field="pct_wrt_be_2025_2026"
+                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
+                                    data-field="pct_wrt_be_2025_2026"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-bold leading-5 text-slate-900 text-right">
                                     41.46</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop" data-field="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                    data-field="re_2025_2026_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-bold leading-5 text-slate-900 text-right">
                                     1398.70</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop" data-field="be_2026_2027_prop"
+                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                    data-field="be_2026_2027_prop"
                                     class="editable-cell tabular break-words px-2 py-2 text-xs font-bold leading-5 text-slate-900 text-right">
                                     1574.43</td>
                                 <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
@@ -939,30 +1015,29 @@
                 <section class="mb-4 rounded-xl border border-slate-200 bg-white p-5">
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div class="sm:col-span-2">
-                            <label for="v_item"
-                                class="mb-1.5 block text-xs font-semibold text-slate-700">Item <span
+                            <label for="v_item" class="mb-1.5 block text-xs font-semibold text-slate-700">Item <span
                                     class="text-red-500">*</span></label>
                             <input id="v_item" name="v_item" required type="text" placeholder="e.g. Salary, Non-Salary"
                                 class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                         <div>
-                            <label for="v_act_2425"
-                                class="mb-1.5 block text-xs font-semibold text-slate-700">Actual 2024-2025 <span
-                                    class="text-red-500">*</span></label>
-                            <input id="v_act_2425" name="v_act_2425" required type="number" step="0.01" placeholder="0.00"
+                            <label for="v_act_2425" class="mb-1.5 block text-xs font-semibold text-slate-700">Actual
+                                2024-2025 <span class="text-red-500">*</span></label>
+                            <input id="v_act_2425" name="v_act_2425" required type="number" step="0.01"
+                                placeholder="0.00"
                                 class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                         <div>
                             <label for="v_act_upto_924"
                                 class="mb-1.5 block text-xs font-semibold text-slate-700">Actuals upto 9/2024 <span
                                     class="text-red-500">*</span></label>
-                            <input id="v_act_upto_924" name="v_act_upto_924" required type="number" step="0.01" placeholder="0.00"
+                            <input id="v_act_upto_924" name="v_act_upto_924" required type="number" step="0.01"
+                                placeholder="0.00"
                                 class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                         <div>
-                            <label for="v_be_2526"
-                                class="mb-1.5 block text-xs font-semibold text-slate-700">B.E. 2025-2026 <span
-                                    class="text-red-500">*</span></label>
+                            <label for="v_be_2526" class="mb-1.5 block text-xs font-semibold text-slate-700">B.E.
+                                2025-2026 <span class="text-red-500">*</span></label>
                             <input id="v_be_2526" name="v_be_2526" required type="number" step="0.01" placeholder="0.00"
                                 class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
@@ -970,28 +1045,29 @@
                             <label for="v_act_upto_925"
                                 class="mb-1.5 block text-xs font-semibold text-slate-700">Actuals upto 9/2025 <span
                                     class="text-red-500">*</span></label>
-                            <input id="v_act_upto_925" name="v_act_upto_925" required type="number" step="0.01" placeholder="0.00"
+                            <input id="v_act_upto_925" name="v_act_upto_925" required type="number" step="0.01"
+                                placeholder="0.00"
                                 class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                         <div>
-                            <label for="v_pct_be_2526"
-                                class="mb-1.5 block text-xs font-semibold text-slate-700">% w.r.t. B.E. 2025-2026 <span
-                                    class="text-red-500">*</span></label>
-                            <input id="v_pct_be_2526" name="v_pct_be_2526" required type="number" step="0.01" placeholder="0.00"
+                            <label for="v_pct_be_2526" class="mb-1.5 block text-xs font-semibold text-slate-700">%
+                                w.r.t. B.E. 2025-2026 <span class="text-red-500">*</span></label>
+                            <input id="v_pct_be_2526" name="v_pct_be_2526" required type="number" step="0.01"
+                                placeholder="0.00"
                                 class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                         <div>
-                            <label for="v_re_2526_prop"
-                                class="mb-1.5 block text-xs font-semibold text-slate-700">R.E. 2025-2026 prop. by Min/Dep <span
-                                    class="text-red-500">*</span></label>
-                            <input id="v_re_2526_prop" name="v_re_2526_prop" required type="number" step="0.01" placeholder="0.00"
+                            <label for="v_re_2526_prop" class="mb-1.5 block text-xs font-semibold text-slate-700">R.E.
+                                2025-2026 prop. by Min/Dep <span class="text-red-500">*</span></label>
+                            <input id="v_re_2526_prop" name="v_re_2526_prop" required type="number" step="0.01"
+                                placeholder="0.00"
                                 class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                         <div class="sm:col-span-2">
-                            <label for="v_be_2627_prop"
-                                class="mb-1.5 block text-xs font-semibold text-slate-700">B.E. 2026-2027 prop. by Min/Dep <span
-                                    class="text-red-500">*</span></label>
-                            <input id="v_be_2627_prop" name="v_be_2627_prop" required type="number" step="0.01" placeholder="0.00"
+                            <label for="v_be_2627_prop" class="mb-1.5 block text-xs font-semibold text-slate-700">B.E.
+                                2026-2027 prop. by Min/Dep <span class="text-red-500">*</span></label>
+                            <input id="v_be_2627_prop" name="v_be_2627_prop" required type="number" step="0.01"
+                                placeholder="0.00"
                                 class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
                     </div>
