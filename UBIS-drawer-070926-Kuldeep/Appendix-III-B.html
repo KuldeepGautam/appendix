@@ -53,6 +53,7 @@
                                 class="h-12 w-full appearance-none truncate rounded-lg border border-slate-300 bg-slate-50 px-3.5 pr-10 text-sm font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-ubis-teal focus:bg-white focus:ring-4 focus:ring-teal-50"
                                 aria-label="Select Category">
                                 <option value="Central Sector Schemes/Projects" selected>Central Sector Schemes/Projects</option>
+                                <option value="Central Sector Schemes/Projects" selected>Centrally Sponsored Schemes</option>
                             </select>
                             <i data-lucide="chevron-down"
                                 class="pointer-events-none absolute right-3.5 top-4 h-4 w-4 text-slate-700"></i>
@@ -71,27 +72,6 @@
                             <i data-lucide="chevron-down"
                                 class="pointer-events-none absolute right-3.5 top-4 h-4 w-4 text-slate-700"></i>
                         </div>
-                    </label>
-                </div>
-                <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 mt-4">
-                    <label class="block min-w-0">
-                        <span class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Status of Fresh Appraisal/Approval</span>
-                        <input id="pageStatusAppraisal" type="text"
-                            class="h-12 w-full rounded-lg border border-slate-300 bg-slate-50 px-3.5 text-sm font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-ubis-teal focus:bg-white focus:ring-4 focus:ring-teal-50"
-                            placeholder="Status of Fresh Appraisal/Approval">
-                    </label>
-                    <label class="block min-w-0">
-                        <span class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Scheme Approval Valid Upto</span>
-                        <input id="fixationDate" name="fixationDate" required type="date"
-                            class="form-field form-control !h-12 bg-slate-50">
-                    </label>
-                </div>
-                <div class="grid grid-cols-1 gap-4 mt-4">
-                    <label class="block min-w-0">
-                        <span class="mb-2 block text-xs font-extrabold uppercase tracking-wide text-slate-500">Remarks</span>
-                        <textarea id="pageRemarks" rows="3"
-                            class="w-full resize-y rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm font-medium text-slate-700 outline-none transition hover:border-slate-400 focus:border-ubis-teal focus:bg-white focus:ring-4 focus:ring-teal-50"
-                            placeholder="Enter remarks..."></textarea>
                     </label>
                 </div>
             </section>
@@ -130,7 +110,7 @@
             </section>
 
             <!-- Context / Filters -->
-            <section class="mb-5 rounded-2xl border border-slate-200 bg-white shadow-panel">
+            <!-- <section class="mb-5 rounded-2xl border border-slate-200 bg-white shadow-panel">
                 <div class="flex items-center justify-between border-b border-slate-100 px-5 py-3.5">
                     <div class="flex items-center gap-2">
                         <i data-lucide="sliders-horizontal" class="h-4 w-4 text-ubis-teal"></i>
@@ -205,7 +185,7 @@
                         </button>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- Bulk toolbar -->
             <div id="bulkToolbar"
                 class="mb-3 hidden items-center justify-between rounded-xl border border-blue-100 bg-blue-50 px-4 py-2.5">
@@ -231,7 +211,7 @@
                     class="flex flex-col justify-between gap-3 border-b border-slate-100 px-5 py-3.5 sm:flex-row sm:items-center">
                     <div>
                         <h3 class="text-sm font-bold text-slate-800">Appendix-III-B</h3>
-                        <p class="mt-0.5 text-[11px] text-slate-500">Appendix-III-B financial records</p>
+                        <p class="mt-0.5 text-[11px] text-slate-500">Status of Scheme Appraisal/ Approval during the XVI Finance Commission Cycle</p>
                     </div>
                     <div class="flex items-center gap-2">
                         <!-- Export Dropdown Button -->
@@ -353,96 +333,61 @@
                     <table id="chargesTable" class="ubis-data-grid">
                         <thead class="ubis-data-grid__head">
                             <tr class="data-grid__header-row">
-                                <th class="grid-head-cell grid-head-cell--center grid-col--5">S.No.</th>
-                                <th data-column="category_type" class="grid-head-cell grid-col--20">
-                                    <button data-sort="category_type" class="button-content button-content--tight">
-                                        <span class="text-center leading-tight">Category<br>Type</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                        
+                                <th data-column="category_type" class="grid-head-cell grid-col--20 grid-cell--center">
+                                    <span class="text-center leading-tight">
+                                        Category Type
+                                    </span>
                                 </th>
-                                <th data-column="scheme_name" class="grid-head-cell grid-col--25">
-                                    <button data-sort="scheme_name" class="button-content button-content--tight">
-                                        <span class="text-center leading-tight">Scheme Name</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                        
+                                <th data-column="scheme_name" class="grid-head-cell grid-col--25 grid-cell--center">
+                                    <span class="text-center leading-tight">
+                                        Scheme Name
+                                    </span>
                                 </th>
-                                <th data-column="status_fresh_appraisal_approval" class="grid-head-cell grid-col--20">
-                                    <button data-sort="status_fresh_appraisal_approval"
-                                        class="button-content button-content--tight">
-                                        <span class="text-center leading-tight">Status of
-                                            Fresh<br>Appraisal/Approval</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                        
+                                <th data-column="status_fresh_appraisal_approval" class="grid-head-cell grid-col--20 grid-cell--center">
+                                    <span class="text-center leading-tight">
+                                        Status of Fresh Appraisal/Approval
+                                    </span>
                                 </th>
-                                <th data-column="scheme_approval_valid_upto" class="grid-head-cell grid-col--15">
-                                    <button data-sort="scheme_approval_valid_upto"
-                                        class="button-content button-content--tight">
-                                        <span class="text-center leading-tight">Scheme Approval<br>Valid Upto</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                        
+                                <th data-column="scheme_approval_valid_upto" class="grid-head-cell grid-col--15 grid-cell--center">
+                                    <span class="text-center leading-tight">
+                                        Scheme Approval Valid Upto
+                                    </span>
                                 </th>
-                                <th data-column="remarks" class="grid-head-cell grid-col--15">
-                                    <button data-sort="remarks" class="button-content button-content--tight">
-                                        <span class="text-center leading-tight">Remarks</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                        
+                                <th data-column="remarks" class="grid-head-cell grid-col--15 grid-cell--center">
+                                    <span class="text-center leading-tight">
+                                        Remarks
+                                    </span>
                                 </th>
-                                <th class="grid-head-cell grid-head-cell--center grid-col--8">Action</th>
+                        
+                                <th class="grid-head-cell grid-head-cell--center grid-col--8">
+                                    <span class="text-center leading-tight">
+                                        Action
+                                    </span>
+                                </th>
+                        
                             </tr>
                         </thead>
                         <tbody id="gridBody" class="data-grid__body">
                             <!-- Row 1 -->
                             <tr class="data-grid__row" data-record-row data-record-id="UC-000001">
-                                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">1</td>
                                 <td data-field="category_type"
-                                    class="editable-cell grid-cell grid-cell--center tabular">
+                                    class="editable-cell grid-cell tabular">
                                     Central Sector Schemes/Projects</td>
-                                <td data-field="scheme_name" class="editable-cell grid-cell grid-cell--center tabular">
+                                <td data-field="scheme_name" class="editable-cell grid-cell tabular">
                                     Fund for Innovation and Adoption of Technology (FIAT)</td>
                                 <td data-field="status_fresh_appraisal_approval"
-                                    class="editable-cell grid-cell grid-cell--center tabular">
+                                    class="editable-cell grid-cell tabular">
                                     OK</td>
                                 <td data-field="scheme_approval_valid_upto"
-                                    class="editable-cell grid-cell grid-cell--center tabular">
+                                    class="editable-cell grid-cell tabular">
                                     08/09/2026</td>
-                                <td data-field="remarks" class="editable-cell grid-cell grid-cell--center tabular">
+                                <td data-field="remarks" class="editable-cell grid-cell tabular">
                                     Remarks</td>
-                                <td data-label="Action" class="grid-action-cell">
-                                    <div class="grid-action-menu">
-                                        <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button" title="More actions"
-                                            aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
-                                        </button>
-                                        <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
-                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save class="menu-action menu-action--primary"
-                                                title="Save row"><i data-lucide="check"
-                                                    class="h-3.5 w-3.5"></i>Save</button>
-                                            <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger" title="Delete row"><i
-                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <!-- Row 2 -->
-                            <tr class="data-grid__row" data-record-row data-record-id="UC-000002">
-                                <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong">2</td>
-                                <td data-field="category_type"
-                                    class="editable-cell grid-cell grid-cell--center tabular">
-                                    Central Sector Schemes/Projects</td>
-                                <td data-field="scheme_name" class="editable-cell grid-cell grid-cell--center tabular">
-                                    Crop Insurance Scheme</td>
-                                <td data-field="status_fresh_appraisal_approval"
-                                    class="editable-cell grid-cell grid-cell--center tabular">
-                                    testing</td>
-                                <td data-field="scheme_approval_valid_upto"
-                                    class="editable-cell grid-cell grid-cell--center tabular">
-                                    29/09/2026</td>
-                                <td data-field="remarks" class="editable-cell grid-cell grid-cell--center tabular">
-                                    testing</td>
                                 <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
@@ -542,7 +487,7 @@
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div class="sm:col-span-2">
                             <label for="appraisal_category"
-                                class="mb-1.5 block text-xs font-semibold text-slate-700">Category Type <span
+                                class="mb-1.5 block text-xs font-semibold text-slate-700">Select Category Type <span
                                     class="text-red-500">*</span></label>
                             <select id="appraisal_category" name="appraisal_category"
                                 class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
@@ -552,19 +497,22 @@
                         </div>
                         <div class="sm:col-span-2">
                             <label for="appraisal_scheme_name"
-                                class="mb-1.5 block text-xs font-semibold text-slate-700">Scheme Name <span
+                                class="mb-1.5 block text-xs font-semibold text-slate-700">Select Scheme Name<span
                                     class="text-red-500">*</span></label>
-                            <input id="appraisal_scheme_name" name="appraisal_scheme_name" required type="text"
+                            <select id="appraisal_scheme_name" name="appraisal_scheme_name"
                                 class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+                                <option value="">Select</option>
+                                <option value="Central Sector Schemes/Projects">Select</option>
+                            </select>   
                         </div>
-                        <div class="sm:col-span-2">
+                        <div>
                             <label for="appraisal_status"
                                 class="mb-1.5 block text-xs font-semibold text-slate-700">Status of Fresh
                                 Appraisal/Approval <span class="text-red-500">*</span></label>
                             <input id="appraisal_status" name="appraisal_status" required type="text"
                                 class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
                         </div>
-                        <div class="sm:col-span-2">
+                        <div>
                             <label for="appraisal_valid_upto"
                                 class="mb-1.5 block text-xs font-semibold text-slate-700">Scheme Approval Valid Upto
                                 <span class="text-red-500">*</span></label>

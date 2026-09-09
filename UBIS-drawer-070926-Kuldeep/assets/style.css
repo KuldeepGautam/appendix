@@ -189,7 +189,7 @@ body {
   /* bg-gradient-to-r from-cyan-800 to-teal-700 */
   backdrop-filter: blur(8px); font-size: 0.8rem;  /* text-[10px] */
   font-weight: 700; /* font-bold */
-  text-transform: uppercase;  /* uppercase */
+  text-transform: capitalize;  /* uppercase */
   letter-spacing: 0.025em; /* tracking-wide */
   color: #ffffff;  /* text-white */
   margin-right:10px!important;
