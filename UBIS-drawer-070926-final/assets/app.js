@@ -126,6 +126,25 @@ document.addEventListener('DOMContentLoaded', () => {
         </td>`;
       return row;
     }
+
+    if (data && data.va_autonomous_body !== undefined) {
+      row.innerHTML = `
+        <td data-label="Autonomous Body" data-column="autonomous_body" data-field="autonomous_body" class="editable-cell break-words px-3 py-2.5 text-xs font-medium text-slate-800 text-left">${escapeHtml(data.va_autonomous_body || '')}</td>
+        <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general" data-field="gia_general" class="editable-cell tabular break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.va_gia_general || 0).toFixed(2)}</td>
+        <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027" data-column="gia_capital" data-field="gia_capital" class="editable-cell tabular break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.va_gia_capital || 0).toFixed(2)}</td>
+        <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary" data-field="gia_salary" class="editable-cell tabular break-words px-3 py-2.5 text-xs leading-5 text-slate-600 text-right">${Number(data.va_gia_salary || 0).toFixed(2)}</td>
+        <td data-label="Action" class="grid-action-cell px-1 py-2 text-center">
+          <div class="grid-action-menu">
+            <button type="button" data-row-menu class="grid-more-button inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700" title="More actions" aria-label="More actions" aria-expanded="false"><i data-lucide="ellipsis-vertical" class="h-4 w-4"></i></button>
+            <div data-row-actions class="grid-row-actions hidden absolute right-0 top-9 z-30 min-w-[130px] rounded-lg bg-white p-1 text-left shadow-lg">
+              <button type="button" data-row-edit class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50" title="Edit row"><i data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+              <button type="button" data-row-save class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-50" title="Save row"><i data-lucide="check" class="h-3.5 w-3.5"></i>Save</button>
+              <button type="button" data-row-delete class="flex w-full items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50" title="Delete row"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
+            </div>
+          </div>
+        </td>`;
+      return row;
+    }
     
     if (data && (data.q1_2425_qep !== undefined || data.rev2526BE !== undefined)) {
       if (data.q1_2425_qep !== undefined) {
@@ -299,8 +318,15 @@ document.addEventListener('DOMContentLoaded', () => {
       setFormValue('v_be_2526', cell(row, 'be_2025_2026')?.textContent.trim().replace(/,/g, '') || tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_be_2526', '0.00'));
       setFormValue('v_act_upto_925', cell(row, 'actuals_upto_09_2025')?.textContent.trim().replace(/,/g, '') || tds[4]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_act_upto_925', '0.00'));
       setFormValue('v_pct_be_2526', cell(row, 'pct_wrt_be_2025_2026')?.textContent.trim().replace(/,/g, '') || tds[5]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_pct_be_2526', '0.00'));
-      setFormValue('v_re_2526_prop', cell(row, 're_2025_2026_prop')?.textContent.trim().replace(/,/g, '') || tds[6]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_re_2526_prop', '0.00'));
-      setFormValue('v_be_2627_prop', cell(row, 'be_2026_2027_prop')?.textContent.trim().replace(/,/g, '') || tds[7]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_be_2627_prop', '0.00'));
+      setFormValue('v_re_2526_prop', cell(row, 're_2025_2026_prop')?.textContent.trim() || tds[6]?.textContent.trim() || getStoredFormValue(row, 'v_re_2526_prop', '0.00'));
+      setFormValue('v_be_2627_prop', cell(row, 'be_2026_2027_prop')?.textContent.trim() || tds[7]?.textContent.trim() || getStoredFormValue(row, 'v_be_2627_prop', '0.00'));
+    }
+
+    if (document.getElementById('va_autonomous_body')) {
+      setFormValue('va_autonomous_body', cell(row, 'autonomous_body')?.textContent.trim() || tds[0]?.textContent.trim() || getStoredFormValue(row, 'va_autonomous_body'));
+      setFormValue('va_gia_general', cell(row, 'gia_general')?.textContent.trim().replace(/,/g, '') || tds[1]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'va_gia_general', '0.00'));
+      setFormValue('va_gia_capital', cell(row, 'gia_capital')?.textContent.trim().replace(/,/g, '') || tds[2]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'va_gia_capital', '0.00'));
+      setFormValue('va_gia_salary', cell(row, 'gia_salary')?.textContent.trim().replace(/,/g, '') || tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'va_gia_salary', '0.00'));
     }
 
     const heading = drawer?.querySelector('h2');
@@ -421,6 +447,18 @@ document.addEventListener('DOMContentLoaded', () => {
         setCell('pct_wrt_be_2025_2026', 5, Number(data.v_pct_be_2526 || 0).toFixed(2));
         setCell('re_2025_2026_prop', 6, Number(data.v_re_2526_prop || 0).toFixed(2));
         setCell('be_2026_2027_prop', 7, Number(data.v_be_2627_prop || 0).toFixed(2));
+      }
+
+      if (data.va_autonomous_body !== undefined && document.getElementById('va_autonomous_body')) {
+        const bodyEl = cell(row, 'autonomous_body') || tds[0];
+        if (bodyEl) bodyEl.textContent = data.va_autonomous_body || '—';
+        const setCell = (col, fallbackIdx, val) => {
+          const el = cell(row, col) || tds[fallbackIdx];
+          if (el) el.textContent = val;
+        };
+        setCell('gia_general', 1, Number(data.va_gia_general || 0).toFixed(2));
+        setCell('gia_capital', 2, Number(data.va_gia_capital || 0).toFixed(2));
+        setCell('gia_salary', 3, Number(data.va_gia_salary || 0).toFixed(2));
       }
 
       storeFormData(row, data);
