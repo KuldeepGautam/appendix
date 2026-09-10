@@ -88,7 +88,8 @@
                   class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold ring-1 ring-inset bg-indigo-100 text-indigo-800 ring-indigo-200"><span
                     class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>In Progress</span> -->
                             </div>
-                            <p class="mt-1.5 text-sm font-medium text-slate-600">Grant in Aid to Autonomous and other Bodies</p>
+                            <p class="mt-1.5 text-sm font-medium text-slate-600">Grant in Aid to Autonomous and other
+                                Bodies</p>
                         </div>
                     </div>
 
@@ -104,7 +105,7 @@
                 </div>
             </section>
 
-           
+
             <!-- Bulk toolbar -->
             <div id="bulkToolbar"
                 class="mb-3 hidden items-center justify-between rounded-xl border border-blue-100 bg-blue-50 px-4 py-2.5">
@@ -137,8 +138,7 @@
                         <div class="relative">
                             <i data-lucide="search"
                                 class="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400"></i>
-                            <input id="searchInput" oninput="renderGrid()" type="search"
-                                placeholder="Search item..."
+                            <input id="searchInput" oninput="renderGrid()" type="search" placeholder="Search item..."
                                 class="h-8 w-48 rounded-lg border border-slate-200 bg-white pl-8 pr-3 text-xs font-medium text-slate-700 outline-none placeholder:text-slate-400 focus:border-ubis-teal focus:ring-2 focus:ring-teal-50 sm:w-60">
                         </div>
                         <!-- Export Dropdown Button -->
@@ -202,19 +202,20 @@
                                         class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
                                             type="checkbox" data-column-toggle="gia_general" checked
                                             class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
-                                            data-lucide="indian-rupee"
-                                            class="h-4 w-4 text-slate-400"></i>GiA General (A)</label>
+                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>GiA General
+                                        (A)</label>
                                     <label
                                         class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
                                             type="checkbox" data-column-toggle="gia_capital" checked
                                             class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
-                                            data-lucide="indian-rupee"
-                                            class="h-4 w-4 text-slate-400"></i>GiA Creation of Capital Assets (B)</label>
+                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>GiA Creation
+                                        of Capital Assets (B)</label>
                                     <label
                                         class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
                                             type="checkbox" data-column-toggle="gia_salary" checked
                                             class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
-                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>GiA for Salary (C)</label>
+                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>GiA for Salary
+                                        (C)</label>
                                 </div>
                                 <div class="border-t border-slate-100 bg-slate-50 px-3 py-2.5">
                                     <button type="button"
@@ -239,30 +240,34 @@
                         <thead class="ubis-data-grid__head">
                             <tr class="data-grid__header-row">
                                 <th data-column="autonomous_body" class="grid-head-cell grid-col--40">
-                                    <button data-sort="autonomous_body"
-                                        class="button-content">
+                                    <button data-sort="autonomous_body" class="button-content">
                                         <span>Autonomous Body</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="gia_general" class="grid-head-cell grid-head-cell--right grid-col--18 leading-tight">
+                                <th data-column="gia_general"
+                                    class="grid-head-cell grid-head-cell--right grid-col--18 leading-tight">
                                     <button data-sort="gia_general"
                                         class="button-content button-content--tight justify-end w-full ml-auto">
                                         <span class="text-right leading-tight">GiA General (A)<br>B.E. 2026-2027</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="gia_capital" class="grid-head-cell grid-head-cell--right grid-col--20 leading-tight">
+                                <th data-column="gia_capital"
+                                    class="grid-head-cell grid-head-cell--right grid-col--20 leading-tight">
                                     <button data-sort="gia_capital"
                                         class="button-content button-content--tight justify-end w-full ml-auto">
-                                        <span class="text-right leading-tight">GiA for Creation of Capital Assets<br>(B)<br>B.E. 2026-2027</span>
+                                        <span class="text-right leading-tight">GiA for Creation of Capital
+                                            Assets<br>(B)<br>B.E. 2026-2027</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="gia_salary" class="grid-head-cell grid-head-cell--right grid-col--15 leading-tight">
+                                <th data-column="gia_salary"
+                                    class="grid-head-cell grid-head-cell--right grid-col--15 leading-tight">
                                     <button data-sort="gia_salary"
                                         class="button-content button-content--tight justify-end w-full ml-auto">
-                                        <span class="text-right leading-tight">GiA for Salary<br>(C)<br>B.E. 2026-2027</span>
+                                        <span class="text-right leading-tight">GiA for Salary<br>(C)<br>B.E.
+                                            2026-2027</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
@@ -271,241 +276,211 @@
                         </thead>
                         <tbody id="gridBody" class="data-grid__body">
                             <!-- Row 1 -->
-                            <tr class="data-grid__row"
-                                data-record-row data-record-id="UC-000001">
-                                <td data-label="Autonomous Body" data-column="autonomous_body" data-field="autonomous_body"
-                                    class="editable-cell grid-cell grid-cell--strong">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000001">
+                                <td data-label="Autonomous Body" data-column="autonomous_body"
+                                    data-field="autonomous_body" class="editable-cell grid-cell grid-cell--strong">
                                     Choudhary Charan Singh National Institute of Agricultural Marketing</td>
-                                <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general" data-field="gia_general"
+                                <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general"
+                                    data-field="gia_general" class="editable-cell grid-cell grid-cell--right tabular">
+                                    0.00</td>
+                                <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027"
+                                    data-column="gia_capital" data-field="gia_capital"
                                     class="editable-cell grid-cell grid-cell--right tabular">
                                     0.00</td>
-                                <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027" data-column="gia_capital" data-field="gia_capital"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
-                                    0.00</td>
-                                <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary" data-field="gia_salary"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary"
+                                    data-field="gia_salary" class="editable-cell grid-cell grid-cell--right tabular">
                                     5.75</td>
                                 <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
+                                            class="grid-more-button icon-button row-more-button" title="More actions"
+                                            aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
+                                        <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
+                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
+                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                                            <button type="button" data-row-save class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
+                                                class="menu-action menu-action--danger" title="Delete row"><i
+                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <!-- Row 2 -->
-                            <tr class="data-grid__row"
-                                data-record-row data-record-id="UC-000002">
-                                <td data-label="Autonomous Body" data-column="autonomous_body" data-field="autonomous_body"
-                                    class="editable-cell grid-cell grid-cell--strong">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000002">
+                                <td data-label="Autonomous Body" data-column="autonomous_body"
+                                    data-field="autonomous_body" class="editable-cell grid-cell grid-cell--strong">
                                     Coconut Development Board</td>
-                                <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general" data-field="gia_general"
+                                <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general"
+                                    data-field="gia_general" class="editable-cell grid-cell grid-cell--right tabular">
+                                    4.00</td>
+                                <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027"
+                                    data-column="gia_capital" data-field="gia_capital"
                                     class="editable-cell grid-cell grid-cell--right tabular">
                                     4.00</td>
-                                <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027" data-column="gia_capital" data-field="gia_capital"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
-                                    4.00</td>
-                                <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary" data-field="gia_salary"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary"
+                                    data-field="gia_salary" class="editable-cell grid-cell grid-cell--right tabular">
                                     32.00</td>
                                 <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
+                                            class="grid-more-button icon-button row-more-button" title="More actions"
+                                            aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
+                                        <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
+                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
+                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                                            <button type="button" data-row-save class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
+                                                class="menu-action menu-action--danger" title="Delete row"><i
+                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <!-- Row 3 -->
-                            <tr class="data-grid__row"
-                                data-record-row data-record-id="UC-000003">
-                                <td data-label="Autonomous Body" data-column="autonomous_body" data-field="autonomous_body"
-                                    class="editable-cell grid-cell grid-cell--strong">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000003">
+                                <td data-label="Autonomous Body" data-column="autonomous_body"
+                                    data-field="autonomous_body" class="editable-cell grid-cell grid-cell--strong">
                                     National Horticulture Board</td>
-                                <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general" data-field="gia_general"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general"
+                                    data-field="gia_general" class="editable-cell grid-cell grid-cell--right tabular">
                                     8.50</td>
-                                <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027" data-column="gia_capital" data-field="gia_capital"
+                                <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027"
+                                    data-column="gia_capital" data-field="gia_capital"
                                     class="editable-cell grid-cell grid-cell--right tabular">
                                     1.50</td>
-                                <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary" data-field="gia_salary"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary"
+                                    data-field="gia_salary" class="editable-cell grid-cell grid-cell--right tabular">
                                     30.00</td>
                                 <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
+                                            class="grid-more-button icon-button row-more-button" title="More actions"
+                                            aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
+                                        <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
+                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
+                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                                            <button type="button" data-row-save class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
+                                                class="menu-action menu-action--danger" title="Delete row"><i
+                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <!-- Row 4 -->
-                            <tr class="data-grid__row"
-                                data-record-row data-record-id="UC-000004">
-                                <td data-label="Autonomous Body" data-column="autonomous_body" data-field="autonomous_body"
-                                    class="editable-cell grid-cell grid-cell--strong">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000004">
+                                <td data-label="Autonomous Body" data-column="autonomous_body"
+                                    data-field="autonomous_body" class="editable-cell grid-cell grid-cell--strong">
                                     National Institute of Agricultural Extension Management MANAGE</td>
-                                <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general" data-field="gia_general"
+                                <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general"
+                                    data-field="gia_general" class="editable-cell grid-cell grid-cell--right tabular">
+                                    0.00</td>
+                                <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027"
+                                    data-column="gia_capital" data-field="gia_capital"
                                     class="editable-cell grid-cell grid-cell--right tabular">
                                     0.00</td>
-                                <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027" data-column="gia_capital" data-field="gia_capital"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
-                                    0.00</td>
-                                <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary" data-field="gia_salary"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary"
+                                    data-field="gia_salary" class="editable-cell grid-cell grid-cell--right tabular">
                                     16.00</td>
                                 <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
+                                            class="grid-more-button icon-button row-more-button" title="More actions"
+                                            aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
+                                        <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
+                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
+                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                                            <button type="button" data-row-save class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
+                                                class="menu-action menu-action--danger" title="Delete row"><i
+                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <!-- Row 5 -->
-                            <tr class="data-grid__row"
-                                data-record-row data-record-id="UC-000005">
-                                <td data-label="Autonomous Body" data-column="autonomous_body" data-field="autonomous_body"
-                                    class="editable-cell grid-cell grid-cell--strong">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000005">
+                                <td data-label="Autonomous Body" data-column="autonomous_body"
+                                    data-field="autonomous_body" class="editable-cell grid-cell grid-cell--strong">
                                     National Institute of Plant Health Management</td>
-                                <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general" data-field="gia_general"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general"
+                                    data-field="gia_general" class="editable-cell grid-cell grid-cell--right tabular">
                                     7.50</td>
-                                <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027" data-column="gia_capital" data-field="gia_capital"
+                                <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027"
+                                    data-column="gia_capital" data-field="gia_capital"
                                     class="editable-cell grid-cell grid-cell--right tabular">
                                     2.00</td>
-                                <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary" data-field="gia_salary"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary"
+                                    data-field="gia_salary" class="editable-cell grid-cell grid-cell--right tabular">
                                     12.50</td>
                                 <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
+                                            class="grid-more-button icon-button row-more-button" title="More actions"
+                                            aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
+                                        <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
+                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
+                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                                            <button type="button" data-row-save class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
+                                                class="menu-action menu-action--danger" title="Delete row"><i
+                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <!-- Row 6 -->
-                            <tr class="data-grid__row"
-                                data-record-row data-record-id="UC-000006">
-                                <td data-label="Autonomous Body" data-column="autonomous_body" data-field="autonomous_body"
-                                    class="editable-cell grid-cell grid-cell--strong">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000006">
+                                <td data-label="Autonomous Body" data-column="autonomous_body"
+                                    data-field="autonomous_body" class="editable-cell grid-cell grid-cell--strong">
                                     Testing</td>
-                                <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general" data-field="gia_general"
+                                <td data-label="GiA General (A) B.E. 2026-2027" data-column="gia_general"
+                                    data-field="gia_general" class="editable-cell grid-cell grid-cell--right tabular">
+                                    2.00</td>
+                                <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027"
+                                    data-column="gia_capital" data-field="gia_capital"
                                     class="editable-cell grid-cell grid-cell--right tabular">
                                     2.00</td>
-                                <td data-label="GiA for Creation of Capital Assets (B) B.E. 2026-2027" data-column="gia_capital" data-field="gia_capital"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
-                                    2.00</td>
-                                <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary" data-field="gia_salary"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                <td data-label="GiA for Salary (C) B.E. 2026-2027" data-column="gia_salary"
+                                    data-field="gia_salary" class="editable-cell grid-cell grid-cell--right tabular">
                                     2.00</td>
                                 <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
+                                            class="grid-more-button icon-button row-more-button" title="More actions"
+                                            aria-label="More actions" aria-expanded="false">
                                             <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
                                         </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
+                                        <div data-row-actions class="grid-row-actions row-action-menu is-hidden">
+                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
+                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                                            <button type="button" data-row-save class="menu-action menu-action--primary"
                                                 title="Save row"><i data-lucide="check"
                                                     class="h-3.5 w-3.5"></i>Save</button>
                                             <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
+                                                class="menu-action menu-action--danger" title="Delete row"><i
+                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
                                         </div>
                                     </div>
                                 </td>
@@ -588,10 +563,10 @@
                 <section class="rounded-xl border border-slate-200 bg-white p-3.5 shadow-sm">
                     <div class="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-2">
                         <div>
-                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">Grants-in-Aid to Autonomous Bodies</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">Grants-in-Aid to
+                                Autonomous Bodies</h3>
                             <p class="text-[11px] text-slate-500">Enter comprehensive breakdown details</p>
                         </div>
-                        <span class="text-[10px] font-semibold italic text-red-600">Amount in Crores of Rupees</span>
                     </div>
 
                     <div class="overflow-x-auto rounded border border-slate-300 bg-white">
@@ -601,9 +576,11 @@
                                 <tr class="border-b border-slate-300 bg-white">
                                     <td colspan="7" class="border-r border-slate-300 p-2">
                                         <div class="flex items-center gap-2">
-                                            <label for="va_autonomous_body" class="whitespace-nowrap text-xs font-bold text-slate-700">Name of Autonomous Body: <span class="text-red-500">*</span></label>
-                                            <input id="va_autonomous_body" name="va_autonomous_body" required type="text"
-                                                placeholder=""
+                                            <label for="va_autonomous_body"
+                                                class="whitespace-nowrap text-xs font-bold text-slate-700">Name of
+                                                Autonomous Body: <span class="text-red-500">*</span></label>
+                                            <input id="va_autonomous_body" name="va_autonomous_body" required
+                                                type="text" placeholder=""
                                                 class="form-field h-8 flex-1 rounded border border-slate-300 px-2.5 text-xs text-slate-800 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                         </div>
                                     </td>
@@ -612,25 +589,32 @@
                                 <!-- Column Headers -->
                                 <tr class="border-b border-slate-300 bg-slate-100/90 text-slate-700">
                                     <th class="border-r border-slate-300 px-2 py-2 font-bold text-slate-700 w-36"></th>
-                                    <th class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
+                                    <th
+                                        class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
                                         Actual 2024-<br>2025
                                     </th>
-                                    <th class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
+                                    <th
+                                        class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
                                         Actuals upto<br>9/2024
                                     </th>
-                                    <th class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
+                                    <th
+                                        class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
                                         B.E. 2025-<br>2026
                                     </th>
-                                    <th class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
+                                    <th
+                                        class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
                                         Actuals upto<br>9/2025
                                     </th>
-                                    <th class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
+                                    <th
+                                        class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
                                         R.E. 2025-<br>2026
                                     </th>
-                                    <th class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
+                                    <th
+                                        class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
                                         B.E. 2026-<br>2027 <span class="text-red-500">*</span>
                                     </th>
-                                    <th class="px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight w-36">
+                                    <th
+                                        class="px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight w-36">
                                         Total Salary in 2024-<br>2025 as per accounts<br>of AB
                                     </th>
                                 </tr>
@@ -638,103 +622,127 @@
                             <tbody class="divide-y divide-slate-300 bg-white">
                                 <!-- Row 1: GiA General (A) -->
                                 <tr>
-                                    <td class="border-r border-slate-300 bg-slate-50/80 px-2.5 py-2 text-[11px] font-bold text-slate-800">
+                                    <td
+                                        class="border-r border-slate-300 bg-slate-50/80 px-2.5 py-2 text-[11px] font-bold text-slate-800">
                                         GiA General (A)
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_gen_actual_2024_2025" name="va_gen_actual_2024_2025" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_gen_actual_2024_2025"
+                                            name="va_gen_actual_2024_2025" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_gen_actuals_upto_09_2024" name="va_gen_actuals_upto_09_2024" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_gen_actuals_upto_09_2024"
+                                            name="va_gen_actuals_upto_09_2024" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_gen_be_2025_2026" name="va_gen_be_2025_2026" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_gen_be_2025_2026"
+                                            name="va_gen_be_2025_2026" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_gen_actuals_upto_09_2025" name="va_gen_actuals_upto_09_2025" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_gen_actuals_upto_09_2025"
+                                            name="va_gen_actuals_upto_09_2025" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_gen_re_2025_2026" name="va_gen_re_2025_2026" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_gen_re_2025_2026"
+                                            name="va_gen_re_2025_2026" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_gia_general" name="va_gia_general" required placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_gia_general" name="va_gia_general"
+                                            required placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-semibold text-slate-800 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50 bg-teal-50/30">
                                     </td>
                                     <td class="p-1 bg-slate-100/70">
-                                        <div class="h-7 w-full rounded bg-slate-200/50 border border-slate-200/80"></div>
+                                        <div class="h-7 w-full rounded bg-slate-200/50 border border-slate-200/80">
+                                        </div>
                                     </td>
                                 </tr>
 
                                 <!-- Row 2: GiA for Creation of Capital Assets (B) -->
                                 <tr>
-                                    <td class="border-r border-slate-300 bg-slate-50/80 px-2.5 py-2 text-[11px] font-bold text-slate-800 leading-tight">
+                                    <td
+                                        class="border-r border-slate-300 bg-slate-50/80 px-2.5 py-2 text-[11px] font-bold text-slate-800 leading-tight">
                                         GiA for Creation<br>of Capital<br>Assets (B)
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_cap_actual_2024_2025" name="va_cap_actual_2024_2025" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_cap_actual_2024_2025"
+                                            name="va_cap_actual_2024_2025" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_cap_actuals_upto_09_2024" name="va_cap_actuals_upto_09_2024" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_cap_actuals_upto_09_2024"
+                                            name="va_cap_actuals_upto_09_2024" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_cap_be_2025_2026" name="va_cap_be_2025_2026" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_cap_be_2025_2026"
+                                            name="va_cap_be_2025_2026" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_cap_actuals_upto_09_2025" name="va_cap_actuals_upto_09_2025" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_cap_actuals_upto_09_2025"
+                                            name="va_cap_actuals_upto_09_2025" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_cap_re_2025_2026" name="va_cap_re_2025_2026" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_cap_re_2025_2026"
+                                            name="va_cap_re_2025_2026" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_gia_capital" name="va_gia_capital" required placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_gia_capital" name="va_gia_capital"
+                                            required placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-semibold text-slate-800 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50 bg-teal-50/30">
                                     </td>
                                     <td class="p-1 bg-slate-100/70">
-                                        <div class="h-7 w-full rounded bg-slate-200/50 border border-slate-200/80"></div>
+                                        <div class="h-7 w-full rounded bg-slate-200/50 border border-slate-200/80">
+                                        </div>
                                     </td>
                                 </tr>
 
                                 <!-- Row 3: GiA for Salary (C) -->
                                 <tr>
-                                    <td class="border-r border-slate-300 bg-slate-50/80 px-2.5 py-2 text-[11px] font-bold text-slate-800 leading-tight">
+                                    <td
+                                        class="border-r border-slate-300 bg-slate-50/80 px-2.5 py-2 text-[11px] font-bold text-slate-800 leading-tight">
                                         GiA for Salary<br>(C)
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_sal_actual_2024_2025" name="va_sal_actual_2024_2025" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_sal_actual_2024_2025"
+                                            name="va_sal_actual_2024_2025" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_sal_actuals_upto_09_2024" name="va_sal_actuals_upto_09_2024" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_sal_actuals_upto_09_2024"
+                                            name="va_sal_actuals_upto_09_2024" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_sal_be_2025_2026" name="va_sal_be_2025_2026" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_sal_be_2025_2026"
+                                            name="va_sal_be_2025_2026" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_sal_actuals_upto_09_2025" name="va_sal_actuals_upto_09_2025" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_sal_actuals_upto_09_2025"
+                                            name="va_sal_actuals_upto_09_2025" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_sal_re_2025_2026" name="va_sal_re_2025_2026" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_sal_re_2025_2026"
+                                            name="va_sal_re_2025_2026" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                     <td class="border-r border-slate-300 p-1">
-                                        <input type="number" step="0.01" id="va_gia_salary" name="va_gia_salary" required placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_gia_salary" name="va_gia_salary"
+                                            required placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-semibold text-slate-800 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50 bg-teal-50/30">
                                     </td>
                                     <td class="p-1">
-                                        <input type="number" step="0.01" id="va_sal_total_salary_accounts" name="va_sal_total_salary_accounts" placeholder="0.00"
+                                        <input type="number" step="0.01" id="va_sal_total_salary_accounts"
+                                            name="va_sal_total_salary_accounts" placeholder="0.00"
                                             class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
                                     </td>
                                 </tr>
