@@ -155,7 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
         </td>`;
 
     if (data && data.v_item !== undefined) {
+      const isTotal = /total/i.test(data.v_item);
       row.innerHTML = `
+        <td ${isTotal ? '' : 'data-label="S.No."'} data-column="sno" class="grid-cell grid-cell--center grid-cell--strong">${isTotal ? '' : (data.v_sno || '')}</td>
         <td data-label="Item" data-column="item" data-field="item" class="editable-cell grid-cell grid-cell--strong">${escapeHtml(data.v_item || '')}</td>
         <td data-label="Actual 2024-2025" data-column="actual_2024_2025" data-field="actual_2024_2025" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.v_act_2425 || 0).toFixed(2)}</td>
         <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024" data-field="actuals_upto_09_2024" class="editable-cell grid-cell grid-cell--right tabular">${Number(data.v_act_upto_924 || 0).toFixed(2)}</td>
@@ -250,9 +252,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renumberRows() {
-    tbody?.querySelectorAll('[data-record-row]').forEach((row, index) => {
+    if (document.getElementById('v_item')) {
+      const count = tbody?.querySelectorAll('[data-record-row]').length || 0;
+      document.getElementById('totalText')?.replaceChildren(document.createTextNode(count));
+      document.getElementById('recordCountBadge')?.replaceChildren(document.createTextNode(`${count} Records`));
+      document.getElementById('rangeText')?.replaceChildren(document.createTextNode(count ? `1–${count}` : '0'));
+      return;
+    }
+    let counter = 1;
+    tbody?.querySelectorAll('[data-record-row]').forEach((row) => {
+      const itemCell = cell(row, 'item');
+      const isTotal = itemCell && /total/i.test(itemCell.textContent.trim());
       const sno = row.querySelector('td[data-label="S.No."]');
-      if (sno) sno.textContent = index + 1;
+      if (sno && !isTotal) {
+        sno.textContent = counter++;
+      }
     });
     const count = tbody?.querySelectorAll('[data-record-row]').length || 0;
     document.getElementById('totalText')?.replaceChildren(document.createTextNode(count));
@@ -356,14 +370,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (document.getElementById('v_item')) {
-      setFormValue('v_item', cell(row, 'item')?.textContent.trim() || tds[0]?.textContent.trim() || getStoredFormValue(row, 'v_item'));
-      setFormValue('v_act_2425', cell(row, 'actual_2024_2025')?.textContent.trim().replace(/,/g, '') || tds[1]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_act_2425', '0.00'));
-      setFormValue('v_act_upto_924', cell(row, 'actuals_upto_09_2024')?.textContent.trim().replace(/,/g, '') || tds[2]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_act_upto_924', '0.00'));
-      setFormValue('v_be_2526', cell(row, 'be_2025_2026')?.textContent.trim().replace(/,/g, '') || tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_be_2526', '0.00'));
-      setFormValue('v_act_upto_925', cell(row, 'actuals_upto_09_2025')?.textContent.trim().replace(/,/g, '') || tds[4]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_act_upto_925', '0.00'));
-      setFormValue('v_pct_be_2526', cell(row, 'pct_wrt_be_2025_2026')?.textContent.trim().replace(/,/g, '') || tds[5]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_pct_be_2526', '0.00'));
-      setFormValue('v_re_2526_prop', cell(row, 're_2025_2026_prop')?.textContent.trim() || tds[6]?.textContent.trim() || getStoredFormValue(row, 'v_re_2526_prop', '0.00'));
-      setFormValue('v_be_2627_prop', cell(row, 'be_2026_2027_prop')?.textContent.trim() || tds[7]?.textContent.trim() || getStoredFormValue(row, 'v_be_2627_prop', '0.00'));
+      setFormValue('v_item', cell(row, 'item')?.textContent.trim() || tds[1]?.textContent.trim() || tds[0]?.textContent.trim() || getStoredFormValue(row, 'v_item'));
+      setFormValue('v_act_2425', cell(row, 'actual_2024_2025')?.textContent.trim().replace(/,/g, '') || tds[2]?.textContent.trim().replace(/,/g, '') || tds[1]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_act_2425', '0.00'));
+      setFormValue('v_act_upto_924', cell(row, 'actuals_upto_09_2024')?.textContent.trim().replace(/,/g, '') || tds[3]?.textContent.trim().replace(/,/g, '') || tds[2]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_act_upto_924', '0.00'));
+      setFormValue('v_be_2526', cell(row, 'be_2025_2026')?.textContent.trim().replace(/,/g, '') || tds[4]?.textContent.trim().replace(/,/g, '') || tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_be_2526', '0.00'));
+      setFormValue('v_act_upto_925', cell(row, 'actuals_upto_09_2025')?.textContent.trim().replace(/,/g, '') || tds[5]?.textContent.trim().replace(/,/g, '') || tds[4]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_act_upto_925', '0.00'));
+      setFormValue('v_pct_be_2526', cell(row, 'pct_wrt_be_2025_2026')?.textContent.trim().replace(/,/g, '') || tds[6]?.textContent.trim().replace(/,/g, '') || tds[5]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'v_pct_be_2526', '0.00'));
+      setFormValue('v_re_2526_prop', cell(row, 're_2025_2026_prop')?.textContent.trim() || tds[7]?.textContent.trim() || tds[6]?.textContent.trim() || getStoredFormValue(row, 'v_re_2526_prop', '0.00'));
+      setFormValue('v_be_2627_prop', cell(row, 'be_2026_2027_prop')?.textContent.trim() || tds[8]?.textContent.trim() || tds[7]?.textContent.trim() || getStoredFormValue(row, 'v_be_2627_prop', '0.00'));
     }
 
     if (document.getElementById('va_autonomous_body')) {
@@ -500,19 +514,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (data.v_item !== undefined && document.getElementById('v_item')) {
-        const itemEl = cell(row, 'item') || tds[0];
+        const itemEl = cell(row, 'item') || tds[1] || tds[0];
         if (itemEl) itemEl.textContent = data.v_item || '—';
         const setCell = (col, fallbackIdx, val) => {
           const el = cell(row, col) || tds[fallbackIdx];
           if (el) el.textContent = val;
         };
-        setCell('actual_2024_2025', 1, Number(data.v_act_2425 || 0).toFixed(2));
-        setCell('actuals_upto_09_2024', 2, Number(data.v_act_upto_924 || 0).toFixed(2));
-        setCell('be_2025_2026', 3, Number(data.v_be_2526 || 0).toFixed(2));
-        setCell('actuals_upto_09_2025', 4, Number(data.v_act_upto_925 || 0).toFixed(2));
-        setCell('pct_wrt_be_2025_2026', 5, Number(data.v_pct_be_2526 || 0).toFixed(2));
-        setCell('re_2025_2026_prop', 6, Number(data.v_re_2526_prop || 0).toFixed(2));
-        setCell('be_2026_2027_prop', 7, Number(data.v_be_2627_prop || 0).toFixed(2));
+        setCell('actual_2024_2025', 2, Number(data.v_act_2425 || 0).toFixed(2));
+        setCell('actuals_upto_09_2024', 3, Number(data.v_act_upto_924 || 0).toFixed(2));
+        setCell('be_2025_2026', 4, Number(data.v_be_2526 || 0).toFixed(2));
+        setCell('actuals_upto_09_2025', 5, Number(data.v_act_upto_925 || 0).toFixed(2));
+        setCell('pct_wrt_be_2025_2026', 6, Number(data.v_pct_be_2526 || 0).toFixed(2));
+        setCell('re_2025_2026_prop', 7, Number(data.v_re_2526_prop || 0).toFixed(2));
+        setCell('be_2026_2027_prop', 8, Number(data.v_be_2627_prop || 0).toFixed(2));
       }
 
       if (data.va_autonomous_body !== undefined && document.getElementById('va_autonomous_body')) {
@@ -728,6 +742,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.changePage = () => {};
   window.changePageSize = () => {};
   window.sortBy = (field) => {
+    if (document.getElementById('v_item')) return;
     const rows = [...(tbody?.querySelectorAll('[data-record-row]') || [])];
     const get = row => value(row, field);
     rows.sort((a,b) => {

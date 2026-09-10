@@ -94,7 +94,7 @@
                         </div>
                     </div>
 
-                    <span class="flex text-right">
+                    <!-- <span class="flex text-right">
                         <button
                             class="rounded-md bg-amber-200 px-4 py-2 font-medium text-black hover:bg-amber-300 mr-2">Freeze</button>
 
@@ -102,87 +102,11 @@
                             data-ubis-center-action-mode="add" data-ubis-center-event=""
                             class="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-ubis-navy px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-ubis-dark focus:outline-none focus:ring-4 focus:ring-blue-100"><i
                                 data-lucide="plus" class="h-4 w-4"></i>Add</button>
-                    </span>
+                    </span> -->
                 </div>
             </section>
 
-            <!-- Context / Filters -->
-            <section class="mb-5 rounded-2xl border border-slate-200 bg-white shadow-panel">
-                <div class="flex items-center justify-between border-b border-slate-100 px-5 py-3.5">
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="sliders-horizontal" class="h-4 w-4 text-ubis-teal"></i>
-                        <h3 class="text-sm font-bold text-slate-700">Filter &amp; Context</h3>
-                    </div>
-                    <button onclick="clearFilters()" class="text-xs font-semibold text-ubis-blue hover:underline">Clear
-                        all</button>
-                </div>
-
-                <div class="grid grid-cols-1 gap-3 p-4 md:grid-cols-1 xl:grid-cols-[1.5fr_.7fr_.7fr_1.4fr_auto]">
-                    <label class="block">
-                        <span
-                            class="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">Demand</span>
-                        <div class="relative">
-                            <select id="demandFilter"
-                                class="h-10 w-full appearance-none rounded-lg border border-slate-300 bg-white px-3 pr-9 text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-                                <option>Department of Agriculture &amp; Farmers Welfare</option>
-                                <option>Department of Agricultural Research &amp; Education</option>
-                            </select>
-                            <i data-lucide="chevron-down"
-                                class="pointer-events-none absolute right-3 top-3 h-4 w-4 text-slate-400"></i>
-                        </div>
-                    </label>
-
-                    <label class="block">
-                        <span
-                            class="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">Financial
-                            Year</span>
-                        <div class="relative">
-                            <select id="yearFilter"
-                                class="h-10 w-full appearance-none rounded-lg border border-slate-300 bg-white px-3 pr-9 text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-                                <option value="2024–25">2024–25</option>
-                                <option value="2023–24">2023–24</option>
-                                <option value="2022–23">2022–23</option>
-                            </select>
-                            <i data-lucide="chevron-down"
-                                class="pointer-events-none absolute right-3 top-3 h-4 w-4 text-slate-400"></i>
-                        </div>
-                    </label>
-
-                    <label class="block">
-                        <span
-                            class="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">Category</span>
-                        <div class="relative">
-                            <select id="statusFilter" onchange="renderGrid()"
-                                class="h-10 w-full appearance-none rounded-lg border border-slate-300 bg-white px-3 pr-9 text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-                                <option value="All">All Status</option>
-                                <option>Active</option>
-                                <option>Draft</option>
-                                <option>Frozen</option>
-                                <option>Review</option>
-                            </select>
-                            <i data-lucide="chevron-down"
-                                class="pointer-events-none absolute right-3 top-3 h-4 w-4 text-slate-400"></i>
-                        </div>
-                    </label>
-
-                    <label class="block">
-                        <span
-                            class="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">Search</span>
-                        <div class="relative">
-                            <i data-lucide="search" class="absolute left-3 top-3 h-4 w-4 text-slate-400"></i>
-                            <input id="searchInput" oninput="renderGrid()" type="search"
-                                placeholder="Search item (e.g. Salary, GiA)..."
-                                class="h-10 w-full rounded-lg border border-slate-300 bg-white pl-9 pr-3 text-xs text-slate-700 outline-none placeholder:text-slate-400 focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-                        </div>
-                    </label>
-                    <div class="flex items-end">
-                        <button onclick="renderGrid()"
-                            class="h-10 w-full rounded-lg bg-ubis-teal px-4 text-xs font-bold text-white hover:bg-teal-700 xl:w-auto">
-                            Apply
-                        </button>
-                    </div>
-                </div>
-            </section>
+           
             <!-- Bulk toolbar -->
             <div id="bulkToolbar"
                 class="mb-3 hidden items-center justify-between rounded-xl border border-blue-100 bg-blue-50 px-4 py-2.5">
@@ -211,6 +135,14 @@
                         <p class="mt-0.5 text-[11px] text-slate-500">Appendix-V financial records</p>
                     </div>
                     <div class="flex items-center gap-2">
+                        <!-- Search Input -->
+                        <div class="relative">
+                            <i data-lucide="search"
+                                class="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400"></i>
+                            <input id="searchInput" oninput="renderGrid()" type="search"
+                                placeholder="Search item (e.g. Salary, GiA)..."
+                                class="h-8 w-48 rounded-lg border border-slate-200 bg-white pl-8 pr-3 text-xs font-medium text-slate-700 outline-none placeholder:text-slate-400 focus:border-ubis-teal focus:ring-2 focus:ring-teal-50 sm:w-60">
+                        </div>
                         <!-- Export Dropdown Button -->
                         <div class="relative">
                             <button id="exportButton" type="button"
@@ -264,6 +196,11 @@
                                 <div class="space-y-1 p-2">
                                     <label
                                         class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
+                                            type="checkbox" data-column-toggle="sno" checked
+                                            class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
+                                            data-lucide="hash" class="h-4 w-4 text-slate-400"></i>Sl. No.</label>
+                                    <label
+                                        class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
                                             type="checkbox" data-column-toggle="item" checked
                                             class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
                                             data-lucide="file-text" class="h-4 w-4 text-slate-400"></i>Item</label>
@@ -305,10 +242,25 @@
                                         prop.</label>
                                     <label
                                         class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
+                                            type="checkbox" data-column-toggle="re_2026_2027_budget" checked
+                                            class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
+                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>RE 26-27 Budget Div.</label>
+                                    <label
+                                        class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
                                             type="checkbox" data-column-toggle="be_2026_2027_prop" checked
                                             class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
                                             data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>B.E. 2026-2027
                                         prop.</label>
+                                    <label
+                                        class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
+                                            type="checkbox" data-column-toggle="be_2026_2027_budget" checked
+                                            class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
+                                            data-lucide="indian-rupee" class="h-4 w-4 text-slate-400"></i>B.E. 2026-2027 Budget Div.</label>
+                                    <label
+                                        class="flex cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><input
+                                            type="checkbox" data-column-toggle="remarks" checked
+                                            class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-200"><i
+                                            data-lucide="message-square" class="h-4 w-4 text-slate-400"></i>Remarks</label>
                                 </div>
                                 <div class="border-t border-slate-100 bg-slate-50 px-3 py-2.5">
                                     <button type="button"
@@ -324,611 +276,640 @@
                     </div>
                 </div>
                 <div class="grid-scroll">
-                    <table id="chargesTable" class="ubis-data-grid">
+                    <table id="chargesTable" class="ubis-data-grid" style="min-width: 1200px;">
                         <thead class="ubis-data-grid__head">
                             <tr class="data-grid__header-row">
-                                <th data-column="item" class="grid-head-cell grid-col--16">
-                                    <button data-sort="item"
-                                        class="button-content">
+                                <th data-column="sno" class="grid-head-cell grid-head-cell--center grid-col--5">Sl. No.
+                                </th>
+                                <th data-column="item" class="grid-head-cell grid-col--13">
+                                    <button data-sort="item" class="button-content">
                                         <span>Item</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="actual_2024_2025" class="grid-head-cell grid-head-cell--right grid-col--10">
+                                <th data-column="actual_2024_2025" class="grid-head-cell grid-head-cell--center grid-col--7">
                                     <button data-sort="actual_2024_2025"
-                                        class="button-content button-content--tight justify-end">
-                                        <span class="text-right leading-tight">Actual<br>2024-2025</span>
+                                        class="button-content button-content--tight justify-center w-full">
+                                        <span class="text-center leading-tight">Actual<br>2024-2025</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="actuals_upto_09_2024" class="grid-head-cell grid-head-cell--right grid-col--10">
+                                <th data-column="actuals_upto_09_2024"
+                                    class="grid-head-cell grid-head-cell--center grid-col--7">
                                     <button data-sort="actuals_upto_09_2024"
-                                        class="button-content button-content--tight justify-end">
-                                        <span class="text-right leading-tight">Actuals upto<br>9/2024</span>
+                                        class="button-content button-content--tight justify-center w-full">
+                                        <span class="text-center leading-tight">Actuals upto<br>9/2024</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="be_2025_2026" class="grid-head-cell grid-head-cell--right grid-col--10">
+                                <th data-column="be_2025_2026"
+                                    class="grid-head-cell grid-head-cell--center grid-col--7">
                                     <button data-sort="be_2025_2026"
-                                        class="button-content button-content--tight justify-end">
-                                        <span class="text-right leading-tight">B.E.<br>2025-2026</span>
+                                        class="button-content button-content--tight justify-center w-full">
+                                        <span class="text-center leading-tight">B.E.<br>2025-2026</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="actuals_upto_09_2025" class="grid-head-cell grid-head-cell--right grid-col--10">
+                                <th data-column="actuals_upto_09_2025"
+                                    class="grid-head-cell grid-head-cell--center grid-col--7">
                                     <button data-sort="actuals_upto_09_2025"
-                                        class="button-content button-content--tight justify-end">
-                                        <span class="text-right leading-tight">Actuals upto<br>9/2025</span>
+                                        class="button-content button-content--tight justify-center w-full">
+                                        <span class="text-center leading-tight">Actuals upto<br>9/2025</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="pct_wrt_be_2025_2026" class="grid-head-cell grid-head-cell--right grid-col--11">
+                                <th data-column="pct_wrt_be_2025_2026"
+                                    class="grid-head-cell grid-head-cell--center grid-col--9">
                                     <button data-sort="pct_wrt_be_2025_2026"
-                                        class="button-content button-content--tight justify-end">
-                                        <span class="text-right leading-tight">% w.r.t. B.E.<br>2025-2026</span>
+                                        class="button-content button-content--tight justify-center w-full">
+                                        <span class="text-center leading-tight">% w.r.t. B.E.<br>2025-2026</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="re_2025_2026_prop" class="grid-head-cell grid-head-cell--right grid-col--13">
+                                <th data-column="re_2025_2026_prop"
+                                    class="grid-head-cell grid-head-cell--center grid-col--10">
                                     <button data-sort="re_2025_2026_prop"
-                                        class="button-content button-content--tight justify-end">
-                                        <span class="text-right leading-tight">R.E. 2025-2026<br>prop. by Min/Dep</span>
+                                        class="button-content button-content--tight justify-center w-full">
+                                        <span class="text-center leading-tight">R.E. 2025-2026<br>Proposed by Min/Dep</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="be_2026_2027_prop" class="grid-head-cell grid-head-cell--right grid-col--13">
+                                <th data-column="re_2026_2027_budget"
+                                    class="grid-head-cell grid-head-cell--center grid-col--10">
+                                    <button data-sort="re_2026_2027_budget"
+                                        class="button-content button-content--tight justify-center w-full">
+                                        <span class="text-center leading-tight">RE 26-27 Proposed<br>by Budget Div.</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th data-column="be_2026_2027_prop"
+                                    class="grid-head-cell grid-head-cell--center grid-col--10">
                                     <button data-sort="be_2026_2027_prop"
-                                        class="button-content button-content--tight justify-end">
-                                        <span class="text-right leading-tight">B.E. 2026-2027<br>prop. by Min/Dep</span>
+                                        class="button-content button-content--tight justify-center w-full">
+                                        <span class="text-center leading-tight">B.E. 2026-2027<br>Proposed by Min/Dep</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th class="grid-head-cell grid-head-cell--center grid-col--7">Action</th>
+                                <th data-column="be_2026_2027_budget"
+                                    class="grid-head-cell grid-head-cell--center grid-col--10">
+                                    <button data-sort="be_2026_2027_budget"
+                                        class="button-content button-content--tight justify-center w-full">
+                                        <span class="text-center leading-tight">B.E. 2026-2027<br>Proposed by Budget Div.</span>
+                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
+                                    </button>
+                                </th>
+                                <th data-column="remarks" class="grid-head-cell grid-head-cell--center grid-col--5">Remarks</th>
                             </tr>
                         </thead>
                         <tbody id="gridBody" class="data-grid__body">
                             <!-- Section Header 1 -->
-                            <tr class="data-grid__row bg-slate-100/90 border-y border-slate-300">
-                                <td colspan="9"
+                            <tr class="data-grid__row bg-slate-100/90 border-y border-slate-300 font-bold">
+                                <td data-column="sno" class="grid-cell grid-cell--center font-bold text-slate-800">1
+                                </td>
+                                <td colspan="11"
                                     class="grid-cell px-3 py-2 text-xs font-bold uppercase tracking-wide text-slate-700">
                                     Establishment Exp.
                                 </td>
                             </tr>
                             <!-- Row 1: Salary -->
-                            <tr class="data-grid__row"
-                                data-record-row data-record-id="UC-000001" data-category="Establishment Exp.">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000001"
+                                data-category="Establishment Exp.">
+                                <td data-label="Sl. No." data-column="sno"
+                                    class="grid-cell grid-cell--center grid-cell--strong">1a</td>
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell grid-cell grid-cell--strong">
                                     Salary</td>
                                 <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
                                     data-field="actual_2024_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     21.41</td>
                                 <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
                                     data-field="actuals_upto_09_2024"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     28.21</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     39.20</td>
                                 <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
                                     data-field="actuals_upto_09_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     27.16</td>
                                 <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
                                     data-field="pct_wrt_be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     69.29</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 Proposed by Min/Dep" data-column="re_2025_2026_prop"
                                     data-field="re_2025_2026_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     41.33</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                <td data-label="RE 26-27 Proposed by Budget Div." data-column="re_2026_2027_budget"
+                                    data-field="re_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular text-slate-400">
+                                    —</td>
+                                <td data-label="B.E. 2026-2027 Proposed by Min/Dep" data-column="be_2026_2027_prop"
                                     data-field="be_2026_2027_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     70.26</td>
-                                <td data-label="Action" class="grid-action-cell">
-                                    <div class="grid-action-menu">
-                                        <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
-                                        </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
-                                                title="Save row"><i data-lucide="check"
-                                                    class="h-3.5 w-3.5"></i>Save</button>
-                                            <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
+                                <td data-label="B.E. 2026-2027 recomm. by Budg. Div." data-column="be_2026_2027_budget"
+                                    data-field="be_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular text-slate-400">
+                                    —</td>
+                                <td data-label="Remarks" data-column="remarks"
+                                    class="grid-cell grid-cell--center text-slate-400">
+                                    —</td>
                             </tr>
                             <!-- Row 2: Non-Salary -->
-                            <tr class="data-grid__row"
-                                data-record-row data-record-id="UC-000002" data-category="Establishment Exp.">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000002"
+                                data-category="Establishment Exp.">
+                                <td data-label="Sl. No." data-column="sno"
+                                    class="grid-cell grid-cell--center grid-cell--strong">1b</td>
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell grid-cell grid-cell--strong">
                                     Non-Salary</td>
                                 <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
                                     data-field="actual_2024_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     447.09</td>
                                 <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
                                     data-field="actuals_upto_09_2024"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     191.17</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     555.97</td>
                                 <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
                                     data-field="actuals_upto_09_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     216.86</td>
                                 <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
                                     data-field="pct_wrt_be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     39.01</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 Proposed by Min/Dep" data-column="re_2025_2026_prop"
                                     data-field="re_2025_2026_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     657.74</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                <td data-label="RE 26-27 Proposed by Budget Div." data-column="re_2026_2027_budget"
+                                    data-field="re_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular text-slate-400">
+                                    —</td>
+                                <td data-label="B.E. 2026-2027 Proposed by Min/Dep" data-column="be_2026_2027_prop"
                                     data-field="be_2026_2027_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     766.01</td>
-                                <td data-label="Action" class="grid-action-cell">
-                                    <div class="grid-action-menu">
-                                        <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
-                                        </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
-                                                title="Save row"><i data-lucide="check"
-                                                    class="h-3.5 w-3.5"></i>Save</button>
-                                            <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
+                                <td data-label="B.E. 2026-2027 recomm. by Budg. Div." data-column="be_2026_2027_budget"
+                                    data-field="be_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular text-slate-400">
+                                    —</td>
+                                <td data-label="Remarks" data-column="remarks"
+                                    class="grid-cell grid-cell--center text-slate-400">
+                                    —</td>
                             </tr>
                             <!-- Row 3: Total (Estt. Exp.) -->
-                            <tr class="data-grid__row bg-slate-50/80 font-semibold"
-                                data-record-row data-record-id="UC-000003" data-category="Establishment Exp.">
+                            <tr class="data-grid__row bg-slate-50/80 font-semibold" data-record-row
+                                data-record-id="UC-000003" data-category="Establishment Exp.">
+                                <td data-column="sno" class="grid-cell grid-cell--center font-semibold"></td>
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell grid-cell grid-cell--strong font-bold">
                                     Total (Estt. Exp.)</td>
                                 <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
                                     data-field="actual_2024_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     468.50</td>
                                 <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
                                     data-field="actuals_upto_09_2024"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     219.38</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     595.17</td>
                                 <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
                                     data-field="actuals_upto_09_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     244.02</td>
                                 <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
                                     data-field="pct_wrt_be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     41.00</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 Proposed by Min/Dep" data-column="re_2025_2026_prop"
                                     data-field="re_2025_2026_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     699.07</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                <td data-label="RE 26-27 Proposed by Budget Div." data-column="re_2026_2027_budget"
+                                    data-field="re_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular font-semibold text-slate-400">
+                                    —</td>
+                                <td data-label="B.E. 2026-2027 Proposed by Min/Dep" data-column="be_2026_2027_prop"
                                     data-field="be_2026_2027_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     836.27</td>
-                                <td data-label="Action" class="grid-action-cell">
-                                    <div class="grid-action-menu">
-                                        <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
-                                        </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
-                                                title="Save row"><i data-lucide="check"
-                                                    class="h-3.5 w-3.5"></i>Save</button>
-                                            <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
+                                <td data-label="B.E. 2026-2027 recomm. by Budg. Div." data-column="be_2026_2027_budget"
+                                    data-field="be_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular font-semibold text-slate-400">
+                                    —</td>
+                                <td data-label="Remarks" data-column="remarks"
+                                    class="grid-cell grid-cell--center text-slate-400">
+                                    —</td>
                             </tr>
                             <!-- Section Header 2 -->
-                            <tr class="data-grid__row bg-slate-100/90 border-y border-slate-300">
-                                <td colspan="9"
+                            <tr class="data-grid__row bg-slate-100/90 border-y border-slate-300 font-bold">
+                                <td data-column="sno" class="grid-cell grid-cell--center font-bold text-slate-800">2
+                                </td>
+                                <td colspan="11"
                                     class="grid-cell px-3 py-2 text-xs font-bold uppercase tracking-wide text-slate-700">
                                     Other Central Exp.
                                 </td>
                             </tr>
+                            <!-- Sub-Header 2a: Autonomous Bodies (ABs) -->
+                            <tr class="data-grid__row bg-slate-50/90 border-b border-slate-200">
+                                <td data-column="sno" class="grid-cell grid-cell--center font-bold text-slate-700">2a
+                                </td>
+                                <td colspan="11"
+                                    class="grid-cell px-3 py-1.5 text-xs font-bold tracking-wide text-slate-700">
+                                    Autonomous Bodies (ABs)</td>
+                            </tr>
                             <!-- Row 4: GiA General -->
-                            <tr class="data-grid__row"
-                                data-record-row data-record-id="UC-000004" data-category="Other Central Exp.">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000004"
+                                data-category="Other Central Exp.">
+                                <td data-label="Sl. No." data-column="sno"
+                                    class="grid-cell grid-cell--center grid-cell--strong">2a(i)</td>
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell grid-cell grid-cell--strong">
                                     GiA General</td>
                                 <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
                                     data-field="actual_2024_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     17.29</td>
                                 <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
                                     data-field="actuals_upto_09_2024"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     10.23</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     23.50</td>
                                 <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
                                     data-field="actuals_upto_09_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     10.91</td>
                                 <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
                                     data-field="pct_wrt_be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     46.43</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 Proposed by Min/Dep" data-column="re_2025_2026_prop"
                                     data-field="re_2025_2026_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     21.00</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                <td data-label="RE 26-27 Proposed by Budget Div." data-column="re_2026_2027_budget"
+                                    data-field="re_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular text-slate-400">
+                                    —</td>
+                                <td data-label="B.E. 2026-2027 Proposed by Min/Dep" data-column="be_2026_2027_prop"
                                     data-field="be_2026_2027_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     22.00</td>
-                                <td data-label="Action" class="grid-action-cell">
-                                    <div class="grid-action-menu">
-                                        <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
-                                        </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
-                                                title="Save row"><i data-lucide="check"
-                                                    class="h-3.5 w-3.5"></i>Save</button>
-                                            <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
+                                <td data-label="B.E. 2026-2027 recomm. by Budg. Div." data-column="be_2026_2027_budget"
+                                    data-field="be_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular text-slate-400">
+                                    —</td>
+                                <td data-label="Remarks" data-column="remarks"
+                                    class="grid-cell grid-cell--center text-slate-400">
+                                    —</td>
                             </tr>
                             <!-- Row 5: GiA for Cap. Assets -->
-                            <tr class="data-grid__row"
-                                data-record-row data-record-id="UC-000005" data-category="Other Central Exp.">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000005"
+                                data-category="Other Central Exp.">
+                                <td data-label="Sl. No." data-column="sno"
+                                    class="grid-cell grid-cell--center grid-cell--strong">2a(ii)</td>
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell grid-cell grid-cell--strong">
                                     GiA for Cap. Assets</td>
                                 <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
                                     data-field="actual_2024_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     5.66</td>
                                 <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
                                     data-field="actuals_upto_09_2024"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     4.50</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     6.00</td>
                                 <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
                                     data-field="actuals_upto_09_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     2.50</td>
                                 <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
                                     data-field="pct_wrt_be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     41.67</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 Proposed by Min/Dep" data-column="re_2025_2026_prop"
                                     data-field="re_2025_2026_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     9.00</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                <td data-label="RE 26-27 Proposed by Budget Div." data-column="re_2026_2027_budget"
+                                    data-field="re_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular text-slate-400">
+                                    —</td>
+                                <td data-label="B.E. 2026-2027 Proposed by Min/Dep" data-column="be_2026_2027_prop"
                                     data-field="be_2026_2027_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     9.50</td>
-                                <td data-label="Action" class="grid-action-cell">
-                                    <div class="grid-action-menu">
-                                        <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
-                                        </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
-                                                title="Save row"><i data-lucide="check"
-                                                    class="h-3.5 w-3.5"></i>Save</button>
-                                            <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
+                                <td data-label="B.E. 2026-2027 recomm. by Budg. Div." data-column="be_2026_2027_budget"
+                                    data-field="be_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular text-slate-400">
+                                    —</td>
+                                <td data-label="Remarks" data-column="remarks"
+                                    class="grid-cell grid-cell--center text-slate-400">
+                                    —</td>
                             </tr>
                             <!-- Row 6: GiA Salary -->
-                            <tr class="data-grid__row"
-                                data-record-row data-record-id="UC-000006" data-category="Other Central Exp.">
+                            <tr class="data-grid__row" data-record-row data-record-id="UC-000006"
+                                data-category="Other Central Exp.">
+                                <td data-label="Sl. No." data-column="sno"
+                                    class="grid-cell grid-cell--center grid-cell--strong">2a(iii)</td>
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell grid-cell grid-cell--strong">
                                     GiA Salary</td>
                                 <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
                                     data-field="actual_2024_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     71.45</td>
                                 <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
                                     data-field="actuals_upto_09_2024"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     32.72</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     67.50</td>
                                 <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
                                     data-field="actuals_upto_09_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     35.18</td>
                                 <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
                                     data-field="pct_wrt_be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     52.12</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 Proposed by Min/Dep" data-column="re_2025_2026_prop"
                                     data-field="re_2025_2026_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     87.50</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                <td data-label="RE 26-27 Proposed by Budget Div." data-column="re_2026_2027_budget"
+                                    data-field="re_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular text-slate-400">
+                                    —</td>
+                                <td data-label="B.E. 2026-2027 Proposed by Min/Dep" data-column="be_2026_2027_prop"
                                     data-field="be_2026_2027_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular">
+                                    class="editable-cell grid-cell grid-cell--right tabular whitespace-nowrap">
                                     98.25</td>
-                                <td data-label="Action" class="grid-action-cell">
-                                    <div class="grid-action-menu">
-                                        <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
-                                        </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
-                                                title="Save row"><i data-lucide="check"
-                                                    class="h-3.5 w-3.5"></i>Save</button>
-                                            <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
+                                <td data-label="B.E. 2026-2027 recomm. by Budg. Div." data-column="be_2026_2027_budget"
+                                    data-field="be_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular text-slate-400">
+                                    —</td>
+                                <td data-label="Remarks" data-column="remarks"
+                                    class="grid-cell grid-cell--center text-slate-400">
+                                    —</td>
                             </tr>
                             <!-- Row 7: Total (ABs) -->
-                            <tr class="data-grid__row bg-slate-50/80 font-semibold"
-                                data-record-row data-record-id="UC-000007" data-category="Other Central Exp.">
+                            <tr class="data-grid__row bg-slate-50/80 font-semibold" data-record-row
+                                data-record-id="UC-000007" data-category="Other Central Exp.">
+                                <td data-column="sno" class="grid-cell grid-cell--center font-semibold"></td>
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell grid-cell grid-cell--strong font-bold">
                                     Total (ABs)</td>
                                 <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
                                     data-field="actual_2024_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     94.40</td>
                                 <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
                                     data-field="actuals_upto_09_2024"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     47.45</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     97.00</td>
                                 <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
                                     data-field="actuals_upto_09_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     48.59</td>
                                 <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
                                     data-field="pct_wrt_be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     50.09</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 Proposed by Min/Dep" data-column="re_2025_2026_prop"
                                     data-field="re_2025_2026_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     117.50</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                <td data-label="RE 26-27 Proposed by Budget Div." data-column="re_2026_2027_budget"
+                                    data-field="re_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular font-semibold text-slate-400">
+                                    —</td>
+                                <td data-label="B.E. 2026-2027 Proposed by Min/Dep" data-column="be_2026_2027_prop"
                                     data-field="be_2026_2027_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     129.75</td>
-                                <td data-label="Action" class="grid-action-cell">
-                                    <div class="grid-action-menu">
-                                        <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
-                                        </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
-                                                title="Save row"><i data-lucide="check"
-                                                    class="h-3.5 w-3.5"></i>Save</button>
-                                            <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
+                                <td data-label="B.E. 2026-2027 recomm. by Budg. Div." data-column="be_2026_2027_budget"
+                                    data-field="be_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular font-semibold text-slate-400">
+                                    —</td>
+                                <td data-label="Remarks" data-column="remarks"
+                                    class="grid-cell grid-cell--center text-slate-400">
+                                    —</td>
                             </tr>
-                            <!-- Row 8: Total (Other than AB) -->
-                            <tr class="data-grid__row bg-slate-50/80 font-semibold"
-                                data-record-row data-record-id="UC-000008" data-category="Other Central Exp.">
+                            <!-- Sub-Header 2b: Other than AB -->
+                            <tr class="data-grid__row bg-slate-50/90 border-b border-slate-200">
+                                <td data-column="sno" class="grid-cell grid-cell--center font-bold text-slate-700">2b
+                                </td>
+                                <td colspan="11"
+                                    class="grid-cell px-3 py-1.5 text-xs font-bold tracking-wide text-slate-700">Other
+                                    than AB</td>
+                            </tr>
+                            <!-- Row 8a: Item 1 -->
+                            <tr class="data-grid__row bg-slate-50/80 font-semibold" data-record-row
+                                data-record-id="UC-000008" data-category="Other Central Exp.">
+                                <td data-column="sno" class="grid-cell grid-cell--center font-semibold"></td>
                                 <td data-label="Item" data-column="item" data-field="item"
                                     class="editable-cell grid-cell grid-cell--strong font-bold">
-                                    Total (Other than AB)</td>
+                                    1</td>
                                 <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
                                     data-field="actual_2024_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     435.01</td>
                                 <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
                                     data-field="actuals_upto_09_2024"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     186.88</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     399.00</td>
                                 <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
                                     data-field="actuals_upto_09_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     159.76</td>
                                 <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
                                     data-field="pct_wrt_be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     40.04</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 Proposed by Min/Dep" data-column="re_2025_2026_prop"
                                     data-field="re_2025_2026_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     582.13</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                <td data-label="RE 26-27 Proposed by Budget Div." data-column="re_2026_2027_budget"
+                                    data-field="re_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular font-semibold text-slate-400">
+                                    —</td>
+                                <td data-label="B.E. 2026-2027 Proposed by Min/Dep" data-column="be_2026_2027_prop"
                                     data-field="be_2026_2027_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
                                     608.41</td>
-                                <td data-label="Action" class="grid-action-cell">
-                                    <div class="grid-action-menu">
-                                        <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
-                                        </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
-                                                title="Save row"><i data-lucide="check"
-                                                    class="h-3.5 w-3.5"></i>Save</button>
-                                            <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
+                                <td data-label="B.E. 2026-2027 recomm. by Budg. Div." data-column="be_2026_2027_budget"
+                                    data-field="be_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular font-semibold text-slate-400">
+                                    —</td>
+                                <td data-label="Remarks" data-column="remarks"
+                                    class="grid-cell grid-cell--center text-slate-400">
+                                    —</td>
                             </tr>
-                            <!-- Row 9: Grand Total -->
-                            <tr class="data-grid__row border-b-2 border-slate-300 bg-slate-100 font-bold"
-                                data-record-row data-record-id="UC-000009" data-category="All">
+                            <!-- Row 8b: Item 2 -->
+                            <tr class="data-grid__row bg-slate-50/80 font-semibold" data-record-row
+                                data-record-id="UC-000008" data-category="Other Central Exp.">
+                                <td data-column="sno" class="grid-cell grid-cell--center font-semibold"></td>
                                 <td data-label="Item" data-column="item" data-field="item"
-                                    class="editable-cell grid-cell grid-cell--strong font-extrabold">
-                                    Grand Total</td>
+                                    class="editable-cell grid-cell grid-cell--strong font-bold">
+                                    2</td>
                                 <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
                                     data-field="actual_2024_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-bold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
+                                    435.01</td>
+                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
+                                    data-field="actuals_upto_09_2024"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
+                                    186.88</td>
+                                <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
+                                    399.00</td>
+                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
+                                    data-field="actuals_upto_09_2025"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
+                                    159.76</td>
+                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
+                                    data-field="pct_wrt_be_2025_2026"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
+                                    40.04</td>
+                                <td data-label="R.E. 2025-2026 Proposed by Min/Dep" data-column="re_2025_2026_prop"
+                                    data-field="re_2025_2026_prop"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
+                                    582.13</td>
+                                <td data-label="RE 26-27 Proposed by Budget Div." data-column="re_2026_2027_budget"
+                                    data-field="re_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular font-semibold text-slate-400">
+                                    —</td>
+                                <td data-label="B.E. 2026-2027 Proposed by Min/Dep" data-column="be_2026_2027_prop"
+                                    data-field="be_2026_2027_prop"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-semibold whitespace-nowrap">
+                                    608.41</td>
+                                <td data-label="B.E. 2026-2027 recomm. by Budg. Div." data-column="be_2026_2027_budget"
+                                    data-field="be_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular font-semibold text-slate-400">
+                                    —</td>
+                                <td data-label="Remarks" data-column="remarks"
+                                    class="grid-cell grid-cell--center text-slate-400">
+                                    —</td>
+                            </tr>
+                            <!-- Row 8c: Total (Other than AB) -->
+                            <tr class="data-grid__row border-b-2 border-slate-300 bg-slate-100 font-bold"
+                                data-record-row data-record-id="UC-000009" data-category="All">
+                                <td data-column="sno" class="grid-cell grid-cell--center font-bold"></td>
+                                <td data-label="Item" data-column="item" data-field="item"
+                                    class="editable-cell grid-cell grid-cell--strong font-extrabold">
+                                    Total (Other than AB)</td>
+                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
+                                    data-field="actual_2024_2025"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
                                     997.91</td>
                                 <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
                                     data-field="actuals_upto_09_2024"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-bold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
                                     453.71</td>
                                 <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-bold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
                                     1091.17</td>
                                 <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
                                     data-field="actuals_upto_09_2025"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-bold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
                                     452.37</td>
                                 <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
                                     data-field="pct_wrt_be_2025_2026"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-bold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
                                     41.46</td>
-                                <td data-label="R.E. 2025-2026 prop. by Min/Dep" data-column="re_2025_2026_prop"
+                                <td data-label="R.E. 2025-2026 Proposed by Min/Dep" data-column="re_2025_2026_prop"
                                     data-field="re_2025_2026_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-bold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
                                     1398.70</td>
-                                <td data-label="B.E. 2026-2027 prop. by Min/Dep" data-column="be_2026_2027_prop"
+                                <td data-label="RE 26-27 Proposed by Budget Div." data-column="re_2026_2027_budget"
+                                    data-field="re_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular font-bold text-slate-400">
+                                    —</td>
+                                <td data-label="B.E. 2026-2027 Proposed by Min/Dep" data-column="be_2026_2027_prop"
                                     data-field="be_2026_2027_prop"
-                                    class="editable-cell grid-cell grid-cell--right tabular font-bold">
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
                                     1574.43</td>
-                                <td data-label="Action" class="grid-action-cell">
-                                    <div class="grid-action-menu">
-                                        <button type="button" data-row-menu
-                                            class="grid-more-button icon-button row-more-button"
-                                            title="More actions" aria-label="More actions" aria-expanded="false">
-                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
-                                        </button>
-                                        <div data-row-actions
-                                            class="grid-row-actions row-action-menu is-hidden">
-                                            <button type="button" data-row-edit
-                                                class="menu-action"
-                                                title="Edit row"><i data-lucide="pencil"
-                                                    class="h-3.5 w-3.5"></i>Edit</button>
-                                            <button type="button" data-row-save
-                                                class="menu-action menu-action--primary"
-                                                title="Save row"><i data-lucide="check"
-                                                    class="h-3.5 w-3.5"></i>Save</button>
-                                            <button type="button" data-row-delete
-                                                class="menu-action menu-action--danger"
-                                                title="Delete row"><i data-lucide="trash-2"
-                                                    class="h-3.5 w-3.5"></i>Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
+                                <td data-label="B.E. 2026-2027 recomm. by Budg. Div." data-column="be_2026_2027_budget"
+                                    data-field="be_2026_2027_budget"
+                                    class="editable-cell grid-cell grid-cell--center tabular font-bold text-slate-400">
+                                    —</td>
+                                <td data-label="Remarks" data-column="remarks"
+                                    class="grid-cell grid-cell--center text-slate-400">
+                                    —</td>
+                            </tr>
+                            <!-- Row 9: Grand Total (1+2) -->
+                            <tr class="data-grid__row border-b-2 border-slate-300 bg-slate-100 font-bold"
+                                data-record-row data-record-id="UC-000009" data-category="All">
+                                <td data-column="sno" class="grid-cell grid-cell--center font-bold"></td>
+                                <td data-label="Item" data-column="item" data-field="item"
+                                    class="editable-cell grid-cell grid-cell--strong font-extrabold">
+                                    Grand Total (1+2)</td>
+                                <td data-label="Actual 2024-2025" data-column="actual_2024_2025"
+                                    data-field="actual_2024_2025"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
+                                    997.91</td>
+                                <td data-label="Actuals upto 9/2024" data-column="actuals_upto_09_2024"
+                                    data-field="actuals_upto_09_2024"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
+                                    453.71</td>
+                                <td data-label="B.E. 2025-2026" data-column="be_2025_2026" data-field="be_2025_2026"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
+                                    1091.17</td>
+                                <td data-label="Actuals upto 9/2025" data-column="actuals_upto_09_2025"
+                                    data-field="actuals_upto_09_2025"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
+                                    452.37</td>
+                                <td data-label="% w.r.t. B.E. 2025-2026" data-column="pct_wrt_be_2025_2026"
+                                    data-field="pct_wrt_be_2025_2026"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
+                                    41.46</td>
+                                <td data-label="R.E. 2025-2026 Proposed by Min/Dep" data-column="re_2025_2026_prop"
+                                    data-field="re_2025_2026_prop"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
+                                    1398.70</td>
+                                <td data-label="RE 26-27 Proposed by Budget Div." data-column="re_2026_2027_budget"
+                                    class="grid-cell grid-cell--center font-normal text-xs italic text-slate-500 whitespace-nowrap">
+                                    Non editable</td>
+                                <td data-label="B.E. 2026-2027 Proposed by Min/Dep" data-column="be_2026_2027_prop"
+                                    data-field="be_2026_2027_prop"
+                                    class="editable-cell grid-cell grid-cell--right tabular font-bold whitespace-nowrap">
+                                    1574.43</td>
+                                <td data-label="B.E. 2026-2027 recomm. by Budg. Div." data-column="be_2026_2027_budget"
+                                    class="grid-cell grid-cell--center font-normal text-xs italic text-slate-500 whitespace-nowrap">
+                                    Non editable</td>
+                                <td data-label="Remarks" data-column="remarks"
+                                    class="grid-cell grid-cell--center text-slate-400">
+                                    —</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div id="emptyState" class="hidden px-6 py-14 text-center">
-                    <div
-                        class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-400">
+                    <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-400">
                         <i data-lucide="search-x" class="h-5 w-5"></i>
                     </div>
                     <h4 class="mt-3 text-sm font-bold text-slate-700">No records found</h4>
