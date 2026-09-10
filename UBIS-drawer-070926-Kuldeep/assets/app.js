@@ -29,13 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!drawer) return;
     form?.reset();
     resetDrawerMode();
+    updateAppendixIITotals();
     drawer.classList.remove('drawer-closed');
     drawer.classList.add('drawer-open');
     drawer.setAttribute('aria-hidden', 'false');
     document.body.classList.add('drawer-page-locked');
     backdrop?.classList.remove('backdrop-hide');
     backdrop?.classList.add('backdrop-show');
-    setTimeout(() => document.getElementById('year')?.focus(), 320);
+    setTimeout(() => {
+      const focusTarget = document.getElementById('q1_2425_qep') || document.getElementById('year');
+      focusTarget?.focus();
+    }, 320);
   };
 
   window.closeDrawer = function () {
@@ -57,6 +61,34 @@ document.addEventListener('DOMContentLoaded', () => {
     if (remarks && counter) counter.textContent = remarks.value.length;
   }
   document.getElementById('remarks')?.addEventListener('input', updateCounter);
+
+  function updateAppendixIITotals() {
+    if (!document.getElementById('tot_2425_qep')) return;
+    const q1_2425_qep = parseFloat(document.getElementById('q1_2425_qep')?.value) || 0;
+    const q2_2425_qep = parseFloat(document.getElementById('q2_2425_qep')?.value) || 0;
+    const tot_2425_qep = document.getElementById('tot_2425_qep');
+    if (tot_2425_qep) tot_2425_qep.value = (q1_2425_qep + q2_2425_qep).toFixed(2);
+
+    const q1_2425_act = parseFloat(document.getElementById('q1_2425_act')?.value) || 0;
+    const q2_2425_act = parseFloat(document.getElementById('q2_2425_act')?.value) || 0;
+    const tot_2425_act = document.getElementById('tot_2425_act');
+    if (tot_2425_act) tot_2425_act.value = (q1_2425_act + q2_2425_act).toFixed(2);
+
+    const q1_2526_qep = parseFloat(document.getElementById('q1_2526_qep')?.value) || 0;
+    const q2_2526_qep = parseFloat(document.getElementById('q2_2526_qep')?.value) || 0;
+    const tot_2526_qep = document.getElementById('tot_2526_qep');
+    if (tot_2526_qep) tot_2526_qep.value = (q1_2526_qep + q2_2526_qep).toFixed(2);
+
+    const q1_2526_act = parseFloat(document.getElementById('q1_2526_act')?.value) || 0;
+    const q2_2526_act = parseFloat(document.getElementById('q2_2526_act')?.value) || 0;
+    const tot_2526_act = document.getElementById('tot_2526_act');
+    if (tot_2526_act) tot_2526_act.value = (q1_2526_act + q2_2526_act).toFixed(2);
+  }
+
+  ['q1_2425_qep', 'q2_2425_qep', 'q1_2425_act', 'q2_2425_act', 'q1_2526_qep', 'q2_2526_qep', 'q1_2526_act', 'q2_2526_act'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', updateAppendixIITotals);
+  });
+  form?.addEventListener('reset', () => setTimeout(updateAppendixIITotals, 20));
 
   document.querySelectorAll('.seg-btn').forEach((button) => {
     button.addEventListener('click', () => {
@@ -286,6 +318,11 @@ document.addEventListener('DOMContentLoaded', () => {
       setFormValue('q1_2526_act', tds[6]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q1_2526_act', '0.00'));
       setFormValue('q2_2526_qep', tds[7]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q2_2526_qep', '0.00'));
       setFormValue('q2_2526_act', tds[8]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q2_2526_act', '0.00'));
+      setFormValue('q1_2425_dev', getStoredFormValue(row, 'q1_2425_dev', ''));
+      setFormValue('q2_2425_dev', getStoredFormValue(row, 'q2_2425_dev', ''));
+      setFormValue('q1_2526_dev', getStoredFormValue(row, 'q1_2526_dev', ''));
+      setFormValue('q2_2526_dev', getStoredFormValue(row, 'q2_2526_dev', ''));
+      updateAppendixIITotals();
     }
 
     if (document.getElementById('scheme_name')) {

@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <base href="../../" /> -->
+    <title>UBIS </title>
+    <!-- Tailwind CSS -->
+    <script src="assets/tailwind.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="assets/lucide.min.js"></script>
+    <script src="assets/appendix.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <!-- Header uses assets/includes/header.js. Center content is editable directly in this page. -->
+</head>
+
+<body class="bg-ubis-bg text-ubis-text antialiased">
+    <!-- Top gold identity line -->
+    <div id="identityLine" class="identity-line">
+    </div>
+    <!-- Mobile overlay -->
+    <div id="mobileOverlay" class="mobile-overlay is-hidden" onclick="toggleMobileNav()">
+    </div>
+    <!-- Sidebar -->
+    <div data-ubis-include="sidebar"></div>
+    <!-- Main shell -->
+    <div id="mainShell" class="main-shell page-shell">
+        <!-- Header -->
+        <div data-ubis-include="header"></div>
+        <!-- Content -->
+        <main class="page-content">
+            <!-- Static center content: edit the labels, options and heading directly here. -->
+            <div class="page-breadcrumb">
+                <span class="muted-text">Pre-Budget Meeting</span><i data-lucide="chevron-right"
+                    class="h-3 w-3 text-slate-300"></i>
+                <span class="muted-text">Department of Agriculture &amp; Farmers Welfare</span>
+                <i data-lucide="chevron-right" class="h-3 w-3 text-slate-300"></i>
+                <span class="page-breadcrumb-current">Appendix IV B
+                </span>
+            </div>
+            <section class="mb-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-panel">
+                <div class="panel-grid">
+                    <label class="field-group field-group--fluid">
+                        <span class="field-heading">Scheme</span>
+                        <div class="positioned-context">
+                            <select id="pageAppendixSelect" class="page-select" aria-label="Appendix">
+                                <option value="Select">
+                                    Select
+                                </option>
+                                <option value="24303">1-Secretariat</option>
+                                <option value="26022">2-Actual Recoveries (Estt.)</option>
+                                <option value="26082">3-Fund for Innovation and Adoption of Technology (FIAT)</option>
+                                <option value="24304">4-Crop Insurance Scheme</option>
+                                <option value="25382">5-Modified Interest Subvention Scheme (MISS)</option>
+                                <option value="25611">6-Pradhan Mantri Annadata Aay Sanrakshan Yojna (PM-AASHA)</option>
+                                <option value="25254">7-Market Intervention Scheme and Price Support Scheme (MIS-PSS)
+                                </option>
+                                <option value="25623">8-Distribution of Pulses to State / Union Territories for Welfare
+                                    Schemes</option>
+                                <option value="24637">9-Pradhan Mantri Kisan Samman Nidhi (PM-Kisan)</option>
+                                <option value="24626">10-Pradhan Mantri Kisan Man Dhan Yojna</option>
+                                <option value="24670">11-Formation and Promotion of 10,000 Farmer Producer Organizations
+                                    (FPOs)</option>
+                                <option value="25680">12-Agriculture Infrastructure Fund (AIF)</option>
+                                <option value="25383">13-National Beekeeping Honey Mission (NBHM)</option>
+                                <option value="25886">14-Blended Capital Support to Finance Startups for Agriculture and
+                                    Rural Enterprise Relevant for Farm Produce Value Chain</option>
+                                <option value="25920">15-NAMO DRONE DIDI</option>
+                                <option value="26040">16-Cotton Technology Mission</option>
+
+                            </select>
+                            </select>
+                            <i data-lucide="chevron-down"
+                                class="pointer-events-none absolute right-3.5 top-4 h-4 w-4 text-slate-700"></i>
+                        </div>
+                    </label><label class="field-group field-group--fluid"><span class="field-heading">SubScheme</span>
+                        <div class="positioned-context">
+                            <select id="pageAppendixSelect" class="page-select" aria-label="Appendix">
+                                <option value="Select">
+                                    Select
+                                </option>
+
+                            </select><i data-lucide="chevron-down"
+                                class="pointer-events-none absolute right-3.5 top-4 h-4 w-4 text-slate-700"></i>
+                        </div>
+                    </label>
+                </div>
+            </section>
+            <section class="appendix-highlight mb-5 rounded-2xl border p-4">
+                <div class="hero-layout">
+                    <div class="hero-content">
+                        <div class="hero-icon-large">
+                            <i data-lucide="file-spreadsheet" class="h-6 w-6"></i>
+                        </div>
+                        <div>
+                            <div class="wrapping-row">
+                                <h2 class="page-hero-title">Appendix IV B </h2>
+                                <span class="record-count-badge">15
+                                    Records</span>
+                                <!-- <span
+                  class="status-badge status-badge--blue"><span
+                    class="status-dot status-dot--blue"></span>In Progress</span> -->
+                            </div>
+                            <p class="mt-1.5 text-sm font-medium text-slate-600">Department of Agriculture and Farmers
+                                Welfare</p>
+                        </div>
+                    </div>
+                    <span class="flex text-right">
+                        <button
+                            class="rounded-md bg-amber-200 px-4 py-2 font-medium text-black hover:bg-amber-300 mr-3">Freeze</button>
+                        <button
+                            class="rounded-md bg-slate-200 px-4 py-2 font-medium text-black hover:bg-slate-300 mr-3">NIL</button>
+                        <button type="button" onclick="openDrawer('add')" data-ubis-center-action="drawer"
+                            data-ubis-center-action-mode="add" data-ubis-center-event=""
+                            class="primary-action-button"><i data-lucide="plus" class="h-4 w-4"></i>Add</button>
+                    </span>
+                </div>
+            </section>
+
+            <!-- Context / Filters -->
+            <section class="mb-5 rounded-2xl border border-slate-200 bg-white shadow-panel">
+                <div class="panel-header">
+                    <div class="inline-row">
+                        <i data-lucide="sliders-horizontal" class="h-4 w-4 text-ubis-teal"></i>
+                        <h3 class="text-sm font-bold text-slate-700">Filter &amp; Context</h3>
+                    </div>
+                    <button onclick="clearFilters()" class="inline-link-button">Clear
+                        all</button>
+                </div>
+
+                <div class="filter-grid">
+                    <label class="field-group">
+                        <span class="section-label">Demand</span>
+                        <div class="positioned-context">
+                            <select id="demandFilter" class="form-select">
+                                <option>Department of Agriculture &amp; Farmers Welfare</option>
+                                <option>Department of Agricultural Research &amp; Education</option>
+                            </select>
+                            <i data-lucide="chevron-down"
+                                class="pointer-events-none absolute right-3 top-3 h-4 w-4 text-slate-400"></i>
+                        </div>
+                    </label>
+
+                    <label class="field-group">
+                        <span class="section-label">Financial
+                            Year</span>
+                        <div class="positioned-context">
+                            <select id="yearFilter" class="form-select">
+                                <option value="2024–25">2024–25</option>
+                                <option value="2023–24">2023–24</option>
+                                <option value="2022–23">2022–23</option>
+                            </select>
+                            <i data-lucide="chevron-down"
+                                class="pointer-events-none absolute right-3 top-3 h-4 w-4 text-slate-400"></i>
+                        </div>
+                    </label>
+
+                    <label class="field-group">
+                        <span class="section-label">Status</span>
+                        <div class="positioned-context">
+                            <select id="statusFilter" onchange="renderGrid()" class="form-select">
+                                <option value="All">All Status</option>
+                                <option>Active</option>
+                                <option>Draft</option>
+                                <option>Frozen</option>
+                                <option>Review</option>
+                            </select>
+                            <i data-lucide="chevron-down"
+                                class="pointer-events-none absolute right-3 top-3 h-4 w-4 text-slate-400"></i>
+                        </div>
+                    </label>
+
+                    <label class="field-group">
+                        <span class="section-label">Search</span>
+                        <div class="positioned-context">
+                            <i data-lucide="search" class="absolute left-3 top-3 h-4 w-4 text-slate-400"></i>
+                            <input id="searchInput" oninput="renderGrid()" type="search"
+                                placeholder="Search charge, department, ID..." class="search-control">
+                        </div>
+                    </label>
+                    <div class="align-end">
+                        <button onclick="renderGrid()" class="teal-action-button">
+                            Apply
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <!-- Bulk toolbar -->
+            <div id="bulkToolbar" class="selection-bar is-hidden">
+                <div class="selection-copy">
+                    <span id="selectedCount">0</span> selected
+                </div>
+                <div class="inline-row">
+                    <button class="notice-action">Export</button>
+                    <button class="notice-action notice-action--warning">Freeze</button>
+                    <button class="notice-action notice-action--danger">Delete</button>
+                    <button onclick="clearSelection()" class="notice-action notice-action--primary">Clear
+                        Selection</button>
+                </div>
+            </div>
+
+            <!-- Data Grid -->
+            <section class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-panel">
+                <div class="panel-header-responsive">
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-800">Appendix IV B</h3>
+                    </div>
+                    <div class="inline-row">
+                        <div class="positioned-context">
+                            <button id="columnsButton" type="button" class="grid-toolbar-button" aria-haspopup="true"
+                                aria-expanded="false" aria-controls="columnsMenu">
+                                <i data-lucide="columns-3" class="h-3.5 w-3.5"></i> Columns
+                            </button>
+                            <div id="columnsMenu" class="column-menu is-hidden" role="menu"
+                                aria-label="Choose visible columns">
+                                <div class="column-menu-header">
+                                    <p class="text-xs font-bold text-slate-800">Visible columns</p>
+                                    <p class="mt-0.5 text-[10px] text-slate-500">Choose the information shown in the
+                                        table.</p>
+                                </div>
+                                <div class="column-menu-list">
+                                    <label class="choice-label"><input type="checkbox" data-column-toggle="charge"
+                                            checked class="form-check"><i data-lucide="receipt-text"
+                                            class="h-4 w-4 text-slate-400"></i>User
+                                        Charge</label>
+                                    <label class="choice-label"><input type="checkbox" data-column-toggle="services"
+                                            checked class="form-check"><i data-lucide="briefcase-business"
+                                            class="h-4 w-4 text-slate-400"></i>Services</label>
+                                    <label class="choice-label"><input type="checkbox" data-column-toggle="department"
+                                            checked class="form-check"><i data-lucide="building-2"
+                                            class="h-4 w-4 text-slate-400"></i>Organisation/Department</label>
+                                    <label class="choice-label"><input type="checkbox" data-column-toggle="status"
+                                            checked class="form-check"><i data-lucide="shield-check"
+                                            class="h-4 w-4 text-slate-400"></i>Status</label>
+                                    <label class="choice-label"><input type="checkbox" data-column-toggle="rev22"
+                                            checked class="form-check"><i data-lucide="indian-rupee"
+                                            class="h-4 w-4 text-slate-400"></i>Revenue
+                                        2022–23</label>
+                                    <label class="choice-label"><input type="checkbox" data-column-toggle="rev23"
+                                            checked class="form-check"><i data-lucide="indian-rupee"
+                                            class="h-4 w-4 text-slate-400"></i>Revenue
+                                        2023–24</label>
+                                    <label class="choice-label"><input type="checkbox" data-column-toggle="rev24"
+                                            checked class="form-check"><i data-lucide="indian-rupee"
+                                            class="h-4 w-4 text-slate-400"></i>Revenue
+                                        2024–25</label>
+                                    <label class="choice-label"><input type="checkbox" data-column-toggle="remarks"
+                                            checked class="form-check"><i data-lucide="message-square-text"
+                                            class="h-4 w-4 text-slate-400"></i>Remarks</label>
+                                </div>
+                                <div class="column-menu-footer">
+                                    <button type="button" class="drawer-secondary-action"><i data-lucide="rotate-ccw"
+                                            class="h-3.5 w-3.5"></i>Reset columns</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button data-refresh-grid class="small-outline-button">
+                            <i data-lucide="refresh-cw" class="h-3.5 w-3.5"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                <div class="grid-scroll">
+                    <table id="chargesTable" class="ubis-data-grid">
+                        <thead class="ubis-data-grid__head ubis-data-grid__head--plain">
+                            <tr class="data-grid__header-row">
+                                <th class="grid-head-cell grid-head-cell--compact">S.No.</th>
+                                <th class="grid-head-cell grid-head-cell--compact">Sub-Scheme Name</th>
+                                <th class="grid-head-cell grid-head-cell--compact">Actual 2024-2025</th>
+                                <th class="grid-head-cell grid-head-cell--compact">Actuals upto 9/ 2024</th>
+                                <th class="grid-head-cell grid-head-cell--compact">B.E. 2025-2026</th>
+                                <th class="grid-head-cell grid-head-cell--compact">Actuals upto 9/ 2025</th>
+                                <th class="grid-head-cell grid-head-cell--compact">R.E.
+                                    2025-2026 proposed by Min/Dep</th>
+                                <th class="grid-head-cell grid-head-cell--compact">Saving/Excess in R.E. over B.E.</th>
+                                <th class="grid-head-cell grid-head-cell--compact">B.E. 2026-2027 proposed by Min/Dep
+                                </th>
+                                <th width="6%" class="grid-head-cell grid-head-cell--compact">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="gridBody" class="data-grid__body">
+                            <!-- Row 1 -->
+                            <tr class="data-grid__row data-grid__row--strong" data-record-row
+                                data-record-id="UC-000001">
+                                <td class="grid-cell grid-cell--compact grid-cell--center grid-cell--strong">
+                                    <input step="0.01" placeholder="0.00"
+                                        class="form-field form-control form-control--number">
+                                </td>
+                                <td class="grid-cell grid-cell--compact grid-cell--center grid-cell--strong">
+                                    <input step="0.01" placeholder="0.00"
+                                        class="form-field form-control form-control--number">
+                                </td>
+                                <td class="grid-cell grid-cell--compact grid-cell--center grid-cell--strong">
+                                    <input step="0.01" placeholder="0.00"
+                                        class="form-field form-control form-control--number">
+                                </td>
+
+                                <td class="grid-cell grid-cell--compact grid-cell--center grid-cell--body">
+                                    <input class="form-field form-control form-control--number">
+                                </td>
+                                <td
+                                    class="editable-cell grid-cell grid-cell--compact grid-cell--center grid-cell--body tabular">
+                                    <input step="0.01" placeholder="0.00"
+                                        class="form-field form-control form-control--number">
+                                </td>
+                                <td
+                                    class="editable-cell grid-cell grid-cell--compact grid-cell--center grid-cell--body tabular">
+                                    <input step="0.01" placeholder="0.00"
+                                        class="form-field form-control form-control--number">
+                                </td>
+                                <td
+                                    class="editable-cell grid-cell grid-cell--compact grid-cell--center grid-cell--body tabular">
+                                    <input step="0.01" placeholder="0.00"
+                                        class="form-field form-control form-control--number">
+                                </td>
+                                <td
+                                    class="editable-cell grid-cell grid-cell--compact grid-cell--center grid-cell--body tabular">
+                                    <input step="0.01" placeholder="0.00"
+                                        class="form-field form-control form-control--number">
+                                </td>
+                                <td
+                                    class="editable-cell grid-cell grid-cell--compact grid-cell--center grid-cell--body tabular">
+                                    <input step="0.01" placeholder="0.00"
+                                        class="form-field form-control form-control--number">
+                                </td>
+                                <td data-label="Action" class="grid-action-cell grid-action-cell--compact">
+                                    <div class="grid-action-menu">
+                                        <button type="button" data-row-menu
+                                            class="grid-more-button icon-button row-more-button" title="More actions"
+                                            aria-label="More actions" aria-expanded="false">
+                                            <i data-lucide="ellipsis-vertical" class="h-4 w-4"></i>
+                                        </button>
+                                        <div data-row-actions
+                                            class="grid-row-actions row-action-menu row-action-menu--borderless is-hidden">
+                                            <button type="button" data-row-edit class="menu-action" title="Edit row"><i
+                                                    data-lucide="pencil" class="h-3.5 w-3.5"></i>Edit</button>
+                                            <button type="button" data-row-save class="menu-action menu-action--primary"
+                                                title="Save row"><i data-lucide="check"
+                                                    class="h-3.5 w-3.5"></i>Save</button>
+                                            <button type="button" data-row-delete
+                                                class="menu-action menu-action--danger" title="Delete row"><i
+                                                    data-lucide="trash-2" class="h-3.5 w-3.5"></i>Delete</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="data-grid__header-row">
+                                <td class="grid-cell--unstyled text-right pr-3">Remarks</td>
+                                <td class="grid-cell--unstyled" colspan="8">
+                                    <textarea id="remarks" name="remarks" maxlength="500" rows="2"
+                                        placeholder="Enter remarks..." class="form-textarea"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="emptyState" class="empty-state is-hidden">
+                    <div class="empty-state-icon">
+                        <i data-lucide="search-x" class="h-5 w-5"></i>
+                    </div>
+                    <h4 class="mt-3 text-sm font-bold text-slate-700">No records found</h4>
+                    <p class="mt-1 text-xs text-slate-500">Try changing your filters or search criteria.</p>
+                    <button class="draft-action-button">Clear
+                        Filters</button>
+                </div>
+                <div class="pagination-bar">
+                    <div class="pagination-copy">
+                        Showing <span id="rangeText" class="content-value">1–10</span> of <span id="totalText"
+                            class="content-value">24</span> records
+                    </div>
+                    <div class="inline-row">
+                        <label class="responsive-field-label">
+                            Rows:
+                            <select id="pageSize" class="compact-select">
+                                <option>10</option>
+                                <option>20</option>
+                                <option>50</option>
+                            </select>
+                        </label>
+                        <button id="prevBtn" class="compact-outline-button">
+                            <i data-lucide="chevron-left" class="h-3.5 w-3.5"></i> Previous
+                        </button>
+                        <div id="pageNumbers" class="inline-row inline-row--tight"></div>
+                        <button id="nextBtn" class="compact-outline-button">
+                            Next <i data-lucide="chevron-right" class="h-3.5 w-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div data-ubis-include="footer"></div>
+    </div>
+    <!-- Drawer backdrop -->
+    <div id="drawerBackdrop" class="backdrop-hide drawer-backdrop" aria-hidden="true"></div>
+    <aside id="drawer"
+        class="drawer-closed fixed right-0 top-0 z-[70] flex h-screen w-full max-w-[820px] flex-col border-l border-indigo-100 bg-white shadow-drawer transition-transform duration-300 ease-out"
+        aria-label="Budget and expenditure trends form" aria-hidden="true">
+        <div class="drawer-header">
+            <div class="inline-row inline-row--medium">
+                <div class="drawer-title-icon"><i data-lucide="file-spreadsheet" class="h-5 w-5"></i></div>
+                <div>
+                    <h2 class="text-base font-bold text-ubis-navy">Add Record</h2>
+                    <p class="text-[11px] text-slate-500">Enter a new budget and expenditure trend record</p>
+                    <div class="drawer-meta">
+                        <span class="info-badge">Demand No. 1</span>
+                        <span class="validation-message">Amount in Crores of Rupees</span>
+                    </div>
+                </div>
+            </div>
+            <button type="button" onclick="closeDrawer()" class="muted-icon-button" aria-label="Close drawer"><i
+                    data-lucide="x" class="h-4 w-4"></i></button>
+        </div>
+
+        <form id="recordForm" class="flex min-h-0 flex-1 flex-col">
+            <div class="drawer-body">
+                <section class="mb-4 rounded-xl border border-slate-200 bg-white p-5">
+                    <!-- 1st Quarter 2024-2025 -->
+                    <div class="page-section">
+                        <!-- <div class="subsection-heading">
+                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">1st Quarter 2024-2025
+                            </h3>
+                        </div> -->
+                        <div class="field-grid-two">
+                            <div>
+                                <label class="field-group">
+                                    <span class="section-label">Scheme</span>
+                                    <div class="positioned-context">
+
+                                        <!-- <div class="positioned-context"> -->
+                                        <select id="pageAppendixSelect" class="page-select" aria-label="Appendix">
+                                            <option value="Select">Select</option>
+                                            <option value="24303">1-Secretariat</option>
+                                            <option value="26022">2-Actual Recoveries (Estt.)</option>
+                                            <option value="26082">3-Fund for Innovation and Adoption of Technology
+                                                (FIAT)</option>
+                                            <option value="24304">4-Crop Insurance Scheme</option>
+                                            <option value="25382">5-Modified Interest Subvention Scheme (MISS)
+                                            </option>
+                                            <option value="25611">6-Pradhan Mantri Annadata Aay Sanrakshan Yojna
+                                                (PM-AASHA)</option>
+                                            <option value="25254">7-Market Intervention Scheme and Price Support
+                                                Scheme (MIS-PSS)
+                                            </option>
+                                            <option value="25623">8-Distribution of Pulses to State / Union
+                                                Territories for Welfare
+                                                Schemes</option>
+                                            <option value="24637">9-Pradhan Mantri Kisan Samman Nidhi (PM-Kisan)
+                                            </option>
+                                            <option value="24626">10-Pradhan Mantri Kisan Man Dhan Yojna</option>
+                                            <option value="24670">11-Formation and Promotion of 10,000 Farmer
+                                                Producer Organizations
+                                                (FPOs)</option>
+                                            <option value="25680">12-Agriculture Infrastructure Fund (AIF)</option>
+                                            <option value="25383">13-National Beekeeping Honey Mission (NBHM)
+                                            </option>
+                                            <option value="25886">14-Blended Capital Support to Finance Startups for
+                                                Agriculture and
+                                                Rural Enterprise Relevant for Farm Produce Value Chain</option>
+                                            <option value="25920">15-NAMO DRONE DIDI</option>
+                                            <option value="26040">16-Cotton Technology Mission</option>
+                                        </select>
+                                        <i data-lucide="chevron-down"
+                                            class="pointer-events-none absolute right-3 top-3 h-4 w-4 text-slate-400"></i>
+                                    </div>
+                            </div>
+                            <div>
+                                <label class="field-group">
+                                    <span class="section-label">SubScheme</span>
+                                    <div class="positioned-context">
+
+                                        <!-- <div class="positioned-context"> -->
+                                        <select id="demandFilter" class="form-select">
+                                            <option>Select</option>
+                                        </select>
+                                        <i data-lucide="chevron-down"
+                                            class="pointer-events-none absolute right-3 top-3 h-4 w-4 text-slate-400"></i>
+                                    </div>
+                            </div>
+                            <div>
+                                <label for="q1_2425_qep" class="field-label">Actual 2024-2025<span
+                                        class="required-marker">*</span></label>
+                                <input id="q1_2425_qep" name="q1_2425_qep" required type="number" step="0.01"
+                                    placeholder="0.00" class="form-field form-control form-control--number">
+                            </div>
+                            <div>
+                                <label for="q1_2425_act" class="field-label">Actuals upto 9/ 2024 <span
+                                        class="required-marker">*</span></label>
+                                <input id="q1_2425_act" name="q1_2425_act" required type="number" step="0.01"
+                                    placeholder="0.00" class="form-field form-control form-control--number">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2nd Quarter 2024-2025 -->
+
+                    <div class="field-grid-two">
+                        <div>
+                            <label for="q2_2425_qep" class="field-label">B.E.
+                                2025-2026 <span class="required-marker">*</span></label>
+                            <input id="q2_2425_qep" name="q2_2425_qep" required type="number" step="0.01"
+                                placeholder="0.00" class="form-field form-control form-control--number">
+                        </div>
+                        <div>
+                            <label for="q2_2425_act" class="field-label">Actuals
+                                upto 9/ 2025 <span class="required-marker">*</span></label>
+                            <input id="q2_2425_act" name="q2_2425_act" required type="number" step="0.01"
+                                placeholder="0.00" class="form-field form-control form-control--number">
+                        </div>
+
+                        <div>
+                            <label for="q1_2526_qep" class="field-label">R.E.2025-2026 proposed by Min/Dep
+                                <span class="required-marker">*</span></label>
+                            <input id="q1_2526_qep" name="q1_2526_qep" required type="number" step="0.01"
+                                placeholder="0.00" class="form-field form-control form-control--number">
+                        </div>
+                        <div>
+                            <label for="q1_2526_act" class="field-label">Saving/Excess
+                                in R.E. over B.E. <span class="required-marker">*</span></label>
+                            <input id="q1_2526_act" name="q1_2526_act" required type="number" step="0.01"
+                                placeholder="0.00" class="form-field form-control form-control--number">
+                        </div>
+                        <div>
+                            <label for="q1_2526_act" class="field-label">B.E.
+                                2026-2027 proposed by Min/Dep <span class="required-marker">*</span></label>
+                            <input id="q1_2526_act" name="q1_2526_act" required type="number" step="0.01"
+                                placeholder="0.00" class="form-field form-control form-control--number">
+                        </div>
+                        <div>
+                            <label for="q1_2526_act" class="field-label">Remarks<span
+                                    class="required-marker">*</span></label>
+                            <textarea id="remarks" name="remarks" maxlength="500" rows="1"
+                                placeholder="Enter remarks..." class="form-textarea"></textarea>
+                        </div>
+
+                    </div>
+            </div>
+
+            </section>
+            </div>
+            <div class="drawer-footer">
+
+                <div class="inline-row">
+                    <button type="button" id="cancelDrawer" class="dialog-button dialog-button--neutral">Cancel</button>
+                    <button type="reset" class="dialog-button dialog-button--navy">Reset</button>
+                    <button type="submit" class="dialog-button dialog-button--teal">Save
+                        Record</button>
+                </div>
+            </div>
+        </form>
+    </aside>
+
+    <!---------------------------------------- Toast ---------------------------------------->
+    <div id="toast" class="toast-hide toast-success toast-notification" role="status" aria-live="polite"
+        aria-atomic="true">
+        <div class="toast-icon">
+            <i id="toastIcon" data-lucide="check-circle-2" class="h-4 w-4"></i>
+        </div>
+        <div class="flex-fill">
+            <p id="toastTitle" class="text-xs font-bold text-slate-800">Success</p>
+            <p id="toastMessage" class="mt-0.5 text-[11px] text-slate-500">Record saved successfully.</p>
+        </div>
+        <button type="button" onclick="hideToast()" class="subtle-icon-button" aria-label="Close notification"><i
+                data-lucide="x" class="h-4 w-4"></i></button>
+    </div>
+
+    <!-- Accessible delete confirmation -->
+    <div id="deleteDialog" class="dialog-hide dialog-overlay" role="dialog" aria-modal="true"
+        aria-labelledby="deleteDialogTitle" aria-describedby="deleteDialogDescription" aria-hidden="true">
+        <div class="dialog-card">
+            <div class="dialog-content">
+                <div class="dialog-icon">
+                    <i data-lucide="trash-2" class="h-5 w-5"></i>
+                </div>
+                <div class="flex-fill">
+                    <h2 id="deleteDialogTitle" class="text-base font-bold text-slate-900">Delete record?</h2>
+                    <p id="deleteDialogDescription" class="mt-1 text-sm leading-5 text-slate-500">This record will be
+                        permanently
+                        deleted. This action cannot be undone.</p>
+                    <p id="deleteRecordName"
+                        class="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs font-semibold text-amber-800">
+                    </p>
+                </div>
+            </div>
+            <div class="dialog-actions">
+                <button id="cancelDeleteBtn" type="button" onclick="closeDeleteDialog()"
+                    class="cancel-button">Cancel</button>
+                <button id="confirmDeleteBtn" type="button" onclick="confirmDeleteRecord()" class="delete-button"><i
+                        data-lucide="trash-2" class="h-4 w-4"></i>Delete record</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/includes/nav-items.js"></script>
+    <script src="assets/includes/sidebar.js"></script>
+    <script src="assets/includes/header.js"></script>
+
+
+    <script src="assets/includes/footer.js"></script>
+    <script src="assets/includes/shell.js"></script>
+    <script src="assets/includes/nav-behaviors.js"></script>
+    <script src="assets/app.js"></script>
+</body>
+
+</html>
