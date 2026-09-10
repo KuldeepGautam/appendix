@@ -104,83 +104,7 @@
                 </div>
             </section>
 
-            <!-- Context / Filters -->
-            <section class="mb-5 rounded-2xl border border-slate-200 bg-white shadow-panel">
-                <div class="flex items-center justify-between border-b border-slate-100 px-5 py-3.5">
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="sliders-horizontal" class="h-4 w-4 text-ubis-teal"></i>
-                        <h3 class="text-sm font-bold text-slate-700">Filter &amp; Context</h3>
-                    </div>
-                    <button onclick="clearFilters()" class="text-xs font-semibold text-ubis-blue hover:underline">Clear
-                        all</button>
-                </div>
-
-                <div class="grid grid-cols-1 gap-3 p-4 md:grid-cols-1 xl:grid-cols-[1.5fr_.7fr_.7fr_1.4fr_auto]">
-                    <label class="block">
-                        <span
-                            class="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">Demand</span>
-                        <div class="relative">
-                            <select id="demandFilter"
-                                class="h-10 w-full appearance-none rounded-lg border border-slate-300 bg-white px-3 pr-9 text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-                                <option>Department of Agriculture &amp; Farmers Welfare</option>
-                                <option>Department of Agricultural Research &amp; Education</option>
-                            </select>
-                            <i data-lucide="chevron-down"
-                                class="pointer-events-none absolute right-3 top-3 h-4 w-4 text-slate-400"></i>
-                        </div>
-                    </label>
-
-                    <label class="block">
-                        <span
-                            class="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">Financial
-                            Year</span>
-                        <div class="relative">
-                            <select id="yearFilter"
-                                class="h-10 w-full appearance-none rounded-lg border border-slate-300 bg-white px-3 pr-9 text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-                                <option value="2024–25">2024–25</option>
-                                <option value="2023–24">2023–24</option>
-                                <option value="2022–23">2022–23</option>
-                            </select>
-                            <i data-lucide="chevron-down"
-                                class="pointer-events-none absolute right-3 top-3 h-4 w-4 text-slate-400"></i>
-                        </div>
-                    </label>
-
-                    <label class="block">
-                        <span
-                            class="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">Status</span>
-                        <div class="relative">
-                            <select id="statusFilter" onchange="renderGrid()"
-                                class="h-10 w-full appearance-none rounded-lg border border-slate-300 bg-white px-3 pr-9 text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-                                <option value="All">All Status</option>
-                                <option>Active</option>
-                                <option>Draft</option>
-                                <option>Frozen</option>
-                                <option>Review</option>
-                            </select>
-                            <i data-lucide="chevron-down"
-                                class="pointer-events-none absolute right-3 top-3 h-4 w-4 text-slate-400"></i>
-                        </div>
-                    </label>
-
-                    <label class="block">
-                        <span
-                            class="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">Search</span>
-                        <div class="relative">
-                            <i data-lucide="search" class="absolute left-3 top-3 h-4 w-4 text-slate-400"></i>
-                            <input id="searchInput" oninput="renderGrid()" type="search"
-                                placeholder="Search Autonomous Body..."
-                                class="h-10 w-full rounded-lg border border-slate-300 bg-white pl-9 pr-3 text-xs text-slate-700 outline-none placeholder:text-slate-400 focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-                        </div>
-                    </label>
-                    <div class="flex items-end">
-                        <button onclick="renderGrid()"
-                            class="h-10 w-full rounded-lg bg-ubis-teal px-4 text-xs font-bold text-white hover:bg-teal-700 xl:w-auto">
-                            Apply
-                        </button>
-                    </div>
-                </div>
-            </section>
+           
             <!-- Bulk toolbar -->
             <div id="bulkToolbar"
                 class="mb-3 hidden items-center justify-between rounded-xl border border-blue-100 bg-blue-50 px-4 py-2.5">
@@ -209,6 +133,14 @@
                         <p class="mt-0.5 text-[11px] text-slate-500">Grants-in-Aid to Autonomous Bodies records</p>
                     </div>
                     <div class="flex items-center gap-2">
+                        <!-- Search Input -->
+                        <div class="relative">
+                            <i data-lucide="search"
+                                class="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400"></i>
+                            <input id="searchInput" oninput="renderGrid()" type="search"
+                                placeholder="Search item..."
+                                class="h-8 w-48 rounded-lg border border-slate-200 bg-white pl-8 pr-3 text-xs font-medium text-slate-700 outline-none placeholder:text-slate-400 focus:border-ubis-teal focus:ring-2 focus:ring-teal-50 sm:w-60">
+                        </div>
                         <!-- Export Dropdown Button -->
                         <div class="relative">
                             <button id="exportButton" type="button"
@@ -297,6 +229,11 @@
                         </button>
                     </div>
                 </div>
+                <div class="mr-1.5 flex flex-wrap justify-end gap-2">
+                    <span class="text-[10px] font-semibold italic text-red-600">
+                        Amount in Crores of Rupees
+                    </span>
+                </div>
                 <div class="grid-scroll">
                     <table id="chargesTable" class="ubis-data-grid">
                         <thead class="ubis-data-grid__head">
@@ -308,23 +245,23 @@
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="gia_general" class="grid-head-cell grid-head-cell--right grid-col--18">
+                                <th data-column="gia_general" class="grid-head-cell grid-head-cell--right grid-col--18 leading-tight">
                                     <button data-sort="gia_general"
-                                        class="button-content button-content--tight justify-end">
-                                        <span class="text-right leading-tight">GiA General<br>(A)<br>B.E. 2026-2027</span>
+                                        class="button-content button-content--tight justify-end w-full ml-auto">
+                                        <span class="text-right leading-tight">GiA General (A)<br>B.E. 2026-2027</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="gia_capital" class="grid-head-cell grid-head-cell--right grid-col--20">
+                                <th data-column="gia_capital" class="grid-head-cell grid-head-cell--right grid-col--20 leading-tight">
                                     <button data-sort="gia_capital"
-                                        class="button-content button-content--tight justify-end">
+                                        class="button-content button-content--tight justify-end w-full ml-auto">
                                         <span class="text-right leading-tight">GiA for Creation of Capital Assets<br>(B)<br>B.E. 2026-2027</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
                                 </th>
-                                <th data-column="gia_salary" class="grid-head-cell grid-head-cell--right grid-col--15">
+                                <th data-column="gia_salary" class="grid-head-cell grid-head-cell--right grid-col--15 leading-tight">
                                     <button data-sort="gia_salary"
-                                        class="button-content button-content--tight justify-end">
+                                        class="button-content button-content--tight justify-end w-full ml-auto">
                                         <span class="text-right leading-tight">GiA for Salary<br>(C)<br>B.E. 2026-2027</span>
                                         <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
                                     </button>
@@ -647,41 +584,162 @@
         </div>
 
         <form id="recordForm" class="flex min-h-0 flex-1 flex-col">
-            <div class="min-h-0 flex-1 overflow-y-auto bg-slate-50/70 px-5 py-5">
-                <section class="mb-4 rounded-xl border border-slate-200 bg-white p-5">
-                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        <div class="sm:col-span-2">
-                            <label for="va_autonomous_body"
-                                class="mb-1.5 block text-xs font-semibold text-slate-700">Autonomous Body <span
-                                    class="text-red-500">*</span></label>
-                            <input id="va_autonomous_body" name="va_autonomous_body" required type="text"
-                                placeholder="e.g. Coconut Development Board"
-                                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
+            <div class="min-h-0 flex-1 overflow-y-auto bg-slate-50/70 p-4 space-y-4">
+                <section class="rounded-xl border border-slate-200 bg-white p-3.5 shadow-sm">
+                    <div class="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-2">
+                        <div>
+                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">Grants-in-Aid to Autonomous Bodies</h3>
+                            <p class="text-[11px] text-slate-500">Enter comprehensive breakdown details</p>
                         </div>
-                        <div class="sm:col-span-2">
-                            <label for="va_gia_general"
-                                class="mb-1.5 block text-xs font-semibold text-slate-700">GiA General (A) B.E. 2026-2027 <span
-                                    class="text-red-500">*</span></label>
-                            <input id="va_gia_general" name="va_gia_general" required type="number" step="0.01"
-                                placeholder="0.00"
-                                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label for="va_gia_capital"
-                                class="mb-1.5 block text-xs font-semibold text-slate-700">GiA for Creation of Capital Assets (B) B.E. 2026-2027 <span
-                                    class="text-red-500">*</span></label>
-                            <input id="va_gia_capital" name="va_gia_capital" required type="number" step="0.01"
-                                placeholder="0.00"
-                                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label for="va_gia_salary"
-                                class="mb-1.5 block text-xs font-semibold text-slate-700">GiA for Salary (C) B.E. 2026-2027 <span
-                                    class="text-red-500">*</span></label>
-                            <input id="va_gia_salary" name="va_gia_salary" required type="number" step="0.01"
-                                placeholder="0.00"
-                                class="form-field h-10 w-full rounded-lg border border-slate-300 px-3 text-sm text-slate-700 outline-none focus:border-ubis-teal focus:ring-4 focus:ring-teal-50">
-                        </div>
+                        <span class="text-[10px] font-semibold italic text-red-600">Amount in Crores of Rupees</span>
+                    </div>
+
+                    <div class="overflow-x-auto rounded border border-slate-300 bg-white">
+                        <table class="w-full min-w-[720px] border-collapse text-left text-xs">
+                            <!-- Top row: Name of Autonomous Body -->
+                            <thead>
+                                <tr class="border-b border-slate-300 bg-white">
+                                    <td colspan="7" class="border-r border-slate-300 p-2">
+                                        <div class="flex items-center gap-2">
+                                            <label for="va_autonomous_body" class="whitespace-nowrap text-xs font-bold text-slate-700">Name of Autonomous Body: <span class="text-red-500">*</span></label>
+                                            <input id="va_autonomous_body" name="va_autonomous_body" required type="text"
+                                                placeholder=""
+                                                class="form-field h-8 flex-1 rounded border border-slate-300 px-2.5 text-xs text-slate-800 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                        </div>
+                                    </td>
+                                    <td class="bg-slate-50/50"></td>
+                                </tr>
+                                <!-- Column Headers -->
+                                <tr class="border-b border-slate-300 bg-slate-100/90 text-slate-700">
+                                    <th class="border-r border-slate-300 px-2 py-2 font-bold text-slate-700 w-36"></th>
+                                    <th class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
+                                        Actual 2024-<br>2025
+                                    </th>
+                                    <th class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
+                                        Actuals upto<br>9/2024
+                                    </th>
+                                    <th class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
+                                        B.E. 2025-<br>2026
+                                    </th>
+                                    <th class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
+                                        Actuals upto<br>9/2025
+                                    </th>
+                                    <th class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
+                                        R.E. 2025-<br>2026
+                                    </th>
+                                    <th class="border-r border-slate-300 px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight">
+                                        B.E. 2026-<br>2027 <span class="text-red-500">*</span>
+                                    </th>
+                                    <th class="px-1.5 py-2 text-center text-[11px] font-bold text-slate-700 leading-tight w-36">
+                                        Total Salary in 2024-<br>2025 as per accounts<br>of AB
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-300 bg-white">
+                                <!-- Row 1: GiA General (A) -->
+                                <tr>
+                                    <td class="border-r border-slate-300 bg-slate-50/80 px-2.5 py-2 text-[11px] font-bold text-slate-800">
+                                        GiA General (A)
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_gen_actual_2024_2025" name="va_gen_actual_2024_2025" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_gen_actuals_upto_09_2024" name="va_gen_actuals_upto_09_2024" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_gen_be_2025_2026" name="va_gen_be_2025_2026" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_gen_actuals_upto_09_2025" name="va_gen_actuals_upto_09_2025" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_gen_re_2025_2026" name="va_gen_re_2025_2026" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_gia_general" name="va_gia_general" required placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-semibold text-slate-800 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50 bg-teal-50/30">
+                                    </td>
+                                    <td class="p-1 bg-slate-100/70">
+                                        <div class="h-7 w-full rounded bg-slate-200/50 border border-slate-200/80"></div>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 2: GiA for Creation of Capital Assets (B) -->
+                                <tr>
+                                    <td class="border-r border-slate-300 bg-slate-50/80 px-2.5 py-2 text-[11px] font-bold text-slate-800 leading-tight">
+                                        GiA for Creation<br>of Capital<br>Assets (B)
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_cap_actual_2024_2025" name="va_cap_actual_2024_2025" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_cap_actuals_upto_09_2024" name="va_cap_actuals_upto_09_2024" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_cap_be_2025_2026" name="va_cap_be_2025_2026" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_cap_actuals_upto_09_2025" name="va_cap_actuals_upto_09_2025" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_cap_re_2025_2026" name="va_cap_re_2025_2026" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_gia_capital" name="va_gia_capital" required placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-semibold text-slate-800 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50 bg-teal-50/30">
+                                    </td>
+                                    <td class="p-1 bg-slate-100/70">
+                                        <div class="h-7 w-full rounded bg-slate-200/50 border border-slate-200/80"></div>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 3: GiA for Salary (C) -->
+                                <tr>
+                                    <td class="border-r border-slate-300 bg-slate-50/80 px-2.5 py-2 text-[11px] font-bold text-slate-800 leading-tight">
+                                        GiA for Salary<br>(C)
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_sal_actual_2024_2025" name="va_sal_actual_2024_2025" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_sal_actuals_upto_09_2024" name="va_sal_actuals_upto_09_2024" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_sal_be_2025_2026" name="va_sal_be_2025_2026" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_sal_actuals_upto_09_2025" name="va_sal_actuals_upto_09_2025" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_sal_re_2025_2026" name="va_sal_re_2025_2026" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                    <td class="border-r border-slate-300 p-1">
+                                        <input type="number" step="0.01" id="va_gia_salary" name="va_gia_salary" required placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-semibold text-slate-800 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50 bg-teal-50/30">
+                                    </td>
+                                    <td class="p-1">
+                                        <input type="number" step="0.01" id="va_sal_total_salary_accounts" name="va_sal_total_salary_accounts" placeholder="0.00"
+                                            class="form-field tabular h-7 w-full rounded border border-slate-300 px-1.5 text-right text-xs font-medium text-slate-700 outline-none focus:border-ubis-teal focus:ring-2 focus:ring-teal-50">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
             </div>

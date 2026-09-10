@@ -132,7 +132,7 @@
                     class="flex flex-col justify-between gap-3 border-b border-slate-100 px-5 py-3.5 sm:flex-row sm:items-center">
                     <div>
                         <h3 class="text-sm font-bold text-slate-800">Appendix-V</h3>
-                        <p class="mt-0.5 text-[11px] text-slate-500">Appendix-V financial records</p>
+                        <p class="mt-0.5 text-[11px] text-slate-500">Estimates of Establishment & Other Central Expenditure</p>
                     </div>
                     <div class="flex items-center gap-2">
                         <!-- Search Input -->
@@ -140,7 +140,7 @@
                             <i data-lucide="search"
                                 class="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400"></i>
                             <input id="searchInput" oninput="renderGrid()" type="search"
-                                placeholder="Search item (e.g. Salary, GiA)..."
+                                placeholder="Search item..."
                                 class="h-8 w-48 rounded-lg border border-slate-200 bg-white pl-8 pr-3 text-xs font-medium text-slate-700 outline-none placeholder:text-slate-400 focus:border-ubis-teal focus:ring-2 focus:ring-teal-50 sm:w-60">
                         </div>
                         <!-- Export Dropdown Button -->
@@ -275,90 +275,56 @@
                         </button>
                     </div>
                 </div>
+                <div class="mr-1.5 flex flex-wrap justify-end gap-2">
+                    <span class="text-[10px] font-semibold italic text-red-600">
+                        Amount in Crores of Rupees
+                    </span>
+                </div>
                 <div class="grid-scroll">
-                    <table id="chargesTable" class="ubis-data-grid" style="min-width: 1200px;">
+                    <table id="chargesTable"class="ubis-data-grid" style="min-width: 1200px;">
                         <thead class="ubis-data-grid__head">
                             <tr class="data-grid__header-row">
                                 <th data-column="sno" class="grid-head-cell grid-head-cell--center grid-col--5">Sl. No.
                                 </th>
-                                <th data-column="item" class="grid-head-cell grid-col--13">
-                                    <button data-sort="item" class="button-content">
-                                        <span>Item</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
-                                </th>
-                                <th data-column="actual_2024_2025" class="grid-head-cell grid-head-cell--center grid-col--7">
-                                    <button data-sort="actual_2024_2025"
-                                        class="button-content button-content--tight justify-center w-full">
-                                        <span class="text-center leading-tight">Actual<br>2024-2025</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                                <th data-column="item" class="grid-head-cell grid-col--13">Item</th>
+                                <th data-column="actual_2024_2025"
+                                    class="grid-head-cell grid-head-cell--center grid-col--7 leading-tight">
+                                    Actual<br>2024-2025
                                 </th>
                                 <th data-column="actuals_upto_09_2024"
-                                    class="grid-head-cell grid-head-cell--center grid-col--7">
-                                    <button data-sort="actuals_upto_09_2024"
-                                        class="button-content button-content--tight justify-center w-full">
-                                        <span class="text-center leading-tight">Actuals upto<br>9/2024</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                                    class="grid-head-cell grid-head-cell--center grid-col--7 leading-tight">
+                                    Actuals upto<br>9/2024
                                 </th>
                                 <th data-column="be_2025_2026"
-                                    class="grid-head-cell grid-head-cell--center grid-col--7">
-                                    <button data-sort="be_2025_2026"
-                                        class="button-content button-content--tight justify-center w-full">
-                                        <span class="text-center leading-tight">B.E.<br>2025-2026</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                                    class="grid-head-cell grid-head-cell--center grid-col--7 leading-tight">
+                                    B.E.<br>2025-2026
                                 </th>
                                 <th data-column="actuals_upto_09_2025"
-                                    class="grid-head-cell grid-head-cell--center grid-col--7">
-                                    <button data-sort="actuals_upto_09_2025"
-                                        class="button-content button-content--tight justify-center w-full">
-                                        <span class="text-center leading-tight">Actuals upto<br>9/2025</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                                    class="grid-head-cell grid-head-cell--center grid-col--7 leading-tight">
+                                    Actuals upto<br>9/2025
                                 </th>
                                 <th data-column="pct_wrt_be_2025_2026"
-                                    class="grid-head-cell grid-head-cell--center grid-col--9">
-                                    <button data-sort="pct_wrt_be_2025_2026"
-                                        class="button-content button-content--tight justify-center w-full">
-                                        <span class="text-center leading-tight">% w.r.t. B.E.<br>2025-2026</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                                    class="grid-head-cell grid-head-cell--center grid-col--9 leading-tight">
+                                    % w.r.t. B.E.<br>2025-2026
                                 </th>
                                 <th data-column="re_2025_2026_prop"
-                                    class="grid-head-cell grid-head-cell--center grid-col--10">
-                                    <button data-sort="re_2025_2026_prop"
-                                        class="button-content button-content--tight justify-center w-full">
-                                        <span class="text-center leading-tight">R.E. 2025-2026<br>Proposed by Min/Dep</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                                    class="grid-head-cell grid-head-cell--center grid-col--10 leading-tight">
+                                    R.E. 2025-2026<br>Proposed by Min/Dep
                                 </th>
                                 <th data-column="re_2026_2027_budget"
-                                    class="grid-head-cell grid-head-cell--center grid-col--10">
-                                    <button data-sort="re_2026_2027_budget"
-                                        class="button-content button-content--tight justify-center w-full">
-                                        <span class="text-center leading-tight">RE 26-27 Proposed<br>by Budget Div.</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                                    class="grid-head-cell grid-head-cell--center grid-col--10 leading-tight">
+                                    RE 26-27 Proposed<br>by Budget Div.
                                 </th>
                                 <th data-column="be_2026_2027_prop"
-                                    class="grid-head-cell grid-head-cell--center grid-col--10">
-                                    <button data-sort="be_2026_2027_prop"
-                                        class="button-content button-content--tight justify-center w-full">
-                                        <span class="text-center leading-tight">B.E. 2026-2027<br>Proposed by Min/Dep</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                                    class="grid-head-cell grid-head-cell--center grid-col--10 leading-tight">
+                                    B.E. 2026-2027<br>Proposed by Min/Dep
                                 </th>
                                 <th data-column="be_2026_2027_budget"
-                                    class="grid-head-cell grid-head-cell--center grid-col--10">
-                                    <button data-sort="be_2026_2027_budget"
-                                        class="button-content button-content--tight justify-center w-full">
-                                        <span class="text-center leading-tight">B.E. 2026-2027<br>Proposed by Budget Div.</span>
-                                        <i data-lucide="chevrons-up-down" class="sort-icon h-3.5 w-3.5 shrink-0"></i>
-                                    </button>
+                                    class="grid-head-cell grid-head-cell--center grid-col--10 leading-tight">
+                                    B.E. 2026-2027<br>Proposed by Budget Div.
                                 </th>
-                                <th data-column="remarks" class="grid-head-cell grid-head-cell--center grid-col--5">Remarks</th>
+                                <th data-column="remarks" class="grid-head-cell grid-head-cell--center grid-col--5">
+                                    Remarks</th>
                             </tr>
                         </thead>
                         <tbody id="gridBody" class="data-grid__body">

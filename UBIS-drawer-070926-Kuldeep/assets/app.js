@@ -385,6 +385,25 @@ document.addEventListener('DOMContentLoaded', () => {
       setFormValue('va_gia_general', cell(row, 'gia_general')?.textContent.trim().replace(/,/g, '') || tds[1]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'va_gia_general', '0.00'));
       setFormValue('va_gia_capital', cell(row, 'gia_capital')?.textContent.trim().replace(/,/g, '') || tds[2]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'va_gia_capital', '0.00'));
       setFormValue('va_gia_salary', cell(row, 'gia_salary')?.textContent.trim().replace(/,/g, '') || tds[3]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'va_gia_salary', '0.00'));
+      // GiA General Breakdown
+      setFormValue('va_gen_actual_2024_2025', getStoredFormValue(row, 'va_gen_actual_2024_2025', ''));
+      setFormValue('va_gen_actuals_upto_09_2024', getStoredFormValue(row, 'va_gen_actuals_upto_09_2024', ''));
+      setFormValue('va_gen_be_2025_2026', getStoredFormValue(row, 'va_gen_be_2025_2026', ''));
+      setFormValue('va_gen_actuals_upto_09_2025', getStoredFormValue(row, 'va_gen_actuals_upto_09_2025', ''));
+      setFormValue('va_gen_re_2025_2026', getStoredFormValue(row, 'va_gen_re_2025_2026', ''));
+      // GiA Capital Breakdown
+      setFormValue('va_cap_actual_2024_2025', getStoredFormValue(row, 'va_cap_actual_2024_2025', ''));
+      setFormValue('va_cap_actuals_upto_09_2024', getStoredFormValue(row, 'va_cap_actuals_upto_09_2024', ''));
+      setFormValue('va_cap_be_2025_2026', getStoredFormValue(row, 'va_cap_be_2025_2026', ''));
+      setFormValue('va_cap_actuals_upto_09_2025', getStoredFormValue(row, 'va_cap_actuals_upto_09_2025', ''));
+      setFormValue('va_cap_re_2025_2026', getStoredFormValue(row, 'va_cap_re_2025_2026', ''));
+      // GiA Salary Breakdown
+      setFormValue('va_sal_actual_2024_2025', getStoredFormValue(row, 'va_sal_actual_2024_2025', ''));
+      setFormValue('va_sal_actuals_upto_09_2024', getStoredFormValue(row, 'va_sal_actuals_upto_09_2024', ''));
+      setFormValue('va_sal_be_2025_2026', getStoredFormValue(row, 'va_sal_be_2025_2026', ''));
+      setFormValue('va_sal_actuals_upto_09_2025', getStoredFormValue(row, 'va_sal_actuals_upto_09_2025', ''));
+      setFormValue('va_sal_re_2025_2026', getStoredFormValue(row, 'va_sal_re_2025_2026', ''));
+      setFormValue('va_sal_total_salary_accounts', getStoredFormValue(row, 'va_sal_total_salary_accounts', ''));
     }
 
     if (document.getElementById('vb_object_head')) {
