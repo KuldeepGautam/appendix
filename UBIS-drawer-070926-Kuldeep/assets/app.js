@@ -739,6 +739,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  window.toggleProfileMenu = (e) => {
+    if (e) e.stopPropagation();
+    const menu = document.getElementById('profileMenu');
+    const btn = document.getElementById('profileDropdownBtn');
+    const chevron = document.getElementById('profileChevron');
+    if (!menu) return;
+    const isHidden = menu.classList.contains('hidden');
+    if (isHidden) {
+      menu.classList.remove('hidden');
+      if (btn) btn.setAttribute('aria-expanded', 'true');
+      if (chevron) chevron.style.transform = 'rotate(180deg)';
+      if (window.lucide) window.lucide.createIcons();
+    } else {
+      menu.classList.add('hidden');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+      if (chevron) chevron.style.transform = '';
+    }
+  };
+
+  window.handleSignOut = (e) => {
+    if (e) e.preventDefault();
+    if (confirm('Are you sure you want to sign out from UBIS?')) {
+      if (typeof window.showToast === 'function') {
+        window.showToast('You have been signed out successfully.', 'Session Ended');
+      } else {
+        alert('You have been signed out successfully.');
+      }
+    }
+  };
+
   document.getElementById('statusFilter')?.addEventListener('change', applyFilters);
   document.getElementById('categoryFilter')?.addEventListener('change', applyFilters);
   document.getElementById('yearFilter')?.addEventListener('change', applyFilters);
