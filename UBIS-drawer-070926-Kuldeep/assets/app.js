@@ -745,7 +745,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.addEventListener('click', event => {
     const menu = document.getElementById('columnsMenu');
-    if (menu && !event.target.closest('#columnsButton') && !event.target.closest('#columnsMenu')) menu.classList.add('hidden');
+    if (menu && !event.target.closest('#columnsButton') && !event.target.closest('#columnsMenu')) {
+      menu.classList.add('hidden');
+    }
+    const exportMenu = document.getElementById('exportMenu');
+    if (exportMenu && !event.target.closest('#exportButton') && !event.target.closest('#exportMenu')) {
+      exportMenu.classList.add('hidden');
+    }
   });
 
   window.toggleColumnsMenu = () => document.getElementById('columnsMenu')?.classList.toggle('hidden');

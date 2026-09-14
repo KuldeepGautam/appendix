@@ -702,7 +702,45 @@ body.drawer-page-locked {
 }
 
 .grid-action-menu {
-  position: relative
+  position: relative;
+}
+
+/* Ensure card containers do not clip popup dropdowns */
+section.shadow-panel {
+  overflow: visible !important;
+}
+
+/* Columns Menu & Export Menu dropdowns */
+#columnsMenu {
+  max-height: calc(100vh - 100px);
+  z-index: 50;
+}
+
+#columnsMenu.hidden,
+#columnsMenu[hidden],
+#exportMenu.hidden,
+#exportMenu[hidden] {
+  display: none !important;
+}
+
+#columnsMenu:not(.hidden) {
+  display: flex;
+  flex-direction: column;
+}
+
+#columnsMenu .space-y-1 {
+  max-height: 250px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+#columnsMenu .border-t {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+#exportMenu {
+  z-index: 50;
 }
 
 html.dark-mode .data-grid__row:nth-child(odd) {
