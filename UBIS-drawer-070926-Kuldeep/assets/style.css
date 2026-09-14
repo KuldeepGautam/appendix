@@ -185,10 +185,46 @@ body {
 
 /* Reusable editable grid foundation. Column widths and exceptional cells
        remain page-specific because they are part of each table's structure. */
-.ubis-data-grid {
+.ubis-data-grid,
+#chargesTable {
   width: 100%;
   table-layout: fixed;
   text-align: left;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #cbd5e1;
+}
+
+.ubis-data-grid th,
+#chargesTable th {
+  border-bottom: 1px solid #0f766e;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ubis-data-grid th:last-child,
+#chargesTable th:last-child {
+  border-right: none;
+}
+
+.ubis-data-grid td,
+#chargesTable td {
+  border-bottom: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+}
+
+.ubis-data-grid td:last-child,
+#chargesTable td:last-child {
+  border-right: none;
+}
+
+.ubis-data-grid tbody tr:last-child td,
+#chargesTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ubis-data-grid__head--plain th {
+  border-bottom: 1px solid #cbd5e1;
+  border-right: 1px solid #cbd5e1;
 }
 
 .ubis-data-grid__head {
@@ -682,8 +718,14 @@ html.dark-mode .data-grid__row:hover {
 }
 
 html.dark-mode .data-grid__row,
-html.dark-mode .data-grid__body>tr+tr {
-  border-color: #475569
+html.dark-mode .data-grid__body>tr+tr,
+html.dark-mode .ubis-data-grid,
+html.dark-mode #chargesTable,
+html.dark-mode .ubis-data-grid th,
+html.dark-mode #chargesTable th,
+html.dark-mode .ubis-data-grid td,
+html.dark-mode #chargesTable td {
+  border-color: #334155;
 }
 
 html.dark-mode .grid-cell--strong,

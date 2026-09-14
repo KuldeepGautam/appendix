@@ -141,41 +141,11 @@
                                 placeholder="Search item..."
                                 class="h-8 w-48 rounded-lg border border-slate-200 bg-white pl-8 pr-3 text-xs font-medium text-slate-700 outline-none placeholder:text-slate-400 focus:border-ubis-teal focus:ring-2 focus:ring-teal-50 sm:w-60">
                         </div>
-                        <!-- Export Dropdown Button -->
-                        <div class="relative">
-                            <button id="exportButton" type="button"
-                                onclick="document.getElementById('exportMenu').classList.toggle('hidden')"
-                                class="flex h-8 items-center gap-1.5 rounded-lg border border-slate-200 px-3 text-xs font-semibold text-slate-600 transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-100"
-                                aria-haspopup="true">
-                                <i data-lucide="download" class="h-3.5 w-3.5"></i> Export
-                                <i data-lucide="chevron-down" class="h-3 w-3 text-slate-400"></i>
-                            </button>
-
-                            <div id="exportMenu"
-                                class="absolute right-0 top-10 z-30 hidden w-44 overflow-hidden rounded-xl border border-slate-200 bg-white p-1 shadow-2xl">
-
-                                <!-- PDF Option -->
-                                <button type="button" onclick="exportData('pdf')"
-                                    class="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-rose-600 transition">
-                                    <i data-lucide="file-text" class="h-4 w-4 text-rose-500"></i>
-                                    <span>PDF</span>
-                                </button>
-
-                                <!-- Excel Option -->
-                                <button type="button" onclick="exportData('excel')"
-                                    class="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition">
-                                    <i data-lucide="sheet" class="h-4 w-4 text-emerald-600"></i>
-                                    <span>Excel</span>
-                                </button>
-
-                                <!-- CSV Option -->
-                                <button type="button" onclick="exportData('csv')"
-                                    class="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition">
-                                    <i data-lucide="file-spreadsheet" class="h-4 w-4 text-blue-500"></i>
-                                    <span>CSV</span>
-                                </button>
-                            </div>
-                        </div>
+                         <button data-refresh-grid
+                            class="flex h-8 items-center gap-1.5 rounded-lg border border-slate-200 px-3 text-xs font-semibold text-slate-600 hover:bg-slate-50">
+                            <i data-lucide="refresh-cw" class="h-3.5 w-3.5"></i> Refresh
+                        </button>
+                       
                         <div class="relative">
                             <button id="columnsButton" type="button"
                                 class="flex h-8 items-center gap-1.5 rounded-lg border border-slate-200 px-3 text-xs font-semibold text-slate-600 transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-100"
@@ -247,10 +217,42 @@
                                 </div>
                             </div>
                         </div>
-                        <button data-refresh-grid
-                            class="flex h-8 items-center gap-1.5 rounded-lg border border-slate-200 px-3 text-xs font-semibold text-slate-600 hover:bg-slate-50">
-                            <i data-lucide="refresh-cw" class="h-3.5 w-3.5"></i> Refresh
-                        </button>
+                       
+                         <!-- Export Dropdown Button -->
+                        <div class="relative">
+                            <button id="exportButton" type="button"
+                                onclick="document.getElementById('exportMenu').classList.toggle('hidden')"
+                                class="flex h-8 items-center gap-1.5 rounded-lg border border-slate-200 px-3 text-xs font-semibold text-slate-600 transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-100"
+                                aria-haspopup="true">
+                                <i data-lucide="download" class="h-3.5 w-3.5"></i> Export
+                                <i data-lucide="chevron-down" class="h-3 w-3 text-slate-400"></i>
+                            </button>
+
+                            <div id="exportMenu"
+                                class="absolute right-0 top-10 z-30 hidden w-44 overflow-hidden rounded-xl border border-slate-200 bg-white p-1 shadow-2xl">
+
+                                <!-- PDF Option -->
+                                <button type="button" onclick="exportData('pdf')"
+                                    class="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-rose-600 transition">
+                                    <i data-lucide="file-text" class="h-4 w-4 text-rose-500"></i>
+                                    <span>PDF</span>
+                                </button>
+
+                                <!-- Excel Option -->
+                                <button type="button" onclick="exportData('excel')"
+                                    class="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition">
+                                    <i data-lucide="sheet" class="h-4 w-4 text-emerald-600"></i>
+                                    <span>Excel</span>
+                                </button>
+
+                                <!-- CSV Option -->
+                                <button type="button" onclick="exportData('csv')"
+                                    class="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition">
+                                    <i data-lucide="file-spreadsheet" class="h-4 w-4 text-blue-500"></i>
+                                    <span>CSV</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="mr-1.5 flex flex-wrap justify-end gap-2">
@@ -504,7 +506,7 @@
                                     11.05</td>
                                 <td data-label="REMARKS" data-column="remarks" data-field="remarks"
                                     class="editable-cell grid-cell grid-cell--body">
-                                    Projection Increase due to revised rate of Accommodation, ICU charges and Consultation fee etc.</td>
+                                    Projection Increase</td>
                                 <td data-label="Action" class="grid-action-cell">
                                     <div class="grid-action-menu">
                                         <button type="button" data-row-menu
