@@ -1008,28 +1008,30 @@ body.standalone-form-window #expandDrawerBtn {
 .grid-scroll {
   width: 100%;
   max-width: 100%;
-  max-height: clamp(360px, 62vh, 680px);
-  overflow: auto;
-  overscroll-behavior: contain;
+  max-height: none !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  overscroll-behavior: auto !important;
   -webkit-overflow-scrolling: touch;
-  scrollbar-gutter: stable both-edges;
-}
-
-.grid-scroll {
   position: relative;
 }
 
-.grid-scroll::after {
-  content: "";
-  position: sticky;
-  right: 0;
-  float: right;
-  width: 18px;
-  height: 100%;
-  margin-top: -100%;
-  pointer-events: none;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, .92));
-  opacity: .75;
+.grid-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.grid-scroll::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.grid-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.grid-scroll::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 #chargesTable {
@@ -1089,10 +1091,6 @@ body.standalone-form-window #expandDrawerBtn {
 }
 
 @media (max-width: 1023px) {
-  .grid-scroll {
-    max-height: clamp(340px, 58vh, 600px);
-  }
-
   #chargesTable {
     min-width: 1050px;
   }
@@ -1100,7 +1098,6 @@ body.standalone-form-window #expandDrawerBtn {
 
 @media (max-width: 767px) {
   .grid-scroll {
-    max-height: 55vh;
     border-top: 0;
   }
 
