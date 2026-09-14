@@ -199,6 +199,21 @@ body {
 #chargesTable th {
   border-bottom: 1px solid #0f766e;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.ubis-data-grid th .button-content,
+#chargesTable th .button-content,
+.grid-head-cell .button-content {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.ubis-data-grid th .button-content span,
+#chargesTable th .button-content span,
+.grid-head-cell .button-content span {
+  text-align: center;
 }
 
 .ubis-data-grid th:last-child,
@@ -707,7 +722,7 @@ body.drawer-page-locked {
 
 /* Ensure card containers do not clip popup dropdowns */
 section.shadow-panel {
-  overflow: visible !important;
+  overflow: visible;
 }
 
 /* Columns Menu & Export Menu dropdowns */
