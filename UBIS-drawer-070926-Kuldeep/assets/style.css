@@ -486,36 +486,63 @@ body.drawer-page-locked {
   pointer-events: none;
 }
 
-/* Desktop icon-only collapse. Scoped to the lg breakpoint (>=1024px) —
-       the collapse toggle button itself is only shown at that width — so a
-       lingering .nav-collapsed class never hides labels on the mobile
-       drawer. On mobile the sidebar always shows full labels/links. */
+/* Sidebar transition and desktop icon-only collapse */
+.sidebar {
+  transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow-x: hidden;
+}
+
+.main-shell {
+  transition: margin-left 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.sidebar-label,
+.brand-copy {
+  white-space: nowrap;
+}
+
 @media (min-width: 1024px) {
 
   .nav-collapsed .sidebar-label,
   .nav-collapsed .nav-submenu-toggle,
   .nav-collapsed .nav-children-wrap,
   .nav-collapsed .sidebar-chevron,
-  .nav-collapsed .brand-copy,
-  .nav-collapsed .user-copy {
-    display: none;
+  .nav-collapsed .brand-copy {
+    display: none !important;
   }
 
   .nav-collapsed .sidebar {
-    width: 72px;
+    width: 72px !important;
   }
 
   .nav-collapsed .main-shell {
-    margin-left: 72px;
+    margin-left: 72px !important;
   }
 
   .nav-collapsed .nav-link {
-    justify-content: center;
+    justify-content: center !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  .nav-collapsed .sidebar:not(:hover) .sidebar-brand {
+    justify-content: center !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  .nav-collapsed .sidebar:not(:hover) .sidebar-brand-inner {
+    justify-content: center !important;
+    gap: 0 !important;
+  }
+
+  .nav-collapsed .sidebar:not(:hover) .sidebar-support {
+    display: none !important;
   }
 
   .nav-collapsed .sidebar:hover,
   .nav-collapsed .sidebar:focus-within {
-    width: 238px;
+    width: 238px !important;
     box-shadow: 12px 0 28px rgba(30, 41, 59, .16);
   }
 
@@ -525,22 +552,42 @@ body.drawer-page-locked {
   .nav-collapsed .sidebar:focus-within .sidebar-chevron,
   .nav-collapsed .sidebar:hover .brand-copy,
   .nav-collapsed .sidebar:focus-within .brand-copy {
-    display: block;
+    display: block !important;
   }
 
   .nav-collapsed .sidebar:hover .nav-submenu-toggle,
   .nav-collapsed .sidebar:focus-within .nav-submenu-toggle {
-    display: flex;
+    display: flex !important;
   }
 
   .nav-collapsed .sidebar:hover .nav-children-wrap,
   .nav-collapsed .sidebar:focus-within .nav-children-wrap {
-    display: grid;
+    display: grid !important;
   }
 
   .nav-collapsed .sidebar:hover .nav-link,
   .nav-collapsed .sidebar:focus-within .nav-link {
-    justify-content: flex-start;
+    justify-content: flex-start !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .nav-collapsed .sidebar:hover .sidebar-brand,
+  .nav-collapsed .sidebar:focus-within .sidebar-brand {
+    justify-content: flex-start !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .nav-collapsed .sidebar:hover .sidebar-brand-inner,
+  .nav-collapsed .sidebar:focus-within .sidebar-brand-inner {
+    justify-content: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  .nav-collapsed .sidebar:hover .sidebar-support,
+  .nav-collapsed .sidebar:focus-within .sidebar-support {
+    display: block !important;
   }
 
   .nav-collapsed .nav-group:hover>.nav-children-wrap,

@@ -16,6 +16,12 @@ window.UBISIncludes = window.UBISIncludes || {};
   }
 
   function initialize() {
+    try {
+      if (localStorage.getItem('ubis-sidebar-collapsed') === 'true') {
+        document.body.classList.add('nav-collapsed');
+      }
+    } catch (e) {}
+
     components.forEach(([name, method]) => renderComponent(name, method));
 
     if (window.lucide) {

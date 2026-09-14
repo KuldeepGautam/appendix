@@ -721,6 +721,24 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('mobileOverlay')?.classList.toggle('hidden');
   };
 
+  window.toggleSidebar = () => {
+    const isCollapsed = document.body.classList.toggle('nav-collapsed');
+    try {
+      localStorage.setItem('ubis-sidebar-collapsed', isCollapsed ? 'true' : 'false');
+    } catch (e) {}
+
+    const toggleBtns = document.querySelectorAll('#sidebarToggleBtn, [onclick*="toggleSidebar"]');
+    toggleBtns.forEach(btn => {
+      btn.setAttribute('title', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+      btn.setAttribute('aria-label', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+      btn.innerHTML = `<i data-lucide="${isCollapsed ? 'panel-left-open' : 'panel-left-close'}" class="h-4 w-4"></i>`;
+    });
+
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  };
+
   document.getElementById('statusFilter')?.addEventListener('change', applyFilters);
   document.getElementById('categoryFilter')?.addEventListener('change', applyFilters);
   document.getElementById('yearFilter')?.addEventListener('change', applyFilters);
