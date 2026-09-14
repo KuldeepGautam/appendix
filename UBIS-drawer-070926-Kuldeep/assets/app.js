@@ -3,19 +3,21 @@
  * JavaScript only wires DOM events; no record dataset/state is used.
  */
 tailwind.config = {
-  theme: { extend: {
-    colors: {
-      ubis: {
-        navy: '#312E81', dark: '#1E1B4B', teal: '#0891B2', tealLight: '#ECFEFF',
-        blue: '#4F46E5', bg: '#F6F7FB', border: '#DDE1EE', text: '#1E293B',
-        muted: '#64748B', success: '#16A34A', warning: '#F59E0B', error: '#DC2626'
+  theme: {
+    extend: {
+      colors: {
+        ubis: {
+          navy: '#312E81', dark: '#1E1B4B', teal: '#0891B2', tealLight: '#ECFEFF',
+          blue: '#4F46E5', bg: '#F6F7FB', border: '#DDE1EE', text: '#1E293B',
+          muted: '#64748B', success: '#16A34A', warning: '#F59E0B', error: '#DC2626'
+        }
+      },
+      boxShadow: {
+        panel: '0 10px 32px rgba(49,46,129,.08)',
+        drawer: '-18px 0 55px rgba(30,27,75,.18)'
       }
-    },
-    boxShadow: {
-      panel: '0 10px 32px rgba(49,46,129,.08)',
-      drawer: '-18px 0 55px rgba(30,27,75,.18)'
     }
-  }}
+  }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -135,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     row.className = 'data-grid__row';
     row.dataset.recordRow = '';
     row.dataset.recordId = id;
-    
+
     const actionCellHtml = `
         <td data-label="Action" class="grid-action-cell">
           <div class="grid-action-menu">
@@ -207,29 +209,29 @@ document.addEventListener('DOMContentLoaded', () => {
         ${actionCellHtml}`;
       return row;
     }
-    
+
     if (data && (data.q1_2425_qep !== undefined || data.rev2526BE !== undefined)) {
       if (data.q1_2425_qep !== undefined) {
         row.innerHTML = `
           <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong"></td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q1_2425_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q1_2425_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q2_2425_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q2_2425_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q1_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q1_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q2_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q2_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q1_2425_qep || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q1_2425_act || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q2_2425_qep || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q2_2425_act || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q1_2526_qep || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q1_2526_act || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q2_2526_qep || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.q2_2526_act || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           ${actionCellHtml}`;
       } else {
         row.innerHTML = `
           <td data-label="S.No." class="grid-cell grid-cell--center grid-cell--strong"></td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.rev2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.rev2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.cap2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.cap2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.rev2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.cap2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.rev2526BE || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.rev2526RE || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.cap2526BE || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.cap2526RE || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.rev2627BE || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td class="editable-cell grid-cell grid-cell--center tabular">${Number(data.cap2627BE || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           ${actionCellHtml}`;
       }
     } else {
@@ -248,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function escapeHtml(text) {
-    return String(text ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    return String(text ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   }
 
   function renumberRows() {
@@ -322,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setFormValue('rev2627BE', tds[5]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'rev2627BE', '0.00'));
       setFormValue('cap2627BE', tds[6]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'cap2627BE', '0.00'));
     }
-    
+
     if (document.getElementById('q1_2425_qep')) {
       setFormValue('q1_2425_qep', tds[1]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q1_2425_qep', '0.00'));
       setFormValue('q1_2425_act', tds[2]?.textContent.trim().replace(/,/g, '') || getStoredFormValue(row, 'q1_2425_act', '0.00'));
@@ -483,23 +485,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Support new Appendix-IA fields
       if (data.rev2526BE !== undefined && !cell(row, 'charge')) {
-        if (tds[1]) tds[1].textContent = Number(data.rev2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        if (tds[2]) tds[2].textContent = Number(data.rev2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        if (tds[3]) tds[3].textContent = Number(data.cap2526BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        if (tds[4]) tds[4].textContent = Number(data.cap2526RE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        if (tds[5]) tds[5].textContent = Number(data.rev2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        if (tds[6]) tds[6].textContent = Number(data.cap2627BE || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[1]) tds[1].textContent = Number(data.rev2526BE || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (tds[2]) tds[2].textContent = Number(data.rev2526RE || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (tds[3]) tds[3].textContent = Number(data.cap2526BE || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (tds[4]) tds[4].textContent = Number(data.cap2526RE || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (tds[5]) tds[5].textContent = Number(data.rev2627BE || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (tds[6]) tds[6].textContent = Number(data.cap2627BE || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       }
 
       if (data.q1_2425_qep !== undefined && !cell(row, 'charge')) {
-        if (tds[1]) tds[1].textContent = Number(data.q1_2425_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        if (tds[2]) tds[2].textContent = Number(data.q1_2425_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        if (tds[3]) tds[3].textContent = Number(data.q2_2425_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        if (tds[4]) tds[4].textContent = Number(data.q2_2425_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        if (tds[5]) tds[5].textContent = Number(data.q1_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        if (tds[6]) tds[6].textContent = Number(data.q1_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        if (tds[7]) tds[7].textContent = Number(data.q2_2526_qep || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        if (tds[8]) tds[8].textContent = Number(data.q2_2526_act || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (tds[1]) tds[1].textContent = Number(data.q1_2425_qep || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (tds[2]) tds[2].textContent = Number(data.q1_2425_act || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (tds[3]) tds[3].textContent = Number(data.q2_2425_qep || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (tds[4]) tds[4].textContent = Number(data.q2_2425_act || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (tds[5]) tds[5].textContent = Number(data.q1_2526_qep || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (tds[6]) tds[6].textContent = Number(data.q1_2526_act || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (tds[7]) tds[7].textContent = Number(data.q2_2526_qep || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (tds[8]) tds[8].textContent = Number(data.q2_2526_act || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       }
 
       if (data.scheme_name !== undefined && document.getElementById('scheme_name')) {
@@ -687,10 +689,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const select = event.target.closest('.row-status');
     if (!select) return;
     const styles = {
-      Active: ['bg-emerald-50','text-emerald-700'],
-      Draft: ['bg-slate-100','text-slate-600'],
-      Review: ['bg-amber-50','text-amber-700'],
-      Frozen: ['bg-slate-800','text-white']
+      Active: ['bg-emerald-50', 'text-emerald-700'],
+      Draft: ['bg-slate-100', 'text-slate-600'],
+      Review: ['bg-amber-50', 'text-amber-700'],
+      Frozen: ['bg-slate-800', 'text-white']
     };
     select.className = 'row-status rounded-full border-0 px-2.5 py-1 text-[10px] font-bold';
     (styles[select.value] || styles.Draft).forEach(c => select.classList.add(c));
@@ -725,7 +727,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isCollapsed = document.body.classList.toggle('nav-collapsed');
     try {
       localStorage.setItem('ubis-sidebar-collapsed', isCollapsed ? 'true' : 'false');
-    } catch (e) {}
+    } catch (e) { }
 
     const toggleBtns = document.querySelectorAll('#sidebarToggleBtn, [onclick*="toggleSidebar"]');
     toggleBtns.forEach(btn => {
@@ -739,43 +741,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  window.toggleProfileMenu = (e) => {
-    if (e) e.stopPropagation();
-    const menu = document.getElementById('profileMenu');
-    const btn = document.getElementById('profileDropdownBtn');
-    const chevron = document.getElementById('profileChevron');
-    if (!menu) return;
-    const isHidden = menu.classList.contains('hidden');
-    if (isHidden) {
-      menu.classList.remove('hidden');
-      if (btn) btn.setAttribute('aria-expanded', 'true');
-      if (chevron) chevron.style.transform = 'rotate(180deg)';
-      if (window.lucide) window.lucide.createIcons();
-    } else {
-      menu.classList.add('hidden');
-      if (btn) btn.setAttribute('aria-expanded', 'false');
-      if (chevron) chevron.style.transform = '';
-    }
-  };
-
-  window.handleSignOut = (e) => {
-    if (e) e.preventDefault();
-    if (confirm('Are you sure you want to sign out from UBIS?')) {
-      if (typeof window.showToast === 'function') {
-        window.showToast('You have been signed out successfully.', 'Session Ended');
-      } else {
-        alert('You have been signed out successfully.');
-      }
-    }
-  };
-
   document.getElementById('statusFilter')?.addEventListener('change', applyFilters);
   document.getElementById('categoryFilter')?.addEventListener('change', applyFilters);
   document.getElementById('yearFilter')?.addEventListener('change', applyFilters);
 
   window.clearFilters = () => {
     ['searchInput'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
-    ['statusFilter','yearFilter','categoryFilter'].forEach(id => { const el = document.getElementById(id); if (el) el.selectedIndex = 0; });
+    ['statusFilter', 'yearFilter', 'categoryFilter'].forEach(id => { const el = document.getElementById(id); if (el) el.selectedIndex = 0; });
     applyFilters();
   };
 
@@ -812,16 +784,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.renderGrid = applyFilters;
-  window.changePage = () => {};
-  window.changePageSize = () => {};
+  window.changePage = () => { };
+  window.changePageSize = () => { };
   window.sortBy = (field) => {
     if (document.getElementById('v_item')) return;
     const rows = [...(tbody?.querySelectorAll('[data-record-row]') || [])];
     const get = row => value(row, field);
-    rows.sort((a,b) => {
-      const av=get(a), bv=get(b);
-      const an=Number(av), bn=Number(bv);
-      return Number.isNaN(an) || Number.isNaN(bn) ? av.localeCompare(bv) : an-bn;
+    rows.sort((a, b) => {
+      const av = get(a), bv = get(b);
+      const an = Number(av), bn = Number(bv);
+      return Number.isNaN(an) || Number.isNaN(bn) ? av.localeCompare(bv) : an - bn;
     });
     rows.forEach(row => tbody.appendChild(row));
     renumberRows();
