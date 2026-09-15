@@ -621,6 +621,7 @@ document.addEventListener('DOMContentLoaded', () => {
     storeFormData(row, data);
     tbody.prepend(row);
     renumberRows();
+    syncTableColumns();
     closeDrawer();
     form.reset();
     resetDrawerMode();
@@ -751,37 +752,133 @@ document.addEventListener('DOMContentLoaded', () => {
     applyFilters();
   };
 
-  // Column chooser stays page-level and only toggles CSS visibility.
-  document.querySelectorAll('[data-column-toggle]').forEach(box => {
-    box.addEventListener('change', () => {
-      const column = box.dataset.columnToggle;
-      document.querySelectorAll(`[data-column="${column}"]`).forEach(cell => cell.classList.toggle('column-hidden', !box.checked));
+  // Dynamic table header colspan and column visibility handler
+  function syncTableColumns() {
+    document.querySelectorAll('.ubis-data-grid, #chargesTable').forEach(table => {
+      const thead = table.querySelector('thead');
+      const tbody = table.querySelector('tbody');
+      if (!thead) return;
+
+      const headerRows = thead.querySelectorAll('tr');
+      const boxes = Array.from(document.querySelectorAll('[data-column-toggle]'));
+      if (!boxes.length) return;
+
+      if (headerRows.length > 1) {
+        // Multi-row header tables (e.g. Appendix-I, Appendix-IA, Appendix-II)
+        const topRow = headerRows[0];
+        const subRow = headerRows[1];
+        const subHeaders = Array.from(subRow.querySelectorAll('th'));
+        const groupHeaders = Array.from(topRow.querySelectorAll('th[colspan]'));
+
+        // Calculate leading descriptor columns in top row (e.g. S.No., Year)
+        const firstGroup = topRow.querySelector('th[colspan]');
+        const topThs = Array.from(topRow.querySelectorAll('th'));
+        const leadingCols = firstGroup ? topThs.indexOf(firstGroup) : 0;
+
+        boxes.forEach((box, bIdx) => {
+          const key = box.dataset.columnToggle;
+          const checked = box.checked;
+
+          let th = subRow.querySelector(`th[data-column="${key}"]`);
+          let subIdx = th ? subHeaders.indexOf(th) : -1;
+          if (subIdx === -1 && bIdx < subHeaders.length) {
+            subIdx = bIdx;
+            th = subHeaders[bIdx];
+          }
+
+          if (th) th.classList.toggle('column-hidden', !checked);
+
+          if (subIdx !== -1) {
+            const bodyColIdx = subIdx + leadingCols;
+            tbody?.querySelectorAll('tr').forEach(row => {
+              const td = row.children[bodyColIdx];
+              if (td && !td.classList.contains('grid-action-cell')) {
+                td.classList.toggle('column-hidden', !checked);
+              }
+            });
+          }
+        });
+
+        // Dynamic Colspan recalculation
+        if (groupHeaders.length >= 2 && subHeaders.length >= 6) {
+          const revVis = subHeaders.slice(0, 3).filter(th => !th.classList.contains('column-hidden')).length;
+          const capVis = subHeaders.slice(3, 6).filter(th => !th.classList.contains('column-hidden')).length;
+          if (groupHeaders[0]) {
+            groupHeaders[0].style.display = revVis === 0 ? 'none' : '';
+            if (revVis > 0) groupHeaders[0].colSpan = revVis;
+          }
+          if (groupHeaders[1]) {
+            groupHeaders[1].style.display = capVis === 0 ? 'none' : '';
+            if (capVis > 0) groupHeaders[1].colSpan = capVis;
+          }
+        } else if (groupHeaders.length === 4 && subHeaders.length === 8) {
+          groupHeaders.forEach((gh, gIdx) => {
+            const subs = subHeaders.slice(gIdx * 2, gIdx * 2 + 2);
+            const vis = subs.filter(th => !th.classList.contains('column-hidden')).length;
+            gh.style.display = vis === 0 ? 'none' : '';
+            if (vis > 0) gh.colSpan = vis;
+          });
+        }
+      } else if (headerRows.length === 1) {
+        // Single-row header tables (e.g. Appendix-V, Appendix-V-A, V-B, V-C)
+        const ths = Array.from(headerRows[0].querySelectorAll('th'));
+        boxes.forEach(box => {
+          const key = box.dataset.columnToggle;
+          const checked = box.checked;
+          const th = headerRows[0].querySelector(`th[data-column="${key}"]`);
+          if (th) {
+            th.classList.toggle('column-hidden', !checked);
+            const colIdx = ths.indexOf(th);
+            if (colIdx !== -1) {
+              tbody?.querySelectorAll('tr').forEach(row => {
+                const td = row.children[colIdx] || row.querySelector(`td[data-column="${key}"]`);
+                if (td) td.classList.toggle('column-hidden', !checked);
+              });
+            }
+          }
+        });
+      }
     });
+  }
+
+  // Column chooser listeners
+  document.querySelectorAll('[data-column-toggle]').forEach(box => {
+    box.addEventListener('change', syncTableColumns);
   });
-  document.getElementById('columnsButton')?.addEventListener('click', (event) => {
-    event.stopPropagation();
-    const menu = document.getElementById('columnsMenu');
-    menu?.classList.toggle('hidden');
-  });
+
+  // Dropdown open/close handler
   document.addEventListener('click', event => {
-    const menu = document.getElementById('columnsMenu');
-    if (menu && !event.target.closest('#columnsButton') && !event.target.closest('#columnsMenu')) {
-      menu.classList.add('hidden');
+    const btn = event.target.closest('#columnsButton, #iColumnsButton, [aria-controls="columnsMenu"], [aria-controls="iColumnsMenu"], .columns-button');
+    if (btn) {
+      event.stopPropagation();
+      const menu = document.querySelector('#columnsMenu, #iColumnsMenu, .column-menu, .columns-menu');
+      menu?.classList.toggle('hidden');
+      return;
     }
-    const exportMenu = document.getElementById('exportMenu');
-    if (exportMenu && !event.target.closest('#exportButton') && !event.target.closest('#exportMenu')) {
+    const openMenu = document.querySelector('#columnsMenu:not(.hidden), #iColumnsMenu:not(.hidden), .column-menu:not(.hidden)');
+    if (openMenu && !event.target.closest('#columnsMenu, #iColumnsMenu, .column-menu, .columns-menu')) {
+      openMenu.classList.add('hidden');
+    }
+    const exportMenu = document.querySelector('#exportMenu:not(.hidden), .export-menu:not(.hidden)');
+    if (exportMenu && !event.target.closest('#exportButton, #exportMenu, .export-menu')) {
       exportMenu.classList.add('hidden');
     }
   });
 
-  window.toggleColumnsMenu = () => document.getElementById('columnsMenu')?.classList.toggle('hidden');
+  window.toggleColumnsMenu = () => document.querySelector('#columnsMenu, #iColumnsMenu, .column-menu')?.classList.toggle('hidden');
   window.toggleColumn = (column, show) => {
-    document.querySelectorAll(`[data-column="${column}"]`).forEach(cell => cell.classList.toggle('column-hidden', !show));
+    const box = document.querySelector(`[data-column-toggle="${column}"]`);
+    if (box) {
+      box.checked = show;
+      syncTableColumns();
+    }
   };
-  window.resetColumns = () => document.querySelectorAll('[data-column-toggle]').forEach(box => {
-    box.checked = true;
-    window.toggleColumn(box.dataset.columnToggle, true);
-  });
+  window.resetColumns = () => {
+    document.querySelectorAll('[data-column-toggle]').forEach(box => {
+      box.checked = true;
+    });
+    syncTableColumns();
+  };
 
   window.renderGrid = applyFilters;
   window.changePage = () => { };
@@ -805,5 +902,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   renumberRows();
+  syncTableColumns();
   window.lucide?.createIcons();
 });
